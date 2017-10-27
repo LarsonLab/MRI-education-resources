@@ -4,9 +4,9 @@ function [Mend] = bloch_rftip(Mstart, T, B1)
 % INPUTS
 %	Mstart - initial magnetization
 %	T - duration [ms]
-%	B1 - RF amplitude [G]
+%	B1 - RF amplitude, B1X+iB1Y [G]
 % OUTPUTS
 %   Mend - final magnetization
 
 
-% eventually need to add off-resonance?
+Mend = bloch_rotate(Mstart, T, [real(B1) imag(B1), 0]);

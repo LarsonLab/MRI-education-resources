@@ -8,19 +8,34 @@ function [Mend] = bloch_rotate(Mstart, T, B)
 % OUTPUTS
 %   Mend - final magnetization
 
-xi = pi/2;
+%% UNTESTED
+GAMMA = 4.257; % kHz/G
 
-theta = atan()
+flip = 2*pi*GAMMA * norm(B) * T;
 
-Rx2 = [cos(alpha2) sin(alpha2) 0; -sin(alpha2) cos(alpha2) 0; 0 0 1];
-Ry2 = [cos(-xi) 0 -sin(-xi); 0 1 0; sin(-xi) 0 cos(-xi)];
-Rz3 = [cos(-theta) sin(-theta) 0; -sin(-theta) cos(-theta) 0; 0 0 1];
-%??
+eta = acos(B(3) / norm(B));
 
-theta = -117*pi/180;  % need to negate for left-handed rotation
-phi = (133)*pi/180;
-ux = cos(phi); uy= sin(phi); uz = 0;
+theta = atan2(B(2), B(1));
 
-R = [cos(theta) + ux^2 * (1-cos(theta)), ux*uy*(1-cos(theta)) - uz*sin(theta), ux*uz *(1-cos(theta)) + uy*sin(theta); ...
-    ux*uy *(1-cos(theta)) + uz*sin(theta), cos(theta)+uy^2 *(1-cos(theta)), uy*uz*(1-cos(theta)) - ux*sin(theta); ...
-    ux*uz *(1-cos(theta)) - uy*sin(theta), uz*uy *(1-cos(theta)) + ux*sin(theta), cos(theta)+uz^2 *(1-cos(theta))]
+Mend = Rz(-theta)*Ry(-eta)*Rz(flip)*Ry(eta)*Rz(theta)* Mstart;
+
+end
+
+
+function Rx = Rx(flip) 
+
+Rx = [1 0 0; 0 cos(flip)  -sin(flip); 0 sin(flip)  cos(flip)];
+
+end
+
+function Ry = Ry(flip) 
+
+Ry = [cos(flip)  0 -sin(flip); 0 1 0; sin(flip) 0 cos(flip)];
+
+end
+
+function Rz = Rz(flip) 
+
+Rz = [cos(flip) sin(flip) 0; -sin(flip) cos(flip) 0; 0 0 1];
+
+end

@@ -10,3 +10,9 @@ function [Mend] = bloch_relax(Mstart, T, M0, T1, T2)
 % OUTPUTS
 %   Mend - final magnetization
 
+Arelax = [exp(-T/T2) 0 0; ...
+	0 exp(-T/T2) 0; ...
+	0 0 exp(-T/T1)];
+brecover = [0; 0; M0*(1-exp(-T/T1))];
+	
+Mend = Arelax*Mstart + brecover;
