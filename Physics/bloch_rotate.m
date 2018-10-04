@@ -8,7 +8,6 @@ function [Mend] = bloch_rotate(Mstart, T, B)
 % OUTPUTS
 %   Mend - final magnetization
 
-%% UNTESTED
 GAMMA = 4.257; % kHz/G
 
 flip = 2*pi*GAMMA * norm(B) * T;
@@ -21,21 +20,3 @@ Mend = Rz(-theta)*Ry(-eta)*Rz(flip)*Ry(eta)*Rz(theta)* Mstart;
 
 end
 
-
-function Rx = Rx(flip) 
-
-Rx = [1 0 0; 0 cos(flip)  -sin(flip); 0 sin(flip)  cos(flip)];
-
-end
-
-function Ry = Ry(flip) 
-
-Ry = [cos(flip)  0 -sin(flip); 0 1 0; sin(flip) 0 cos(flip)];
-
-end
-
-function Rz = Rz(flip) 
-
-Rz = [cos(flip) sin(flip) 0; -sin(flip) cos(flip) 0; 0 0 1];
-
-end

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>VariablePlugins</key>
+	<array>
+		<dict>
+			<key>axisSBKey</key>
+			<string>xPosition</string>
+			<key>center</key>
+			<real>0.0</real>
+			<key>editableName</key>
+			<string>XPosition (mm)</string>
+			<key>orderedIndex</key>
+			<integer>0</integer>
+			<key>pluginClass</key>
+			<string>SBVariableAxis</string>
+			<key>pluginName</key>
+			<string>Variable Axis</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>range</key>
+			<real>2</real>
+			<key>res</key>
+			<integer>61</integer>
+			<key>selectionStart</key>
+			<real>0.48587203025817871</real>
+		</dict>
+	</array>
+	<key>Waveforms</key>
+	<dict>
+		<key>PulsePlugins</key>
+		<array>
+			<dict>
+				<key>anchor</key>
+				<dict>
+					<key>activeAnchor</key>
+					<string>start</string>
+					<key>anchorType</key>
+					<integer>1</integer>
+					<key>anchoredToSBKey</key>
+					<string>startOfTR</string>
+					<key>position</key>
+					<real>0.0</real>
+				</dict>
+				<key>duration</key>
+				<real>0.60000002384185791</real>
+				<key>editableName</key>
+				<string>Hard RF</string>
+				<key>pluginClass</key>
+				<string>SBHardRF</string>
+				<key>pluginName</key>
+				<string>Hard RF</string>
+				<key>pluginURL</key>
+				<string>[ Not Specified ]</string>
+				<key>pluginVersion</key>
+				<integer>1</integer>
+				<key>rfGain_0_0</key>
+				<real>1</real>
+				<key>rfPhase_0_0</key>
+				<real>0.0</real>
+				<key>tip</key>
+				<real>90</real>
+			</dict>
+			<dict>
+				<key>anchor</key>
+				<dict>
+					<key>activeAnchor</key>
+					<string>start</string>
+					<key>anchorType</key>
+					<integer>1</integer>
+					<key>anchoredToSBKey</key>
+					<string>&lt;Hard RF&gt;.end</string>
+					<key>position</key>
+					<real>0.60000002384185791</real>
+				</dict>
+				<key>area</key>
+				<real>10</real>
+				<key>editableName</key>
+				<string>Area Trapezoid</string>
+				<key>pluginClass</key>
+				<string>SBAreaTrapezoid</string>
+				<key>pluginName</key>
+				<string>Area Trapezoid</string>
+				<key>pluginURL</key>
+				<string>[ Not Specified ]</string>
+				<key>pluginVersion</key>
+				<integer>1</integer>
+				<key>x0Component</key>
+				<real>1</real>
+				<key>y0Component</key>
+				<real>0.0</real>
+				<key>z0Component</key>
+				<real>0.0</real>
+			</dict>
+		</array>
+		<key>SequencePlugins</key>
+		<array>
+			<dict>
+				<key>editableName</key>
+				<string>Draw Pulses</string>
+				<key>maskType</key>
+				<integer>0</integer>
+				<key>pluginClass</key>
+				<string>SBDrawPulsesPlugin</string>
+				<key>pluginName</key>
+				<string>Draw Pulses</string>
+				<key>pluginNames</key>
+				<array/>
+				<key>pluginURL</key>
+				<string>[ Not Specified ]</string>
+				<key>pluginVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>numGradAxes</key>
+		<integer>3</integer>
+		<key>numOtherAxes</key>
+		<integer>0</integer>
+		<key>numRfChannels</key>
+		<integer>1</integer>
+	</dict>
+	<key>absoluteTime</key>
+	<real>1.8023028373718262</real>
+	<key>activeInspector</key>
+	<integer>2</integer>
+	<key>beginAtSS</key>
+	<false/>
+	<key>dFrequency</key>
+	<real>0.0</real>
+	<key>editingMode</key>
+	<integer>0</integer>
+	<key>fieldStrength</key>
+	<real>1.5</real>
+	<key>frequency</key>
+	<real>0.0</real>
+	<key>gamma</key>
+	<real>4258</real>
+	<key>gradLimit</key>
+	<real>4</real>
+	<key>magnification</key>
+	<real>0.79646015167236328</real>
+	<key>mainWindowFrame</key>
+	<dict>
+		<key>height</key>
+		<integer>698</integer>
+		<key>width</key>
+		<integer>1232</integer>
+		<key>x</key>
+		<integer>42</integer>
+		<key>y</key>
+		<integer>123</integer>
+	</dict>
+	<key>nFrames</key>
+	<integer>100</integer>
+	<key>outputPlugins</key>
+	<array>
+		<dict>
+			<key>editableName</key>
+			<string>Waveforms</string>
+			<key>gradDisplayStyle</key>
+			<string>XYZ Separate Plots</string>
+			<key>pluginClass</key>
+			<string>SBWaveformViewPlugin</string>
+			<key>pluginName</key>
+			<string>Waveforms</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>rfDisplayStyle</key>
+			<string>XY Combined Plot</string>
+			<key>viewBottom</key>
+			<real>-2.7265625</real>
+			<key>viewHeight</key>
+			<real>245.10546875</real>
+			<key>viewLeft</key>
+			<real>-0.80859375</real>
+			<key>viewWidth</key>
+			<real>888.1796875</real>
+		</dict>
+		<dict>
+			<key>editableName</key>
+			<string>Time Controller</string>
+			<key>pluginClass</key>
+			<string>SBTimeControlPlugin</string>
+			<key>pluginName</key>
+			<string>Time Controller</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>viewBottom</key>
+			<real>-90</real>
+			<key>viewHeight</key>
+			<real>48</real>
+			<key>viewLeft</key>
+			<real>40</real>
+			<key>viewWidth</key>
+			<real>340</real>
+		</dict>
+		<dict>
+			<key>editableName</key>
+			<string>View Scaling Controller</string>
+			<key>pluginClass</key>
+			<string>SBViewScalingPlugin</string>
+			<key>pluginName</key>
+			<string>View Scaling Controller</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>viewBottom</key>
+			<real>475</real>
+			<key>viewHeight</key>
+			<real>153</real>
+			<key>viewLeft</key>
+			<real>0.0</real>
+			<key>viewWidth</key>
+			<real>21</real>
+		</dict>
+		<dict>
+			<key>editableName</key>
+			<string>Scatter</string>
+			<key>magnification</key>
+			<real>1</real>
+			<key>pluginClass</key>
+			<string>SBScatterViewPlugin</string>
+			<key>pluginName</key>
+			<string>Scatter</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>showAvg</key>
+			<true/>
+			<key>spinIcon</key>
+			<integer>1</integer>
+			<key>viewBottom</key>
+			<real>232</real>
+			<key>viewHeight</key>
+			<real>392</real>
+			<key>viewLeft</key>
+			<real>29</real>
+			<key>viewWidth</key>
+			<real>458</real>
+		</dict>
+		<dict>
+			<key>displayStyle</key>
+			<string>Mx / My / Mz</string>
+			<key>editableName</key>
+			<string>Profile</string>
+			<key>magnification</key>
+			<real>1</real>
+			<key>pluginClass</key>
+			<string>SBProfileViewPlugin</string>
+			<key>pluginName</key>
+			<string>Profile</string>
+			<key>pluginURL</key>
+			<string>[ Not Specified ]</string>
+			<key>pluginVersion</key>
+			<integer>1</integer>
+			<key>showYValues</key>
+			<false/>
+			<key>viewBottom</key>
+			<real>224</real>
+			<key>viewHeight</key>
+			<real>406</real>
+			<key>viewLeft</key>
+			<real>486</real>
+			<key>viewWidth</key>
+			<real>424</real>
+		</dict>
+	</array>
+	<key>protonDensity</key>
+	<real>1</real>
+	<key>readSamplingRate</key>
+	<real>250</real>
+	<key>receiverPhase</key>
+	<real>0.0</real>
+	<key>rfLimit</key>
+	<real>0.10000000149011612</real>
+	<key>slewRateLimit</key>
+	<real>15</real>
+	<key>t1</key>
+	<real>1000</real>
+	<key>t2</key>
+	<real>100</real>
+	<key>timeWithinTr</key>
+	<real>1.8023029565811157</real>
+	<key>tr</key>
+	<real>2.0270271301269531</real>
+	<key>trNum</key>
+	<integer>0</integer>
+	<key>version</key>
+	<integer>4316</integer>
+	<key>waveSamplingRate</key>
+	<real>20</real>
+	<key>xPosition</key>
+	<real>0.48587203025817871</real>
+	<key>xVelocity</key>
+	<real>0.0</real>
+	<key>yPosition</key>
+	<real>0.0</real>
+	<key>yVelocity</key>
+	<real>0.0</real>
+	<key>zPosition</key>
+	<real>0.0</real>
+	<key>zVelocity</key>
+	<real>0.0</real>
+</dict>
+</plist>

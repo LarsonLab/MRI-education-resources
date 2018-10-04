@@ -1,5 +1,5 @@
-function [Mall] = bloch_simulation(Mstart, T, B1, G, M0, T1, T2, df)
-% bloch_simulation - compute Bloch simulation
+function [Mall] = bloch_simulation(Mstart, dt, B1, G, M0, T1, T2, r, df)
+% bloch_simulation - compute Bloch simulation for a pulse sequence
 %
 % INPUTS
 %	Mstart - initial magnetization
@@ -15,8 +15,6 @@ function [Mall] = bloch_simulation(Mstart, T, B1, G, M0, T1, T2, df)
 %   Mall - magnetization
 
 
-%% UNTESTED
-
 Nt = length(B1);
 Mall = zeros(3,Nt);
 
@@ -28,10 +26,10 @@ for It = 1:Nt
 	end
 	
 	% rotate first
-	Mtemp2 = bloch_rotate(Mtemp1, dt, [real(B1(It)), imag(B1(It)), G(:,It).*r + df])
+	Mtemp2 = bloch_rotate(Mtemp1, dt, [real(B1(It)), imag(B1(It)), G(:,It).*r + df]);
 
-	% the relax
-	Mall(:,It) = bloch_relax(Mtemp2, dt, M0, T1, T2)
+	% then relax
+	Mall(:,It) = bloch_relax(Mtemp2, dt, M0, T1, T2);
 
 end
 
