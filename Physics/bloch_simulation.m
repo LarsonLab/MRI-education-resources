@@ -26,7 +26,7 @@ for It = 1:Nt
 	end
 	
 	% rotate first
-	Mtemp2 = bloch_rotate(Mtemp1, dt, [real(B1(It)), imag(B1(It)), G(:,It).*r + df]);
+	Mtemp2 = bloch_rotate(Mtemp1, dt, [real(B1(It)), imag(B1(It)), G(:,It)'*r + df]);
 
 	% then relax
 	Mall(:,It) = bloch_relax(Mtemp2, dt, M0, T1, T2);

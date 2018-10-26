@@ -12,7 +12,7 @@ GAMMA = 4.257; % kHz/G
 
 flip = 2*pi*GAMMA * norm(B) * T;
 
-eta = acos(B(3) / norm(B));
+eta = acos(B(3) / (norm(B)+eps));
 
 theta = atan2(B(2), B(1));
 
