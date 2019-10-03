@@ -1,4 +1,4 @@
-function [BX, BY, BZ, xp, yp, zp] = loop_coil_field(radius, I)
+function [BX, BY, BZ, xp, yp, zp] = loop_coil_field(radius, I, flag_2d)
 %  Uses a biot-savart to evaluate the magnetic field of a circular loop
 %  coil.  The coil is placed in the X-Z plane.
 %
@@ -15,6 +15,10 @@ function [BX, BY, BZ, xp, yp, zp] = loop_coil_field(radius, I)
 
 if length(radius) == 1
     radius = [radius,radius];
+end
+
+if nargin < 3 || isempty(flag_2d)
+    flag_2d = 0;
 end
 
 %-------------------------------------------------------------------------%
@@ -35,13 +39,19 @@ max_plot = max(radius)*2;
 Nplot = 51;
 
 xp = linspace(-max_plot,max_plot, Nplot);
-yp = xp; zp = xp;
+yp = xp; 
+
+if flag_2d ==1
+    zp = 0;
+else
+    zp = xp;
+end
 
 [X, Y, Z] = meshgrid(xp, yp, zp);
 
-for Ix=1:Nplot
-    for Iy=1:Nplot
-        for Iz=1:Nplot
+for Ix=1:length(xp)
+    for Iy=1:length(yp)
+        for Iz=1:length(zp)
             
             %-------------------------------------------------------------------------
             % calculate R-vector from the coil(X-Y plane)to Y-Z plane where we are
