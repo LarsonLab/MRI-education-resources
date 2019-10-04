@@ -4,13 +4,13 @@ function [Mall] = bloch_simulation(Mstart, dt, B1, G, M0, T1, T2, r, df)
 % INPUTS
 %	Mstart - initial magnetization
 %	dt - time step between points in B1 and G [ms] 
-%	B1 - RF vector, B1X + i B1Y [G], defined at each time point in T
-%	G - Gradient field vector [G/cm], defined for Gx,Gy, and Gz at each time point in T
+%	B1 - RF vector, B1X + i B1Y [mT], defined at each time point in T
+%	G - Gradient field vector [mT/m], defined for Gx,Gy, and Gz at each time point in T
 %	M0 - equilibrium magnetization (default = 1)
 %	T1 - longitudinal relaxation time [ms]
 %	T2 - transverse relaxation time [ms]
-%	r - positions at which to evaluate simulation [cm]  (JUST POSITION)
-%	df - off-resonance frequencies to evaluate simulation [kHz] (JUST one off-resonance
+%	r - positions at which to evaluate simulation [m]  (JUST POSITION)
+%	df - off-resonance frequencies to evaluate simulation [kHz] (JUST one off-resonance)
 % OUTPUTS
 %   Mall - magnetization
 
