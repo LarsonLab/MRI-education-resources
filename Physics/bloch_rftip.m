@@ -5,7 +5,7 @@ function [Mend] = bloch_rftip(Mstart, T, B1)
 % INPUTS
 %	Mstart - initial magnetization
 %	T - duration [ms]
-%	B1 - RF amplitude, B1X+iB1Y [G]
+%	B1 - RF amplitude, B1X+iB1Y [mT]
 % OUTPUTS
 %   Mend - final magnetization
 

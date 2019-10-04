@@ -4,11 +4,13 @@ function [Mend] = bloch_rotate(Mstart, T, B)
 % INPUTS
 %	Mstart - initial magnetization
 %	T - duration [ms]
-%	B = [Bx, By, Bz] - magnetic field [G]
+%	B = [Bx, By, Bz] - magnetic field [mT]
 % OUTPUTS
 %   Mend - final magnetization
+%
+% T and B can also be in units of [us] and [T], respectively
 
-GAMMA = 4.257; % kHz/G
+GAMMA = 42.58; % kHz/mT
 
 flip = 2*pi*GAMMA * norm(B) * T;
 
