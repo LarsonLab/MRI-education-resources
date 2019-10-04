@@ -2,6 +2,7 @@
 Resources for learning the principles of magnetic resonance imaging (MRI)
 
 **View notebooks using the tools and interact with these resources thanks to the Binder project**
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LarsonLab/MRI-education-resources/master?filepath=Notebooks)
 
 Simulators designed for teaching spin physics:
