@@ -11,6 +11,7 @@ function M = contrast_phantom(PDs, T1s, T2s, N, kspace_weighting);
 
 % cover all simulations:
 % pass in simualation function and arguments, then run
+% structures: spin_parameters, sequence_parameters
 
 
 Nphan = 3;
