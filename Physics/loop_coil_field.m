@@ -5,6 +5,7 @@ function [BX, BY, BZ, xp, yp, zp] = loop_coil_field(radius, I, flag_2d)
 % INPUTS:
 %   radius - Radius of the coil.
 %   I - current in the coil
+%   flag_2d (optional) - only compute magnetic field in the x-y plane (for faster computation)
 %
 % OUTPUTS:
 %   BX,BY,BZ - components of magnetic field vector
