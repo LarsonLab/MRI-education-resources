@@ -1,4 +1,4 @@
-function M = contrast_phantom(PDs, T1s, T2s, N, kspace_weighting);
+% function M = contrast_phantom(PDs, T1s, T2s, N, kspace_weighting);
 % Simulate a phantom setup with three circular regions, each with
 % different T1/T2 values
 
@@ -18,10 +18,12 @@ Nphan = 3;
 % phantom parameters
 xc = [-.3 0 .3]*256;  % x centers
 yc = [-.25 .25 -.25]*256;  % y centers
-%T1 = [.5 .5 3];  % T1 relaxation times (s)
-%T2 = [.02 .05 .1];  % T2 relaxation times (s)
+M0 = [1 1 1]; % proton densities
+T1 = [.5 .5 3]*1e3;  % T1 relaxation times (ms)
+T2 = [.02 .05 .1]*1e3;  % T2 relaxation times (ms)
 r = 1/64;  % ball radius, where FOV = 1
 
+TE = 50; TR = 500; % ms
 
 N = 256;
 
