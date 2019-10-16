@@ -40,7 +40,7 @@ M = zeros(N,N);
 for n= 1:Nphan
     % Generates data using Fourier Transform of a circle (jinc) multiplied by complex exponential to shift center location
     M = M+jinc(sqrt(kx.^2 + ky.^2) / (r) ) .* exp(i*2*pi* (kx*xc(n) + ky*yc(n))) * ...
-        MR_signal_spoiled_gradient_echo(flip, TE, TR, PDs(n), T1s(n), T2s(n));
+        MR_signal_spoiled_gradient_echo(flip, TE, TR, M0(n), T1(n), T2(n));
 
 
 end
