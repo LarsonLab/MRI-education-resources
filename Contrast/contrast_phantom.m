@@ -23,6 +23,7 @@ T1 = [.5 .5 3]*1e3;  % T1 relaxation times (ms)
 T2 = [.02 .05 .1]*1e3;  % T2 relaxation times (ms)
 r = 1/64;  % ball radius, where FOV = 1
 
+flip = 90*pi/180;
 TE = 50; TR = 500; % ms
 
 N = 256;
