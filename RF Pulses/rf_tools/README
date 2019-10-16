@@ -1,0 +1,46 @@
+  This directory contains all the rf_tools matlab stuff.  Put this in
+your MATLABPATH environment variable
+
+  setenv MATLABPATH /usr/local/wherever/rf_tools
+
+if that is where you put it. 
+
+  You need to compile the simulator, and various parts of the design
+algorithm. These are the the "mexX" subdirectories, where X is 4 or 5
+depending on whether you are using matlab 4 or 5.
+
+  If you are using matlab 4, cd to mex4, do a "make all", and copy the
+.mexsol files back into this directory.
+
+  If you are using matlab 5, run matlab, and cd to the mex5 directory.
+If you are using the default compiler on your platform, then invoke
+
+  mex abrx.c
+  mex b2rf.c
+  mex b2a.c
+  mex cabc2rf.c
+
+Then quit matlab, and copy the mex5/*.mexsol files into the rf_tools
+directory.  I use gcc under Solaris, in which case, use
+
+  mex CC=gcc OPTFLAGS=-fPIC abrx.c
+
+instead.  The -fPIC flag is important.  Without it, things seem to
+work, but fail occasionally for no apparent reason.  Also, make sure
+/usr/ccs/bin and the matlab5.1/bin directory are in your path, and
+that you use the Sun make, as, and ld, and not the gnu version that
+may be lurking elsewhere.
+
+  There is documentation in man.ps, as well as online help for most
+routines.
+
+New features for this release are support throughout for 2D RF pulses
+including design, simulation and plotting.  The routine dz2d designs
+spiral 2D pulses. The spectral-spatial pulse design routine is new.
+It does a true 2D SLR design, so it works fine for large flip angles.
+
+Let me know if if find any bugs, would like things to work differently,
+or have anything you like to see added.
+
+                                         -- John (pauly@mrsrl.stanford.edu)
+
