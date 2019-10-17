@@ -27,9 +27,12 @@ success = false;
 end
 
 if success
-pause(5)
+if success
 % execute the mex file that was juist created
-funname = mfilename;
-funhandle = str2func(funname);
-[varargout{1:nargout}] = funhandle(varargin{:});
+error('MEX file now compiled, re-run code')
+
+%funname = mfilename;
+%funhandle = str2func(funname);
+%[varargout{1:nargout}] = funhandle(varargin{:});
+
 end
