@@ -27,6 +27,7 @@ success = false;
 end
 
 if success
+pause(5)
 % execute the mex file that was juist created
 funname = mfilename;
 funhandle = str2func(funname);
