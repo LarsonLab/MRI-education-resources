@@ -27,7 +27,6 @@ success = false;
 end
 
 if success
-if success
 % execute the mex file that was juist created
 error('MEX file now compiled, re-run code')
 
