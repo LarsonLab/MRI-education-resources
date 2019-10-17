@@ -23,6 +23,7 @@ T1 = [.5 .5 3]*1e3;  % T1 relaxation times (ms)
 T2 = [.02 .05 .1]*1e3;  % T2 relaxation times (ms)
 r = 1/64;  % ball radius, where FOV = 1
 
+flip = 90*pi/180;
 TE = 50; TR = 500; % ms
 
 N = 256;
@@ -39,7 +40,7 @@ M = zeros(N,N);
 for n= 1:Nphan
     % Generates data using Fourier Transform of a circle (jinc) multiplied by complex exponential to shift center location
     M = M+jinc(sqrt(kx.^2 + ky.^2) / (r) ) .* exp(i*2*pi* (kx*xc(n) + ky*yc(n))) * ...
-        MR_signal_spoiled_gradient_echo(flip, TE, TR, PDs(n), T1s(n), T2s(n));
+        MRsignal_spoiled_gradient_echo(flip, TE, TR, M0(n), T1(n), T2(n));
 
 
 end
