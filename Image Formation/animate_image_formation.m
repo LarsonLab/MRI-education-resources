@@ -4,6 +4,8 @@ kdata = data;
 
 S = size(kdata);
 
+write_animations = 0;
+
 %%
 clear imall
 
@@ -38,8 +40,9 @@ currFrame = getframe(fs);
 end
 end
 
-imwrite(imall,map,'image_formation_sequential.gif','DelayTime',0,'LoopCount',1) %g443800
-
+if write_animations
+    imwrite(imall,map,'image_formation_sequential.gif','DelayTime',0,'LoopCount',1) %g443800
+end
 
 
 
@@ -63,10 +66,10 @@ currFrame = getframe(fs);
   imall(:,:,1,I) = rgb2ind(frame2im(currFrame),map,'nodither');
 
 end
-
-imwrite(imall,map,'image_formation_centerout_lines.gif','DelayTime',0,'LoopCount',1) %g443800
+if write_animations
+    imwrite(imall,map,'image_formation_centerout_lines.gif','DelayTime',0,'LoopCount',1) %g443800
 %writeVideo(vidObj, currFrame);
-
+end
 
 %%
 clear imall
@@ -88,7 +91,9 @@ currFrame = getframe(fs);
 
 end
 
-imwrite(imall,map,'image_formation_random_lines.gif','DelayTime',0,'LoopCount',1) %g443800
+if write_animations
+    imwrite(imall,map,'image_formation_random_lines.gif','DelayTime',0,'LoopCount',1) %g443800
+end
 
 return      
 
@@ -117,5 +122,6 @@ currFrame = getframe(fs);
 end
 end
 
-imwrite(imall,map,'image_formation_random_all.gif','DelayTime',0,'LoopCount',1) %g443800
-
+if write_animations
+    imwrite(imall,map,'image_formation_random_all.gif','DelayTime',0,'LoopCount',1) %g443800
+end
