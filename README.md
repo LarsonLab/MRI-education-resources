@@ -1,7 +1,7 @@
 # MRI Education Resources
 Resources for learning the principles of magnetic resonance imaging (MRI)
 
-
+Currently MATLAB based functions and demonstrations (Octave compatible too)
 
 ## Notebook Demos
 **View notebooks using the tools and interact with these resources thanks to the Binder project**
