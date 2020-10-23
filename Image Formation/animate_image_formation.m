@@ -38,8 +38,6 @@ currFrame = getframe(fs);
   imall(:,:,1,Ix) = rgb2ind(frame2im(currFrame),map,'nodither');
 
 end
-end
-
 if write_animations
     imwrite(imall,map,'image_formation_sequential.gif','DelayTime',0,'LoopCount',1) %g443800
 end
