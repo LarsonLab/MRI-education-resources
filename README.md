@@ -15,7 +15,7 @@ Currently MATLAB based functions and demonstrations (Octave compatible too)
 ## Recommended Educational Materials
 
 ### Websites
-* “Questions and Answers in MRI”. http://www.mriquestions.com/  Great online resource for **all** MRI questions.
+* “Questions and Answers in MRI”. http://www.mriquestions.com/index.html Great online resource for **all** MRI questions.
 * Classical and Quantum explanations of Magnetic Resonance https://www.drcmr.dk/MR Clear explanation of magnetic resonance from Danish Research Centre for Magnetic Resonance with accompanying simulation tools
 
 
