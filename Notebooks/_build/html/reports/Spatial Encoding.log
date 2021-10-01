@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['% simulate frequency encoding\r', 'N = 8;\r', 'Mxy= ones(N+1,N+1);\r', '\r', 'x = [-N/2:N/2];\r']
+['% 2D object\r', '% simulate frequencies + phase encoding\r', '\r', 'N = 8;\r', 'Mxy= ones(N+1,N+1);\r']
 ...
-['    xlim([-N/2-1, N/2+1])\r', '    ylim([-N/2-1, N/2+1])\r', "    title('M_{XY}')\r", '    drawnow\r', 'end']
+['        ylim([-N/2-1, N/2+1])\r', "        title('M_{XY}')\r", '        drawnow\r', '    end\r', 'end']
 -------------------
 

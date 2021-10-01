@@ -387,13 +387,14 @@ M_X \\
 M_Y \\
 M_Z 
 \end{bmatrix}\end{split}\]</div>
-<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r} = [x,y,z]^T\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:
-$<span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t) = 
+<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r} = [x,y,z]^T\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{M}(\vec{r},t) = 
 \begin{bmatrix}
 M_X(\vec{r},t) \\
 M_Y(\vec{r},t) \\
 M_Z(\vec{r},t) 
-\end{bmatrix}\)</span>$</p>
+\end{bmatrix}\end{split}\]</div>
 <p>Shorthand for transverse magnetization using complex numbers</p>
 <div class="math notranslate nohighlight">
 \[M_{XY}(\vec{r},t) = M_X(\vec{r},t) + i M_Y(\vec{r},t)\]</div>
@@ -407,13 +408,14 @@ B_X \\
 B_Y \\
 B_Z 
 \end{bmatrix}\end{split}\]</div>
-<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:
-$<span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t) = 
+<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
 B_X(\vec{r},t) \\
 B_Y(\vec{r},t) \\
 B_Z(\vec{r},t) 
-\end{bmatrix}\)</span>$</p>
+\end{bmatrix}\end{split}\]</div>
 </div>
 </div>
 <div class="section" id="equilibrium-magnetization">
@@ -517,13 +519,14 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 </div>
 <div class="section" id="rf-excitation">
 <h3>RF Excitation<a class="headerlink" href="#rf-excitation" title="Permalink to this headline">¶</a></h3>
-<p>RF excitation occurs when an oscillating magnetic field is applied orthogonally to the main magnetic field.  If we apply RF at the Larmor frequency, the magnetic field would be
-$<span class="math notranslate nohighlight">\(\vec{B}(t) = 
+<p>RF excitation occurs when an oscillating magnetic field is applied orthogonally to the main magnetic field.  If we apply RF at the Larmor frequency, the magnetic field would be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(t) = 
 \begin{bmatrix}
 B_{1,0} \cos(\omega_0 t) \\
 -B_{1,0} \sin(\omega_0 t) \\
 B_0 
-\end{bmatrix}\)</span>$</p>
+\end{bmatrix}\end{split}\]</div>
 <p>When applied at the Larmor frequency, the applied RF energy and the net magnetization are in resonance, and we achieve excitation.</p>
 <p><strong>RF excitation (rotating at the Larmor frequency)</strong></p>
 <p><img alt="RF excitation Lab Frame" src="../Graphics/RF%20hard%20lab%20frame%20on-resonance.gif" /></p>
@@ -531,14 +534,15 @@ B_0
 <div class="section" id="lab-versus-rotating-frame">
 <h3>Lab versus Rotating Frame<a class="headerlink" href="#lab-versus-rotating-frame" title="Permalink to this headline">¶</a></h3>
 <p>For simplification, we use the so-called “rotating frame” - a reference frame that is rotating around the main field (z-axis) at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>, which greatly simplifies the interpretation, visualization, and math when analyzing the Bloch equation.  This is in contrast to the “lab frame” or “stationary frame”.</p>
-<p>In the rotating frame, the magnetic field is
-$<span class="math notranslate nohighlight">\(\vec{B}(t) = 
+<p>In the rotating frame, the magnetic field is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(t) = 
 \begin{bmatrix}
 B_{1,0} \\
 0 \\
 0
-\end{bmatrix}\)</span>$
-and RF excitation is a rotation around this simplified representation of the magnetic field.</p>
+\end{bmatrix}\end{split}\]</div>
+<p>and RF excitation is a rotation around this simplified representation of the magnetic field.</p>
 <p><strong>RF excitation (viewed in the rotating frame)</strong></p>
 <p><img alt="RF excitation Rotating Frame" src="../Graphics/RF%20hard%20rotating%20frame%20on-resonance.gif" /></p>
 <p>For another illustration of the stationary/lab versus rotating frames, try the “Change Frame” option in this Bloch simulator:</p>
