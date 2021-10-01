@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectral-Spatial RF Pulses &#8212; Principles of MRI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fun? RF Pulses?" href="Fun%20with%20RF%20Pulses.html" />
+    <link rel="prev" title="RF Pulses" href="RF%20Pulses.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Signal%20Equation.html">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Artifacts.html">
+   Artifacts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Spectral-Spatial RF Pulses.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Spectral-Spatial RF Pulses.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="spectral-spatial-rf-pulses">
+<h1>Spectral-Spatial RF Pulses<a class="headerlink" href="#spectral-spatial-rf-pulses" title="Permalink to this headline">¶</a></h1>
+<p>Spectral-spatial RF pulses aim to provide both</p>
+<ul class="simple">
+<li><p>spectral selection, typically to only excite protons in water molecules, and not protons in lipids</p></li>
+<li><p>spatial selection, for slice-selective imaging</p></li>
+</ul>
+<p>These are particularly common in fMRI and diffusion with echo-planar imaging (EPI) in order to eliminate chemical shift displacement artifacts in the image, and are also used for water and/or fat suppression in MR spectroscopy.</p>
+<p>This is done by creating a 2D excitation profile in both the spectral and spatial dimensions.  This is most easily interpreted through excitation k-space, where the RF energy deposited can be Fourier Transformed to reveal the approximate spectral-spatial profile created.</p>
+<p>The gradient applied traverses spatial excitation k-space, while time traverses the spectral excitation k-space dimension, as demonstrated by the gradient and k-psace plot below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Demonstrate gradient and spectral-spatial k-space trajectoy</span>
+
+<span class="n">GAMMA</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
+<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="n">Nlobe</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="n">Nspec</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">Nramp</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="n">ramp</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">5</span><span class="p">:</span><span class="n">Nramp</span><span class="o">-</span><span class="p">.</span><span class="mi">5</span><span class="p">]</span><span class="o">/</span><span class="n">Nramp</span><span class="p">;</span>
+<span class="n">g1</span> <span class="p">=</span> <span class="p">[</span><span class="n">ramp</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nlobe</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Nramp</span><span class="p">),</span> <span class="n">ramp</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)];</span> 
+
+<span class="n">gamp</span> <span class="p">=</span> <span class="mf">0.95</span><span class="p">;</span>
+<span class="n">g</span> <span class="p">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">Nspec</span>
+   <span class="n">g</span> <span class="p">=</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">gamp</span><span class="o">*</span><span class="n">g1</span><span class="p">];</span>
+<span class="k">end</span>
+
+<span class="n">Nrw</span> <span class="p">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">Nlobe</span> <span class="o">-</span> <span class="n">Nramp</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Nramp</span><span class="p">);</span>
+<span class="n">grw</span> <span class="p">=</span> <span class="p">[</span><span class="n">ramp</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nrw</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Nramp</span><span class="p">),</span> <span class="n">ramp</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)];</span>
+
+<span class="n">g</span> <span class="p">=</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">Nspec</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">gamp</span><span class="o">*</span><span class="n">grw</span><span class="p">];</span>
+
+<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="nb">cumsum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_f = t&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_z&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;k-space trajectory&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Spectral-Spatial RF Pulses_3_0.png" src="_images/Spectral-Spatial RF Pulses_3_0.png" />
+</div>
+</div>
+<p>To design the RF pulse, we can approximate the pulse and profile shape as separable function in frequency and space:</p>
+<div class="math notranslate nohighlight">
+\[ h(f,z) = h_f(f) h_z(z)\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathcal{F}\{ h(f,z) \} = H(k_f, k_z) = H_f(k_f) H_z(k_z)\]</div>
+<p>With this approximation, we can formulate the goal of the RF pulse design is to create and combine two pulses:</p>
+<ul class="simple">
+<li><p>A spectral pulse filter, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, that should be applied in <span class="math notranslate nohighlight">\(k_f\)</span> direction</p></li>
+<li><p>A spatial pulse filter, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>, that should be applied in the <span class="math notranslate nohighlight">\(k_z\)</span> direction</p></li>
+</ul>
+<p>Then design typically consists of 3 main steps</p>
+<ol class="simple">
+<li><p>Design spectral pulse (envelope)</p></li>
+<li><p>Design spatial sub-pulse</p></li>
+<li><p>Combine spectral pulse envelope and spatial subpulses with an oscillating gradient</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Design parameters</span>
+<span class="n">GAMMA</span> <span class="p">=</span> <span class="mi">4258</span><span class="p">;</span> <span class="c">% Hz/G</span>
+<span class="n">slewmax</span> <span class="p">=</span> <span class="mf">15e3</span><span class="p">;</span> <span class="c">% G/cm/s</span>
+<span class="n">gmax</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c">% G/cm</span>
+<span class="n">T</span> <span class="p">=</span> <span class="mf">20e-3</span><span class="p">;</span> <span class="c">% ms</span>
+<span class="n">TBW</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">SBW</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="n">dz</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c">% cm, max spatial resolution</span>
+<span class="n">Nspec</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">DT</span> <span class="p">=</span> <span class="n">T</span><span class="o">/</span><span class="n">Nspec</span><span class="p">;</span>
+<span class="n">dt</span> <span class="p">=</span> <span class="mf">10e-6</span><span class="p">;</span> <span class="c">% us</span>
+<span class="n">flip</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span>
+
+<span class="c">% gradient parameters</span>
+<span class="n">verse_frac</span> <span class="p">=</span> <span class="mf">0.8</span><span class="p">;</span>
+<span class="n">Nlobe</span> <span class="p">=</span> <span class="n">DT</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
+<span class="n">Nspat</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Nlobe</span> <span class="o">*</span> <span class="n">verse_frac</span><span class="p">);</span>
+<span class="n">Nwait</span> <span class="p">=</span> <span class="p">(</span><span class="n">Nlobe</span> <span class="o">-</span> <span class="n">Nspat</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="n">z</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">201</span><span class="p">);</span>
+<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">201</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 1. Spectral Pulse Design</span>
+
+<span class="n">rfspec</span> <span class="p">=</span> <span class="n">dzrf</span><span class="p">(</span><span class="n">Nspec</span><span class="p">,</span> <span class="n">TBW</span><span class="p">);</span>
+<span class="n">gf</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">DT</span> <span class="o">*</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">));</span>
+<span class="n">mxy_f</span> <span class="p">=</span> <span class="n">ab2ex</span><span class="p">(</span><span class="n">abr</span><span class="p">(</span><span class="n">rfspec</span><span class="p">,</span> <span class="n">gf</span><span class="p">,</span> <span class="n">df</span><span class="p">));</span>
+
+<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">DT</span><span class="o">*</span><span class="mf">1e3</span><span class="p">;</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">),</span> <span class="s">&#39;-x&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral Pulse Design&#39;</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)))</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_f&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mxy_f</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency (Hz)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral Profile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Spectral-Spatial RF Pulses_6_0.png" src="_images/Spectral-Spatial RF Pulses_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 2. Spatial pulse design</span>
+
+<span class="n">rfspat</span> <span class="p">=</span> <span class="n">dzrf</span><span class="p">(</span><span class="n">Nspat</span><span class="p">,</span> <span class="n">SBW</span><span class="p">);</span>
+
+<span class="c">% gradients (including ramp sampling)</span>
+<span class="n">gamp</span> <span class="p">=</span> <span class="p">(</span><span class="n">SBW</span><span class="o">/</span><span class="n">DT</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dz</span><span class="p">);</span> <span class="c">% gradient for spatial resolution</span>
+
+<span class="c">% Uses a slew rate that can&#39;t be violated</span>
+<span class="n">Nramp</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">gmax</span><span class="o">/</span><span class="n">slewmax</span> <span class="o">/</span> <span class="n">dt</span><span class="p">),</span> <span class="nb">floor</span><span class="p">(</span><span class="n">Nlobe</span><span class="o">/</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">ramp</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">5</span><span class="p">:</span><span class="n">Nramp</span><span class="o">-</span><span class="p">.</span><span class="mi">5</span><span class="p">]</span><span class="o">/</span><span class="n">Nramp</span><span class="p">;</span>
+<span class="n">g1</span> <span class="p">=</span> <span class="p">[</span><span class="n">ramp</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nlobe</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Nramp</span><span class="p">),</span> <span class="n">ramp</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)];</span> 
+<span class="c">% apply VERSE algorithm for time-varying gradient</span>
+<span class="n">rfspatv</span> <span class="p">=</span> <span class="n">verse</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="p">[</span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">Nwait</span><span class="p">)),</span> <span class="n">rfspat</span><span class="p">(:).</span><span class="o">&#39;</span><span class="p">,</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">ceil</span><span class="p">(</span><span class="n">Nwait</span><span class="p">))]).</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">rfspatv</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">rfspatv</span><span class="p">)))</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">g1z</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="n">gamp</span><span class="o">*</span> <span class="n">g1</span><span class="p">;</span>
+<span class="n">mxy_z</span> <span class="p">=</span> <span class="n">ab2ex</span><span class="p">(</span><span class="n">abr</span><span class="p">(</span><span class="n">rfspatv</span><span class="p">,</span> <span class="n">g1z</span><span class="p">,</span> <span class="n">z</span><span class="p">));</span>
+
+<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">;</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspatv</span><span class="p">))</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spatial Pulse Design&#39;</span><span class="p">)</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">gamp</span><span class="o">*</span><span class="n">g1</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mxy_z</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Position (cm)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spatial Profile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Spectral-Spatial RF Pulses_7_0.png" src="_images/Spectral-Spatial RF Pulses_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 3. Combine spectral and spatial pulse designs</span>
+
+<span class="n">rf</span> <span class="p">=</span> <span class="p">[];</span> <span class="n">g</span> <span class="p">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">Nspec</span>
+   <span class="n">rf</span> <span class="p">=</span> <span class="p">[</span><span class="n">rf</span><span class="p">,</span> <span class="n">rfspatv</span><span class="o">*</span><span class="n">rfspec</span><span class="p">(</span><span class="n">k</span><span class="p">)];</span>  <span class="c">% weight spatial sub-pulses by the spectral filter</span>
+   <span class="n">g</span> <span class="p">=</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">gamp</span><span class="o">*</span><span class="n">g1</span><span class="p">];</span>  <span class="c">% oscillate gradient</span>
+<span class="k">end</span>
+
+<span class="c">% add spatial refocusing gradient</span>
+<span class="n">Nrw</span> <span class="p">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">Nlobe</span> <span class="o">-</span> <span class="n">Nramp</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Nramp</span><span class="p">);</span>
+<span class="n">grw</span> <span class="p">=</span> <span class="p">[</span><span class="n">ramp</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nrw</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Nramp</span><span class="p">),</span> <span class="n">ramp</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)];</span>
+
+<span class="n">g</span> <span class="p">=</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span> <span class="p">(</span><span class="nb">mod</span><span class="p">(</span><span class="n">Nspec</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">gamp</span><span class="o">*</span><span class="n">grw</span><span class="p">];</span>
+<span class="n">rf</span> <span class="p">=</span> <span class="p">[</span><span class="n">rf</span><span class="p">,</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nrw</span><span class="p">)];</span>
+
+<span class="c">% scale RF pulse</span>
+<span class="n">flip_scale</span> <span class="p">=</span> <span class="n">flip</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">rf</span><span class="p">);</span>
+<span class="n">rf</span> <span class="p">=</span> <span class="n">flip_scale</span><span class="o">*</span><span class="n">rf</span><span class="p">;</span>
+<span class="n">rfs</span> <span class="p">=</span> <span class="n">rfscaleg</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">T</span><span class="p">);</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">),</span> <span class="p">...</span>
+    <span class="p">[</span><span class="mf">0.5</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]</span><span class="o">*</span><span class="n">DT</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">))</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">)),</span> <span class="s">&#39;--&#39;</span><span class="p">)</span>
+    <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;RF pulse&#39;</span><span class="p">,</span> <span class="s">&#39;Spectral pulse envelope&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral-Spatial RF Pulse&#39;</span><span class="p">)</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+
+<span class="nb">figure</span>
+<span class="n">plot3</span><span class="p">([</span><span class="o">-</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="nb">cumsum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)),</span> <span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_f = t&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_z&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;B_1(k)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Spectral-Spatial RF Pulses_8_0.png" src="_images/Spectral-Spatial RF Pulses_8_0.png" />
+<img alt="_images/Spectral-Spatial RF Pulses_8_1.png" src="_images/Spectral-Spatial RF Pulses_8_1.png" />
+</div>
+</div>
+<p>The spectral pulse, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>.  This creates the excitation k-space profile, <span class="math notranslate nohighlight">\(B_1(k_f, k_z)\)</span> shown above, which results in the spectral-spatial profile shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="n">g</span><span class="p">;</span>
+<span class="n">gf</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">));</span>
+
+<span class="n">mxy_2d</span> <span class="p">=</span> <span class="n">ab2ex</span><span class="p">(</span><span class="n">abr</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">gz</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">gf</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">df</span><span class="p">));</span>
+
+
+<span class="nb">figure</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">mxy_2d</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency (Hz)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Position (cm)&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral-spatial Profile (M_XY)&#39;</span><span class="p">)</span>
+<span class="c">%colormap(gray)</span>
+<span class="nb">colorbar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Spectral-Spatial RF Pulses_10_0.png" src="_images/Spectral-Spatial RF Pulses_10_0.png" />
+</div>
+</div>
+<p>Watch how the transverse magnetization evolves during the spectral-spatial RF pulse:</p>
+<p><img alt="spectral_spatial_RF_animation.gif" src="attachment:spectral_spatial_RF_animation.gif" /></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="RF%20Pulses.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">RF Pulses</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Fun%20with%20RF%20Pulses.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Fun? RF Pulses?</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
