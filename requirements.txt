@@ -2,4 +2,5 @@ jupyter-book
 matplotlib
 numpy
 octave_kernel
+octave-cli
 ghp-import
