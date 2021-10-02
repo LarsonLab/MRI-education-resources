@@ -9,6 +9,8 @@ pip install -U jupyter-book
 conda install -c conda-forge octave_kernel
 
 
+jb build bookname
+
 runjb 
 - in quantecon-mini-example
-- may not be needed 
+- does not seem to be needed 

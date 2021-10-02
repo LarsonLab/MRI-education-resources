@@ -16,10 +16,6 @@ latex:
   latex_documents:
     targetname: MRI-education-book.tex
 
-# # Add a bibtex file so that we can create citations
-# bibtex_bibfiles:
-#   - references.bib
-
 # Information about where the book exists on the web
 repository:
   url: https://github.com/larsonlab/MRI-education-resources  # Online location of your book
@@ -106,12 +102,12 @@ description: >- # this means to ignore newlines until "baseurl:"
 # download_page_header             : "Made with Jupyter Book" # A header that will be displayed at the top of and PDF-printed page
 
 
-# #######################################################################################
-# # Jupyter book extensions and additional features
+#######################################################################################
+# Jupyter book extensions and additional features
 
-# # Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
-# scholar:
-#   style: apa
+# Bibliography and citation settings. See https://github.com/inukshuk/jekyll-scholar#configuration for options
+scholar:
+  style: apa
 
 
 # # Add a bibtex file so that we can create citations?
@@ -128,49 +124,49 @@ description: >- # this means to ignore newlines until "baseurl:"
 # js_url                    : "/assets/js" # Path to JS files
 # custom_static_url         : "/assets/custom" # Path to user's custom CSS/JS files
 
-# #######################################################################################
-# # Jekyll build settings (only modify if you know what you're doing)
+#######################################################################################
+# Jekyll build settings (only modify if you know what you're doing)
 
-# # Site settings
-# defaults:
-#   - scope:
-#       path: ""
-#     values:
-#       layout: "default"
-#       toc: true
-#       toc_label: "  On this page"
-#       toc_icon: "list-ul"
-#       excerpt: ''
+# Site settings
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      toc: true
+      toc_label: "  On this page"
+      toc_icon: "list-ul"
+      excerpt: ''
 
-# favicon_path: "images/logo/favicon.ico"
+favicon_path: "images/logo/favicon.ico"
 
-# # Markdown Processing
-# markdown: kramdown
-# kramdown:
-#   input: GFM
-#   syntax_highlighter: rouge
+# Markdown Processing
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# sass:
-#   style: compressed
+sass:
+  style: compressed
 
-# collections:
-#   build:
-#     output: true
-#     permalink: /:path.html
+collections:
+  build:
+    output: true
+    permalink: /:path.html
 
-# # Exclude from processing.
-# # The following items will not be processed, by default. Create a custom list
-# # to override the default setting.
-# exclude:
-#   - scripts/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
-# plugins:
-#   - jekyll-redirect-from
-#   - jekyll-scholar
+plugins:
+  - jekyll-redirect-from
+  - jekyll-scholar
