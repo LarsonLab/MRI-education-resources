@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['% Example of k-space trajectory time weighting functions, upsilon', '', '% Cartesian', '', '% kx(t)  = gammabar Gxr (t-TE)']
+['% Example of k-space trajectory time weighting functions, upsilon\r', '\r', '% Cartesian\r', '\r', '% kx(t)  = gammabar Gxr (t-TE)\r']
 ...
-['', 'figure', 'mesh(kx, ky, upsilon_EPI)', "xlabel('k_x'), ylabel('k_y')", "title('Echo-planar time weighting, \\upsilon(k)')"]
+['\r', 'figure\r', 'mesh(kx, ky, upsilon_EPI)\r', "xlabel('k_x'), ylabel('k_y')\r", "title('Echo-planar time weighting, \\upsilon(k)')"]
 -------------------
 

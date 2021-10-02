@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['% Illustrate Fourier decomposition of a rect function (could illustrate ringing)', '', 'N = 512;', 'kxmax = 128;', 'kx = [-N/2:N/2-1]/N * kxmax*2;']
+['% Illustrate Fourier decomposition of a rect function (could illustrate ringing)\r', '\r', 'N = 512;\r', 'kxmax = 128;\r', 'kx = [-N/2:N/2-1]/N * kxmax*2;\r']
 ...
-['f = fftshift(ifft(ifftshift(F)));', 'figure', 'plot(x,real(f), x, imag(f))', "title(['Truncation of sinc at ' num2str(kxmax_truncate)])", 'end']
+['f = fftshift(ifft(ifftshift(F)));\r', 'figure\r', 'plot(x,real(f), x, imag(f))\r', "title(['Truncation of sinc at ' num2str(kxmax_truncate)])\r", 'end']
 -------------------
 
