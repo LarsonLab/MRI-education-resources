@@ -8,3 +8,4 @@ octave-miscellaneous
 liboctave-dev
 gnuplot
 ghostscript
+ghp-import
