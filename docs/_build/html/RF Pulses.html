@@ -234,6 +234,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FRF Pulses.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -248,7 +264,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/RF Pulses.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/docs/RF Pulses.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -558,9 +574,9 @@ loading signal
 <h3>On-resonance Excitation<a class="headerlink" href="#on-resonance-excitation" title="Permalink to this headline">¶</a></h3>
 <p>We can visualize the rotation of the net magnetization as before as a rotation about the RF pulse vector, for Hard and Shaped pulses:</p>
 <p><strong>hard pulse</strong>
-<img alt="hard%20pulse%20center%20frequency.gif" src="../Graphics/hard%20pulse%20center%20frequency.gif" />
+<img alt="hard%20pulse%20center%20frequency.gif" src="images/hard%20pulse%20center%20frequency.gif" />
 <strong>shaped pulse</strong>
-<img alt="sinc%20pulse%20center%20frequency.gif" src="../Graphics/sinc%20pulse%20center%20frequency.gif" /></p>
+<img alt="sinc%20pulse%20center%20frequency.gif" src="images/sinc%20pulse%20center%20frequency.gif" /></p>
 <p>Looking at the on-resonance or center frequency response of a sinc-like shaped pulse, the flip angle is achieved slightly differently by tipping the net magnetization back and forth.</p>
 </div>
 <div class="section" id="off-resonance-excitation">
@@ -568,9 +584,9 @@ loading signal
 <p>The flip angle provided by a hard pulse varies substantially as a function of off-resonance frequency (e.g. in the presence of a magnetic field gradient) so is not a good pulse for slice-selection.  Meanwhile, the sinc-like pulse becomes advantageous when considering a range of resonance frequencies, where this pattern of back and forth tipping leads to net magnetizations either being flipped or not:</p>
 <p>This is illustrated by the following animation, showing net magnetizations across a range of positions when the pulse is applied with a gradient:</p>
 <p><strong>hard pulse</strong>
-<img alt="hard%20pulse%20frequencies.gif" src="../Graphics/hard%20pulse%20frequencies.gif" />
+<img alt="hard%20pulse%20frequencies.gif" src="images/hard%20pulse%20frequencies.gif" />
 <strong>shaped pulse</strong>
-<img alt="sinc%20pulse%20frequencies.gif" src="../Graphics/sinc%20pulse%20frequencies.gif" /></p>
+<img alt="sinc%20pulse%20frequencies.gif" src="images/sinc%20pulse%20frequencies.gif" /></p>
 <p>These simulations are for an identical range of positions, allowing for visualization the majority of net magnetizations in this case are either at an approximate 90-degree or 0-degree excitation, with very few intermediate flip angles. that the range of resulting magnetizations from the <em>hard pulse</em> is wide, representing a spread of different flip angles at  different positions, whereas with the sinc-like pulse  the majority of net magnetizations in this case are either at an approximate 90-degree or 0-degree excitation, with very few intermediate flip angles. (Also note the refocusing gradient at the end, which is necessary for corrected for additional phase during the gradient &amp; RF.)</p>
 <p>This behavior can be analyzed by simulation of the RF pulse profile as well, now using the Bloch equation for a more precise simulation as compared to using Fourier Transform approximation:</p>
 <div class="cell docutils container">

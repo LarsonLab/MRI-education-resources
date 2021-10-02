@@ -234,6 +234,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMagnetic Fields and RF Coils.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -248,7 +264,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Magnetic Fields and RF Coils.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/docs/Magnetic Fields and RF Coils.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -367,11 +383,11 @@ loading signal
 <div class="section" id="loop-currents-and-magnetic-fields">
 <h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Permalink to this headline">¶</a></h2>
 <p>Magnetic fields, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, can be created by current, <span class="math notranslate nohighlight">\(I\)</span>, through loop of wire, where the “left-hand rule” determines the direction of the magnetic field</p>
-<p><img alt="loop%20small%20current.png" src="../Graphics/loop%20small%20current.png" /></p>
+<p><img alt="loop%20small%20current.png" src="_images/loop_small_current.png" /></p>
 <p>By increasing the current, the magnetic field is increased</p>
-<p><img alt="loop%20big%20current.png" src="../Graphics/loop%20big%20current.png" /></p>
+<p><img alt="loop%20big%20current.png" src="_images/loop_big_current.png" /></p>
 <p>We can also link many loops together (a “solenoid”) to increase the extent of the magnetic field.</p>
-<p><img alt="solenoid%20small%20current.png" src="../Graphics/solenoid%20small%20current.png" /></p>
+<p><img alt="solenoid%20small%20current.png" src="_images/solenoid_small_current.png" /></p>
 <p>A solenoid design is typically used to create the main magnetic field for MRI, <span class="math notranslate nohighlight">\(B_0\)</span>, to create a large region in space with a homogeneous magnetic field, as required for MRI across a volume.</p>
 </div>
 <div class="section" id="creating-radiofrequency-rf-waves">
@@ -416,7 +432,7 @@ loading signal
 <li><p>This precession creates oscillating magnetic fields at this same (Larmor) frequency.</p></li>
 <li><p>Oscillating magnetic fields will create oscillating current in loops of wire, which can be detected by amplifying and digitizing this signal</p></li>
 </ol>
-<p><img alt="RF%20reception.gif" src="../Graphics/RF%20reception.gif" /></p>
+<p><img alt="RF%20reception.gif" src="_images/RF_reception.gif" /></p>
 <p>This is the recipricol of creating RF waves as above.  To create RF waves, oscillating currents are generated in a coil to create an oscillating magnetic field.  To receive RF waves, an oscillating magnetic field creates oscillating currents generated in a coil that can be measured.</p>
 </div>
 <div class="section" id="rf-system">
@@ -454,10 +470,11 @@ loading signal
 <li><p>Provides homogeneous magnetic field amplitude</p></li>
 <li><p>Creates magnetic fields perpendicular to B0</p></li>
 </ul>
-<p>In MRI we denote transmitted magnetic fields from RF energy as
-$<span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span><span class="math notranslate nohighlight">\(
-This field is typically in units of millitesla (mT) and can vary over space, \)</span>\vec{r}<span class="math notranslate nohighlight">\( and time, \)</span>t$</p>
-<p><img alt="BODY%20coil.png" src="../Graphics/BODY%20coil.png" /></p>
+<p>In MRI we denote transmitted magnetic fields from RF energy as</p>
+<div class="math notranslate nohighlight">
+\[B_1^+(\vec{r},t)\]</div>
+<p>This field is typically in units of millitesla (mT) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><img alt="BODY coil" src="_images/BODY_coil.png" /></p>
 </div>
 <div class="section" id="receive-rx-rf-coils">
 <h3>Receive (Rx) RF coils<a class="headerlink" href="#receive-rx-rf-coils" title="Permalink to this headline">¶</a></h3>
@@ -474,7 +491,7 @@ This field is typically in units of millitesla (mT) and can vary over space, \)<
 <div class="math notranslate nohighlight">
 \[B_{1,n}^-(\vec{r},t)\]</div>
 <p>This sensitivity is typically in units of millitesla/Amp (mT/A) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span>, time, <span class="math notranslate nohighlight">\(t\)</span>, and coil element, <span class="math notranslate nohighlight">\(n\)</span>, in the array coil.</p>
-<p><img alt="TIM%20receive%20array.png" src="../Graphics/TIM%20receive%20array.png" /></p>
+<p><img alt="Receive array" src="_images/TIM_receive_array.png" /></p>
 </div>
 </div>
 <div class="section" id="rf-coil-profiles">
@@ -482,7 +499,7 @@ This field is typically in units of millitesla (mT) and can vary over space, \)<
 <div class="section" id="receive-elements">
 <h3>Receive elements<a class="headerlink" href="#receive-elements" title="Permalink to this headline">¶</a></h3>
 <p>Coil elements are most sensitive to signals originating near the element, and the so-called sensitivity off as we move away from the coil.  The following images show that each element is most sensitive, or has the brightest image, closest to that element:</p>
-<p><img alt="Spine%20Array%20MRI%20PtP.png" src="../Graphics/Spine%20Array%20MRI%20PtP.png" /></p>
+<p><img alt="Spine Array" src="_images/SpineArray.png" /></p>
 </div>
 <div class="section" id="sensitivity-simulation">
 <h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Permalink to this headline">¶</a></h3>

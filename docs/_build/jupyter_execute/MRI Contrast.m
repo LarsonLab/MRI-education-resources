@@ -1,177 +1,177 @@
-% setup MRI-education-resources path and requirements
-cd ../
+% setup MRI-education-resources path and requirements
+cd ../
 startup
 
-% TE contrast
-
-TE = linspace(0,200); % ms
-T2v = [1;10;20;80;160];
-[T2 TE] = meshgrid(T2v,TE);
-M0 = ones(size(T2));
-
-S_TE = M0.*exp(-TE./T2);
-
-plot(TE,S_TE)
-xlabel('TE (ms)'), ylabel('signal')
-legend(int2str(T2v))
-title('Signal versus TE for various T_2 values')
-
-TE = linspace(0,200); % ms
-T2 = linspace(1,150); % ms
-[T2 TE] = meshgrid(T2,TE);
-M0 = ones(size(T2));
-
-S_TE = M0 .* exp(-TE./T2);
-
-figure
-
-mesh(T2,TE,S_TE)
-view([155 30])
-ylabel('TE (ms)'), xlabel('T_2 (ms)'), zlabel('signal')
+% TE contrast
+
+TE = linspace(0,200); % ms
+T2v = [1;10;20;80;160];
+[T2 TE] = meshgrid(T2v,TE);
+M0 = ones(size(T2));
+
+S_TE = M0.*exp(-TE./T2);
+
+plot(TE,S_TE)
+xlabel('TE (ms)'), ylabel('signal')
+legend(int2str(T2v))
+title('Signal versus TE for various T_2 values')
+
+TE = linspace(0,200); % ms
+T2 = linspace(1,150); % ms
+[T2 TE] = meshgrid(T2,TE);
+M0 = ones(size(T2));
+
+S_TE = M0 .* exp(-TE./T2);
+
+figure
+
+mesh(T2,TE,S_TE)
+view([155 30])
+ylabel('TE (ms)'), xlabel('T_2 (ms)'), zlabel('signal')
 colorbar
 
-% Signal evolution between TRs with 90-degree pulses
-
-M0 = [1;1;1;1]; 
-
-T1 = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
-
-NTR = 8;
-flip = 90;
-TR = 500; %ms
-Nt_per_TR = 100;
-t_per_TR = [1:Nt_per_TR]*TR/Nt_per_TR;
-t_minus = [0:NTR]*TR; t_plus = t_minus + 1;
-
-% magnetization before each RF pulse
-Mz_minus = zeros(length(T1), NTR+1);
-% magnetization after each RF pulse
-Mz_plus = zeros(length(T1), NTR+1);
-
-% initial condition
-Mz_minus(:,1) = M0;
-Mz_plus(:,1) = Mz_minus(:,1)*cos(flip*pi/180);
-t = [0 eps];
-Mz_all = [Mz_minus(:,1),Mz_plus(:,1)];
-
-
-for I = 1:NTR
-    t = [t, t_per_TR + (I-1)*TR];
-
-    for It = 1:Nt_per_TR
-        Mz_all = [Mz_all, Mz_plus(:,I).*exp(-t_per_TR(It)./T1) + M0.*(1-exp(-t_per_TR(It)./T1))];
-    end
-    
-    Mz_minus(:,I+1) = Mz_plus(:,I).*exp(-TR./T1) + M0.*(1-exp(-TR./T1));
-    Mz_plus(:,I+1) = Mz_minus(:,I+1).*cos(flip*pi/180);
-
-
-end
-
-plot(t, Mz_all, t_minus, Mz_minus, 'x', t_plus, Mz_plus,'o')
-legend(int2str(T1))
-xlabel('time (ms)'), ylabel('M_Z')
+% Signal evolution between TRs with 90-degree pulses
+
+M0 = [1;1;1;1]; 
+
+T1 = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
+
+NTR = 8;
+flip = 90;
+TR = 500; %ms
+Nt_per_TR = 100;
+t_per_TR = [1:Nt_per_TR]*TR/Nt_per_TR;
+t_minus = [0:NTR]*TR; t_plus = t_minus + 1;
+
+% magnetization before each RF pulse
+Mz_minus = zeros(length(T1), NTR+1);
+% magnetization after each RF pulse
+Mz_plus = zeros(length(T1), NTR+1);
+
+% initial condition
+Mz_minus(:,1) = M0;
+Mz_plus(:,1) = Mz_minus(:,1)*cos(flip*pi/180);
+t = [0 eps];
+Mz_all = [Mz_minus(:,1),Mz_plus(:,1)];
+
+
+for I = 1:NTR
+    t = [t, t_per_TR + (I-1)*TR];
+
+    for It = 1:Nt_per_TR
+        Mz_all = [Mz_all, Mz_plus(:,I).*exp(-t_per_TR(It)./T1) + M0.*(1-exp(-t_per_TR(It)./T1))];
+    end
+    
+    Mz_minus(:,I+1) = Mz_plus(:,I).*exp(-TR./T1) + M0.*(1-exp(-TR./T1));
+    Mz_plus(:,I+1) = Mz_minus(:,I+1).*cos(flip*pi/180);
+
+
+end
+
+plot(t, Mz_all, t_minus, Mz_minus, 'x', t_plus, Mz_plus,'o')
+legend(int2str(T1))
+xlabel('time (ms)'), ylabel('M_Z')
 title([num2str(flip) '-degree RF pulses applied every ' num2str(TR) ' ms'])
 
-% TR contrast with T1
-
-TR = linspace(0,2000); % ms
-T1v = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
-[T1 TR] = meshgrid(T1v,TR);
-M0 = ones(size(T1));
-
-S_TR = M0.*(1-exp(-TR./T1));
-
-plot(TR,S_TR)
-xlabel('TR (ms)'), ylabel('signal')
-legend(int2str(T1v))
-title(['Signal versus TR for various T_1 values with ' num2str(flip) '-degree flip'])
-
-TR = linspace(0,2000); % ms
-T1 = linspace(400,2500); % ms
-[T1 TR] = meshgrid(T1,TR);
-M0 = ones(size(T1));
-
-S_TR = M0 .* (1-exp(-TR./T1));
-
-figure
-
-mesh(T1,TR,S_TR)
-view([110 30])
-ylabel('TR (ms)'), xlabel('T_1 (ms)'), zlabel('signal')
-colorbar
-
-
-% Signal evolution between TRs with <90-degree pulses
-
-M0 = [1;1;1;1]; 
-T1 = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
-
-NTR = 30;
-flip = 30;
-TR = 100; %ms
-Nt_per_TR = 100;
-t_per_TR = [1:Nt_per_TR]*TR/Nt_per_TR;
-t_minus = [0:NTR]*TR; t_plus = t_minus + 1;
-
-% magnetization before each RF pulse
-Mz_minus = zeros(length(T1), NTR+1);
-% magnetization after each RF pulse
-Mz_plus = zeros(length(T1), NTR+1);
-
-% initial condition
-Mz_minus(:,1) = M0;
-Mz_plus(:,1) = Mz_minus(:,1)*cos(flip*pi/180);
-t = [0 eps];
-Mz_all = [Mz_minus(:,1),Mz_plus(:,1)];
+% TR contrast with T1
+
+TR = linspace(0,2000); % ms
+T1v = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
+[T1 TR] = meshgrid(T1v,TR);
+M0 = ones(size(T1));
+
+S_TR = M0.*(1-exp(-TR./T1));
+
+plot(TR,S_TR)
+xlabel('TR (ms)'), ylabel('signal')
+legend(int2str(T1v))
+title(['Signal versus TR for various T_1 values with ' num2str(flip) '-degree flip'])
+
+TR = linspace(0,2000); % ms
+T1 = linspace(400,2500); % ms
+[T1 TR] = meshgrid(T1,TR);
+M0 = ones(size(T1));
+
+S_TR = M0 .* (1-exp(-TR./T1));
+
+figure
+
+mesh(T1,TR,S_TR)
+view([110 30])
+ylabel('TR (ms)'), xlabel('T_1 (ms)'), zlabel('signal')
+colorbar
 
 
-for I = 1:NTR
-    t = [t, t_per_TR + (I-1)*TR];
-
-    for It = 1:Nt_per_TR
-        Mz_all = [Mz_all, Mz_plus(:,I).*exp(-t_per_TR(It)./T1) + M0.*(1-exp(-t_per_TR(It)./T1))];
-    end
-    
-    Mz_minus(:,I+1) = Mz_plus(:,I).*exp(-TR./T1) + M0.*(1-exp(-TR./T1));
-    Mz_plus(:,I+1) = Mz_minus(:,I+1).*cos(flip*pi/180);
-
-
-end
-
-plot(t, Mz_all, t_minus, Mz_minus, 'x', t_plus, Mz_plus,'o')
-legend(int2str(T1))
-xlabel('time (ms)'), ylabel('M_Z')
+% Signal evolution between TRs with <90-degree pulses
+
+M0 = [1;1;1;1]; 
+T1 = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
+
+NTR = 30;
+flip = 30;
+TR = 100; %ms
+Nt_per_TR = 100;
+t_per_TR = [1:Nt_per_TR]*TR/Nt_per_TR;
+t_minus = [0:NTR]*TR; t_plus = t_minus + 1;
+
+% magnetization before each RF pulse
+Mz_minus = zeros(length(T1), NTR+1);
+% magnetization after each RF pulse
+Mz_plus = zeros(length(T1), NTR+1);
+
+% initial condition
+Mz_minus(:,1) = M0;
+Mz_plus(:,1) = Mz_minus(:,1)*cos(flip*pi/180);
+t = [0 eps];
+Mz_all = [Mz_minus(:,1),Mz_plus(:,1)];
+
+
+for I = 1:NTR
+    t = [t, t_per_TR + (I-1)*TR];
+
+    for It = 1:Nt_per_TR
+        Mz_all = [Mz_all, Mz_plus(:,I).*exp(-t_per_TR(It)./T1) + M0.*(1-exp(-t_per_TR(It)./T1))];
+    end
+    
+    Mz_minus(:,I+1) = Mz_plus(:,I).*exp(-TR./T1) + M0.*(1-exp(-TR./T1));
+    Mz_plus(:,I+1) = Mz_minus(:,I+1).*cos(flip*pi/180);
+
+
+end
+
+plot(t, Mz_all, t_minus, Mz_minus, 'x', t_plus, Mz_plus,'o')
+legend(int2str(T1))
+xlabel('time (ms)'), ylabel('M_Z')
 title([num2str(flip) '-degree RF pulses applied every ' num2str(TR) ' ms'])
 
-% TR and flip angle contrast with T1
-
-flip = 30; % degrees
-TR = linspace(0,2000); % ms
-T1v = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
-[T1 TR] = meshgrid(T1v,TR);
-M0 = ones(size(T1));
-
-S_TR = sin(flip*pi/180) .* M0 .* (1-exp(-TR./T1)) ./ (1-cos(flip*pi/180).*exp(-TR./T1));
-
-plot(TR,S_TR)
-xlabel('TR (ms)'), ylabel('signal')
-legend(int2str(T1v))
-title(['Signal versus TR for various T_1 values with ' num2str(flip) '-degree flip'])
-
-TR = linspace(0,2000); % ms
-T1 = linspace(400,2500); % ms
-[T1 TR] = meshgrid(T1,TR);
-M0 = ones(size(T1));
-
-S_TR = sin(flip*pi/180) .* M0 .* (1-exp(-TR./T1)) ./ (1-cos(flip*pi/180).*exp(-TR./T1));
-
-figure
-
-mesh(T1,TR,S_TR)
-view([110 30])
-ylabel('TR (ms)'), xlabel('T_1 (ms)'), zlabel('signal')
-title([ num2str(flip) '-degree flip'])
+% TR and flip angle contrast with T1
+
+flip = 30; % degrees
+TR = linspace(0,2000); % ms
+T1v = [400; 800; 1200; 2000]; %linspace(200,2000)'; % ms
+[T1 TR] = meshgrid(T1v,TR);
+M0 = ones(size(T1));
+
+S_TR = sin(flip*pi/180) .* M0 .* (1-exp(-TR./T1)) ./ (1-cos(flip*pi/180).*exp(-TR./T1));
+
+plot(TR,S_TR)
+xlabel('TR (ms)'), ylabel('signal')
+legend(int2str(T1v))
+title(['Signal versus TR for various T_1 values with ' num2str(flip) '-degree flip'])
+
+TR = linspace(0,2000); % ms
+T1 = linspace(400,2500); % ms
+[T1 TR] = meshgrid(T1,TR);
+M0 = ones(size(T1));
+
+S_TR = sin(flip*pi/180) .* M0 .* (1-exp(-TR./T1)) ./ (1-cos(flip*pi/180).*exp(-TR./T1));
+
+figure
+
+mesh(T1,TR,S_TR)
+view([110 30])
+ylabel('TR (ms)'), xlabel('T_1 (ms)'), zlabel('signal')
+title([ num2str(flip) '-degree flip'])
 colorbar
 
 TR = 100;

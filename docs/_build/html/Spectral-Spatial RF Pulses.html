@@ -234,6 +234,22 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpectral-Spatial RF Pulses.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -248,7 +264,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Spectral-Spatial RF Pulses.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/docs/Spectral-Spatial RF Pulses.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -495,17 +511,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>** Warning: Cannot interrupt Octave on Windows
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">End Of File (EOF).</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;pexpect.popen_spawn.PopenSpawn object at 0x0000016C523C8DC8&gt;</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">searcher: searcher_re:</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">    0: re.compile(&#39;PEXPECT_PROMPT&gt;&#39;)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">    1: re.compile(&#39;\r\n&#39;)</span>
-
-</pre></div>
-</div>
+<img alt="_images/Spectral-Spatial RF Pulses_8_0.png" src="_images/Spectral-Spatial RF Pulses_8_0.png" />
+<img alt="_images/Spectral-Spatial RF Pulses_8_1.png" src="_images/Spectral-Spatial RF Pulses_8_1.png" />
 </div>
 </div>
 <p>The spectral pulse, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>.  This creates the excitation k-space profile, <span class="math notranslate nohighlight">\(B_1(k_f, k_z)\)</span> shown above, which results in the spectral-spatial profile shown below:</p>
@@ -531,7 +538,7 @@ loading signal
 </div>
 </div>
 <p>Watch how the transverse magnetization evolves during the spectral-spatial RF pulse:</p>
-<p><img alt="spectral_spatial_RF_animation.gif" src="attachment:spectral_spatial_RF_animation.gif" /></p>
+<p><img alt="spectral_spatial_RF_animation.gif" src="_images/spectral_spatial_RF_animation.gif" /></p>
 </div>
 
     <script type="text/x-thebe-config">

@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['% contrast_phantom', '', '', 'Nphan = 3;', '% phantom parameters']
+['% TE contrast', '', 'TE = linspace(0,200); % ms', 'T2v = [1;10;20;80;160];', '[T2 TE] = meshgrid(T2v,TE);']
 ...
-['imagesc(abs(m)), colormap(gray), axis equal tight', "title(['TE = ' int2str(TE) ', TR = ' int2str(TR)])", '', 'end', 'end']
+['', 'mesh(T2,TE,S_TE)', 'view([155 30])', "ylabel('TE (ms)'), xlabel('T_2 (ms)'), zlabel('signal')", 'colorbar']
 -------------------
 
