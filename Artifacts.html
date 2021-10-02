@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artifacts &#8212; Principles of MRI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RF Pulses" href="RF%20Pulses.html" />
+    <link rel="prev" title="Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Signal%20Equation.html">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Artifacts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Artifacts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FArtifacts.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/Artifacts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#artifact-comparison">
+   Artifact Comparison
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-of-artifacts">
+   Simulations of Artifacts
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="artifacts">
+<h1>Artifacts<a class="headerlink" href="#artifacts" title="Permalink to this headline">¶</a></h1>
+<p>This notebook includes a simulation of various MRI artifacts, as well as a high-level <a class="reference external" href="#Artifact-Comparison">Artifact Comparison</a> below.</p>
+<div class="section" id="artifact-comparison">
+<h2>Artifact Comparison<a class="headerlink" href="#artifact-comparison" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Artifact Name</p></th>
+<th class="head"><p>Appearance</p></th>
+<th class="head"><p>Frequency or Phase encoding</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Aliasing</p></td>
+<td><p>Signal folds across image</p></td>
+<td><p>Phase encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spike Noise</p></td>
+<td><p>Specific spatial frequency on top of entire image</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Gibbs Ringing/Truncation</p></td>
+<td><p>Ripples/ringing at sharp edges</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>RF interference/Zipper</p></td>
+<td><p>Line of noisy signal on top of image</p></td>
+<td><p>At a specific frequency encoding location</p></td>
+</tr>
+<tr class="row-even"><td><p>Motion/Flow</p></td>
+<td><p>Copies or “Ghosts” of image regions that are changing due to motion or flow</p></td>
+<td><p>Phase encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p>Displacement</p></td>
+<td><p>Shifts in image due to chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
+</tr>
+<tr class="row-even"><td><p>T2*</p></td>
+<td><p>Signal loss around magnetic suscpetibility differences (e.g. implants, air)</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Slice Misregistration</p></td>
+<td><p>Slice shifting due to chemical shift or off-resonance</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Dielectric Shading</p></td>
+<td><p>Shading across entire image, particularly large FOV, higher B0</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boundary Artifacts</p></td>
+<td><p>Artificial dark lines at tissue boundaries due to inversion or chemical shift</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Gradient non-linearity</p></td>
+<td><p>Distortion of subject, particularly near edges of large FOV</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="simulations-of-artifacts">
+<h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% load k-space data</span>
+<span class="n">dataname</span> <span class="p">=</span> <span class="s">&#39;se_t1_sag_data&#39;</span><span class="p">;</span>
+<span class="nb">load</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
+<span class="n">kdata</span> <span class="p">=</span> <span class="n">data</span><span class="p">;</span>
+<span class="n">S</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+
+<span class="n">im_original</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: load: &#39;/home/runner/work/MRI-education-resources/MRI-education-resources/Data/se_t1_sag_data.mat&#39; found by searching load path
+</pre></div>
+</div>
+<img alt="_images/Artifacts_5_1.png" src="_images/Artifacts_5_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% spike noise</span>
+<span class="n">spike_location</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">53</span><span class="p">];</span>
+
+<span class="n">data_spike</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">data_spike</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_spike</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">);</span>
+
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_spike</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_6_0.png" src="_images/Artifacts_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% RF interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.6</span><span class="p">;</span>
+
+<span class="c">%single frequency, phase modulated</span>
+<span class="n">ph_int</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">rfint</span><span class="p">,</span> <span class="p">[</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span> <span class="o">.*</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">ph_int</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)]);</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_7_0.png" src="_images/Artifacts_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate amplitude modulated interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">rfint</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_9_0.png" src="_images/Artifacts_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency modulated interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">f</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="n">f</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_10_0.png" src="_images/Artifacts_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% aliasing</span>
+<span class="n">N_undersamp</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c">% &gt;= 1</span>
+<span class="n">data_undersamp</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">Iundersamp</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_undersamp</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">data_undersamp</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:)</span> <span class="p">=</span> <span class="n">kdata</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:);</span>
+<span class="n">im_undersamp</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">);</span>
+
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_undersamp</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_11_0.png" src="_images/Artifacts_11_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Signal%20to%20Noise%20Ratio.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Signal to Noise Ratio (SNR)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="RF%20Pulses.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">RF Pulses</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
