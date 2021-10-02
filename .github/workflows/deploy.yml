@@ -23,7 +23,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install packages
-      run |
+      run: |
         xargs sudo apt-get install <apt.txt 
     - name: Install dependencies
       run: |
