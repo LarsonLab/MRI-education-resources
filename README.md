@@ -3,6 +3,8 @@ Resources for learning the principles of magnetic resonance imaging (MRI)
 
 Currently MATLAB based functions and demonstrations (Octave compatible too)
 
+Please cite as:  MRI-education-resources, [doi: 10.5281/zenodo.5547020](https://doi.org/10.5281/zenodo.5547020)
+
 ## Interactive Book
 
 Included in this repository are the contents of an interactive book that uses many of the functions contained.  The content of the book is saved in `Notebooks/`, and can be viewed at 
