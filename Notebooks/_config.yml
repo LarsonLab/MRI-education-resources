@@ -21,13 +21,16 @@ latex:
 repository:
   url: https://github.com/larsonlab/MRI-education-resources  # Online location of your book
   path_to_book: Notebooks  # Optional path to your book, relative to the repository root
-  branch: jupyter-book  # Which branch of the repository should be used when creating links (optional)
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
+  extra_footer              : Citation - DOI: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
+  google_analytics_id       : "UA-51903906-1"  # A GA id that can be used to track book views.
 
 
 description: >- # this means to ignore newlines until "baseurl:"
