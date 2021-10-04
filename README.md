@@ -3,10 +3,19 @@ Resources for learning the principles of magnetic resonance imaging (MRI)
 
 Currently MATLAB based functions and demonstrations (Octave compatible too)
 
-## Notebook Demos
-**View notebooks using the tools and interact with these resources thanks to the Binder project**
+## Interactive Book
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LarsonLab/MRI-education-resources/master?filepath=Notebooks)
+Included in this repository are the contents of an interactive book that uses many of the functions contained.  The content of the book is saved in `Notebooks/`, and can be viewed at 
+
+<!-- 
+[![Principles of MRI book](Notebooks/images/HPBrain-Anime.png)](https://larsonlab.github.io/MRI-education-resources)
+-->
+
+[:blue_book: Principles of MRI](https://larsonlab.github.io/MRI-education-resources)
+
+All of the notebooks used to create interactive book can also be viewed and run online, thanks to the Binder project:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LarsonLab/MRI-education-resources/main?filepath=Notebooks)
 
 ## Spin Physics and Magnetic Resonance Simulators
 * http://drcmr.dk/BlochSimulator/
