@@ -11,7 +11,7 @@ Included in this repository are the contents of an interactive book that uses ma
 [![Principles of MRI book](Notebooks/images/HPBrain-Anime.png)](https://larsonlab.github.io/MRI-education-resources)
 -->
 
-[:blue_book: Principles of MRI](https://larsonlab.github.io/MRI-education-resources)
+[**Principles of MRI**](https://larsonlab.github.io/MRI-education-resources) [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
 
 All of the notebooks used to create interactive book can also be viewed and run online, thanks to the Binder project:
 
