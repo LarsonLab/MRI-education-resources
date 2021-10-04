@@ -438,25 +438,22 @@ B_Z(\vec{r},t)
 <h2>Equilibrium Magnetization<a class="headerlink" href="#equilibrium-magnetization" title="Permalink to this headline">¶</a></h2>
 <p>At equilibrium the net magnetization, <span class="math notranslate nohighlight">\(\vec{M} = [0,0,M_0]^T\)</span> is oriented in the direction of the main magnetic field, <span class="math notranslate nohighlight">\(\vec{B} = [0,0,B_0]^T\)</span> (by convention along the z-axis) and has an amplitude of:</p>
 <div class="math notranslate nohighlight">
-\[M_0 = \frac{N \gamma^2 \hbar^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+\[M_0 = \frac{N \bar{\gamma}^2 \hbar^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
 <p><span class="math notranslate nohighlight">\(N\)</span> spin density</p>
 <p><span class="math notranslate nohighlight">\(\hbar\)</span> Planck’s constant</p>
-<p><span class="math notranslate nohighlight">\(\gamma\)</span> gyromagnetic ratio</p>
+<p><span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> gyromagnetic ratio</p>
 <p><span class="math notranslate nohighlight">\(B_0\)</span> magnetic field</p>
 <p><span class="math notranslate nohighlight">\(I_Z\)</span> spin number (1/2 for hydrogen)</p>
 <p>k = Boltzmann’s constant (8.62e-5 eV/K or 1.38e-23 J/K)</p>
 <p>T = temperature (human body temperature = 310 K)</p>
 <div class="section" id="boltzman-distribution">
 <h3>Boltzman distribution<a class="headerlink" href="#boltzman-distribution" title="Permalink to this headline">¶</a></h3>
-<p>This is the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_\downarrow\)</span>, states.  This can also be used to derive the equilibrium magnetization above.</p>
-<div class="math notranslate nohighlight">
-\[\frac{N_\uparrow}{N_\downarrow} = e^{\hbar \gamma B_0 / kT}\]</div>
-<p>From this distribtion, the “Polarization” can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:</p>
-<div class="math notranslate nohighlight">
-\[\frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-\hbar \gamma B_0 / kT} }{ 1 + e^{-\hbar \gamma B_0 / kT} }\]</div>
-<p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
-<div class="math notranslate nohighlight">
-\[\frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \gamma B_0}{2 kT}\]</div>
+<p>This is the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states.  This can also be used to derive the equilibrium magnetization above.
+$<span class="math notranslate nohighlight">\( \frac{N_\uparrow}{N_\downarrow} = e^{\hbar \bar{\gamma} B_0 / kT}\)</span>$</p>
+<p>From this distribtion, the “Polarization” can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:
+$<span class="math notranslate nohighlight">\( \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-\hbar \bar{\gamma} B_0 / kT} }{ 1 + e^{-\hbar \bar{\gamma} B_0 / kT} }\)</span><span class="math notranslate nohighlight">\( 
+If the exponent is small (or, when the polarization is low), this simplifies to
+\)</span><span class="math notranslate nohighlight">\( \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT}\)</span>$</p>
 </div>
 </div>
 <div class="section" id="bloch-equation">
