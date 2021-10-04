@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Up the MRI Signal Equation &#8212; Principles of MRI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spatial Encoding" href="Spatial%20Encoding.html" />
+    <link rel="prev" title="MRI Contrast" href="MRI%20Contrast.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Artifacts.html">
+   Artifacts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/MRI Signal Equation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMRI Signal Equation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/MRI Signal Equation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signal-equation">
+   Signal Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#idealized-signal-equation">
+   Idealized Signal Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-coil-sensitivity">
+   Adding Coil Sensitivity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relaxation-during-signal-acquisition">
+   Relaxation during signal acquisition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#off-resonance-and-chemical-shift">
+   Off-resonance and Chemical Shift
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-space-data-weighting">
+   K-space Data Weighting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-up-the-mri-signal-equation">
+<h1>Building Up the MRI Signal Equation<a class="headerlink" href="#building-up-the-mri-signal-equation" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this notebook is to build up, with increasing complexity, the MRI signal equation.  For the purposes of learning and understanding many parts of MRI, it is useful to use simplified versions of the MRI signal equation.</p>
+<div class="section" id="signal-equation">
+<h2>Signal Equation<a class="headerlink" href="#signal-equation" title="Permalink to this headline">¶</a></h2>
+<p>We can start with the most intimidating version, a full version of signal equation, including relaxation, coil sensitivity, off-resonance and chemical shift, and gradients.</p>
+<p><span class="math notranslate nohighlight">\(\vec{r} = [x, y, z]^T\)</span> position in space</p>
+<p><span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r}, t=0)\)</span> initial transverse magnetization</p>
+<p><span class="math notranslate nohighlight">\(C_n(\vec{r})\)</span> receive coil sensitivity profile of the <span class="math notranslate nohighlight">\(n\)</span>th coil (complex valued)</p>
+<p><span class="math notranslate nohighlight">\(T_2^*(\vec{r})\)</span> relaxation rate</p>
+<p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r})\)</span> magnetic field inhomogeneity (macroscopic), including main field imperfections, and magnetic susceptibility effects</p>
+<p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p>
+<p><span class="math notranslate nohighlight">\(\vec{G}(t) = [G_X(t), G_Y(t), G_Z(t)]^T \)</span> magnetic field gradients</p>
+<p><span class="math notranslate nohighlight">\(\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau\)</span> k-space trajectory</p>
+<p>The signal from an individual RF coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}\]</div>
+<p>which is typically simplified for understanding image formation using k-space:</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>Note that this describes the signal behavior between RF pulses.  Incorporating RF pulses can be done either through rotation matrices or some solution of the Bloch equation.</p>
+</div>
+<div class="section" id="idealized-signal-equation">
+<h2>Idealized Signal Equation<a class="headerlink" href="#idealized-signal-equation" title="Permalink to this headline">¶</a></h2>
+<p>In many situations, an idealized signal equation is useful, particularly for understanding image formation.  In the idealized signal equation, we neglect relaxation, RF coil profile, and off-resonance, yielding</p>
+<div class="math notranslate nohighlight">
+\[s(t) = \int m(\vec{r}) \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}\]</div>
+<p>Simplified using k-space, we have</p>
+<div class="math notranslate nohighlight">
+\[s(t) = \int m(\vec{r})\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>From this idealized formulation, it is easiest to see that the signal is the Fourier Transform of the object:</p>
+<div class="math notranslate nohighlight">
+\[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)}\]</div>
+<p>Simplified using the notation <span class="math notranslate nohighlight">\(M(\vec{k}) = \mathcal{F}\{m(\vec{r}) \}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[s(t) = M(\vec{k}(t))\]</div>
+</div>
+<div class="section" id="adding-coil-sensitivity">
+<h2>Adding Coil Sensitivity<a class="headerlink" href="#adding-coil-sensitivity" title="Permalink to this headline">¶</a></h2>
+<p>From the idealized signal equation, the RF coil receive profile simply modulates the transverse magnetization, and the received signal for coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>And the signal is once again the Fourier Transform of the object, but now multiplied by the coil sensitivity:</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \mathcal{F}\{m(\vec{r}) \ C_n(\vec{r}) \} |_{\vec{k} = \vec{k}(t)}\]</div>
+</div>
+<div class="section" id="relaxation-during-signal-acquisition">
+<h2>Relaxation during signal acquisition<a class="headerlink" href="#relaxation-during-signal-acquisition" title="Permalink to this headline">¶</a></h2>
+<p>Starting with the idealized signal equation, we can add in relaxation, which modulates the receieved signal over time.  This will create some type of weighting in k-space, which leads to image filtering (often blurring).  This weighting is spatially varying, depending on relaxation of different tissues.</p>
+<!-- $$s(t) = \int m(\vec{r}) \ e^{-t/T_2^*(\vec{r})}\  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}$$ -->
+<div class="math notranslate nohighlight">
+\[s(t) = \int m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>To interpret the effect of relaxation, consider a single value of <span class="math notranslate nohighlight">\(T_2^*(\vec{r}) = T_2^*\)</span>, in which case this can be removed from the integral and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}s(t) = e^{-t/T_2^*} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \\
+ = M(\vec{k}(t))\  e^{-t/T_2^*} \end{split}\]</div>
+<p>From this, we can see that relaxation leads to signal amplitude modulation as we acquire data across k-space.  To see the effect on image formation, we determine the function <span class="math notranslate nohighlight">\(\upsilon (\vec{k})\)</span> which captures across k-space trajectory in time and across all TRs to characterize this modulation:</p>
+<div class="math notranslate nohighlight">
+\[\hat{M}(\vec{k}) = M(\vec{k}) e^{- \upsilon(\vec{k}) / T_2^*}\]</div>
+<p>Examples of <span class="math notranslate nohighlight">\(\upsilon(\vec{k})\)</span> are shown below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Example of k-space trajectory time weighting functions, upsilon</span>
+
+<span class="c">% Cartesian</span>
+
+<span class="c">% kx(t)  = gammabar Gxr (t-TE)</span>
+<span class="c">% upsilon(k) = t = kx/gamma*Gxr + TE</span>
+
+<span class="nb">gamma</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">%kHz/mT</span>
+<span class="n">N</span> <span class="p">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% ms</span>
+<span class="n">TE</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c">% ms</span>
+<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
+
+<span class="n">Gxr</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="nb">gamma</span><span class="p">);</span>
+
+<span class="n">kx0</span> <span class="p">=</span> <span class="nb">gamma</span><span class="o">*</span><span class="n">Gxr</span><span class="o">*</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">[</span><span class="n">kx</span> <span class="n">ky</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">kx0</span><span class="p">,</span><span class="n">kx0</span><span class="p">);</span>
+
+<span class="n">upsilon_Cartesian</span> <span class="p">=</span> <span class="n">kx</span> <span class="o">/</span> <span class="p">(</span><span class="nb">gamma</span><span class="o">*</span><span class="n">Gxr</span><span class="p">)</span> <span class="o">+</span> <span class="n">TE</span><span class="p">;</span> 
+
+<span class="c">% more simply, upsilon is time to readout single line of k-space</span>
+<span class="c">%upsilon = repmat(t + TE, [1 N]);</span>
+
+<span class="nb">figure</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">upsilon_Cartesian</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Cartesian time weighting, \upsilon(k)&#39;</span><span class="p">)</span>
+
+<span class="c">% EPI</span>
+
+<span class="c">% add ky weighting as</span>
+<span class="c">% ky(t) = tesp * dky</span>
+<span class="n">tesp</span> <span class="p">=</span> <span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span> <span class="c">% simplified, assuming no deadtime between ky lines</span>
+<span class="n">TE</span> <span class="p">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">tesp</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="c">% time for all data acquisition</span>
+<span class="n">tall</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span>^<span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">TE</span><span class="p">;</span>
+
+<span class="n">upsilon_EPI</span> <span class="p">=</span> <span class="nb">reshape</span><span class="p">(</span><span class="n">tall</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span> <span class="n">N</span><span class="p">]).</span><span class="o">&#39;</span><span class="p">;</span> 
+
+<span class="nb">figure</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">upsilon_EPI</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Echo-planar time weighting, \upsilon(k)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>** Warning: Cannot interrupt Octave on Windows
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">End Of File (EOF).</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;pexpect.popen_spawn.PopenSpawn object at 0x000001CFD8C22708&gt;</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">searcher: searcher_re:</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">    0: re.compile(&#39;PEXPECT_PROMPT&gt;&#39;)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">    1: re.compile(&#39;\r\n&#39;)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus the reconstructed image will corrupted by a convolution (denoted by <span class="math notranslate nohighlight">\(*\)</span>) based on the k-space amplitude weighting</p>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}) = \mathcal{F}^{-1} \{ \hat{M}(\vec{k})\} = m(\vec{r}) * \mathcal{F}^{-1} \{ e^{-\upsilon(\vec{k})/  T_2^*} \}\]</div>
+<p>This convolution can result in blurring (low-pass filtering) for center-out type trajectories, or high-pass filtering (e.g. edge enhancement but overall SNR loss) when starting at the edge of k-space.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Convolution kernels for T2* weighting</span>
+
+<span class="n">T2s</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c">% ms</span>
+
+<span class="n">W_Cartesian</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">upsilon_Cartesian</span><span class="o">/</span><span class="n">T2s</span><span class="p">));</span>
+<span class="n">W_EPI</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">upsilon_EPI</span><span class="o">/</span><span class="n">T2s</span><span class="p">));</span>
+
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">[</span><span class="n">x</span> <span class="n">y</span> <span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">x0</span><span class="p">);</span>
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_Cartesian</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Cartesian convolution kernel, T_2^* =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">T2s</span><span class="p">)</span> <span class="s">&#39; ms&#39;</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_EPI</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;EPI convolution kernel, T_2^* =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">T2s</span><span class="p">)</span> <span class="s">&#39; ms&#39;</span><span class="p">])</span>
+
+<span class="n">T2s</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c">% ms</span>
+
+<span class="n">W_Cartesian</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">upsilon_Cartesian</span><span class="o">/</span><span class="n">T2s</span><span class="p">));</span>
+<span class="n">W_EPI</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">upsilon_EPI</span><span class="o">/</span><span class="n">T2s</span><span class="p">));</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_Cartesian</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Cartesian convolution kernel, T_2^* =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">T2s</span><span class="p">)</span> <span class="s">&#39; ms&#39;</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_EPI</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;EPI convolution kernel, T_2^* =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">T2s</span><span class="p">)</span> <span class="s">&#39; ms&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/MRI Signal Equation_8_0.png" src="_images/MRI Signal Equation_8_0.png" />
+<img alt="_images/MRI Signal Equation_8_1.png" src="_images/MRI Signal Equation_8_1.png" />
+</div>
+</div>
+<p>In the above plots, the height of the main peak in the center represents the expected SNR, including losses due to blurring, while the signal amplitude outside of the main peak represents blurring that will occur.   These show that the blurring and signal loss from <span class="math notranslate nohighlight">\(T_2^*\)</span> gets worse as the relaxation time is shorter, the blurring it is much worse for EPI (in phase encoding direction) versus Cartesian trajectories.</p>
+</div>
+<div class="section" id="off-resonance-and-chemical-shift">
+<h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Permalink to this headline">¶</a></h2>
+<p>Off-resonance and chemical shift lead to changes in the precession frequency of the magnetization.  We can add this onto the idealized signal equation.</p>
+<!-- $$s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$ -->
+<p>For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>Solving for the effect of frequency shifts then requires specific knowledge of the k-space trajectory, and the interaction of a spatially varying field further complicates this effect.  However, some intuition can be gained by assuming a single frequency shift, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_0\)</span>, which can then be removed from the integral as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}s(t) = e^{-i 2 \pi \Delta f_0 t} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \\
+ = M(\vec{k}(t))\  e^{-i 2 \pi \Delta f_0 t} \end{split}\]</div>
+<p>From this, we can see that the frequency shift leads to a phase accumulation as we acquire data across k-space.  To see the effect on image formation, we determine the function <span class="math notranslate nohighlight">\(\upsilon (\vec{k})\)</span> which captures across k-space trajectory in time and across all TRs to characterize this phase accumulation:</p>
+<div class="math notranslate nohighlight">
+\[\hat{M}(\vec{k}) = M(\vec{k}) e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0}\]</div>
+<p>Thus the reconstructed image will corrupted by a convolution based on the k-space phase accumulation</p>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}) = \mathcal{F}^{-1} \{ \hat{M}(\vec{k})\} = m(\vec{r}) * \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0} \}\]</div>
+<p>This convolution results in a shift for Cartesian and echo-planar sampling, and blurring for spiral and radial sampling.</p>
+<p>This analysis can also be applied to look at the effect from off-resonance at a single location, <span class="math notranslate nohighlight">\(\vec{r} = \vec{r}_0\)</span>
+$<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r}_0) \} |_{\vec{k} = \vec{k}(t)}  e^{-i 2 \pi \Delta f(\vec{r}_0) t} \)</span>$</p>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}_0) = m(\vec{r}_0) \star \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f(\vec{r}_0)} \}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Convolution kernels for off-resonance weighting</span>
+
+<span class="n">df</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">tesp</span><span class="p">);</span> <span class="c">% kHz</span>
+
+<span class="n">W_Cartesian</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">df</span><span class="o">*</span><span class="n">upsilon_Cartesian</span><span class="p">));</span>
+<span class="n">W_EPI</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">df</span><span class="o">*</span><span class="n">upsilon_EPI</span><span class="p">));</span>
+
+<span class="n">x0</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">[</span><span class="n">x</span> <span class="n">y</span> <span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">x0</span><span class="p">);</span>
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_Cartesian</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Cartesian convolution kernel, \Delta f =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">df</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span> <span class="s">&#39; Hz&#39;</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_EPI</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;EPI convolution kernel, \Delta f=&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">df</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span> <span class="s">&#39; Hz&#39;</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="p">=</span> <span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">tesp</span><span class="p">);</span> <span class="c">% kHz</span>
+
+<span class="n">W_Cartesian</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">df</span><span class="o">*</span><span class="n">upsilon_Cartesian</span><span class="p">));</span>
+<span class="n">W_EPI</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">df</span><span class="o">*</span><span class="n">upsilon_EPI</span><span class="p">));</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_Cartesian</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Cartesian convolution kernel, \Delta f =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">df</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span> <span class="s">&#39; Hz&#39;</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">mesh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">W_EPI</span><span class="p">))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;EPI convolution kernel, \Delta f =&#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">df</span><span class="o">*</span><span class="mf">1e3</span><span class="p">)</span> <span class="s">&#39; Hz&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/MRI Signal Equation_11_0.png" src="_images/MRI Signal Equation_11_0.png" />
+<img alt="_images/MRI Signal Equation_11_1.png" src="_images/MRI Signal Equation_11_1.png" />
+</div>
+</div>
+<p>For frequency shift, the main peak of the convolution kernels is shifted frfom the origin.  This will result in a shift in the reconstructed image.  The shift is much larger for EPI and is in the phase encoding instead of the frequency encoding direction.  (The residual side lobes are due to sinc interpolation effects, similar to Gibbs ringing.)</p>
+</div>
+<div class="section" id="k-space-data-weighting">
+<h2>K-space Data Weighting<a class="headerlink" href="#k-space-data-weighting" title="Permalink to this headline">¶</a></h2>
+<p>As shown in the relaxation and frequency shift cases above, a powerful framework for characterizing their effects is to define a k-space weighting that determines the signal modulation.  Expressing this generally, define a weighting function
+<span class="math notranslate nohighlight">\(W(\vec{k})\)</span> that can be complex valued and capture amplitude and phase modulations.  Then,</p>
+<div class="math notranslate nohighlight">
+\[\hat{M}(\vec{k}) = M(\vec{k}) W(\vec{k}) \]</div>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} \{ W(\vec{k}) \} = m(\vec{r}) * w(\vec{r})\]</div>
+<p>Where <span class="math notranslate nohighlight">\(w(\vec{r})\)</span> is the inverse Fourier Transform of the weighting function.Thus the effects can be boiled down to a convolution operation in the resulting reconstructed image.</p>
+<p>When the frequency shift and relaxation rates vary across space, it is helpful to decompose the image into components, <span class="math notranslate nohighlight">\(m_i\)</span> that experience the same weighting (e.g. same frequency shift, or same <span class="math notranslate nohighlight">\(T_2^*\)</span>) <span class="math notranslate nohighlight">\(W_i\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ m(\vec{r}) = \sum_i m_i(\vec{r}) \]</div>
+<p>Since the Fourier Transform is linear,</p>
+<div class="math notranslate nohighlight">
+\[\hat{M}(\vec{k}) = \sum_i M_i(\vec{k}) W_i(\vec{k}) \]</div>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}) =\sum_i m_i(\vec{r}) * w_i(\vec{r})\]</div>
+<p>So each component is convolved with its own convolution kernel.  For example, to analyze chemical shift we can divide our image up into water, <span class="math notranslate nohighlight">\(m_1(\vec{r})\)</span>, and fat, <span class="math notranslate nohighlight">\(m_2(\vec{r})\)</span>, components, then <span class="math notranslate nohighlight">\(W_1(\vec{k}) = 1\)</span>, <span class="math notranslate nohighlight">\(W_2(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_{fat}}\)</span>, and the resulting image will be</p>
+<div class="math notranslate nohighlight">
+\[\hat{m}(\vec{r}) = m_1(\vec{r}) + m_2(\vec{r}) * w_2(\vec{r})\]</div>
+<p>providing an accurate image of thw water component but some corrupted fat image (typically shifted in space for Cartesian trajectories).</p>
+<p>The k-space data weighting concept is very powerful.  It can include frequency shifts. It can include weighting from all types of relaxation (<span class="math notranslate nohighlight">\(T_1, T_2, T_2^*\)</span>) from more complex acquisition strategies such as SSFP and fast spin-echos.  It can include diffusion-weighting, flow effects, and more</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="MRI%20Contrast.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MRI Contrast</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="Spatial%20Encoding.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Spatial Encoding</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

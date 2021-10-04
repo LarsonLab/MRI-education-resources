@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: Introduction
+parts:
+  - caption: Primers
+    chapters:
+    - file: "MRI Notation"
+    - file: "MRI Math Concepts"
+  - caption: MR Physics
+    chapters:
+    - file: "Magnetic Fields and RF Coils"
+    - file: "MR Physics - Bloch Equation"
+    - file: "MRI Contrast"
+  - caption: Image Formation
+    chapters:
+    - file: "MRI Signal Equation"
+    - file: Spatial Encoding
+    - file: Signal to Noise Ratio
+    - file: Artifacts
+  - caption: RF Pulses
+    chapters:
+    - file: "RF Pulses"
+    - file: Spectral-Spatial RF Pulses
+    - file: "Fun with RF Pulses"
