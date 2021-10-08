@@ -343,6 +343,16 @@
    Fourier Transform Identities and Pairs
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#point-spread-function">
+   Point Spread function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-fourier-transform">
+   Discrete Fourier Transform
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -407,8 +417,9 @@ $<span class="math notranslate nohighlight">\(\mathrm{rect}(x) = \sqcap(x) =
 <img alt="_images/MRI Math Concepts_4_0.png" src="_images/MRI Math Concepts_4_0.png" />
 </div>
 </div>
-<p>Sinc (normalized)
-$<span class="math notranslate nohighlight">\(\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\)</span>$</p>
+<p>Sinc (normalized)</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
@@ -429,8 +440,11 @@ $<span class="math notranslate nohighlight">\(\mathrm{sinc}(x) = \frac{\sin(\pi 
 </div>
 <div class="section" id="convolution">
 <h2>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h2>
-<p>The convolution operation <span class="math notranslate nohighlight">\(\ast\)</span>, is defined as:
-$<span class="math notranslate nohighlight">\( g(x) \ast h(x) = \int_{-\infty}^\infty g(x-\tau) h(\tau) d\tau\)</span>$</p>
+<p>The convolution operation <span class="math notranslate nohighlight">\(\ast\)</span>, is defined as:</p>
+<div class="math notranslate nohighlight">
+\[ g(x) \ast h(x) = \int_{-\infty}^\infty g(x-\tau) h(\tau) d\tau\]</div>
+<p>The intuition of convolution is that one of functions is reversed, slid in the convolution dimension relative to the other function, and the area of the functions multiplied at each location is the output, which is nicely illustrated in this example from <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">https://en.wikipedia.org/wiki/Convolution</a></p>
+<p><img alt="Convolution Illustration" src="images%5CConvolution_of_box_signal_with_itself2.gif" /></p>
 </div>
 <div class="section" id="fourier-transforms">
 <h2>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">¶</a></h2>
@@ -488,7 +502,7 @@ $<span class="math notranslate nohighlight">\( g(x) \ast h(x) = \int_{-\infty}^\
 <td><p><span class="math notranslate nohighlight">\(\mathrm{sinc}(k_x)\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(f(ax)\)</span></p></td>
-<td><p>$\frac{1}{</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{\|a\|} F(\frac{k_x}{a})\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(a \cdot f(x) + b \cdot g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(a \cdot F(k_x) + b \cdot G(k_x)\)</span></p></td>
@@ -539,6 +553,12 @@ $<span class="math notranslate nohighlight">\( g(x) \ast h(x) = \int_{-\infty}^\
 <img alt="_images/MRI Math Concepts_11_5.png" src="_images/MRI Math Concepts_11_5.png" />
 </div>
 </div>
+</div>
+<div class="section" id="point-spread-function">
+<h2>Point Spread function<a class="headerlink" href="#point-spread-function" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="discrete-fourier-transform">
+<h2>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
