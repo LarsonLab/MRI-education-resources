@@ -6,4 +6,3 @@ octave-symbolic
 octave-miscellaneous
 liboctave-dev
 gnuplot
-ghostscript
