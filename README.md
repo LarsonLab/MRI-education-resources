@@ -39,6 +39,7 @@ All of the notebooks used to create interactive book can also be viewed and run 
 * _Handbook of MRI Pulses Sequences_ by Bernstein, King, Zhou. http://www.sciencedirect.com/science/book/9780120928613.  Essential for advanced MRI work.
 
 ### Lectures
+* [UCSF Biomedical Imaging 201: Principles of MRI](https://www.youtube.com/playlist?list=PLjBt5Iq93BT9eXMsgevVTXKVv4BgVLB1X)
 * [MRI Course Lectures from Albert Einstein School of Medicine](https://www.youtube.com/playlist?list=PLPcImQzEnTpz-5TzxyyoYSbiAa9xdd89l)
 
 
