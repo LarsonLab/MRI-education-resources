@@ -10,6 +10,10 @@ This book jumps pretty quickly into concepts, for a quick overview of MRI, here'
 
 [How MRI Works (Explained In under 10 minutes)](https://youtu.be/1Ku6-uXw7Ag)
 
+You can also access a full playlist of my lectures
+
+[Principles of MRI Recorded Lectures](https://www.youtube.com/playlist?list=PLjBt5Iq93BT9eXMsgevVTXKVv4BgVLB1X)
+
 ## Acknowledgements
 
 This book is greatly influenced by many other great resources that I want to acknowledge up front:
