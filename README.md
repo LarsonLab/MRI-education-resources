@@ -13,7 +13,9 @@ Included in this repository are the contents of an interactive book that uses ma
 [![Principles of MRI book](Notebooks/images/HPBrain-Anime.png)](https://larsonlab.github.io/MRI-education-resources)
 -->
 
-[**Principles of MRI**](https://larsonlab.github.io/MRI-education-resources) [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
+> [**Principles of MRI**](https://larsonlab.github.io/MRI-education-resources) 
+>
+> [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
 
 All of the notebooks used to create interactive book can also be viewed and run online, thanks to the Binder project:
 
@@ -33,9 +35,11 @@ All of the notebooks used to create interactive book can also be viewed and run 
 ### Textbooks
 * _Principles of Magnetic Resonance Imaging_ by Dwight Nishimura.  MRI from a signal processing perspective, Available from lulu.com: [Paperback](https://www.lulu.com/shop/dwight-nishimura/principles-of-magnetic-resonance-imaging/paperback/product-6355103.html) or [Hardcover](http://www.lulu.com/shop/dwight-nishimura/principles-of-magnetic-resonance-imaging/hardcover/product-6355112.html)
 * _MRI: The Basics_ by Ray H. Hashemi, Christopher J. Lisanti, William Bradley.  Understanding MRI with simplified interpretations, with helpful illustrations and image examples.
+* _MRI from Picture to Proton_ by Donald W. McRobbie, Elizabeth A. Moore, Martin J. Graves, Martin R. Prince.  https://doi.org/10.1017/9781107706958.  Broad coverage of MRI topics with lots of useful imaging examples as well as some humour.
 * _Handbook of MRI Pulses Sequences_ by Bernstein, King, Zhou. http://www.sciencedirect.com/science/book/9780120928613.  Essential for advanced MRI work.
 
 ### Lectures
+* [UCSF Biomedical Imaging 201: Principles of MRI](https://www.youtube.com/playlist?list=PLjBt5Iq93BT9eXMsgevVTXKVv4BgVLB1X)
 * [MRI Course Lectures from Albert Einstein School of Medicine](https://www.youtube.com/playlist?list=PLPcImQzEnTpz-5TzxyyoYSbiAa9xdd89l)
 
 
