@@ -4,7 +4,7 @@ on:
   # Trigger the workflow on push to main branch
   push:
     branches:
-      - gh-pages-debug
+      - main
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -33,6 +33,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
+        jupyter-book clean
         jupyter-book build Notebooks
 
     # Deploy the book's HTML to gh-pages branch
