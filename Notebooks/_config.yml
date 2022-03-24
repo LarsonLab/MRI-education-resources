@@ -28,9 +28,12 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
+  extra_navbar              : >-
+    <a href="https://jupyterbook.org">Larson Advanced Imaging Group</a>
+    Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
   extra_footer              : Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
   google_analytics_id       : "UA-51903906-1"  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
 
 
 description: >- # this means to ignore newlines until "baseurl:"
