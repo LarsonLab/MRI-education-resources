@@ -396,8 +396,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The MRI signal is also proportional to the transverse magnetization, including modulation that occurs due to pulse sequence parameters such as TE, TR, flip angle, spin-echo versus gradient-echo, etc.  This is then also varying depending on the MR properties such as proton density, relaxation rates, diffusion coefficients, etc.  Since this varies widely by pulse sequence, we summarize this as</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto f_{seq}\]</div>
-<p>For example, in a simple spoiled gradient-echo pulse sequence,
-$<span class="math notranslate nohighlight">\(f_{seq} = M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\)</span>$</p>
+<p>For example, in a simple spoiled gradient-echo pulse sequence,</p>
+<div class="math notranslate nohighlight">
+\[f_{seq} = M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
 </div>
 <div class="section" id="snr-equation">
 <h2>SNR Equation<a class="headerlink" href="#snr-equation" title="Permalink to this headline">¶</a></h2>
