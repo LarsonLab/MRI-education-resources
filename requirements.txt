@@ -3,4 +3,3 @@ matplotlib
 numpy
 octave-kernel
 ghp-import
-liboctave-dev
