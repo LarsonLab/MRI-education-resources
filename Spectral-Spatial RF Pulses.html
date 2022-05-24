@@ -319,12 +319,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
 <span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
 <span class="n">startup</span>
+
+<span class="c">% trick to compile abr() mex file</span>
+<span class="n">abr</span><span class="p">([</span><span class="mi">1</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: trying to compile MEX file from /home/runner/work/MRI-education-resources/MRI-education-resources/RF Pulses/rf_tools/mex_files/abrx.c
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: MEX file now compiled, re-run code
+error: called from
+    abrx at line 31 column 1
+    abr at line 31 column 12
 </pre></div>
 </div>
 </div>
@@ -449,19 +461,7 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: trying to compile MEX file from /home/runner/work/MRI-education-resources/MRI-education-resources/RF Pulses/rf_tools/mex_files/abrx.c
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: MEX file now compiled, re-run code
-error: called from
-    abrx at line 31 column 1
-    abr at line 31 column 12
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;mxy_f&#39; undefined near line 1 column 14
-</pre></div>
-</div>
-<img alt="_images/Spectral-Spatial RF Pulses_6_3.png" src="_images/Spectral-Spatial RF Pulses_6_3.png" />
+<img alt="_images/Spectral-Spatial RF Pulses_6_0.png" src="_images/Spectral-Spatial RF Pulses_6_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
