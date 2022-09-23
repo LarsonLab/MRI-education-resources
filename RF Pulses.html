@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>RF Pulses &#8212; Principles of MRI</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -74,7 +73,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -83,9 +96,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -103,14 +117,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   Introduction to Principles of MRI
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction to Principles of MRI
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Primers
  </span>
@@ -200,107 +215,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="https://larsonlab.github.io">Larson Advanced Imaging Research Group</a> Powered by <a href="https://jupyterbook.org">Jupyter Book</a> 
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/RF Pulses.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FRF Pulses.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/main?urlpath=tree/Notebooks/RF Pulses.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="https://larsonlab.github.io">Larson Advanced Imaging Research Group</a> Powered by <a href="https://jupyterbook.org">Jupyter Book</a> 
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/main?urlpath=tree/Notebooks/RF Pulses.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/larsonlab/MRI-education-resources"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FRF Pulses.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/RF Pulses.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rf-pulse-properties">
    RF Pulse Properties
@@ -369,12 +486,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>RF Pulses</h1>
@@ -459,7 +575,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell docutils container">
@@ -477,39 +594,39 @@ loading signal
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="rf-pulses">
-<h1>RF Pulses<a class="headerlink" href="#rf-pulses" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="rf-pulses">
+<h1>RF Pulses<a class="headerlink" href="#rf-pulses" title="Permalink to this headline">#</a></h1>
 <p>The purpose of appling RF magnetic fields is to excite the spins.  Equivalently, this RF energy aims to flip the net magnetization.</p>
 <p>This RF energy is referred to as an RF pulse, since the RF energy is applied for a short period of time and then switched off.</p>
-<div class="section" id="rf-pulse-properties">
-<h2>RF Pulse Properties<a class="headerlink" href="#rf-pulse-properties" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="flip-angle">
-<h3>Flip Angle<a class="headerlink" href="#flip-angle" title="Permalink to this headline">¶</a></h3>
+<section id="rf-pulse-properties">
+<h2>RF Pulse Properties<a class="headerlink" href="#rf-pulse-properties" title="Permalink to this headline">#</a></h2>
+<section id="flip-angle">
+<h3>Flip Angle<a class="headerlink" href="#flip-angle" title="Permalink to this headline">#</a></h3>
 <p>The flip angle (on-resonance) is equal to the integral of the RF pulse shape, <span class="math notranslate nohighlight">\(b_1(t)\)</span> (in units of magnetic field)):</p>
 <div class="math notranslate nohighlight">
 \[\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau \]</div>
-</div>
-<div class="section" id="time-bandwidth-product">
-<h3>Time-bandwidth Product<a class="headerlink" href="#time-bandwidth-product" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="time-bandwidth-product">
+<h3>Time-bandwidth Product<a class="headerlink" href="#time-bandwidth-product" title="Permalink to this headline">#</a></h3>
 <p>The time-bandwidth product (TBW) characterizes the relationship between pulse duration, <span class="math notranslate nohighlight">\(T_{rf}\)</span>, and bandwidth, <span class="math notranslate nohighlight">\(BW_{rf}\)</span> and is a fixed value for a given pulse shape. It is defined as</p>
 <div class="math notranslate nohighlight">
 \[ TBW = T_{rf} \cdot BW_{rf} \]</div>
-</div>
-<div class="section" id="slice-thickness">
-<h3>Slice Thickness<a class="headerlink" href="#slice-thickness" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="slice-thickness">
+<h3>Slice Thickness<a class="headerlink" href="#slice-thickness" title="Permalink to this headline">#</a></h3>
 <p>When applying a magnetic field gradient during a selective RF pulse (more details below), the gradient amplitude, <span class="math notranslate nohighlight">\(G_{Z,SS}\)</span>, and RF pulse bandwidth determine the slice thickness:</p>
 <div class="math notranslate nohighlight">
 \[ \Delta z = \frac{BW_{rf}}{\frac{\gamma}{2\pi} G_{Z,SS}} \]</div>
-</div>
-<div class="section" id="slice-shifting">
-<h3>Slice Shifting<a class="headerlink" href="#slice-shifting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="slice-shifting">
+<h3>Slice Shifting<a class="headerlink" href="#slice-shifting" title="Permalink to this headline">#</a></h3>
 <p>The slice location can be shifted by a distance <span class="math notranslate nohighlight">\(\delta z\)</span> through shifting the frequency of the RF pulse by <span class="math notranslate nohighlight">\(\delta f\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \delta f = \frac{\gamma}{2\pi} G_{Z,SS} \  \delta z \]</div>
-</div>
-</div>
-<div class="section" id="selective-rf-pulses">
-<h2>Selective RF Pulses<a class="headerlink" href="#selective-rf-pulses" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="selective-rf-pulses">
+<h2>Selective RF Pulses<a class="headerlink" href="#selective-rf-pulses" title="Permalink to this headline">#</a></h2>
 <p>Another key function of RF pulses is slice-selection.  This means applying a shaped RF pulse along with a magnetic field gradient that only flips the net magnetization within a slice.</p>
 <p>This is first achieved by applying RF pulses that are frequency selective, meaning they only contain a range of resonant frequencies and thus these are the only frequencies excited.  Illustrated in the plots below are:</p>
 <ol class="simple">
@@ -665,21 +782,21 @@ loading signal
 <p><img alt="RF_pulse_frequencies-lab_frame.gif" src="_images/RF_pulse_frequencies-lab_frame.gif" /></p>
 <p>In the rotating frame, the frequencies build up around frequency = 0</p>
 <p><img alt="RF_pulse_frequencies-rotating_frame.gif" src="_images/RF_pulse_frequencies-rotating_frame.gif" /></p>
-</div>
-<div class="section" id="hard-pulse-versus-shaped-pulse">
-<h2>Hard pulse versus Shaped Pulse<a class="headerlink" href="#hard-pulse-versus-shaped-pulse" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="hard-pulse-versus-shaped-pulse">
+<h2>Hard pulse versus Shaped Pulse<a class="headerlink" href="#hard-pulse-versus-shaped-pulse" title="Permalink to this headline">#</a></h2>
 <p>The first RF pulse typically introduced in MRI education is the so-called “hard” pulse - a constant amplitude pulse applied for some period of time.  As will be shown below, this pulse performs poorly for slice-selection, so shaped sinc-like pulses are used, as introduced above.  Shaped pulses create frequency profiles that excite a range of frequencies approximately uniformly (with the same flip angle), while not exciting spins outside this frequency range.</p>
-<div class="section" id="on-resonance-excitation">
-<h3>On-resonance Excitation<a class="headerlink" href="#on-resonance-excitation" title="Permalink to this headline">¶</a></h3>
+<section id="on-resonance-excitation">
+<h3>On-resonance Excitation<a class="headerlink" href="#on-resonance-excitation" title="Permalink to this headline">#</a></h3>
 <p>We can visualize the rotation of the net magnetization as before as a rotation about the RF pulse vector, for Hard and Shaped pulses:</p>
 <p><strong>hard pulse:</strong></p>
 <p><img alt="Hard Pulse on resonance" src="_images/hard_pulse_center_frequency.gif" /></p>
 <p><strong>shaped pulse:</strong></p>
 <p><img alt="Shaped pulse on resonance" src="_images/sinc_pulse_center_frequency.gif" /></p>
 <p>Looking at the on-resonance or center frequency response of a sinc-like shaped pulse, the flip angle is achieved slightly differently by tipping the net magnetization back and forth.</p>
-</div>
-<div class="section" id="off-resonance-excitation">
-<h3>Off-resonance Excitation<a class="headerlink" href="#off-resonance-excitation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="off-resonance-excitation">
+<h3>Off-resonance Excitation<a class="headerlink" href="#off-resonance-excitation" title="Permalink to this headline">#</a></h3>
 <p>The flip angle provided by a hard pulse varies substantially as a function of off-resonance frequency (e.g. in the presence of a magnetic field gradient) so is not a good pulse for slice-selection.  Meanwhile, the sinc-like pulse becomes advantageous when considering a range of resonance frequencies, where this pattern of back and forth tipping leads to net magnetizations either being flipped or not:</p>
 <p>This is illustrated by the following animation, showing net magnetizations across a range of positions when the pulse is applied with a gradient:</p>
 <p><strong>hard pulse:</strong></p>
@@ -765,10 +882,10 @@ loading signal
 <img alt="_images/RF Pulses_11_0.png" src="_images/RF Pulses_11_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="rf-pulse-design">
-<h2>RF Pulse Design<a class="headerlink" href="#rf-pulse-design" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="rf-pulse-design">
+<h2>RF Pulse Design<a class="headerlink" href="#rf-pulse-design" title="Permalink to this headline">#</a></h2>
 <p>RF pulse designs should address the limited available pulse duration and, for large flip angle designs (e.g. 90 and 180 degrees) the non-linearities in the Bloch equation.</p>
 <p>Limited available durations are addressed, in small flip angle pulses, by using windowing functions along with sinc pulses.  The end result are windowed sinc pulses, which have less ringing in the coil profile as illustrated below.</p>
 <div class="cell docutils container">
@@ -841,8 +958,8 @@ loading signal
 <img alt="_images/RF Pulses_13_1.png" src="_images/RF Pulses_13_1.png" />
 </div>
 </div>
-<div class="section" id="time-bandwidth-product-and-pulse-selectivity">
-<h3>Time-bandwidth Product and Pulse Selectivity<a class="headerlink" href="#time-bandwidth-product-and-pulse-selectivity" title="Permalink to this headline">¶</a></h3>
+<section id="time-bandwidth-product-and-pulse-selectivity">
+<h3>Time-bandwidth Product and Pulse Selectivity<a class="headerlink" href="#time-bandwidth-product-and-pulse-selectivity" title="Permalink to this headline">#</a></h3>
 <p>Arguably the most important RF pulse design parameter is the “time-bandwidth” product.  As the name implies, this is the pulse duration (time) times the pulse bandwidth</p>
 <div class="math notranslate nohighlight">
 \[ TBW = T_{rf} \times BW_{rf} \]</div>
@@ -1003,9 +1120,9 @@ loading signal
 </div>
 </div>
 <p>Notice that the higher TBW pulse has much sharper frequency profile for the same pulse duration!  (But also higher peak power.)</p>
-</div>
-<div class="section" id="high-flip-angle-pulse-design">
-<h3>High flip angle pulse design<a class="headerlink" href="#high-flip-angle-pulse-design" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="high-flip-angle-pulse-design">
+<h3>High flip angle pulse design<a class="headerlink" href="#high-flip-angle-pulse-design" title="Permalink to this headline">#</a></h3>
 <p>For small flip angles, the frequency profile of a RF pulse is approximately given by the Fourier Transform.  However, non-linearities in the Bloch equation cause this approximation to break down for large flip angles, as shown below by the resulting “ripples” in the frequency profile when the flip angle of the windowed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1207,9 +1324,9 @@ loading signal
 </div>
 </div>
 <p>Note that the inversion profile <span class="math notranslate nohighlight">\(M_Z\)</span> is much more selective, in other words more like a rectangular function, with the SLR pulse design.    The SLR RF pulse is now noticeably different from a windowed sinc.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1233,9 +1350,11 @@ loading signal
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Artifacts.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1251,27 +1370,31 @@ loading signal
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Peder Larson<br/>
+  
+      &copy; Copyright 2021.<br/>
+    <div class="extra_footer">
+      Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+    </div>
+</p>
+        </footer>
+    </div>
     
-      By Peder Larson<br/>
-    
-        &copy; Copyright 2021.<br/>
-      <div class="extra_footer">
-        Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
-      </div>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
