@@ -10,6 +10,8 @@ function [BX, BY, BZ, xp, yp, zp] = loop_coil_field(radius, I, flag_2d)
 % OUTPUTS:
 %   BX,BY,BZ - components of magnetic field vector
 %   xp,yp,zp - locations at which the magnetic field vector was evaluated
+%   figure containing plots of the magnetic field, where the coil location
+%   is indicated by a red 'x'
 %
 % Contributions from https://www.mathworks.com/matlabcentral/fileexchange/42329-magnetic-field-of-a-circular-current-loop-using-biot-savart-s-law
 % and Peder E. Z. Larson
@@ -118,20 +120,24 @@ Bmag = sqrt(BX.^2+BY.^2+BZ.^2);
 figure
 subplot(221)
 contour(xp,yp,squeeze(BX(:,:,Iz)),50), colorbar
+hold on, plot([-radius(1) +radius(1)], [0 0], 'rx'), hold off
 title('B_X')
 xlabel('x'), ylabel('y')
 subplot(222)
 contour(xp,yp,squeeze(BY(:,:,Iz)),50), colorbar
+hold on, plot([-radius(1) +radius(1)], [0 0], 'rx'), hold off
 xlabel('x'), ylabel('y')
 title('B_Y')
 subplot(223)
 contour(xp,yp,squeeze(BZ(:,:,Iz)),50), colorbar
+hold on, plot([-radius(1) +radius(1)], [0 0], 'rx'), hold off
 xlabel('x'), ylabel('y')
 title('B_Z')
 subplot(224)
 contour(xp,yp,squeeze(Bmag(:,:,Iz)),50), colorbar
 hold on
 quiver(xp(1:4:end),yp(1:4:end),BX(1:4:end,1:4:end,Iz), BY(1:4:end,1:4:end,Iz))
+plot([-radius(1) +radius(1)], [0 0], 'rx')
 hold off
 xlabel('x'), ylabel('y')
 title('|B|')
