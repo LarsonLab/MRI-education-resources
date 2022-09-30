@@ -443,6 +443,11 @@ title="Print to PDF"
      Slice Shifting
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-absorption-rate">
+     Specific Absorption Rate
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -526,6 +531,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#slice-shifting">
      Slice Shifting
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specific-absorption-rate">
+     Specific Absorption Rate
     </a>
    </li>
   </ul>
@@ -623,6 +633,14 @@ loading signal
 <p>The slice location can be shifted by a distance <span class="math notranslate nohighlight">\(\delta z\)</span> through shifting the frequency of the RF pulse by <span class="math notranslate nohighlight">\(\delta f\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \delta f = \frac{\gamma}{2\pi} G_{Z,SS} \  \delta z \]</div>
+</section>
+<section id="specific-absorption-rate">
+<h3>Specific Absorption Rate<a class="headerlink" href="#specific-absorption-rate" title="Permalink to this headline">#</a></h3>
+<p>The Specific Absorption Rate (SAR) measures the amount of energy absorbed by the body from a RF pulse.  Since this absorption can cause tissue heating there are safety limits on SAR.  It is proportional to the integrated total RF pulse power:</p>
+<div class="math notranslate nohighlight">
+\[ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \]</div>
+<p><span class="math notranslate nohighlight">\(T_{rf}\)</span> is the duration of the RF pulse.
+For for MRI, SAR can cause tissue heating and thus there are SAR safety limits to minimize this heating.</p>
 </section>
 </section>
 <section id="selective-rf-pulses">
