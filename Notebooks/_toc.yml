@@ -17,6 +17,7 @@ parts:
     chapters:
     - file: "MRI Signal Equation"
     - file: Spatial Encoding
+    - file: "Image Reconstruction"
     - file: Signal to Noise Ratio
     - file: Artifacts
   - caption: RF Pulses
