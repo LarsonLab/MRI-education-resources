@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Artifacts" href="Artifacts.html" />
-    <link rel="prev" title="Spatial Encoding" href="Spatial%20Encoding.html" />
+    <link rel="prev" title="Image Reconstruction" href="Image%20Reconstruction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -178,6 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Spatial%20Encoding.html">
    Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Image%20Reconstruction.html">
+   Image Reconstruction
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -438,6 +443,25 @@ title="Print to PDF"
    SNR Equation
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-efficiency">
+   SNR Efficiency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-efficiency-versus-tr">
+   SNR efficiency versus TR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-and-t-2-decay">
+   SNR and
+   <span class="math notranslate nohighlight">
+    \(T_2^*\)
+   </span>
+   decay
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -475,6 +499,25 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#snr-equation">
    SNR Equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-efficiency">
+   SNR Efficiency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-efficiency-versus-tr">
+   SNR efficiency versus TR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#snr-and-t-2-decay">
+   SNR and
+   <span class="math notranslate nohighlight">
+    \(T_2^*\)
+   </span>
+   decay
   </a>
  </li>
 </ul>
@@ -523,6 +566,122 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{acq}}\]</div>
 </section>
+<section id="snr-efficiency">
+<h2>SNR Efficiency<a class="headerlink" href="#snr-efficiency" title="Permalink to this headline">#</a></h2>
+<p>The SNR efficiency for MRI provides a measure of overall efficiency within a MRI scan, which is the SNR normalized by the <em>total scan time</em>, <span class="math notranslate nohighlight">\(T_{scan}\)</span></p>
+<p>$$SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{acq} }{T_{scan}}}</p>
+</section>
+<section id="snr-efficiency-versus-tr">
+<h2>SNR efficiency versus TR<a class="headerlink" href="#snr-efficiency-versus-tr" title="Permalink to this headline">#</a></h2>
+<p>The SNR efficiency is useful to examine the choice of TR.  It is especially interesting for spoiled gradient-echo sequences where when we can choose to use the optimal flip angle (“Ernst angle”) based on a <span class="math notranslate nohighlight">\(T_1\)</span> value of interest.  For these sequences, the optimal flip angle is</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1} \exp(-TR/T_1)\]</div>
+<p>And <span class="math notranslate nohighlight">\(f_{seq}\)</span> is defined above.</p>
+<p>Under this condition, we see the following intriguing result …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">TR</span> <span class="p">=</span> <span class="nb">logspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
+<span class="n">T1</span> <span class="p">=</span> <span class="mi">800</span><span class="p">;</span>
+<span class="n">theta</span> <span class="p">=</span> <span class="n">arccos</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">/</span><span class="n">T1</span><span class="p">));</span>
+
+<span class="c">% To remove TE or T2 effect</span>
+<span class="n">TE</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">T2</span> <span class="p">=</span> <span class="nb">Inf</span><span class="p">;</span>
+<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">SNR_efficiency</span> <span class="p">=</span> <span class="n">MRsignal_spoiled_gradient_echo</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">TE</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">M0</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span> <span class="o">./</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">TR</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">semilogx</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">theta</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="nb">pi</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;TR [ms]&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Optimal (Ernst) angle [degrees]&#39;</span><span class="p">)</span>
+
+<span class="nb">semilogx</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">SNR_efficiency</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">([</span><span class="s">&#39;T_1 = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="s">&#39; ms&#39;</span><span class="p">])</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;TR [ms]&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;SNR efficiency&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spoiled gradient echo SNR efficiency&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;arccos&#39; undefined near line 1 column 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;theta&#39; undefined near line 1 column 49
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;theta&#39; undefined near line 1 column 14
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;SNR_efficiency&#39; undefined near line 1 column 14
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: legend: plot data is empty; setting key labels has no effect
+warning: called from
+    legend at line 426 column 9
+</pre></div>
+</div>
+<img alt="_images/Signal to Noise Ratio_6_5.png" src="_images/Signal to Noise Ratio_6_5.png" />
+</div>
+</div>
+<p>What this result shows is that, when we choose the optimal flip angle, there is no difference in SNR efficiency between long and short TR sequences!</p>
+<p>Since the optimal flip angle converges to 90-degrees at long TR, this result can be applied to spin echo sequences using 90-degree flip angles and long TRs.</p>
+</section>
+<section id="snr-and-t-2-decay">
+<h2>SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay<a class="headerlink" href="#snr-and-t-2-decay" title="Permalink to this headline">#</a></h2>
+<p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the <span class="math notranslate nohighlight">\(T_2^*\)</span> decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for <span class="math notranslate nohighlight">\(T_2^*\)</span>, which will offset signal gains from extending the readout</p>
+<div class="math notranslate nohighlight">
+\[SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }\]</div>
+<p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
+<p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:
+$<span class="math notranslate nohighlight">\(SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Tread</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="n">T2s</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="n">SNR_T2s_onesided</span> <span class="p">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="n">Tts</span><span class="p">))</span> <span class="o">./</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
+
+<span class="n">SNR_T2s_twosided</span> <span class="p">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="mi">2</span> <span class="o">/</span> <span class="n">Tts</span><span class="p">))</span> <span class="o">./</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
+
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_onesided</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;T_{read} / T_2^*&#39;</span><span class="p">)</span>
+<span class="n">ylable</span><span class="p">(</span><span class="s">&#39;Relative SNR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;Tts&#39; undefined near line 1 column 42
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;Tts&#39; undefined near line 1 column 50
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;SNR_T2s_onesided&#39; undefined near line 1 column 13
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;ylable&#39; undefined near line 1 column 1
+</pre></div>
+</div>
+<img alt="_images/Signal to Noise Ratio_9_4.png" src="_images/Signal to Noise Ratio_9_4.png" />
+</div>
+</div>
+<p>From this result, we can see that the optimal choice of <span class="math notranslate nohighlight">\(T_{read}\)</span> from a SNR point of view is approximately</p>
+<p>However, this does not take into account the effects of resolution loss that will typically occur due to decaying <span class="math notranslate nohighlight">\(T_2^*\)</span> weighting in k-space.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -552,11 +711,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Spatial%20Encoding.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Image%20Reconstruction.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Spatial Encoding</p>
+            <p class="prev-next-title">Image Reconstruction</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Artifacts.html" title="next page">
