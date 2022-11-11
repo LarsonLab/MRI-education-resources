@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Image Reconstruction &#8212; Principles of MRI</title>
+    <title>Image Reconstruction (In Progress Page) &#8212; Principles of MRI</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Image Reconstruction
+   Image Reconstruction (In Progress Page)
   </a>
  </li>
  <li class="toctree-l1">
@@ -439,8 +439,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compressed-sensing-and-low-rank-methods">
-   Compressed Sensing and Low-Rank Methods
+  <a class="reference internal nav-link" href="#compressed-sensing-methods">
+   Compressed Sensing Methods
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -457,7 +457,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Image Reconstruction</h1>
+                <h1>Image Reconstruction (In Progress Page)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -483,8 +483,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compressed-sensing-and-low-rank-methods">
-   Compressed Sensing and Low-Rank Methods
+  <a class="reference internal nav-link" href="#compressed-sensing-methods">
+   Compressed Sensing Methods
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -504,8 +504,8 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
-<span class="n">cd</span> <span class="o">../</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
 <span class="n">startup</span>
 </pre></div>
 </div>
@@ -517,26 +517,37 @@ loading signal
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction">
-<h1>Image Reconstruction<a class="headerlink" href="#image-reconstruction" title="Permalink to this headline">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction-in-progress-page">
+<h1>Image Reconstruction (In Progress Page)<a class="headerlink" href="#image-reconstruction-in-progress-page" title="Permalink to this headline">#</a></h1>
 <p>Image reconstruction in MRI means converting the raw signal collected in k-space into images.  For a fully-sampled acquisition using Cartesian sampling (e.g. on a grid), this can be done with a Fourier Transform.  However, the majority of MRI scans are now under-sampled, meaning some samples are skipped to accelerate the scan, which requires more complex image reconstruction methods.</p>
 <section id="formulating-the-reconstruction-problem">
 <h2>Formulating the Reconstruction Problem<a class="headerlink" href="#formulating-the-reconstruction-problem" title="Permalink to this headline">#</a></h2>
-<p>We can typically pose MRI as a linear system</p>
+<p>For image reconstruction, it is helpful to reformulate the MRI Signal Equation, which we can pose for MRI as a linear system and using standard mathematical notation describing systems as:</p>
 <div class="math notranslate nohighlight">
-\[ y = Ex + n \]</div>
-<p>where <span class="math notranslate nohighlight">\(y\)</span> is the acquired data, <span class="math notranslate nohighlight">\(E\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(x\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(n\)</span> is noise</p>
-<p>Fourier reconstruction</p>
-<p>E can include coil sensitivity, undersampling pattern</p>
+\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise</p>
+<p>The encoding matrix, <span class="math notranslate nohighlight">\(E\)</span>, must include a discrete Fourier Transform matrix, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations.  It should also include coil sensitivity profiles in order to support parallel imaging formulations.</p>
 </section>
 <section id="partial-fourier">
 <h2>Partial Fourier<a class="headerlink" href="#partial-fourier" title="Permalink to this headline">#</a></h2>
+<p>How does it work?</p>
+<p>How is it implemented (k-space sampling, reconstruction algorithm)?</p>
+<p>When can it be used?</p>
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this headline">#</a></h2>
+<p>In this framework, parallel imaging can be formulated as the following optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\hat{x}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} = \mathbf{Ex} \|^2_2 = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
+<p>In other words, parallel can be solved directly by a pseudo-inverse when coil sensitivities are known.</p>
 </section>
-<section id="compressed-sensing-and-low-rank-methods">
-<h2>Compressed Sensing and Low-Rank Methods<a class="headerlink" href="#compressed-sensing-and-low-rank-methods" title="Permalink to this headline">#</a></h2>
+<section id="compressed-sensing-methods">
+<h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Permalink to this headline">#</a></h2>
+<p>Compressed Sensing theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  In other words, we can further accelerate our data acquisition.</p>
+<p>Compressed Sensing is formulated as the following optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\hat{x}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} = \mathbf{Ex} \|^2_2 +\tau \| \mathbf{Wx} \|_1 \]</div>
+<p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse in some other domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.</p>
 </section>
 <section id="neural-network-reconstructions">
 <h2>Neural Network Reconstructions<a class="headerlink" href="#neural-network-reconstructions" title="Permalink to this headline">#</a></h2>
@@ -552,16 +563,16 @@ loading signal
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "octave",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               
