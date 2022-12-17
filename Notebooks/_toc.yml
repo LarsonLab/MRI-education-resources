@@ -8,8 +8,8 @@ parts:
     chapters:
     - file: "Spin Physics"
     - file: "MRI System"
-    - file: "MR Physics - Bloch Equation"
     - file: "Magnetic Fields and RF Coils"
+    - file: "MR Physics - Bloch Equation"
     - file: "MRI Contrast"
   - caption: Image Formation
     chapters:
