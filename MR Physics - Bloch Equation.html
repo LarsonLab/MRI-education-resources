@@ -599,6 +599,18 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
@@ -752,7 +764,11 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MR Physics - Bloch Equation_7_0.png" src="_images/MR Physics - Bloch Equation_7_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -9.5540
+ans = -9.5540
+</pre></div>
+</div>
+<img alt="_images/MR Physics - Bloch Equation_7_1.png" src="_images/MR Physics - Bloch Equation_7_1.png" />
 </div>
 </div>
 </section>
@@ -816,10 +832,10 @@ B_{1,0} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f0 =  425.80
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f0 = 425.80
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B10 =  0.0058713
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B10 = 5.8713e-03
 </pre></div>
 </div>
 </div>
@@ -849,7 +865,11 @@ B_{1,0} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MR Physics - Bloch Equation_11_0.png" src="_images/MR Physics - Bloch Equation_11_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.513
+ans = -12.513
+</pre></div>
+</div>
+<img alt="_images/MR Physics - Bloch Equation_11_1.png" src="_images/MR Physics - Bloch Equation_11_1.png" />
 </div>
 </div>
 <p>The above simulation shows when an additional magnetic field is applied orthogonal to the main magnetic field, but is <em>not</em> applied at the Larmor frequency.  There is no creation of transverse magnetization.</p>
@@ -879,7 +899,11 @@ B_{1,0} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MR Physics - Bloch Equation_14_0.png" src="_images/MR Physics - Bloch Equation_14_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.192
+ans = -12.192
+</pre></div>
+</div>
+<img alt="_images/MR Physics - Bloch Equation_14_1.png" src="_images/MR Physics - Bloch Equation_14_1.png" />
 </div>
 </div>
 <p>And now with a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p>
@@ -909,7 +933,11 @@ B_{1,0} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MR Physics - Bloch Equation_17_0.png" src="_images/MR Physics - Bloch Equation_17_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.438
+ans = -12.438
+</pre></div>
+</div>
+<img alt="_images/MR Physics - Bloch Equation_17_1.png" src="_images/MR Physics - Bloch Equation_17_1.png" />
 </div>
 </div>
 </section>
@@ -985,7 +1013,7 @@ M_0(1-e^{-t/T_1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B10 =  0.0058713
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B10 = 5.8713e-03
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>M_start =
@@ -1007,7 +1035,11 @@ M_0(1-e^{-t/T_1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MR Physics - Bloch Equation_20_0.png" src="_images/MR Physics - Bloch Equation_20_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.657
+ans = -12.657
+</pre></div>
+</div>
+<img alt="_images/MR Physics - Bloch Equation_20_1.png" src="_images/MR Physics - Bloch Equation_20_1.png" />
 </div>
 </div>
 <p><strong>T1 and T2 relaxation after RF Excitation</strong></p>
@@ -1028,7 +1060,7 @@ M_0(1-e^{-t/T_1}
             mode: "octave"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true

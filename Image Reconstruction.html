@@ -437,6 +437,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#parallel-imaging">
    Parallel Imaging
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-space-methods">
+     Image-space Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-space-methods">
+     K-space Methods
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#compressed-sensing-methods">
@@ -481,6 +493,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#parallel-imaging">
    Parallel Imaging
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#image-space-methods">
+     Image-space Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-space-methods">
+     K-space Methods
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#compressed-sensing-methods">
@@ -536,10 +560,23 @@ loading signal
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this headline">#</a></h2>
-<p>In this framework, parallel imaging can be formulated as the following optimization problem</p>
+<p>For parallel imaging, we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\hat{x}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} = \mathbf{Ex} \|^2_2 = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
-<p>In other words, parallel can be solved directly by a pseudo-inverse when coil sensitivities are known.</p>
+\[\mathbf{E} = \mathbf{F} \mathbf{C}\]</div>
+<section id="image-space-methods">
+<h3>Image-space Methods<a class="headerlink" href="#image-space-methods" title="Permalink to this headline">#</a></h3>
+<p>Image-space parallel imaging (e.g. SENSE) can be formulated as the following optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\hat{x}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
+<p>In other words, parallel can be solved directly by a pseudo-inverse, but requires estimates of the coil sensitivity profiles.</p>
+</section>
+<section id="k-space-methods">
+<h3>K-space Methods<a class="headerlink" href="#k-space-methods" title="Permalink to this headline">#</a></h3>
+<p>K-space parallel imaging (e.g. GRAPPA) utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>.  These can also be generally formulated as the following optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\hat{x}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2 \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneous enforces data consistency (first term) as well as self-consistency of the calibration (sescond term).</p>
+</section>
 </section>
 <section id="compressed-sensing-methods">
 <h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Permalink to this headline">#</a></h2>
@@ -566,7 +603,7 @@ loading signal
             mode: "octave"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true

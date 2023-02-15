@@ -637,7 +637,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/MRI Math Concepts_4_0.png" src="_images/MRI Math Concepts_4_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
+<img alt="_images/MRI Math Concepts_4_1.png" src="_images/MRI Math Concepts_4_1.png" />
 </div>
 </div>
 <p>Sinc (normalized)</p>
@@ -813,7 +825,7 @@ title="Print to PDF"
             mode: "octave"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true

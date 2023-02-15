@@ -437,11 +437,47 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: trying to compile MEX file from /home/runner/work/MRI-education-resources/MRI-education-resources/RF Pulses/rf_tools/mex_files/abrx.c
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: called from
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    abrx at line 15 column 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    abr at line 31 column 12
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: MEX file now compiled, re-run code
@@ -659,8 +695,11 @@ error: called from
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Spectral-Spatial RF Pulses_8_0.png" src="_images/Spectral-Spatial RF Pulses_8_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -11.589
+</pre></div>
+</div>
 <img alt="_images/Spectral-Spatial RF Pulses_8_1.png" src="_images/Spectral-Spatial RF Pulses_8_1.png" />
+<img alt="_images/Spectral-Spatial RF Pulses_8_2.png" src="_images/Spectral-Spatial RF Pulses_8_2.png" />
 </div>
 </div>
 <p>The spectral pulse, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>.  This creates the excitation k-space profile, <span class="math notranslate nohighlight">\(B_1(k_f, k_z)\)</span> shown above, which results in the spectral-spatial profile shown below:</p>
@@ -701,7 +740,7 @@ error: called from
             mode: "octave"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true

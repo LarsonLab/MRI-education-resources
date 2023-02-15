@@ -593,12 +593,24 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Spatial Encoding_3_0.png" src="_images/Spatial Encoding_3_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
 <img alt="_images/Spatial Encoding_3_1.png" src="_images/Spatial Encoding_3_1.png" />
 <img alt="_images/Spatial Encoding_3_2.png" src="_images/Spatial Encoding_3_2.png" />
 <img alt="_images/Spatial Encoding_3_3.png" src="_images/Spatial Encoding_3_3.png" />
 <img alt="_images/Spatial Encoding_3_4.png" src="_images/Spatial Encoding_3_4.png" />
 <img alt="_images/Spatial Encoding_3_5.png" src="_images/Spatial Encoding_3_5.png" />
+<img alt="_images/Spatial Encoding_3_6.png" src="_images/Spatial Encoding_3_6.png" />
 </div>
 </div>
 </section>
@@ -797,7 +809,7 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
             mode: "octave"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true
