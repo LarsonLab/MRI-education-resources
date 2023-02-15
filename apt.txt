@@ -2,7 +2,6 @@ octave
 octave-optim
 octave-image
 octave-signal
-octave-symbolic
 octave-miscellaneous
 liboctave-dev
 gnuplot
