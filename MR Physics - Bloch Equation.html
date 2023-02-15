@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MR Physics - Bloch Equation &#8212; Principles of MRI</title>
+    <title>Bloch Equation &#8212; Principles of MRI</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Contrast" href="MRI%20Contrast.html" />
-    <link rel="prev" title="Creating and Detecting Magnetic fields" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
+    <link rel="next" title="Magnetic fields in MRI" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
+    <link rel="prev" title="The MRI System" href="MRI%20System.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,35 +127,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Primers
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Math%20Concepts.html">
-   MRI Math Concepts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   MR Physics
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Creating and Detecting Magnetic fields
+  <a class="reference internal" href="Spin%20Physics.html">
+   Spin Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20System.html">
+   The MRI System
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   MR Physics - Bloch Equation
+   Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Magnetic fields in MRI
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,6 +208,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
    Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference Material
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
   </a>
  </li>
 </ul>
@@ -424,42 +434,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definitions">
-   Definitions
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#position-in-space">
-     Position in space
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#net-magnetization">
-     Net magnetization
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magnetic-field">
-     Magnetic field
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equilibrium-magnetization">
-   Equilibrium Magnetization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#boltzman-distribution">
-     Boltzman distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bloch-equation">
-   Bloch Equation
+  <a class="reference internal nav-link" href="#the-bloch-equation">
+   THE Bloch Equation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -500,7 +481,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>MR Physics - Bloch Equation</h1>
+                <h1>Bloch Equation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -511,42 +492,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definitions">
-   Definitions
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#position-in-space">
-     Position in space
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#net-magnetization">
-     Net magnetization
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#magnetic-field">
-     Magnetic field
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#equilibrium-magnetization">
-   Equilibrium Magnetization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#boltzman-distribution">
-     Boltzman distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bloch-equation">
-   Bloch Equation
+  <a class="reference internal nav-link" href="#the-bloch-equation">
+   THE Bloch Equation
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -588,8 +540,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="mr-physics-bloch-equation">
-<h1>MR Physics - Bloch Equation<a class="headerlink" href="#mr-physics-bloch-equation" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="bloch-equation">
+<h1>Bloch Equation<a class="headerlink" href="#bloch-equation" title="Permalink to this headline">#</a></h1>
+<p>The Bloch Equation, named after physicist Felix Bloch who won the Nobel Prize for discovery of magnetic resonance phenomena, describes almost all behavior seen in MRI.  Here, we will describe this equation and derive key results to use for explaining the behavior of the net magnetization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
@@ -617,106 +570,41 @@ loading signal
 </div>
 </div>
 </div>
-<section id="definitions">
-<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
-<section id="position-in-space">
-<h3>Position in space<a class="headerlink" href="#position-in-space" title="Permalink to this headline">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{r} = 
-\begin{bmatrix}
-x\\
-y \\
-z 
-\end{bmatrix}\end{split}\]</div>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Understand what MRI is measuring</p></li>
+<li><p>Describe the concepts of polarization, resonance, and relaxation</p></li>
+</ol>
 </section>
-<section id="net-magnetization">
-<h3>Net magnetization<a class="headerlink" href="#net-magnetization" title="Permalink to this headline">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{M} = 
-\begin{bmatrix}
-M_X \\
-M_Y \\
-M_Z 
-\end{bmatrix}\end{split}\]</div>
-<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r} = [x,y,z]^T\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{M}(\vec{r},t) = 
-\begin{bmatrix}
-M_X(\vec{r},t) \\
-M_Y(\vec{r},t) \\
-M_Z(\vec{r},t) 
-\end{bmatrix}\end{split}\]</div>
-<p>Shorthand for transverse magnetization using complex numbers</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) = M_X(\vec{r},t) + i M_Y(\vec{r},t)\]</div>
-</section>
-<section id="magnetic-field">
-<h3>Magnetic field<a class="headerlink" href="#magnetic-field" title="Permalink to this headline">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{B} = 
-\begin{bmatrix}
-B_X \\
-B_Y \\
-B_Z 
-\end{bmatrix}\end{split}\]</div>
-<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{B}(\vec{r},t) = 
-\begin{bmatrix}
-B_X(\vec{r},t) \\
-B_Y(\vec{r},t) \\
-B_Z(\vec{r},t) 
-\end{bmatrix}\end{split}\]</div>
-</section>
-</section>
-<section id="equilibrium-magnetization">
-<h2>Equilibrium Magnetization<a class="headerlink" href="#equilibrium-magnetization" title="Permalink to this headline">#</a></h2>
-<p>At equilibrium the net magnetization, <span class="math notranslate nohighlight">\(\vec{M} = [0,0,M_0]^T\)</span> is oriented in the direction of the main magnetic field, <span class="math notranslate nohighlight">\(\vec{B} = [0,0,B_0]^T\)</span> (by convention along the z-axis) and has an amplitude of:</p>
-<div class="math notranslate nohighlight">
-\[M_0 = \frac{N \bar{\gamma}^2 \hbar^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
-<p><span class="math notranslate nohighlight">\(N\)</span> spin density</p>
-<p><span class="math notranslate nohighlight">\(\hbar\)</span> Planck’s constant</p>
-<p><span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> gyromagnetic ratio</p>
-<p><span class="math notranslate nohighlight">\(B_0\)</span> magnetic field</p>
-<p><span class="math notranslate nohighlight">\(I_Z\)</span> spin number (1/2 for hydrogen)</p>
-<p>k = Boltzmann’s constant (8.62e-5 eV/K or 1.38e-23 J/K)</p>
-<p>T = temperature (human body temperature = 310 K)</p>
-<section id="boltzman-distribution">
-<h3>Boltzman distribution<a class="headerlink" href="#boltzman-distribution" title="Permalink to this headline">#</a></h3>
-<p>This is the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states.  This can also be used to derive the equilibrium magnetization above.</p>
-<div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow}{N_\downarrow} = e^{\hbar \bar{\gamma} B_0 / kT}\]</div>
-<p>From this distribtion, the “Polarization” can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:</p>
-<div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-\hbar \bar{\gamma} B_0 / kT} }{ 1 + e^{-\hbar \bar{\gamma} B_0 / kT} }\]</div>
-<p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
-<div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT}\]</div>
-</section>
-</section>
-<section id="bloch-equation">
-<h2>Bloch Equation<a class="headerlink" href="#bloch-equation" title="Permalink to this headline">#</a></h2>
-<p>The Bloch equation describes the behavior of the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span> in a magnetic field, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, and can describe the vast majority of all MRI phenomena</p>
+<section id="the-bloch-equation">
+<h2>THE Bloch Equation<a class="headerlink" href="#the-bloch-equation" title="Permalink to this headline">#</a></h2>
+<p>The Bloch equation describes the behavior of the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span> in a magnetic field, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t)\)</span>, and can describe the vast majority of all MRI phenomena</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\frac{d\vec{M}(t)}{dt} =
-\gamma \vec{M}(t) \times \vec{B}(t)
+\frac{d\vec{M}(\vec{r},t)}{dt} =
+\gamma \vec{M}(\vec{r},t) \times \vec{B}(\vec{r},t)
 +
 \begin{bmatrix}
--1/T_2&amp; 0 &amp; 0 \\
-0 &amp; -1/T_2 &amp; 0 \\
-0 &amp; 0 &amp; -1/T_1
+-1/T_2(\vec{r})&amp; 0 &amp; 0 \\
+0 &amp; -1/T_2(\vec{r}) &amp; 0 \\
+0 &amp; 0 &amp; -1/T_1(\vec{r})
 \end{bmatrix}
-\vec{M}(t)
+\vec{M}(\vec{r},t)
 +
 \begin{bmatrix}
  0 \\
  0 \\
-M_0/T_1
+M_0(\vec{r})/T_1(\vec{r})
 \end{bmatrix}
 \end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(T_1\)</span> Longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant</p>
-<p><span class="math notranslate nohighlight">\(T_2\)</span> Transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant</p>
+<p>The beavhior depends on constants of:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M_0(\vec{r})\)</span> - the equilibrium magnetization</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_1(\vec{r})\)</span> - the longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_2(\vec{r})\)</span> - the transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant</p></li>
+</ul>
+<p>All of which can vary across our subject (and all a valuable source of contrast!).</p>
 <section id="precession">
 <h3>Precession<a class="headerlink" href="#precession" title="Permalink to this headline">#</a></h3>
 <p>The first term in the Bloch equation means that the
@@ -768,7 +656,7 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 ans = -9.5540
 </pre></div>
 </div>
-<img alt="_images/MR Physics - Bloch Equation_7_1.png" src="_images/MR Physics - Bloch Equation_7_1.png" />
+<img alt="_images/MR Physics - Bloch Equation_6_1.png" src="_images/MR Physics - Bloch Equation_6_1.png" />
 </div>
 </div>
 </section>
@@ -869,7 +757,7 @@ B_{1,0} \\
 ans = -12.513
 </pre></div>
 </div>
-<img alt="_images/MR Physics - Bloch Equation_11_1.png" src="_images/MR Physics - Bloch Equation_11_1.png" />
+<img alt="_images/MR Physics - Bloch Equation_10_1.png" src="_images/MR Physics - Bloch Equation_10_1.png" />
 </div>
 </div>
 <p>The above simulation shows when an additional magnetic field is applied orthogonal to the main magnetic field, but is <em>not</em> applied at the Larmor frequency.  There is no creation of transverse magnetization.</p>
@@ -903,7 +791,7 @@ ans = -12.513
 ans = -12.192
 </pre></div>
 </div>
-<img alt="_images/MR Physics - Bloch Equation_14_1.png" src="_images/MR Physics - Bloch Equation_14_1.png" />
+<img alt="_images/MR Physics - Bloch Equation_13_1.png" src="_images/MR Physics - Bloch Equation_13_1.png" />
 </div>
 </div>
 <p>And now with a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p>
@@ -937,7 +825,7 @@ ans = -12.192
 ans = -12.438
 </pre></div>
 </div>
-<img alt="_images/MR Physics - Bloch Equation_17_1.png" src="_images/MR Physics - Bloch Equation_17_1.png" />
+<img alt="_images/MR Physics - Bloch Equation_16_1.png" src="_images/MR Physics - Bloch Equation_16_1.png" />
 </div>
 </div>
 </section>
@@ -1039,7 +927,7 @@ M_0(1-e^{-t/T_1}
 ans = -12.657
 </pre></div>
 </div>
-<img alt="_images/MR Physics - Bloch Equation_20_1.png" src="_images/MR Physics - Bloch Equation_20_1.png" />
+<img alt="_images/MR Physics - Bloch Equation_19_1.png" src="_images/MR Physics - Bloch Equation_19_1.png" />
 </div>
 </div>
 <p><strong>T1 and T2 relaxation after RF Excitation</strong></p>
@@ -1075,17 +963,17 @@ ans = -12.657
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Magnetic%20Fields%20and%20RF%20Coils.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="MRI%20System.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Creating and Detecting Magnetic fields</p>
+            <p class="prev-next-title">The MRI System</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="MRI%20Contrast.html" title="next page">
+    <a class='right-next' id="next-link" href="Magnetic%20Fields%20and%20RF%20Coils.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Contrast</p>
+        <p class="prev-next-title">Magnetic fields in MRI</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

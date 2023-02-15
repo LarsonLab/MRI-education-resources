@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Notation" href="MRI%20Notation.html" />
+    <link rel="next" title="Spin Physics" href="Spin%20Physics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -124,35 +124,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Primers
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Math%20Concepts.html">
-   MRI Math Concepts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   MR Physics
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Creating and Detecting Magnetic fields
+  <a class="reference internal" href="Spin%20Physics.html">
+   Spin Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20System.html">
+   The MRI System
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
-   MR Physics - Bloch Equation
+   Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Magnetic fields in MRI
   </a>
  </li>
  <li class="toctree-l1">
@@ -212,6 +205,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
    Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference Material
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
   </a>
  </li>
 </ul>
@@ -392,6 +402,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-started">
    Getting Started
   </a>
@@ -421,6 +436,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-started">
    Getting Started
   </a>
@@ -442,8 +462,23 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-principles-of-mri">
 <h1>Introduction to Principles of MRI<a class="headerlink" href="#introduction-to-principles-of-mri" title="Permalink to this headline">#</a></h1>
-<p>This is a short book and associated simulation code for learning the principles of magnetic resonance imaging (MRI).  It is based on the <a class="reference external" href="https://github.com/LarsonLab/MRI-education-resources">https://github.com/LarsonLab/MRI-education-resources</a> repository, a set of helper functions I built up in the course of about a decade of teaching MRI to 1st year graduate students.</p>
-<p>Please check back for updates, I’ll keep trying to improve this too.</p>
+<p>This is a short book and associated simulation code for learning the principles of magnetic resonance imaging (MRI).  It is based on the <a class="reference external" href="https://github.com/LarsonLab/MRI-education-resources">https://github.com/LarsonLab/MRI-education-resources</a> repository, a set of helper functions I built up in the course of about a decade of teaching MRI to 1st year graduate students coming from a broad range of educational backgrounds (primarily natural sciences and engineering).</p>
+<p>After Fall Quarter 2022, I made an effort to consolidate my course materials and create a complete Book.  I’ll be testing it out in 2023, so you may see more updates then!</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<p>Upon completing this book, the following Learning Goals should be achieved</p>
+<ol class="simple">
+<li><p>Describe the 4 fundmanetal components of a MRI scan and why they are necessary</p></li>
+<li><p>Understand what MRI is measuring</p></li>
+<li><p>Describe the concepts of polarization, resonance, and relaxation</p></li>
+<li><p>Describe how various types of MRI contrast are created</p></li>
+<li><p>Describe how images are formed</p></li>
+<li><p>Understand the constraints and tradeoffs in MRI</p></li>
+<li><p>Manipulate MRI sequence parameters to improve performance</p></li>
+<li><p>Identify artifacts and how to mitigate them</p></li>
+<li><p>Manipulate and analyze MRI data</p></li>
+</ol>
+</section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
 <p>This book jumps pretty quickly into concepts, for a quick overview of MRI, here’s my attempt to explain MRI in under 10 minutes:</p>
@@ -455,7 +490,7 @@ title="Print to PDF"
 <h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">#</a></h2>
 <p>This book is greatly influenced by many other great resources that I want to acknowledge up front:</p>
 <ul class="simple">
-<li><p><em>Principles of Magnetic Resonance Imaging</em> by Dwight Nishimura</p></li>
+<li><p><em>Principles of Magnetic Resonance Imaging</em> by Dwight Nishimura - I learned from this great text and borrowed a lot of its material.  For some of my students with less engineering/signal processing background, this book on its own was challenging.</p></li>
 <li><p>Net magnetizations animation from Bill Overall and the <a class="reference external" href="https://www.heartvista.ai/spinbench">SpinBench</a> simulation and pulse sequence design tool</p></li>
 <li><p>Miki Lustig’s MRI course notes</p></li>
 <li><p>Educational resources from the <a class="reference external" href="https://www.drcmr.dk/MR">Danish Research Centre for Magnetic Resonance</a>, which includes a great on-line [Bloch Simulation]
@@ -499,10 +534,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="MRI%20Notation.html" title="next page">
+    <a class='right-next' id="next-link" href="Spin%20Physics.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Notation</p>
+        <p class="prev-next-title">Spin Physics</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

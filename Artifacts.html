@@ -125,35 +125,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Primers
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Math%20Concepts.html">
-   MRI Math Concepts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   MR Physics
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Creating and Detecting Magnetic fields
+  <a class="reference internal" href="Spin%20Physics.html">
+   Spin Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20System.html">
+   The MRI System
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
-   MR Physics - Bloch Equation
+   Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Magnetic fields in MRI
   </a>
  </li>
  <li class="toctree-l1">
@@ -213,6 +206,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
    Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference Material
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
   </a>
  </li>
 </ul>
@@ -472,8 +482,8 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
-<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
+<span class="n">cd</span> <span class="o">../</span>
 <span class="n">startup</span>
 </pre></div>
 </div>
@@ -487,7 +497,7 @@ loading signal
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="artifacts">
 <h1>Artifacts<a class="headerlink" href="#artifacts" title="Permalink to this headline">#</a></h1>
-<p>This notebook includes a simulation of various MRI artifacts, as well as a high-level <a class="reference external" href="#Artifact-Comparison">Artifact Comparison</a> below.</p>
+<p>This notebook includes a simulation of various MRI artifacts, as well as a high-level <a class="reference external" href="#Artifact-Comparison">Artifact Comparison</a> below.  The wikipedia entry <a class="reference external" href="https://en.wikipedia.org/wiki/MRI_artifact">https://en.wikipedia.org/wiki/MRI_artifact</a> is also very comprehensive.</p>
 <section id="artifact-comparison">
 <h2>Artifact Comparison<a class="headerlink" href="#artifact-comparison" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
@@ -518,8 +528,8 @@ loading signal
 <td><p>Copies or “Ghosts” of image regions that are changing due to motion or flow</p></td>
 <td><p>Phase encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p>Displacement</p></td>
-<td><p>Shifts in image due to chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<tr class="row-odd"><td><p>Displacement/Distortion</p></td>
+<td><p>Shifts in location due to chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
 <td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
 </tr>
 <tr class="row-even"><td><p>T2*</p></td>
@@ -549,20 +559,20 @@ loading signal
 <h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% load k-space data</span>
-<span class="n">dataname</span> <span class="p">=</span> <span class="s">&#39;se_t1_sag_data&#39;</span><span class="p">;</span>
-<span class="nb">load</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
-<span class="n">kdata</span> <span class="p">=</span> <span class="n">data</span><span class="p">;</span>
-<span class="n">S</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">load</span> <span class="n">k</span><span class="o">-</span><span class="n">space</span> <span class="n">data</span>
+<span class="n">dataname</span> <span class="o">=</span> <span class="s1">&#39;se_t1_sag_data&#39;</span><span class="p">;</span>
+<span class="n">load</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
+<span class="n">kdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
 
-<span class="n">im_original</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+<span class="n">im_original</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
@@ -575,20 +585,21 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% spike noise</span>
-<span class="n">spike_location</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">53</span><span class="p">];</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">spike</span> <span class="n">noise</span>
+<span class="n">spike_location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.6</span> <span class="mf">.53</span><span class="p">];</span>
 
-<span class="n">data_spike</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
-<span class="n">data_spike</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
-<span class="n">im_spike</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">);</span>
+<span class="n">data_spike</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">data_spike</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_spike</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">);</span>
 
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_spike</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_spike</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+
 </pre></div>
 </div>
 </div>
@@ -598,22 +609,22 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% RF interference</span>
-<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.6</span><span class="p">;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">RF</span> <span class="n">interference</span>
+<span class="n">relative_RF_frequency</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">;</span>
 
-<span class="c">%single frequency, phase modulated</span>
-<span class="n">ph_int</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
-<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">rfint</span><span class="p">,</span> <span class="p">[</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span> <span class="o">.*</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">ph_int</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)]);</span>
-<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+<span class="o">%</span><span class="n">single</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">phase</span> <span class="n">modulated</span>
+<span class="n">ph_int</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">rand</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">rfint</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="o">=</span> <span class="n">repmat</span><span class="p">(</span><span class="n">rfint</span><span class="p">,</span> <span class="p">[</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span> <span class="o">.*</span> <span class="n">repmat</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">ph_int</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)]);</span>
+<span class="n">im_rfint</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">figure</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
@@ -623,19 +634,19 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate amplitude modulated interference</span>
-<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
-<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
-<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">rfint</span><span class="p">;</span>
-<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">simulate</span> <span class="n">amplitude</span> <span class="n">modulated</span> <span class="n">interference</span>
+<span class="n">relative_RF_frequency</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">rfint</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">rfint</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">figure</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
@@ -645,19 +656,19 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency modulated interference</span>
-<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">f</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="n">f</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
-<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">simulate</span> <span class="n">frequency</span> <span class="n">modulated</span> <span class="n">interference</span>
+<span class="n">relative_RF_frequency</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span> <span class="n">f</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">figure</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
@@ -667,20 +678,21 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% aliasing</span>
-<span class="n">N_undersamp</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c">% &gt;= 1</span>
-<span class="n">data_undersamp</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
-<span class="n">Iundersamp</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_undersamp</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">data_undersamp</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:)</span> <span class="p">=</span> <span class="n">kdata</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:);</span>
-<span class="n">im_undersamp</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">aliasing</span>
+<span class="n">N_undersamp</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="o">%</span> <span class="o">&gt;=</span> <span class="mi">1</span>
+<span class="n">data_undersamp</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">Iundersamp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_undersamp</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">data_undersamp</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:)</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:);</span>
+<span class="n">im_undersamp</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">);</span>
 
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_undersamp</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_undersamp</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+
 </pre></div>
 </div>
 </div>
@@ -690,33 +702,33 @@ loading signal
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% Ringing (with rect object)</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">32</span><span class="p">;</span>
-<span class="n">kx</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">N_rect</span> <span class="p">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">kdata</span> <span class="p">=</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span><span class="n">N_rect</span><span class="p">).</span><span class="o">&#39;</span> <span class="o">*</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span><span class="n">N_rect</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">Ringing</span> <span class="p">(</span><span class="k">with</span> <span class="n">rect</span> <span class="nb">object</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="n">kx</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+<span class="n">N_rect</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">kdata</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span><span class="n">N_rect</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39; * sinc(kx *N_rect);</span>
 
-<span class="n">rect_ringing</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+<span class="n">rect_ringing</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Ringing&#39;</span><span class="p">)</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Ringing&#39;</span><span class="p">)</span>
 
-<span class="n">kdata_windowed</span> <span class="p">=</span> <span class="n">kdata</span> <span class="o">.*</span> <span class="p">(</span><span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">).</span><span class="o">&#39;</span><span class="p">);</span>
-<span class="n">rect_windowed</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">);</span>
+<span class="n">kdata_windowed</span> <span class="o">=</span> <span class="n">kdata</span> <span class="o">.*</span> <span class="p">(</span><span class="n">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;);</span>
+<span class="n">rect_windowed</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">);</span>
 
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">(:)))])</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Windowed&#39;</span><span class="p">)</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">((</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="p">(</span><span class="mi">1</span><span class="p">)])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">(:)))])</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Windowed&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -736,16 +748,16 @@ loading signal
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            name: "python388jvsc74a57bd0230bb86d89e21bf22051522ecebd841eee4c4275bcf431a68f8ea2d65ef3b0d4",
+            name: "octave",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python388jvsc74a57bd0230bb86d89e21bf22051522ecebd841eee4c4275bcf431a68f8ea2d65ef3b0d4'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               

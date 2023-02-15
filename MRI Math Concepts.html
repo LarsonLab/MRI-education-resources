@@ -54,7 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Creating and Detecting Magnetic fields" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
     <link rel="prev" title="MRI Notation" href="MRI%20Notation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -127,35 +126,28 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Primers
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   MRI Math Concepts
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   MR Physics
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Creating and Detecting Magnetic fields
+  <a class="reference internal" href="Spin%20Physics.html">
+   Spin Physics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20System.html">
+   The MRI System
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
-   MR Physics - Bloch Equation
+   Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Magnetic fields in MRI
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,6 +207,23 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
    Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference Material
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MRI Math Concepts
   </a>
  </li>
 </ul>
@@ -687,7 +696,7 @@ We recommend using the qt toolkit instead.
 <div class="math notranslate nohighlight">
 \[ \mathcal{F} \{ f(x) \} = F(k_x) = \int_{-\infty}^\infty f(x) \exp(-i 2 \pi k_x x) dx\]</div>
 <p>(Unitary, ordinary frequency)</p>
-<p>Note that the pair of variables used - <span class="math notranslate nohighlight">\(x\)</span> used to represent space and k_x<span class="math notranslate nohighlight">\( used to represent spatial frequency, can be swapped for other variables.  Most commonly this is \)</span>t<span class="math notranslate nohighlight">\( used to represent time and \)</span>f$ used to represent frequency.</p>
+<p>Note that the pair of variables used - <span class="math notranslate nohighlight">\(x\)</span> used to represent space and <span class="math notranslate nohighlight">\(k_x\)</span> used to represent spatial frequency, can be swapped for other variables. Most commonly this is <span class="math notranslate nohighlight">\(t\)</span> used to represent time and <span class="math notranslate nohighlight">\(f\)</span> used to represent frequency.</p>
 <section id="inverse-fourier-transform">
 <h3>Inverse Fourier Transform:<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
@@ -846,13 +855,6 @@ We recommend using the qt toolkit instead.
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">MRI Notation</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="Magnetic%20Fields%20and%20RF%20Coils.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating and Detecting Magnetic fields</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
