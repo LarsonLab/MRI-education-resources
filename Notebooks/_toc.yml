@@ -4,14 +4,12 @@
 format: jb-book
 root: Introduction
 parts:
-  - caption: Primers
-    chapters:
-    - file: "MRI Notation"
-    - file: "MRI Math Concepts"
   - caption: MR Physics
     chapters:
-    - file: "Magnetic Fields and RF Coils"
+    - file: "Spin Physics"
+    - file: "MRI System"
     - file: "MR Physics - Bloch Equation"
+    - file: "Magnetic Fields and RF Coils"
     - file: "MRI Contrast"
   - caption: Image Formation
     chapters:
@@ -25,3 +23,7 @@ parts:
     - file: "RF Pulses"
     - file: Spectral-Spatial RF Pulses
     - file: "Fun with RF Pulses"
+  - caption: Reference Material
+    chapters:
+    - file: "MRI Notation"
+    - file: "MRI Math Concepts"
