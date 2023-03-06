@@ -1,48 +1,56 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Spin Physics &#8212; Principles of MRI</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=4ec06e9971c5264fbd345897d5258098f11cc577" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=8bf782fb4ee92b3d3646425e50f299c4e1fd152d"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,73 +58,447 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Spin Physics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The MRI System" href="MRI%20System.html" />
     <link rel="prev" title="Introduction to Principles of MRI" href="Introduction.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-51903906-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="Introduction.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/HPBrain-Anime.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/HPBrain-Anime.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
         
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Spin Physics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20System.html">
+                        The MRI System
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+                        Bloch Equation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+                        Magnetic fields in MRI
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Contrast.html">
+                        MRI Contrast
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Signal%20Equation.html">
+                        Building Up the MRI Signal Equation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Spatial%20Encoding.html">
+                        Spatial Encoding
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Image%20Reconstruction.html">
+                        Image Reconstruction (In Progress Page)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Signal%20to%20Noise%20Ratio.html">
+                        Signal to Noise Ratio (SNR)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Artifacts.html">
+                        Artifacts
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="RF%20Pulses.html">
+                        RF Pulses
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Spectral-Spatial%20RF%20Pulses.html">
+                        Spectral-Spatial RF Pulses
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Fun%20with%20RF%20Pulses.html">
+                        Fun? RF Pulses?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Notation.html">
+                        MRI Notation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Math%20Concepts.html">
+                        MRI Math Concepts
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
       
       
-      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
       
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
       
-      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Spin Physics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20System.html">
+                        The MRI System
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+                        Bloch Equation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+                        Magnetic fields in MRI
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Contrast.html">
+                        MRI Contrast
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Signal%20Equation.html">
+                        Building Up the MRI Signal Equation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Spatial%20Encoding.html">
+                        Spatial Encoding
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Image%20Reconstruction.html">
+                        Image Reconstruction (In Progress Page)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Signal%20to%20Noise%20Ratio.html">
+                        Signal to Noise Ratio (SNR)
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Artifacts.html">
+                        Artifacts
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="RF%20Pulses.html">
+                        RF Pulses
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Spectral-Spatial%20RF%20Pulses.html">
+                        Spectral-Spatial RF Pulses
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="Fun%20with%20RF%20Pulses.html">
+                        Fun? RF Pulses?
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Notation.html">
+                        MRI Notation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="MRI%20Math%20Concepts.html">
+                        MRI Math Concepts
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+  
+
+
+<a class="navbar-brand logo" href="Introduction.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="_static/HPBrain-Anime.png" class="logo__image only-light" alt="Logo image">
+    <img src="_static/HPBrain-Anime.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    </div>
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -125,522 +507,307 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  MR Physics
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Spin Physics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20System.html">
-   The MRI System
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
-   Bloch Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Magnetic fields in MRI
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Contrast.html">
-   MRI Contrast
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Spin Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Image Formation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Signal%20Equation.html">
-   Building Up the MRI Signal Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Spatial%20Encoding.html">
-   Spatial Encoding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Image%20Reconstruction.html">
-   Image Reconstruction (In Progress Page)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
-   Signal to Noise Ratio (SNR)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Artifacts.html">
-   Artifacts
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  RF Pulses
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="RF%20Pulses.html">
-   RF Pulses
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
-   Spectral-Spatial RF Pulses
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
-   Fun? RF Pulses?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Reference Material
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Math%20Concepts.html">
-   MRI Math Concepts
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            <a href="https://larsonlab.github.io">Larson Advanced Imaging Research Group</a> Powered by <a href="https://jupyterbook.org">Jupyter Book</a> 
-            </div>
-            
-        </div>
+</nav>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  </div>
+  
 
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
 
-          
+  
+  <div id="rtd-footer-container"></div>
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
+      </div>
+      <main id="main-content" class="bd-main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
 
 
 
 <div class="col py-1 d-flex header-article-main">
     <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+        <label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" data-toggle="tooltip" data-placement="right" title="Toggle primary sidebar">
+            <span class="fa-solid fa-bars"></span>
+        </label>
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/main?urlpath=tree/Notebooks/Spin Physics.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
+  <ul class="dropdown-menu">
+  </ul>
 </div>
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
+  class="btn btn-sm"
   data-toggle="tooltip"
 data-placement="bottom"
 title="Fullscreen mode"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<div class="dropdown dropdown-repository-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/larsonlab/MRI-education-resources"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Source repository"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fab fa-github"></i>
   </span>
-<span class="headerbtn__text-container">repository</span>
+<span class="btn__text-container">repository</span>
 </a>
-
-      </li>
+</a>
       
-      <li>
-        <a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpin Physics.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpin Physics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Open an issue"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-lightbulb"></i>
   </span>
-<span class="headerbtn__text-container">open issue</span>
+<span class="btn__text-container">open issue</span>
 </a>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/Spin Physics.ipynb"
-   class="headerbtn"
+  <ul class="dropdown-menu">
+      <li><a href="_sources/Spin Physics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
 title="Download source file"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
-
-      </li>
+</a>
       
       <li>
-        
 <button onclick="printPdf(this)"
-  class="headerbtn"
+  class="btn btn-sm dropdown-item"
   data-toggle="tooltip"
 data-placement="left"
 title="Print to PDF"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="headerbtn__text-container">.pdf</span>
+<span class="btn__text-container">.pdf</span>
 </button>
-
-      </li>
+</a>
       
-    </ul>
-  </div>
+  </ul>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nuclear-spin">
-   Nuclear Spin
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polarization">
-   Polarization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equilibrium-magnetization">
-     Equilibrium Magnetization
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fractional-polarization">
-     Fractional Polarization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resonance">
-   Resonance
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resonance-frequency">
-     Resonance Frequency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-resonance">
-     Simulation of Resonance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#precession">
-   Precession
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#excitation">
-     Excitation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-precession">
-     Simulation of Precession
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relaxation">
-   Relaxation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-relaxation">
-     Simulation of Relaxation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relaxation-equations">
-     Relaxation Equations
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Spin Physics</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-goals">
-   Learning Goals
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nuclear-spin">
-   Nuclear Spin
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polarization">
-   Polarization
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equilibrium-magnetization">
-     Equilibrium Magnetization
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fractional-polarization">
-     Fractional Polarization
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resonance">
-   Resonance
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#resonance-frequency">
-     Resonance Frequency
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-resonance">
-     Simulation of Resonance
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#precession">
-   Precession
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#excitation">
-     Excitation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-precession">
-     Simulation of Precession
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#relaxation">
-   Relaxation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulation-of-relaxation">
-     Simulation of Relaxation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#relaxation-equations">
-     Relaxation Equations
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
-                    </div>
-                </div>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
+            
+            
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Spin Physics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nuclear-spin">
+   Nuclear Spin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polarization">
+   Polarization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equilibrium-magnetization">
+     Equilibrium Magnetization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fractional-polarization">
+     Fractional Polarization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resonance">
+   Resonance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resonance-frequency">
+     Resonance Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-resonance">
+     Simulation of Resonance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precession">
+   Precession
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#excitation">
+     Excitation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-precession">
+     Simulation of Precession
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relaxation">
+   Relaxation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-relaxation">
+     Simulation of Relaxation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relaxation-equations">
+     Relaxation Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+            <article class="bd-article" role="main">
+              
   <section class="tex2jax_ignore mathjax_ignore" id="spin-physics">
-<h1>Spin Physics<a class="headerlink" href="#spin-physics" title="Permalink to this headline">#</a></h1>
+<h1>Spin Physics<a class="headerlink" href="#spin-physics" title="Permalink to this heading">#</a></h1>
 <p>Before opening up the MRI scanner, we must first understand what is fundamentally being measured by MRI, which are nuclear “spins”, and how they behave in a magnetic field which includes the resonance phenomenom that forms the basis of MRI.</p>
 <section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
 <li><p>Understand what MRI is measuring</p></li>
 <li><p>Describe the concepts of polarization, resonance, and relaxation</p></li>
 </ol>
 </section>
 <section id="nuclear-spin">
-<h2>Nuclear Spin<a class="headerlink" href="#nuclear-spin" title="Permalink to this headline">#</a></h2>
+<h2>Nuclear Spin<a class="headerlink" href="#nuclear-spin" title="Permalink to this heading">#</a></h2>
 <p>A nuclear spin is defined as a nucleus with a non-zero net angular momentum.  This means that the nucleus has a net magnetic moment, <span class="math notranslate nohighlight">\(\mu\)</span>, meaning it can act as a small magnet.  It also experiences magnetic resonance, which means it will respond to a specific frequency of electromagnetic fields.  This resonance is the basis for the MRI signal.</p>
 <p>In MRI, we are tyipcally imaging hydrogen nuclei (<span class="math notranslate nohighlight">\(^1 H\)</span>) which are about 80% of the atoms in our bodies.  The primary source of <span class="math notranslate nohighlight">\(^1 H\)</span>, also referred to as protons, is water, although protons in lipids are also imaged.</p>
 <p>Other nuclei also have spin, including <span class="math notranslate nohighlight">\(^{13}C, ^{19}F, ^{23}Na, ^{31}P\)</span>, but these are much less abundant and thus have less available signal compared to protons.</p>
 </section>
 <section id="polarization">
-<h2>Polarization<a class="headerlink" href="#polarization" title="Permalink to this headline">#</a></h2>
+<h2>Polarization<a class="headerlink" href="#polarization" title="Permalink to this heading">#</a></h2>
 <p>In the absence of a magnetic field, nuclear spins will be randomly aligned.  However when spins experience a magnetic field, they will preferentially align with that magnetic field.  In MRI, we cannot measure individual spins, but we observe the ensemble of spins,  which is is known as the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>.</p>
 <p>FIGURES</p>
 <p>Equilibrium magnetization before and after application of a strong magnetic field that polarizes the spins as reflected in increased density of arrows in the direction of the field (here vertical).  The large arrow pointing up represents the sum of all these spins, or the Net Magnetization. Source <a class="reference external" href="https://www.drcmr.dk/mr">https://www.drcmr.dk/mr</a></p>
 <section id="equilibrium-magnetization">
-<h3>Equilibrium Magnetization<a class="headerlink" href="#equilibrium-magnetization" title="Permalink to this headline">#</a></h3>
+<h3>Equilibrium Magnetization<a class="headerlink" href="#equilibrium-magnetization" title="Permalink to this heading">#</a></h3>
 <p>In MRI, we define the main magnetic field, <span class="math notranslate nohighlight">\(B_0\)</span>, to be oriented along the z-axis.  When a subject is placed in a MRI scanner, the equilibrium magnetic field is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(\vec{r},0) = 
@@ -669,7 +836,7 @@ M_0(\vec{r})
 <span class="math notranslate nohighlight">\(T\)</span> is temperature (human body temperature = 310 K).</p>
 </section>
 <section id="fractional-polarization">
-<h3>Fractional Polarization<a class="headerlink" href="#fractional-polarization" title="Permalink to this headline">#</a></h3>
+<h3>Fractional Polarization<a class="headerlink" href="#fractional-polarization" title="Permalink to this heading">#</a></h3>
 <p>Another helpful formulation to describe the preference of spins to align with the magnetic field is to look at the fraction of spins that, if observed, would be aligned with the magnetic field.  This can be done using the Boltzman distribution that describes the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states.</p>
 <div class="math notranslate nohighlight">
 \[ \frac{N_\uparrow}{N_\downarrow} = e^{\hbar \bar{\gamma} B_0 / kT}\]</div>
@@ -680,15 +847,20 @@ M_0(\vec{r})
 <p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
 <div class="math notranslate nohighlight">
 \[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT}\]</div>
+<p>Suppose the protons in a <span class="math notranslate nohighlight">\(1T\)</span> magnetic field, the human body temperature is <span class="math notranslate nohighlight">\(300K\)</span>, how many spins are mismatched and contribute to detectable signal?</p>
+<p>the <span class="math notranslate nohighlight">\(\hbar = 1.05 \times 10^{-34}J \cdot s\)</span>, the gyromagnetic ratio <span class="math notranslate nohighlight">\(\bar{\gamma} = 267 \times 10^{-6} rad/(s \cdot T)\)</span>, <span class="math notranslate nohighlight">\(B_0 = 1T\)</span>, <span class="math notranslate nohighlight">\(k = 1.38 \times 10^{-23}J/K\)</span> and <span class="math notranslate nohighlight">\(T = 300K\)</span>, then we calculate the answer:</p>
+<div class="math notranslate nohighlight">
+\[ P = \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT} = 0.0000034\]</div>
+<p>The answer is <span class="math notranslate nohighlight">\(0.0000034\)</span>, around <span class="math notranslate nohighlight">\(3.4ppm\)</span>, which means out of every million spins in the sample only about three to four are unmatched don’t have a partner in the high energy state and are giving NMR signal. For this reason we say NMR is actually a pretty <strong>insensitive</strong>!</p>
 </section>
 </section>
 <section id="resonance">
-<h2>Resonance<a class="headerlink" href="#resonance" title="Permalink to this headline">#</a></h2>
+<h2>Resonance<a class="headerlink" href="#resonance" title="Permalink to this heading">#</a></h2>
 <p>When in a mangetic field, spins and therefore the net magnetization experience magnetic resonance, which means they will respond strongly to a specific frequency of electromagnetic fields.</p>
 <p>An analogy for resonance is to consider a swing: In order to swing higher and higher, you must move your legs back and forth at the right rate.  If you move your legs at the wrong rate, you will simply not move much higher.</p>
 <p>In MRI, we can perturb the net magnetization from equilibrium by applying a time-varying magnetic field (<span class="math notranslate nohighlight">\(B_1\)</span>) at the “resonance frequency”.  This will perturb or “tip” the net magnetization away its equilibrium where it is in alignment with the magnetic field.</p>
 <section id="resonance-frequency">
-<h3>Resonance Frequency<a class="headerlink" href="#resonance-frequency" title="Permalink to this headline">#</a></h3>
+<h3>Resonance Frequency<a class="headerlink" href="#resonance-frequency" title="Permalink to this heading">#</a></h3>
 <p>The magnetic resonance frequency is proportional to the magnetic field amplitude</p>
 <div class="math notranslate nohighlight">
 \[f = \bar{\gamma} \|\vec{B}\|\]</div>
@@ -697,9 +869,9 @@ M_0(\vec{r})
 \[f_0 = \bar{\gamma} B_0\]</div>
 </section>
 <section id="simulation-of-resonance">
-<h3>Simulation of Resonance<a class="headerlink" href="#simulation-of-resonance" title="Permalink to this headline">#</a></h3>
+<h3>Simulation of Resonance<a class="headerlink" href="#simulation-of-resonance" title="Permalink to this heading">#</a></h3>
 <p>For this simulation use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator for visualizing resonance.  To simulate</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Start in the default compass mode, with an applied <span class="math notranslate nohighlight">\(B_0\)</span> field(default)</p></li>
 <li><p>Move the <span class="math notranslate nohighlight">\(B_1\)</span> magnetic field slider - this should change the angle of the compass slightly</p></li>
 <li><p>Now adjust the <span class="math notranslate nohighlight">\(B_1\)</span> freq(uency) slider - if you choose the correct frequency, then you should be able to create large oscillations in the compass</p></li>
@@ -709,18 +881,18 @@ M_0(\vec{r})
 </section>
 </section>
 <section id="precession">
-<h2>Precession<a class="headerlink" href="#precession" title="Permalink to this headline">#</a></h2>
+<h2>Precession<a class="headerlink" href="#precession" title="Permalink to this heading">#</a></h2>
 <p>Precession refers to the rotation of the spins and therefore the net magnetization around the magnetic field.  This precession is part of the magnetic resonance phenomenom and is what creates signal in MRI.  The spins and net magnetization will rotate around the magnetic field, with the resonance frequency.</p>
 <section id="excitation">
-<h3>Excitation<a class="headerlink" href="#excitation" title="Permalink to this headline">#</a></h3>
+<h3>Excitation<a class="headerlink" href="#excitation" title="Permalink to this heading">#</a></h3>
 <p>In order for precession to occur, the spins or net magnetization must not be aligned with the magnetic field.  As the nuclear spins are only preferentially aligned with the magnetic field, many of them will experience precession at any given time.  However, the net magnetization will be aligned with the magnetic field at equilibrium, and therefore will not precess.</p>
 <p>To cause the net magnetization to precess, an time-varying magnetic field (<span class="math notranslate nohighlight">\(B_1\)</span>) is applied at the resonance frequency.  This perturbs the net magnetization away from alignment with the magnetic field, and it will continue to precess after the <span class="math notranslate nohighlight">\(B_1\)</span> field is turned off.</p>
 <p>Once we have precession of the net magnetization, it creates a time-varying magnetic field that can then be detected as MRI signal.</p>
 </section>
 <section id="simulation-of-precession">
-<h3>Simulation of Precession<a class="headerlink" href="#simulation-of-precession" title="Permalink to this headline">#</a></h3>
+<h3>Simulation of Precession<a class="headerlink" href="#simulation-of-precession" title="Permalink to this heading">#</a></h3>
 <p>Again, use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator for visualizing resonance and precession.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Start in the default compass mode again</p></li>
 <li><p>Hit the Push button in the top right.  Notice how the needle now precesses at a specific frequency</p></li>
 <li><p>Switch on using the Coil for <span class="math notranslate nohighlight">\(B_1\)</span> in the top right checkbox, and hit Push again.  Now the blue trace highlights the signal created in this coil by the precessing needle.  This is because the needle will also create a time-varying magnetic field that can be detected</p></li>
@@ -729,18 +901,18 @@ M_0(\vec{r})
 </section>
 </section>
 <section id="relaxation">
-<h2>Relaxation<a class="headerlink" href="#relaxation" title="Permalink to this headline">#</a></h2>
+<h2>Relaxation<a class="headerlink" href="#relaxation" title="Permalink to this heading">#</a></h2>
 <p>Relaxation refers to the process by which the net magnetization, our ensemble of individual spins, returns to thermal equilibrium.  This is governed by 2 time constants, <span class="math notranslate nohighlight">\(T_1(\vec{r})\)</span> - the longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant, and <span class="math notranslate nohighlight">\(T_2(\vec{r})\)</span> - the transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant.  These time constants differ depending on tissue composition and structure, and both of these relaxation time constants are valuable sources of MRI contrast.</p>
 <section id="simulation-of-relaxation">
-<h3>Simulation of Relaxation<a class="headerlink" href="#simulation-of-relaxation" title="Permalink to this headline">#</a></h3>
+<h3>Simulation of Relaxation<a class="headerlink" href="#simulation-of-relaxation" title="Permalink to this heading">#</a></h3>
 <p>One last time in this chapter, use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Start in the default compass mode</p></li>
 <li><p>Hit the Push button in the top right.  The needle will begin to precesses but then returns to alignment with the <span class="math notranslate nohighlight">\(B_0\)</span> magnetic field (in the vertical direction).  This return to equilibrium is relaxation</p></li>
 </ol>
 </section>
 <section id="relaxation-equations">
-<h3>Relaxation Equations<a class="headerlink" href="#relaxation-equations" title="Permalink to this headline">#</a></h3>
+<h3>Relaxation Equations<a class="headerlink" href="#relaxation-equations" title="Permalink to this heading">#</a></h3>
 <p>How the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, behaves in returning to equilibrium is governed by the Bloch equation.  The full Bloch equation is covered in a later chapter, but we will begin here introducing the result for relaxation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -827,7 +999,7 @@ loading signal
 ans = -9.5540
 </pre></div>
 </div>
-<img alt="_images/Spin Physics_11_1.png" src="_images/Spin Physics_11_1.png" />
+<img alt="_images/b1751411d9ca32cff1d41cc0a922190c9a56c74d5ca81b65cebb6e7e9e463178.png" src="_images/b1751411d9ca32cff1d41cc0a922190c9a56c74d5ca81b65cebb6e7e9e463178.png" />
 </div>
 </div>
 </section>
@@ -854,53 +1026,181 @@ ans = -9.5540
     </script>
     <script>kernelName = 'octave'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
+            </article>
+            
+
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Principles of MRI</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="MRI%20System.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The MRI System</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+  <a class='left-prev' id="prev-link" href="Introduction.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Introduction to Principles of MRI</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="MRI%20System.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">The MRI System</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
   
-    By Peder Larson<br/>
-  
-      &copy; Copyright 2021.<br/>
-    <div class="extra_footer">
-      Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
-    </div>
-</p>
-        </footer>
-    </div>
-    
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nuclear-spin">
+   Nuclear Spin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polarization">
+   Polarization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equilibrium-magnetization">
+     Equilibrium Magnetization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fractional-polarization">
+     Fractional Polarization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resonance">
+   Resonance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resonance-frequency">
+     Resonance Frequency
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-resonance">
+     Simulation of Resonance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#precession">
+   Precession
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#excitation">
+     Excitation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-precession">
+     Simulation of Precession
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relaxation">
+   Relaxation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-relaxation">
+     Simulation of Relaxation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relaxation-equations">
+     Relaxation Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
 </div>
 
-
-      </div>
-    </div>
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+<div class="bd-footer-content__inner container">
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peder Larson
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2021.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+Last updated on None.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+</div>
+  </div>
+  
+</div>
+          </div>
+        </footer>
+        
+
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   </body>
 </html>
