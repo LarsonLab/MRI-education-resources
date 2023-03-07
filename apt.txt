@@ -4,5 +4,5 @@ octave-image
 octave-signal
 octave-miscellaneous
 liboctave-dev
-qt
+qt5-default
 ghostscript
