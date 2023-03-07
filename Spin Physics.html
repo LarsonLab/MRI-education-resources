@@ -826,32 +826,62 @@ M_0(\vec{r})
 \end{bmatrix}\end{split}\]</div>
 <p>And has an amplitude of that is defined as the Equilibrium Magnetization:</p>
 <div class="math notranslate nohighlight">
-\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 \hbar^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
-<p>where <span class="math notranslate nohighlight">\(N(\vec{r})\)</span> is the spin density,
-<span class="math notranslate nohighlight">\(\hbar\)</span> is Planck’s constant,
-<span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> is the gyromagnetic ratio,
-<span class="math notranslate nohighlight">\(B_0\)</span> is the magnetic field,
-<span class="math notranslate nohighlight">\(I_Z\)</span> is the spin number (1/2 for hydrogen),
-<span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant (8.62e-5 eV/K or 1.38e-23 J/K), and
-<span class="math notranslate nohighlight">\(T\)</span> is temperature (human body temperature = 310 K).</p>
+\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+<p>that depends on</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N(\vec{r})\)</span> is the spin density</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> is the Planck constant (<span class="math notranslate nohighlight">\(6.63 \times 10^{-34}\)</span> J/Hz)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> is the gyromagnetic ratio (<span class="math notranslate nohighlight">\(42.58 \times 10^6\)</span> Hz/T for hydrogen)</p></li>
+<li><p><span class="math notranslate nohighlight">\(B_0\)</span> is the magnetic field (e.g. 3 T)</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_Z\)</span> is the spin number (1/2 for hydrogen)</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant (<span class="math notranslate nohighlight">\(1.38 \times 10^{-23}\)</span> J/K)</p></li>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> is temperature (human body temperature = 310 K)</p></li>
+</ul>
 </section>
 <section id="fractional-polarization">
 <h3>Fractional Polarization<a class="headerlink" href="#fractional-polarization" title="Permalink to this heading">#</a></h3>
 <p>Another helpful formulation to describe the preference of spins to align with the magnetic field is to look at the fraction of spins that, if observed, would be aligned with the magnetic field.  This can be done using the Boltzman distribution that describes the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states.</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow}{N_\downarrow} = e^{\hbar \bar{\gamma} B_0 / kT}\]</div>
+\[ \frac{N_\uparrow}{N_\downarrow} = e^{h \bar{\gamma} B_0 / kT}\]</div>
 <p>(This can also be used to derive the equilibrium magnetization above.)</p>
 <p>From this distribution, a fractional polarization can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-\hbar \bar{\gamma} B_0 / kT} }{ 1 + e^{-\hbar \bar{\gamma} B_0 / kT} }\]</div>
+\[P = \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-h \bar{\gamma} B_0 / kT} }{ 1 + e^{-h \bar{\gamma} B_0 / kT} }\]</div>
 <p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT}\]</div>
-<p>Suppose the protons in a <span class="math notranslate nohighlight">\(1T\)</span> magnetic field, the human body temperature is <span class="math notranslate nohighlight">\(300K\)</span>, how many spins are mismatched and contribute to detectable signal?</p>
-<p>the <span class="math notranslate nohighlight">\(\hbar = 1.05 \times 10^{-34}J \cdot s\)</span>, the gyromagnetic ratio <span class="math notranslate nohighlight">\(\bar{\gamma} = 267 \times 10^{-6} rad/(s \cdot T)\)</span>, <span class="math notranslate nohighlight">\(B_0 = 1T\)</span>, <span class="math notranslate nohighlight">\(k = 1.38 \times 10^{-23}J/K\)</span> and <span class="math notranslate nohighlight">\(T = 300K\)</span>, then we calculate the answer:</p>
-<div class="math notranslate nohighlight">
-\[ P = \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT} = 0.0000034\]</div>
-<p>The answer is <span class="math notranslate nohighlight">\(0.0000034\)</span>, around <span class="math notranslate nohighlight">\(3.4ppm\)</span>, which means out of every million spins in the sample only about three to four are unmatched don’t have a partner in the high energy state and are giving NMR signal. For this reason we say NMR is actually a pretty <strong>insensitive</strong>!</p>
+\[ P = \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{h \bar{\gamma} B_0}{2 kT}\]</div>
+<p>Suppose we are studying protons in a “high” 3 T magnetic field in the human body (temperature is 310 K), how many spins are mismatched and contribute to detectable signal?</p>
+<p>The answer is <span class="math notranslate nohighlight">\(P \approx 0.0000099\)</span>, around 10 ppm, which means out of every million spins in the sample only about 10 are unmatched don’t have a partner in the high energy state and are giving NMR signal. For this reason we say NMR is actually a pretty <strong>insensitive</strong>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">B0</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c">% T</span>
+<span class="n">h</span> <span class="p">=</span> <span class="mf">6.63e-34</span><span class="p">;</span> <span class="c">% J/Hz</span>
+<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58e6</span><span class="p">;</span> <span class="c">% Hz/T</span>
+<span class="n">k</span> <span class="p">=</span> <span class="mf">1.38e-23</span><span class="p">;</span> <span class="c">% J/K</span>
+<span class="n">T</span> <span class="p">=</span> <span class="mi">310</span><span class="p">;</span> <span class="c">% K</span>
+
+<span class="n">P</span> <span class="p">=</span> <span class="n">h</span> <span class="o">*</span> <span class="n">gammabar</span> <span class="o">*</span> <span class="n">B0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P = 9.8985e-06
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="resonance">
@@ -949,18 +979,6 @@ M_0(\vec{r})(1-e^{-t/T_1(\vec{r})})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
