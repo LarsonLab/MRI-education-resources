@@ -27,4 +27,4 @@ parts:
     chapters:
     - file: "MRI Notation"
     - file: "MRI Math Concepts"
-    - file: Software_Resources
+    - file: "Software_Resources"
