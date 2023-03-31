@@ -8,29 +8,23 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "autorská práva"
+msgid "suggest edit"
+msgstr "navrhnout úpravy"
 
-msgid "Print to PDF"
-msgstr "Tisk do PDF"
+msgid "Last updated on"
+msgstr "Naposledy aktualizováno"
 
 msgid "Edit this page"
 msgstr "Upravit tuto stránku"
 
-msgid "suggest edit"
-msgstr "navrhnout úpravy"
+msgid "Launch"
+msgstr "Zahájení"
 
-msgid "Sphinx Book Theme"
-msgstr "Téma knihy Sfinga"
+msgid "Print to PDF"
+msgstr "Tisk do PDF"
 
 msgid "open issue"
 msgstr "otevřené číslo"
-
-msgid "By the"
-msgstr "Podle"
-
-msgid "Theme by the"
-msgstr "Téma od"
 
 msgid "Download notebook file"
 msgstr "Stáhnout soubor poznámkového bloku"
@@ -38,44 +32,44 @@ msgstr "Stáhnout soubor poznámkového bloku"
 msgid "Toggle navigation"
 msgstr "Přepnout navigaci"
 
-msgid "next page"
-msgstr "další strana"
-
-msgid "Contents"
-msgstr "Obsah"
-
 msgid "Source repository"
 msgstr "Zdrojové úložiště"
 
-msgid "Search the docs ..."
-msgstr "Hledat v dokumentech ..."
+msgid "By the"
+msgstr "Podle"
 
-msgid "Last updated on"
-msgstr "Naposledy aktualizováno"
+msgid "next page"
+msgstr "další strana"
 
-msgid "Search this book..."
-msgstr "Hledat v této knize ..."
+msgid "repository"
+msgstr "úložiště"
 
-msgid "Download this page"
-msgstr "Stáhněte si tuto stránku"
-
-msgid "Launch"
-msgstr "Zahájení"
+msgid "Sphinx Book Theme"
+msgstr "Téma knihy Sfinga"
 
 msgid "Download source file"
 msgstr "Stáhněte si zdrojový soubor"
 
-msgid "previous page"
-msgstr "předchozí stránka"
+msgid "Contents"
+msgstr "Obsah"
 
 msgid "By"
 msgstr "Podle"
 
-msgid "Open an issue"
-msgstr "Otevřete problém"
+msgid "Copyright"
+msgstr "autorská práva"
 
 msgid "Fullscreen mode"
 msgstr "Režim celé obrazovky"
 
-msgid "repository"
-msgstr "úložiště"
+msgid "Open an issue"
+msgstr "Otevřete problém"
+
+msgid "previous page"
+msgstr "předchozí stránka"
+
+msgid "Download this page"
+msgstr "Stáhněte si tuto stránku"
+
+msgid "Theme by the"
+msgstr "Téma od"

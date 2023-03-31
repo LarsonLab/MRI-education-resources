@@ -8,29 +8,23 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "Авторське право"
+msgid "suggest edit"
+msgstr "запропонувати редагувати"
 
-msgid "Print to PDF"
-msgstr "Друк у форматі PDF"
+msgid "Last updated on"
+msgstr "Останнє оновлення:"
 
 msgid "Edit this page"
 msgstr "Редагувати цю сторінку"
 
-msgid "suggest edit"
-msgstr "запропонувати редагувати"
+msgid "Launch"
+msgstr "Запуск"
 
-msgid "Sphinx Book Theme"
-msgstr "Тема книги \"Сфінкс\""
+msgid "Print to PDF"
+msgstr "Друк у форматі PDF"
 
 msgid "open issue"
 msgstr "відкритий випуск"
-
-msgid "By the"
-msgstr "По"
-
-msgid "Theme by the"
-msgstr "Тема від"
 
 msgid "Download notebook file"
 msgstr "Завантажте файл блокнота"
@@ -38,44 +32,44 @@ msgstr "Завантажте файл блокнота"
 msgid "Toggle navigation"
 msgstr "Переключити навігацію"
 
-msgid "next page"
-msgstr "Наступна сторінка"
-
-msgid "Contents"
-msgstr "Зміст"
-
 msgid "Source repository"
 msgstr "Джерело сховища"
 
-msgid "Search the docs ..."
-msgstr "Шукати в документах ..."
+msgid "By the"
+msgstr "По"
 
-msgid "Last updated on"
-msgstr "Останнє оновлення:"
+msgid "next page"
+msgstr "Наступна сторінка"
 
-msgid "Search this book..."
-msgstr "Шукати в цій книзі ..."
+msgid "repository"
+msgstr "сховище"
 
-msgid "Download this page"
-msgstr "Завантажте цю сторінку"
-
-msgid "Launch"
-msgstr "Запуск"
+msgid "Sphinx Book Theme"
+msgstr "Тема книги \"Сфінкс\""
 
 msgid "Download source file"
 msgstr "Завантажити вихідний файл"
 
-msgid "previous page"
-msgstr "Попередня сторінка"
+msgid "Contents"
+msgstr "Зміст"
 
 msgid "By"
 msgstr "Автор"
 
-msgid "Open an issue"
-msgstr "Відкрийте випуск"
+msgid "Copyright"
+msgstr "Авторське право"
 
 msgid "Fullscreen mode"
 msgstr "Повноекранний режим"
 
-msgid "repository"
-msgstr "сховище"
+msgid "Open an issue"
+msgstr "Відкрийте випуск"
+
+msgid "previous page"
+msgstr "Попередня сторінка"
+
+msgid "Download this page"
+msgstr "Завантажте цю сторінку"
+
+msgid "Theme by the"
+msgstr "Тема від"

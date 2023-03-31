@@ -8,29 +8,23 @@ msgstr ""
 "Language: lt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "Autorių teisės"
+msgid "suggest edit"
+msgstr "pasiūlyti redaguoti"
 
-msgid "Print to PDF"
-msgstr "Spausdinti į PDF"
+msgid "Last updated on"
+msgstr "Paskutinį kartą atnaujinta"
 
 msgid "Edit this page"
 msgstr "Redaguoti šį puslapį"
 
-msgid "suggest edit"
-msgstr "pasiūlyti redaguoti"
+msgid "Launch"
+msgstr "Paleiskite"
 
-msgid "Sphinx Book Theme"
-msgstr "Sfinkso knygos tema"
+msgid "Print to PDF"
+msgstr "Spausdinti į PDF"
 
 msgid "open issue"
 msgstr "atviras klausimas"
-
-msgid "By the"
-msgstr "Prie"
-
-msgid "Theme by the"
-msgstr "Tema"
 
 msgid "Download notebook file"
 msgstr "Atsisiųsti nešiojamojo kompiuterio failą"
@@ -38,44 +32,44 @@ msgstr "Atsisiųsti nešiojamojo kompiuterio failą"
 msgid "Toggle navigation"
 msgstr "Perjungti naršymą"
 
-msgid "next page"
-msgstr "Kitas puslapis"
-
-msgid "Contents"
-msgstr "Turinys"
-
 msgid "Source repository"
 msgstr "Šaltinio saugykla"
 
-msgid "Search the docs ..."
-msgstr "Ieškoti dokumentuose ..."
+msgid "By the"
+msgstr "Prie"
 
-msgid "Last updated on"
-msgstr "Paskutinį kartą atnaujinta"
+msgid "next page"
+msgstr "Kitas puslapis"
 
-msgid "Search this book..."
-msgstr "Ieškoti šioje knygoje ..."
+msgid "repository"
+msgstr "saugykla"
 
-msgid "Download this page"
-msgstr "Atsisiųskite šį puslapį"
-
-msgid "Launch"
-msgstr "Paleiskite"
+msgid "Sphinx Book Theme"
+msgstr "Sfinkso knygos tema"
 
 msgid "Download source file"
 msgstr "Atsisiųsti šaltinio failą"
 
-msgid "previous page"
-msgstr "Ankstesnis puslapis"
+msgid "Contents"
+msgstr "Turinys"
 
 msgid "By"
 msgstr "Iki"
 
-msgid "Open an issue"
-msgstr "Atidarykite problemą"
+msgid "Copyright"
+msgstr "Autorių teisės"
 
 msgid "Fullscreen mode"
 msgstr "Pilno ekrano režimas"
 
-msgid "repository"
-msgstr "saugykla"
+msgid "Open an issue"
+msgstr "Atidarykite problemą"
+
+msgid "previous page"
+msgstr "Ankstesnis puslapis"
+
+msgid "Download this page"
+msgstr "Atsisiųskite šį puslapį"
+
+msgid "Theme by the"
+msgstr "Tema"

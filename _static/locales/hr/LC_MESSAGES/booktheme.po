@@ -8,29 +8,23 @@ msgstr ""
 "Language: hr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "Autorska prava"
+msgid "suggest edit"
+msgstr "predloži uređivanje"
 
-msgid "Print to PDF"
-msgstr "Ispis u PDF"
+msgid "Last updated on"
+msgstr "Posljednje ažuriranje:"
 
 msgid "Edit this page"
 msgstr "Uredite ovu stranicu"
 
-msgid "suggest edit"
-msgstr "predloži uređivanje"
+msgid "Launch"
+msgstr "Pokrenite"
 
-msgid "Sphinx Book Theme"
-msgstr "Tema knjige Sphinx"
+msgid "Print to PDF"
+msgstr "Ispis u PDF"
 
 msgid "open issue"
 msgstr "otvoreno izdanje"
-
-msgid "By the"
-msgstr "Od strane"
-
-msgid "Theme by the"
-msgstr "Tema autora"
 
 msgid "Download notebook file"
 msgstr "Preuzmi datoteku bilježnice"
@@ -38,44 +32,44 @@ msgstr "Preuzmi datoteku bilježnice"
 msgid "Toggle navigation"
 msgstr "Uključi / isključi navigaciju"
 
-msgid "next page"
-msgstr "sljedeća stranica"
-
-msgid "Contents"
-msgstr "Sadržaj"
-
 msgid "Source repository"
 msgstr "Izvorno spremište"
 
-msgid "Search the docs ..."
-msgstr "Pretražite dokumente ..."
+msgid "By the"
+msgstr "Od strane"
 
-msgid "Last updated on"
-msgstr "Posljednje ažuriranje:"
+msgid "next page"
+msgstr "sljedeća stranica"
 
-msgid "Search this book..."
-msgstr "Pretražite ovu knjigu ..."
+msgid "repository"
+msgstr "spremište"
 
-msgid "Download this page"
-msgstr "Preuzmite ovu stranicu"
-
-msgid "Launch"
-msgstr "Pokrenite"
+msgid "Sphinx Book Theme"
+msgstr "Tema knjige Sphinx"
 
 msgid "Download source file"
 msgstr "Preuzmi izvornu datoteku"
 
-msgid "previous page"
-msgstr "Prethodna stranica"
+msgid "Contents"
+msgstr "Sadržaj"
 
 msgid "By"
 msgstr "Po"
 
-msgid "Open an issue"
-msgstr "Otvorite izdanje"
+msgid "Copyright"
+msgstr "Autorska prava"
 
 msgid "Fullscreen mode"
 msgstr "Način preko cijelog zaslona"
 
-msgid "repository"
-msgstr "spremište"
+msgid "Open an issue"
+msgstr "Otvorite izdanje"
+
+msgid "previous page"
+msgstr "Prethodna stranica"
+
+msgid "Download this page"
+msgstr "Preuzmite ovu stranicu"
+
+msgid "Theme by the"
+msgstr "Tema autora"

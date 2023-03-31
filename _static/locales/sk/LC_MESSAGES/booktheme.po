@@ -8,29 +8,23 @@ msgstr ""
 "Language: sk\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "Autorské práva"
+msgid "suggest edit"
+msgstr "navrhnúť úpravu"
 
-msgid "Print to PDF"
-msgstr "Tlač do PDF"
+msgid "Last updated on"
+msgstr "Posledná aktualizácia dňa"
 
 msgid "Edit this page"
 msgstr "Upraviť túto stránku"
 
-msgid "suggest edit"
-msgstr "navrhnúť úpravu"
+msgid "Launch"
+msgstr "Spustiť"
 
-msgid "Sphinx Book Theme"
-msgstr "Téma knihy Sfinga"
+msgid "Print to PDF"
+msgstr "Tlač do PDF"
 
 msgid "open issue"
 msgstr "otvorené vydanie"
-
-msgid "By the"
-msgstr "Podľa"
-
-msgid "Theme by the"
-msgstr "Téma od"
 
 msgid "Download notebook file"
 msgstr "Stiahnite si zošit"
@@ -38,44 +32,44 @@ msgstr "Stiahnite si zošit"
 msgid "Toggle navigation"
 msgstr "Prepnúť navigáciu"
 
-msgid "next page"
-msgstr "ďalšia strana"
-
-msgid "Contents"
-msgstr "Obsah"
-
 msgid "Source repository"
 msgstr "Zdrojové úložisko"
 
-msgid "Search the docs ..."
-msgstr "Hľadať v dokumentoch ..."
+msgid "By the"
+msgstr "Podľa"
 
-msgid "Last updated on"
-msgstr "Posledná aktualizácia dňa"
+msgid "next page"
+msgstr "ďalšia strana"
 
-msgid "Search this book..."
-msgstr "Hľadať v tejto knihe ..."
+msgid "repository"
+msgstr "Úložisko"
 
-msgid "Download this page"
-msgstr "Stiahnite si túto stránku"
-
-msgid "Launch"
-msgstr "Spustiť"
+msgid "Sphinx Book Theme"
+msgstr "Téma knihy Sfinga"
 
 msgid "Download source file"
 msgstr "Stiahnite si zdrojový súbor"
 
-msgid "previous page"
-msgstr "predchádzajúca strana"
+msgid "Contents"
+msgstr "Obsah"
 
 msgid "By"
 msgstr "Autor:"
 
-msgid "Open an issue"
-msgstr "Otvorte problém"
+msgid "Copyright"
+msgstr "Autorské práva"
 
 msgid "Fullscreen mode"
 msgstr "Režim celej obrazovky"
 
-msgid "repository"
-msgstr "Úložisko"
+msgid "Open an issue"
+msgstr "Otvorte problém"
+
+msgid "previous page"
+msgstr "predchádzajúca strana"
+
+msgid "Download this page"
+msgstr "Stiahnite si túto stránku"
+
+msgid "Theme by the"
+msgstr "Téma od"

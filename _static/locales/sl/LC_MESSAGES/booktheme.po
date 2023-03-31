@@ -8,29 +8,23 @@ msgstr ""
 "Language: sl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "avtorske pravice"
+msgid "suggest edit"
+msgstr "predlagajte urejanje"
 
-msgid "Print to PDF"
-msgstr "Natisni v PDF"
+msgid "Last updated on"
+msgstr "Nazadnje posodobljeno dne"
 
 msgid "Edit this page"
 msgstr "Uredite to stran"
 
-msgid "suggest edit"
-msgstr "predlagajte urejanje"
+msgid "Launch"
+msgstr "Kosilo"
 
-msgid "Sphinx Book Theme"
-msgstr "Tema knjige Sphinx"
+msgid "Print to PDF"
+msgstr "Natisni v PDF"
 
 msgid "open issue"
 msgstr "odprto vprašanje"
-
-msgid "By the"
-msgstr "Avtor"
-
-msgid "Theme by the"
-msgstr "Tema avtorja"
 
 msgid "Download notebook file"
 msgstr "Prenesite datoteko zvezka"
@@ -38,44 +32,44 @@ msgstr "Prenesite datoteko zvezka"
 msgid "Toggle navigation"
 msgstr "Preklopi navigacijo"
 
-msgid "next page"
-msgstr "Naslednja stran"
-
-msgid "Contents"
-msgstr "Vsebina"
-
 msgid "Source repository"
 msgstr "Izvorno skladišče"
 
-msgid "Search the docs ..."
-msgstr "Poiščite dokumente ..."
+msgid "By the"
+msgstr "Avtor"
 
-msgid "Last updated on"
-msgstr "Nazadnje posodobljeno dne"
+msgid "next page"
+msgstr "Naslednja stran"
 
-msgid "Search this book..."
-msgstr "Poiščite to knjigo ..."
+msgid "repository"
+msgstr "odlagališče"
 
-msgid "Download this page"
-msgstr "Prenesite to stran"
-
-msgid "Launch"
-msgstr "Kosilo"
+msgid "Sphinx Book Theme"
+msgstr "Tema knjige Sphinx"
 
 msgid "Download source file"
 msgstr "Prenesite izvorno datoteko"
 
-msgid "previous page"
-msgstr "Prejšnja stran"
+msgid "Contents"
+msgstr "Vsebina"
 
 msgid "By"
 msgstr "Avtor"
 
-msgid "Open an issue"
-msgstr "Odprite številko"
+msgid "Copyright"
+msgstr "avtorske pravice"
 
 msgid "Fullscreen mode"
 msgstr "Celozaslonski način"
 
-msgid "repository"
-msgstr "odlagališče"
+msgid "Open an issue"
+msgstr "Odprite številko"
+
+msgid "previous page"
+msgstr "Prejšnja stran"
+
+msgid "Download this page"
+msgstr "Prenesite to stran"
+
+msgid "Theme by the"
+msgstr "Tema avtorja"

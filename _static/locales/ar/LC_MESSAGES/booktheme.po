@@ -8,29 +8,23 @@ msgstr ""
 "Language: ar\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Copyright"
-msgstr "حقوق النشر"
+msgid "suggest edit"
+msgstr "أقترح تحرير"
 
-msgid "Print to PDF"
-msgstr "طباعة إلى PDF"
+msgid "Last updated on"
+msgstr "آخر تحديث في"
 
 msgid "Edit this page"
 msgstr "قم بتحرير هذه الصفحة"
 
-msgid "suggest edit"
-msgstr "أقترح تحرير"
+msgid "Launch"
+msgstr "إطلاق"
 
-msgid "Sphinx Book Theme"
-msgstr "موضوع كتاب أبو الهول"
+msgid "Print to PDF"
+msgstr "طباعة إلى PDF"
 
 msgid "open issue"
 msgstr "قضية مفتوحة"
-
-msgid "By the"
-msgstr "بواسطة"
-
-msgid "Theme by the"
-msgstr "موضوع بواسطة"
 
 msgid "Download notebook file"
 msgstr "تنزيل ملف دفتر الملاحظات"
@@ -38,44 +32,44 @@ msgstr "تنزيل ملف دفتر الملاحظات"
 msgid "Toggle navigation"
 msgstr "تبديل التنقل"
 
-msgid "next page"
-msgstr "الصفحة التالية"
-
-msgid "Contents"
-msgstr "محتويات"
-
 msgid "Source repository"
 msgstr "مستودع المصدر"
 
-msgid "Search the docs ..."
-msgstr "ابحث في المستندات ..."
+msgid "By the"
+msgstr "بواسطة"
 
-msgid "Last updated on"
-msgstr "آخر تحديث في"
+msgid "next page"
+msgstr "الصفحة التالية"
 
-msgid "Search this book..."
-msgstr "بحث في هذا الكتاب ..."
+msgid "repository"
+msgstr "مخزن"
 
-msgid "Download this page"
-msgstr "قم بتنزيل هذه الصفحة"
-
-msgid "Launch"
-msgstr "إطلاق"
+msgid "Sphinx Book Theme"
+msgstr "موضوع كتاب أبو الهول"
 
 msgid "Download source file"
 msgstr "تنزيل ملف المصدر"
 
-msgid "previous page"
-msgstr "الصفحة السابقة"
+msgid "Contents"
+msgstr "محتويات"
 
 msgid "By"
 msgstr "بواسطة"
 
-msgid "Open an issue"
-msgstr "افتح قضية"
+msgid "Copyright"
+msgstr "حقوق النشر"
 
 msgid "Fullscreen mode"
 msgstr "وضع ملء الشاشة"
 
-msgid "repository"
-msgstr "مخزن"
+msgid "Open an issue"
+msgstr "افتح قضية"
+
+msgid "previous page"
+msgstr "الصفحة السابقة"
+
+msgid "Download this page"
+msgstr "قم بتنزيل هذه الصفحة"
+
+msgid "Theme by the"
+msgstr "موضوع بواسطة"
