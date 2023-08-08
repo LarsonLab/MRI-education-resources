@@ -4,5 +4,4 @@ octave-image
 octave-signal
 octave-miscellaneous
 liboctave-dev
-gnuplot
 ghostscript
