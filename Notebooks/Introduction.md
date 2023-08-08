@@ -34,7 +34,7 @@ You can also access a full playlist of my lectures
 This book is greatly influenced by many other great resources that I want to acknowledge up front:
 
 * _Principles of Magnetic Resonance Imaging_ by Dwight Nishimura - I learned from this great text and borrowed a lot of its material.  For some of my students with less engineering/signal processing background, this book on its own was challenging.
-* Net magnetizations animation from Bill Overall and the [SpinBench](https://www.heartvista.ai/spinbench) simulation and pulse sequence design tool
+* Net magnetizations animation from Bill Overall and the [SpinBench](https://vista.ai/products/research-spinbench/) simulation and pulse sequence design tool
 * Miki Lustig's MRI course notes
 * Educational resources from the [Danish Research Centre for Magnetic Resonance](https://www.drcmr.dk/MR), which includes a great on-line [Bloch Simulation]
 (http://drcmr.dk/BlochSimulator/)
