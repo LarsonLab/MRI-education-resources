@@ -10,6 +10,7 @@ parts:
     - file: "MRI System"
     - file: "Magnetic Fields and RF Coils"
     - file: "MR Physics - Bloch Equation"
+  - caption: Contrast
     - file: Pulse Sequence
     - file: "MRI Contrast"
   - caption: Image Formation
