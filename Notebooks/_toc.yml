@@ -20,6 +20,7 @@ parts:
     - file: "Image Reconstruction"
   - caption: Image Characteristics
     - file: Signal to Noise Ratio
+    - file: FOV and Resolution
     - file: "MRI Signal Equation"
     - file: Artifacts
   - caption: Radiofrequency Pulses
