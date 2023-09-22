@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -73,8 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'MRI Contrast';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Building Up the MRI Signal Equation" href="MRI%20Signal%20Equation.html" />
-    <link rel="prev" title="Magnetic fields in MRI" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
+    <link rel="next" title="Spatial Encoding" href="Spatial%20Encoding.html" />
+    <link rel="prev" title="Gradient and Spin Echo Pulse Sequences" href="Gradient%20and%20Spin%20Echoes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -388,23 +412,33 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MRI Contrast</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t2-t2">TE and T2/T2*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t1">TR and T1</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">&lt; 90-degree flip angles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proton-density-weighting-with-short-tr-and-small-flip-angles">Proton Density Weighting with short TR and small flip angles</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-t2-and-proton-density-weighting">T1, T2 and Proton Density Weighting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t2-weighting-and-t2-weighting">T2-weighting and T2*-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-weighting">T1-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pd-weighting">PD-weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-relaxation-times-3t">Typical Relaxation Times (3T)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
 </ul>
 
             </nav>
@@ -419,7 +453,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mri-contrast">
 <h1>MRI Contrast<a class="headerlink" href="#mri-contrast" title="Permalink to this heading">#</a></h1>
-<p>MRI contrast is a rich dimension of information.  The following examples illustrate how MR contrast can vary in common pulse sequences.</p>
+<p>MRI contrast is a rich dimension of information and the variety of contrasts achieveable is arguably the main advantage of MRI.  This section introduces the fundamental techniques of T1, T2, and proton density weighted contrasts as well as inversion recovery and Gd-based contrast agents.</p>
+<p><img alt="MRI is a modality with a multiple Contrasts" src="_images/3DMagic.gif" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
@@ -429,24 +464,30 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
 </div>
 </div>
 </div>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how various types of MRI contrast are created</p>
+<ul class="simple">
+<li><p>Describe how T1, T2, and proton density weighted images are formed</p></li>
+<li><p>Describe how inversion recovery works</p></li>
+<li><p>Describe how Gd-based contrast agents work</p></li>
+<li><p>Identify various image contrasts</p></li>
+</ul>
+</li>
+<li><p>Manipulate MRI sequence parameters to improve performance</p>
+<ul class="simple">
+<li><p>Choose flip angle, TE, TR, and TI for desired contrast</p></li>
+</ul>
+</li>
+</ol>
+</section>
 <section id="te-and-t2-t2">
 <h2>TE and T2/T2*<a class="headerlink" href="#te-and-t2-t2" title="Permalink to this heading">#</a></h2>
 <p>The transverse magnetization decays with <span class="math notranslate nohighlight">\(T_2\)</span> (spin-echoes) or <span class="math notranslate nohighlight">\(T_2^*\)</span> (gradient-echoes) once it is flipped by an RF pulse away from the z-axis.  Therefore, the <span class="math notranslate nohighlight">\(T_2/T_2^*\)</span> contrast can be controlled by choosing the echo time (TE), which is the time between the center of the RF excitation pulse and the center of the data acquisition (when the center of k-space is acquired).  The signal is then proportional to</p>
@@ -459,7 +500,7 @@ loading signal
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% TE contrast</span>
 
 <span class="n">TE</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span> <span class="c">% ms</span>
-<span class="n">T2v</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">10</span><span class="p">;</span><span class="mi">20</span><span class="p">;</span><span class="mi">80</span><span class="p">;</span><span class="mi">160</span><span class="p">];</span>
+<span class="n">T2v</span> <span class="p">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">;</span><span class="mi">60</span><span class="p">;</span><span class="mi">80</span><span class="p">;</span><span class="mi">100</span><span class="p">;</span><span class="mi">130</span><span class="p">;</span><span class="mi">200</span><span class="p">];</span>
 <span class="p">[</span><span class="n">T2</span> <span class="n">TE</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">T2v</span><span class="p">,</span><span class="n">TE</span><span class="p">);</span>
 <span class="n">M0</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">T2</span><span class="p">));</span>
 
@@ -487,11 +528,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -11.629
-</pre></div>
-</div>
-<img alt="_images/247df58244358475d479d39e9f2cb8b0249e7dd85fb7ae4373383ba9a000cc0d.png" src="_images/247df58244358475d479d39e9f2cb8b0249e7dd85fb7ae4373383ba9a000cc0d.png" />
-<img alt="_images/c95216a32454bfa2cefc8b28bb8c6964fb917884bb491464c4199f588517606c.png" src="_images/c95216a32454bfa2cefc8b28bb8c6964fb917884bb491464c4199f588517606c.png" />
+<img alt="_images/923047e0d8c596167e3a9138ad869a8bd2fd9bce8e36b8fbb59a3b45364de9f6.png" src="_images/923047e0d8c596167e3a9138ad869a8bd2fd9bce8e36b8fbb59a3b45364de9f6.png" />
+<img alt="_images/8f50f8e8bd21658cf2e9af7ccf38fcaf46453733fbc4077a5ed694f5bf20d1b2.png" src="_images/8f50f8e8bd21658cf2e9af7ccf38fcaf46453733fbc4077a5ed694f5bf20d1b2.png" />
 </div>
 </div>
 </section>
@@ -552,10 +590,7 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -22.971
-</pre></div>
-</div>
-<img alt="_images/9dd2e30d18dc7efd209b3a2a27a39b2729dac1c10f9eb9fff9b4fce586301224.png" src="_images/9dd2e30d18dc7efd209b3a2a27a39b2729dac1c10f9eb9fff9b4fce586301224.png" />
+<img alt="_images/0d4eecd95f8a44e1d2fa4ca6934debcf78ff64cdcef47dbc4765d6553316e748.png" src="_images/0d4eecd95f8a44e1d2fa4ca6934debcf78ff64cdcef47dbc4765d6553316e748.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -591,11 +626,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -30.881
-</pre></div>
-</div>
-<img alt="_images/94a477658404efdaa650c6427fea10b0be585b10a96c200554e7d8a5d21c6b25.png" src="_images/94a477658404efdaa650c6427fea10b0be585b10a96c200554e7d8a5d21c6b25.png" />
-<img alt="_images/75fc1ea0d75c3717052a3627523d60c05acc9f9af07c8b58167e7f4c4abef80b.png" src="_images/75fc1ea0d75c3717052a3627523d60c05acc9f9af07c8b58167e7f4c4abef80b.png" />
+<img alt="_images/51155c872e295067466de6b9eb18dfc55f2d03f2bde1464ca351604f4353fc47.png" src="_images/51155c872e295067466de6b9eb18dfc55f2d03f2bde1464ca351604f4353fc47.png" />
+<img alt="_images/eda58af1383601bd31799acf1da6673f51aedf43bb9071f27aa042e63808fbbb.png" src="_images/eda58af1383601bd31799acf1da6673f51aedf43bb9071f27aa042e63808fbbb.png" />
 </div>
 </div>
 </section>
@@ -652,10 +684,7 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -22.584
-</pre></div>
-</div>
-<img alt="_images/0f9925dcb4ce33f3a6f2655d56748c7de0a6be989a0eede794cce970698076e3.png" src="_images/0f9925dcb4ce33f3a6f2655d56748c7de0a6be989a0eede794cce970698076e3.png" />
+<img alt="_images/92107963d8eef84f6f66f726b296d28c0b6532090f58481cdb8f8bd8e95aa231.png" src="_images/92107963d8eef84f6f66f726b296d28c0b6532090f58481cdb8f8bd8e95aa231.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -693,11 +722,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -30.004
-</pre></div>
-</div>
-<img alt="_images/ee8e2539308adac7ce2a5ac462b512589a48b8d8ccb03ccccf41457a0d952b93.png" src="_images/ee8e2539308adac7ce2a5ac462b512589a48b8d8ccb03ccccf41457a0d952b93.png" />
-<img alt="_images/cd10c13a287fdddee276fc1fad2313e52a17517b60e0f6d8d34b118ff050e8df.png" src="_images/cd10c13a287fdddee276fc1fad2313e52a17517b60e0f6d8d34b118ff050e8df.png" />
+<img alt="_images/c6c3ff86804fc90d6db5212bfaffb4036b4f55fb68b1aacabd4595848ea18bc0.png" src="_images/c6c3ff86804fc90d6db5212bfaffb4036b4f55fb68b1aacabd4595848ea18bc0.png" />
+<img alt="_images/0d4792035a35c44d664f8baf02e3d129793ca861b5510c1e4b46e1482e65d58a.png" src="_images/0d4792035a35c44d664f8baf02e3d129793ca861b5510c1e4b46e1482e65d58a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -735,16 +761,33 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -30.830
-</pre></div>
-</div>
-<img alt="_images/c239da07aa3f30be388e0925b89aa5633f9409b7684f2f9b5ef3a14d9f85bbdb.png" src="_images/c239da07aa3f30be388e0925b89aa5633f9409b7684f2f9b5ef3a14d9f85bbdb.png" />
-<img alt="_images/25c5bcdbc0df281bf4750d7dc3bd36bac9bdc424f918945d3a6f2e85e087db19.png" src="_images/25c5bcdbc0df281bf4750d7dc3bd36bac9bdc424f918945d3a6f2e85e087db19.png" />
+<img alt="_images/52233a0f28abe80974f1b637e60d8cc5cb1aa08bf61a4595b128cabc5cf9f3f0.png" src="_images/52233a0f28abe80974f1b637e60d8cc5cb1aa08bf61a4595b128cabc5cf9f3f0.png" />
+<img alt="_images/e65e8bb9aad84cb0397af76301679e6145ae6a311f4e81457cf143c75d3b9071.png" src="_images/e65e8bb9aad84cb0397af76301679e6145ae6a311f4e81457cf143c75d3b9071.png" />
 </div>
 </div>
 </section>
-<section id="proton-density-weighting-with-short-tr-and-small-flip-angles">
-<h3>Proton Density Weighting with short TR and small flip angles<a class="headerlink" href="#proton-density-weighting-with-short-tr-and-small-flip-angles" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="t1-t2-and-proton-density-weighting">
+<h2>T1, T2 and Proton Density Weighting<a class="headerlink" href="#t1-t2-and-proton-density-weighting" title="Permalink to this heading">#</a></h2>
+<p>By choosing the TE, TR and flip angle values in our pulse sequences and the relationships described above, we can create images that “weighted” by the MR properties of T1, T2, and proton density.  This means that the resulting images will have contrast between tissues that have different T1, T2 or proton density.</p>
+<section id="t2-weighting-and-t2-weighting">
+<h3>T2-weighting and T2*-weighting<a class="headerlink" href="#t2-weighting-and-t2-weighting" title="Permalink to this heading">#</a></h3>
+<p>To create T2 weighting, the TE is chosen to be long enough such that the there are different amounts of transverse magnetization depending on the T2 value.  For example, at TE = 80 ms we can expect to see good contrast between white matter (<span class="math notranslate nohighlight">\(T_2 \approx 60\)</span> ms), gray matter (<span class="math notranslate nohighlight">\(T_2 \approx 80\)</span> ms), and cerebrospinal fluid (<span class="math notranslate nohighlight">\(T_2 \approx 1500\)</span> ms) in the brain (see simulations above).</p>
+<p>The TR is chosen to be long relative to T1 values.  This allows the net magnetization to fully recover each repetition, and thereby eliminating any T1-weighting.</p>
+<p>In T2/T2* weighting, longer T2/T2* tissues have higher signal than shorter T2/T2* tissues.</p>
+<p>The difference between <span class="math notranslate nohighlight">\(T_2\)</span> and <span class="math notranslate nohighlight">\(T_2^*\)</span> weighting depends on the choice of pulse sequence: <span class="math notranslate nohighlight">\(T_2\)</span>-weighting comes from spin-echoes while <span class="math notranslate nohighlight">\(T_2^*\)</span>-weighting comes from gradient-echoes.   These are discussed later.  The same principle applies of choosing a long enough TE, and a long TR.</p>
+</section>
+<section id="t1-weighting">
+<h3>T1-weighting<a class="headerlink" href="#t1-weighting" title="Permalink to this heading">#</a></h3>
+<p>To create T1 weighting, the TR is chosen to be short enough such that there is incomplete recovery of the net magnetization each repetition.  This means that the signal acquired will depend on T1.  For example. choosing a TR = 500 ms with a 90-degree flip angle we can expect to see contrast between fat (<span class="math notranslate nohighlight">\(T_1 \approx 400\)</span> ms) and muscle (<span class="math notranslate nohighlight">\(T_1 \approx 1200\)</span> ms)  (see simulations above).</p>
+<p>For T1-weighting, we also can use smaller flip angles and smaller TRs to boost the overall signal.  For example. choosing a TR = 200 ms with a 30-degree flip angle we can expect to see contrast between fat (<span class="math notranslate nohighlight">\(T_1 \approx 400\)</span> ms) and muscle (<span class="math notranslate nohighlight">\(T_1 \approx 1200\)</span> ms) but more overall signal (see simulations above).</p>
+<p>The TE is chosen to be short relative to T2 values.  This reduces T2-weighting.</p>
+<p>In T1 weighting, shorter T1 tissues have higher signal than longer T1 tissues.</p>
+</section>
+<section id="pd-weighting">
+<h3>PD-weighting<a class="headerlink" href="#pd-weighting" title="Permalink to this heading">#</a></h3>
+<p>To create proton density (PD) weighting, we choose a short TE to reduce T2-weighting and a long TR to reduce T1-weighting.  This leaves the image contrast dependent on the proton density, which is captured in the equilibrium magnetization, <span class="math notranslate nohighlight">\(M_0\)</span>.</p>
+<p>In PD weighting, higher PD tissues have higher signal than lower PD tissues.</p>
 <p>Proton-density weighting can be achieved with short TRs when using very small flip angles.  This weighting applies up to a certain <span class="math notranslate nohighlight">\(TR/T_1\)</span> ratio.  This can be seen in the following by zooming in on the low flip angle area from the plots above and noting that there is no difference between the signal for different <span class="math notranslate nohighlight">\(T_1\)</span> values, meaning the T1-weighting has been removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,11 +824,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -30.305
-</pre></div>
-</div>
-<img alt="_images/7229096af8afc5ea50256b847661be287d4e3d0305834315fcdc375cccf23dc4.png" src="_images/7229096af8afc5ea50256b847661be287d4e3d0305834315fcdc375cccf23dc4.png" />
-<img alt="_images/5bfa2236f0f35730149e14de4e85411e96ff2ef1cd02c214d77301b1bb07067a.png" src="_images/5bfa2236f0f35730149e14de4e85411e96ff2ef1cd02c214d77301b1bb07067a.png" />
+<img alt="_images/32c7c2697e4c495b7dd92e7266cf7c91442b8542fdedcec2f962653d181da4d5.png" src="_images/32c7c2697e4c495b7dd92e7266cf7c91442b8542fdedcec2f962653d181da4d5.png" />
+<img alt="_images/1479be1734020c10caacc2d742465f39a30e5f249d4ea87cc85214af1fdedb47.png" src="_images/1479be1734020c10caacc2d742465f39a30e5f249d4ea87cc85214af1fdedb47.png" />
 </div>
 </div>
 </section>
@@ -858,10 +898,16 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -14.088
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t1_plus =
+
+      1   2001   4001   6001
+
+t2_plus =
+
+    751   2751   4751
 </pre></div>
 </div>
-<img alt="_images/0b514a0cb44b31279621c7727c4a14960075263d3d1b07eff0602df4922f01f1.png" src="_images/0b514a0cb44b31279621c7727c4a14960075263d3d1b07eff0602df4922f01f1.png" />
+<img alt="_images/7da249473254ed1ffbf7e130f32a5dc76cec0ff2f273ef1bdb81210d30557731.png" src="_images/7da249473254ed1ffbf7e130f32a5dc76cec0ff2f273ef1bdb81210d30557731.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -899,15 +945,78 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -30.492
-</pre></div>
-</div>
-<img alt="_images/010bd37705fdba240f37d665ed5664611f63d7916dec87a068300c4455b3183b.png" src="_images/010bd37705fdba240f37d665ed5664611f63d7916dec87a068300c4455b3183b.png" />
-<img alt="_images/e38433691c56dc4f9fe48705f390e75c422071e67bc2040f8f730f6b8511233f.png" src="_images/e38433691c56dc4f9fe48705f390e75c422071e67bc2040f8f730f6b8511233f.png" />
+<img alt="_images/c04df850b80cee23d28fc11f804602ddc0cf9a1d70d3790fdef2ad283b961004.png" src="_images/c04df850b80cee23d28fc11f804602ddc0cf9a1d70d3790fdef2ad283b961004.png" />
+<img alt="_images/4fa0b11786811417d054720695cd8f59dcc588f5487d734e5d9c45971f63f1be.png" src="_images/4fa0b11786811417d054720695cd8f59dcc588f5487d734e5d9c45971f63f1be.png" />
 </div>
 </div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contrast-agents">
+<h1>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Permalink to this heading">#</a></h1>
+<p>Contrast agents used in MRI, such as gadolinium chelates and superparamagnetic iron oxides, shorten the relaxation rates wherever they are present.
+This is quantified by their relaxivities, <span class="math notranslate nohighlight">\(r_1, r_2\)</span>, typiclaly in units of [L / (mmol s)]:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\hat{T}_1} = \frac{1}{T_1} + r_1 \cdot [CM]\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\hat{T}_2} = \frac{1}{T_2} + r_2 \cdot [CM]\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\hat{T}_1, \hat{T}_2\)</span> are the relaxation time constants with the agent present, and <span class="math notranslate nohighlight">\([CM]\)</span> is the contrast agent concentration, typically in units of [mM = mmol/L].</p>
+<!-- 
+
+https://doi.org/10.1097/01.rli.0000184756.66360.d3
+
+% MAGNETVIST R1 = 4.3 l/MMOL/S R2 = 4.4
+% resovist (iron) r1 = 7  r2 = 77
+% 0.5 mM 
+><section id="image-contrast-examples">
+<h2>Image Contrast Examples<a class="headerlink" href="#image-contrast-examples" title="Permalink to this heading">#</a></h2>
+<p><img alt="Brain contrast from Pauly and Gold" src="_images/contrast_brain_example.png" /></p>
+<p><img alt="Brain contrast from Vasily Yarnkh" src="_images/contrast_brain_example-all.png" /></p>
+<p><img alt="Knee contrast" src="_images/contrast_knee_example.png" /></p>
+<section id="typical-relaxation-times-3t">
+<h3>Typical Relaxation Times (3T)<a class="headerlink" href="#typical-relaxation-times-3t" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tissue</p></th>
+<th class="head"><p>T1 [ms]</p></th>
+<th class="head"><p>T2 [ms]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>White Matter</p></td>
+<td><p>800</p></td>
+<td><p>110</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gray Matter</p></td>
+<td><p>1300</p></td>
+<td><p>80</p></td>
+</tr>
+<tr class="row-even"><td><p>CSF</p></td>
+<td><p>3700</p></td>
+<td><p>1700</p></td>
+</tr>
+<tr class="row-odd"><td><p>Muscle</p></td>
+<td><p>1000</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>Fat</p></td>
+<td><p>400</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liver</p></td>
+<td><p>800</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>Cartilage</p></td>
+<td><p>1200</p></td>
+<td><p>40</p></td>
+</tr>
+</tbody>
+</table>
+<p>Sources: MRI from Picture to Proton, MRI: The Basics</p>
+</section>
+</section>
 <section id="simple-contrast-phantom">
-<h3>Simple Contrast Phantom<a class="headerlink" href="#simple-contrast-phantom" title="Permalink to this heading">#</a></h3>
+<h2>Simple Contrast Phantom<a class="headerlink" href="#simple-contrast-phantom" title="Permalink to this heading">#</a></h2>
 <p>Below is a simple contrast phantom consisting of three circular objects, each with a different <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.  The k-space data for these phantoms is created using a “jinc” function, which is the Fourier Transform of a circle:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{ \mathrm{circ}(r) \} = \mathrm{jinc}(k_r)\]</div>
@@ -966,36 +1075,18 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c3df6c4a8355ead03f63ecf57c460ebc7cc593b00f9e68decee88c094d5d6551.png" src="_images/c3df6c4a8355ead03f63ecf57c460ebc7cc593b00f9e68decee88c094d5d6551.png" />
-<img alt="_images/6e6a601e73556bd5bf337a9d72111f66e6e936b5351478a0553e8d23b30c06bd.png" src="_images/6e6a601e73556bd5bf337a9d72111f66e6e936b5351478a0553e8d23b30c06bd.png" />
-<img alt="_images/bef7f329331a741e5ee5ceda4f94db8a48ff19ddd19cf1410818a305c232d0b5.png" src="_images/bef7f329331a741e5ee5ceda4f94db8a48ff19ddd19cf1410818a305c232d0b5.png" />
-<img alt="_images/ccc8a28703483e6908d2ecf943948b63a925d599801bd0e188ba610f2610dc2f.png" src="_images/ccc8a28703483e6908d2ecf943948b63a925d599801bd0e188ba610f2610dc2f.png" />
+<img alt="_images/0f3151f9be632d4fc9b5543236d0f0678bcb36ed60eba2d8ff0927b1d5b09e32.png" src="_images/0f3151f9be632d4fc9b5543236d0f0678bcb36ed60eba2d8ff0927b1d5b09e32.png" />
+<img alt="_images/7b59b209dae5149737f95158b66c453f013240a5dc89fde70b8ff5a015bed45f.png" src="_images/7b59b209dae5149737f95158b66c453f013240a5dc89fde70b8ff5a015bed45f.png" />
+<img alt="_images/5d9ad4aced7093eea3fae0966553ca8db2a3e0ec8f797efceb548707e64dc7a2.png" src="_images/5d9ad4aced7093eea3fae0966553ca8db2a3e0ec8f797efceb548707e64dc7a2.png" />
+<img alt="_images/03b97f10f51c0541981866f210657bdf0512e1458495d474287dff422cf2540f.png" src="_images/03b97f10f51c0541981866f210657bdf0512e1458495d474287dff422cf2540f.png" />
 </div>
 </div>
 <section id="challenge-yourself">
-<h4>Challenge Yourself!<a class="headerlink" href="#challenge-yourself" title="Permalink to this heading">#</a></h4>
+<h3>Challenge Yourself!<a class="headerlink" href="#challenge-yourself" title="Permalink to this heading">#</a></h3>
 <p>Based on the images and TE/TR parameters above, can you estimate T1 and T2 relaxation times of the 3 objects?</p>
 </section>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="contrast-agents">
-<h1>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Permalink to this heading">#</a></h1>
-<p>Contrast agents used in MRI, such as gadolinium chelates and superparamagnetic iron oxides, shorten the relaxation rates wherever they are present.
-This is quantified by their relaxivities, <span class="math notranslate nohighlight">\(r_1, r_2\)</span>, typiclaly in units of [L / (mmol s)]:</p>
-<div class="math notranslate nohighlight">
-\[\frac{1}{\hat{T}_1} = \frac{1}{T_1} + r_1 \cdot [CM]\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{1}{\hat{T}_2} = \frac{1}{T_2} + r_2 \cdot [CM]\]</div>
-<p>Where <span class="math notranslate nohighlight">\(\hat{T}_1, \hat{T}_2\)</span> are the relaxation time constants with the agent present, and <span class="math notranslate nohighlight">\([CM]\)</span> is the contrast agent concentration, typically in units of [mM = mmol/L].</p>
-<!-- 
-
-https://doi.org/10.1097/01.rli.0000184756.66360.d3
-
-% MAGNETVIST R1 = 4.3 l/MMOL/S R2 = 4.4
-% resovist (iron) r1 = 7  r2 = 77
-% 0.5 mM 
-></section>
 
     <script type="text/x-thebe-config">
     {
@@ -1022,34 +1113,30 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Magnetic%20Fields%20and%20RF%20Coils.html"
+       href="Gradient%20and%20Spin%20Echoes.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Magnetic fields in MRI</p>
+        <p class="prev-next-title">Gradient and Spin Echo Pulse Sequences</p>
       </div>
     </a>
     <a class="right-next"
-       href="MRI%20Signal%20Equation.html"
+       href="Spatial%20Encoding.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Building Up the MRI Signal Equation</p>
+        <p class="prev-next-title">Spatial Encoding</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1065,23 +1152,33 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MRI Contrast</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t2-t2">TE and T2/T2*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t1">TR and T1</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">&lt; 90-degree flip angles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proton-density-weighting-with-short-tr-and-small-flip-angles">Proton Density Weighting with short TR and small flip angles</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-t2-and-proton-density-weighting">T1, T2 and Proton Density Weighting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t2-weighting-and-t2-weighting">T2-weighting and T2*-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-weighting">T1-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pd-weighting">PD-weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-relaxation-times-3t">Typical Relaxation Times (3T)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
 </ul>
 
   </nav></div>
@@ -1106,7 +1203,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1133,8 +1230,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

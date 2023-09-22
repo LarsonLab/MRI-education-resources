@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="MRI Software Resources" href="Software_Resources.html" />
-    <link rel="prev" title="MRI Notation" href="MRI%20Notation.html" />
+    <link rel="prev" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -388,7 +412,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-train-sampling-function">Impulse train sampling function</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-functions">Other Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution">Convolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">Fourier Transforms</a><ul class="nav section-nav flex-column">
@@ -400,7 +427,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-identities-and-pairs">Fourier Transform Identities and Pairs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function">Point Spread function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-example-truncated-k-space-data">Fourier Transform Example - Truncated k-space data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function-psf-analysis">Point Spread function (PSF) Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">Discrete Fourier Transform</a></li>
 </ul>
             </nav>
@@ -438,6 +466,12 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(f(x) \delta(x) = f(0) \delta(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(f(x) \ast \delta(x) = f(x)\)</span></p></li>
 </ul>
+<section id="impulse-train-sampling-function">
+<h3>Impulse train sampling function<a class="headerlink" href="#impulse-train-sampling-function" title="Permalink to this heading">#</a></h3>
+<p>To represent discrete sampling, a train of impulse functions is used.  This is known as Dirac Comb function, also the sha, impulse train, or sampling function:</p>
+<div class="math notranslate nohighlight">
+\[Ш(x) = \sum_{n = -\infty}^\infty \delta(x - n)\]</div>
+</section>
 </section>
 <section id="other-functions">
 <h2>Other Functions<a class="headerlink" href="#other-functions" title="Permalink to this heading">#</a></h2>
@@ -452,31 +486,19 @@ document.write(`
   \end{array} \right. \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">rect</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
-<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">rect</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">rect</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;rect(x)&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">rect</span><span class="p">,</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;rect(x)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
-</pre></div>
-</div>
-<img alt="_images/77f4a7dcaad766e95ca38bed12490b8c4a4be967ea7c2ceb0ccfbad5677dd612.png" src="_images/77f4a7dcaad766e95ca38bed12490b8c4a4be967ea7c2ceb0ccfbad5677dd612.png" />
+<img alt="_images/d5477297d79375ad01561e8319976d2e84bd26ac18d9479b21c50abebdadd293.png" src="_images/d5477297d79375ad01561e8319976d2e84bd26ac18d9479b21c50abebdadd293.png" />
 </div>
 </div>
 <p>Sinc (normalized)</p>
@@ -484,21 +506,18 @@ We recommend using the qt toolkit instead.
 \[\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
 
-<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;sinc(x)&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;sinc(x)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/49e6df79a92386fb777b849025b322539b1376ff2699a76e425edf5cdd6c4d3c.png" src="_images/49e6df79a92386fb777b849025b322539b1376ff2699a76e425edf5cdd6c4d3c.png" />
+<img alt="_images/0d102f6ee1ea8d6f09f22749cc0dbd0dfa81edff01bbb6548959f80fa32ee4f9.png" src="_images/0d102f6ee1ea8d6f09f22749cc0dbd0dfa81edff01bbb6548959f80fa32ee4f9.png" />
 </div>
 </div>
-<p>Comb/Shah (Impulse Train)</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{Comb}(x) = \sum_{n = -\infty}^\infty \delta(x - n)\]</div>
 </section>
 <section id="convolution">
 <h2>Convolution<a class="headerlink" href="#convolution" title="Permalink to this heading">#</a></h2>
@@ -510,11 +529,11 @@ We recommend using the qt toolkit instead.
 </section>
 <section id="fourier-transforms">
 <h2>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this heading">#</a></h2>
-<p>The Fourier transform, <span class="math notranslate nohighlight">\( \mathcal{F} \{ \cdot \}\)</span> of a complex-valued function, <span class="math notranslate nohighlight">\(f(x)\)</span> is:</p>
+<p>The Fourier transform allows for determination of the frequencies present in the original function.  The Fourier transform (FT) operation, <span class="math notranslate nohighlight">\( \mathcal{F} \{ \cdot \}\)</span>, of a complex-valued function, <span class="math notranslate nohighlight">\(f(x)\)</span>, is:</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{F} \{ f(x) \} = F(k_x) = \int_{-\infty}^\infty f(x) \exp(-i 2 \pi k_x x) dx\]</div>
 <p>(Unitary, ordinary frequency)</p>
-<p>Note that the pair of variables used - <span class="math notranslate nohighlight">\(x\)</span> used to represent space and <span class="math notranslate nohighlight">\(k_x\)</span> used to represent spatial frequency, can be swapped for other variables. Most commonly this is <span class="math notranslate nohighlight">\(t\)</span> used to represent time and <span class="math notranslate nohighlight">\(f\)</span> used to represent frequency.</p>
+<p>Note that the pair of variables used - <span class="math notranslate nohighlight">\(x\)</span> used to represent space and <span class="math notranslate nohighlight">\(k_x\)</span> used to represent spatial frequency, can be swapped for other variables. Most commonly the other variables are <span class="math notranslate nohighlight">\(t\)</span> used to represent time and <span class="math notranslate nohighlight">\(f\)</span> used to represent frequency.</p>
 <section id="inverse-fourier-transform">
 <h3>Inverse Fourier Transform:<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
@@ -561,82 +580,105 @@ We recommend using the qt toolkit instead.
 <tr class="row-odd"><td class="text-left"><p>1</p></td>
 <td><p><span class="math notranslate nohighlight">\(\delta(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{rect}(x)\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p>Ш(x)</p></td>
+<td><p>Ш(k_x)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{rect}(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\mathrm{sinc}(k_x)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(ax)\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(ax)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\frac{1}{|a|} F(\frac{k_x}{a})\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(a \cdot f(x) + b \cdot g(x)\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(a \cdot f(x) + b \cdot g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(a \cdot F(k_x) + b \cdot G(k_x)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x-a)\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x-a)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\exp(-i 2\pi a k_x) F(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) f(x)\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) f(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x - a)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\delta(x-a)\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\delta(x-a)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\exp(-i 2\pi a k_x) \)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) \)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) \)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\delta(k_x - a)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) \ast g(x)\)</span></p></td>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) \ast g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x) G(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) g(x)\)</span></p></td>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x) \ast G(k_x)\)</span></p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="fourier-transform-example-truncated-k-space-data">
+<h2>Fourier Transform Example - Truncated k-space data<a class="headerlink" href="#fourier-transform-example-truncated-k-space-data" title="Permalink to this heading">#</a></h2>
+<p>Based on the identities above, we can derive that the Fourier Transform of a sinc() function is a rect() function.  This is relevant for MRI as we can use a rect() function to represent finite sampling of the data:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}\{\mathrm{sinc(x)}\} = \mathrm{rect}(k_x)\]</div>
+<p>In MRI, we sample data in the spatial frequency domain, or k-space, in this case we are trying to measure <span class="math notranslate nohighlight">\(F(k_x)\)</span>.  However, we can only sample a limited amount of k-space data.  This can be modeled by multiplying our kspace data by a rect function with a width <span class="math notranslate nohighlight">\(W_{kx}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{F}(k_x) = F(k_x) \mathrm{rect(k_x/W_{kx})}\]</div>
+<p>According the Fourier theory, the resulting image will be convolved with a sinc function</p>
+<div class="math notranslate nohighlight">
+\[ \hat{f}(x) = \mathcal{F}^{-1}\{\hat{F}(k_x)\} = f(x) \ast W_{kx} \mathrm{sinc}(W_{kx} x) \]</div>
+<p>This convolution most notably leads to “ringing” artifacts near sharp edges.<br />
+The example below uses the Fourier Transform to illustrate the ringing artifacts from this necessary “truncation” of k-space data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Illustrate Fourier decomposition of a rect function (could illustrate ringing)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">Illustrate</span> <span class="n">Fourier</span> <span class="n">decomposition</span> <span class="n">of</span> <span class="n">a</span> <span class="n">rect</span> <span class="n">function</span> <span class="p">(</span><span class="k">with</span> <span class="n">truncation</span> <span class="n">to</span> <span class="n">show</span> <span class="n">ringing</span> <span class="n">artifacts</span><span class="p">)</span>
 
-<span class="n">N</span> <span class="p">=</span> <span class="mi">512</span><span class="p">;</span>
-<span class="n">kxmax</span> <span class="p">=</span> <span class="mi">128</span><span class="p">;</span>
-<span class="n">kx</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">kxmax</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
+<span class="n">kxmax</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span>
+<span class="n">kx</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">kxmax</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kxmax</span><span class="p">);</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kxmax</span><span class="p">);</span>
 
-<span class="k">for</span> <span class="n">kxmax_truncate</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span><span class="p">];</span>
+<span class="k">for</span> <span class="n">kxmax_truncate</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">8</span> <span class="mi">32</span> <span class="mi">128</span><span class="p">];</span> <span class="o">%</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span><span class="p">];</span>
 
-<span class="n">F</span> <span class="p">=</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">kx</span><span class="p">);</span>
-<span class="n">F</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="o">&gt;</span><span class="n">kxmax_truncate</span><span class="p">))</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">kx</span><span class="p">);</span>
+<span class="n">F</span><span class="p">(</span><span class="n">find</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="o">&gt;</span><span class="n">kxmax_truncate</span><span class="p">))</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="n">f</span> <span class="p">=</span> <span class="nb">fftshift</span><span class="p">(</span><span class="nb">ifft</span><span class="p">(</span><span class="nb">ifftshift</span><span class="p">(</span><span class="n">F</span><span class="p">)));</span>
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="nb">imag</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Truncation of sinc at &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">kxmax_truncate</span><span class="p">)])</span>
-<span class="k">end</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">fftshift</span><span class="p">(</span><span class="n">ifft</span><span class="p">(</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">F</span><span class="p">)));</span>
+<span class="n">figure</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">real</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">imag</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="n">title</span><span class="p">([</span><span class="s1">&#39;Truncation of sinc at &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">kxmax_truncate</span><span class="p">)])</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/92f6b2e4f091abab5f2923a6ceda28048759b255afc7b8f44a904cd417316886.png" src="_images/92f6b2e4f091abab5f2923a6ceda28048759b255afc7b8f44a904cd417316886.png" />
-<img alt="_images/e268dae92f1eeb243f14103fd4fb1bbdd9e612b3dd255b08b50d741c13a13de4.png" src="_images/e268dae92f1eeb243f14103fd4fb1bbdd9e612b3dd255b08b50d741c13a13de4.png" />
-<img alt="_images/31e5c11d9fccd92ed0ac1277cd70bcf98b0c40a44e13b544009dc171b1135417.png" src="_images/31e5c11d9fccd92ed0ac1277cd70bcf98b0c40a44e13b544009dc171b1135417.png" />
-<img alt="_images/b76f5987a258d0f60fd79278fca8b6d92c271eea4417c52b8572dcfe51510ff9.png" src="_images/b76f5987a258d0f60fd79278fca8b6d92c271eea4417c52b8572dcfe51510ff9.png" />
-<img alt="_images/aba9fb5da0e7f899a446184b05df2325361a41e5a695736efd8a3d11219adea6.png" src="_images/aba9fb5da0e7f899a446184b05df2325361a41e5a695736efd8a3d11219adea6.png" />
-<img alt="_images/d3cfd1a172aa33fc8f02810810a34ce4c9f29535f0162c3ef6cde4fc669d1f5f.png" src="_images/d3cfd1a172aa33fc8f02810810a34ce4c9f29535f0162c3ef6cde4fc669d1f5f.png" />
+<img alt="_images/d67925ffad9af15c1ca84f82096e6d381038825045f5a2bba5a1e3be2b1ebdd4.png" src="_images/d67925ffad9af15c1ca84f82096e6d381038825045f5a2bba5a1e3be2b1ebdd4.png" />
+<img alt="_images/4746154e148eebabe3dd3d85bcb3556a5abd514141d35b79177aaceb94d7748f.png" src="_images/4746154e148eebabe3dd3d85bcb3556a5abd514141d35b79177aaceb94d7748f.png" />
+<img alt="_images/cf5d138fa62e4ba8c1a317ef7be5e935f0ab172ae3fae9ee5ac89d8a7a29cb51.png" src="_images/cf5d138fa62e4ba8c1a317ef7be5e935f0ab172ae3fae9ee5ac89d8a7a29cb51.png" />
+<img alt="_images/8485c7f3e0e966a37633a4b97216b6a92bbb8b4174efd57cb6beda35e1091387.png" src="_images/8485c7f3e0e966a37633a4b97216b6a92bbb8b4174efd57cb6beda35e1091387.png" />
+<img alt="_images/7991797ee37691fdece51c7cab6c42a866e4417dfba2cb43596ebab4d1c15460.png" src="_images/7991797ee37691fdece51c7cab6c42a866e4417dfba2cb43596ebab4d1c15460.png" />
+<img alt="_images/36f3659e58b14a3f6a0d48381d997caeeb299323a78781c6c3e1504d727ff403.png" src="_images/36f3659e58b14a3f6a0d48381d997caeeb299323a78781c6c3e1504d727ff403.png" />
 </div>
 </div>
 </section>
-<section id="point-spread-function">
-<h2>Point Spread function<a class="headerlink" href="#point-spread-function" title="Permalink to this heading">#</a></h2>
-<p>Coming soon</p>
+<section id="point-spread-function-psf-analysis">
+<h2>Point Spread function (PSF) Analysis<a class="headerlink" href="#point-spread-function-psf-analysis" title="Permalink to this heading">#</a></h2>
+<p>Point spread function (PSF) analysis is a powerful tool for characterizing linear systems, including MRI.  The basic process of PSF analysis is to input an ideal “point” object, represented by a delta function, into the system, here denoted by <span class="math notranslate nohighlight">\(\mathcal{H}()\)</span>, and observe the resulting output, which is the PSF.</p>
+<div class="math notranslate nohighlight">
+\[ psf(x) = \mathcal{H}(\delta(x)) \]</div>
+<p>In MRI, PSF analysis is often performed starting in the spatial frequency, or k-space, domain, since this is where data is sampled and this is where we typically need to characterize the MRI system.  Since the Fourier Transform of the input point object is <span class="math notranslate nohighlight">\(\mathcal{f}(\delta(x)) = 1\)</span>, then the Fourier Transform of the PSF is simply</p>
+<div class="math notranslate nohighlight">
+\[ PSF(k_x) = \mathcal{F}\{psf(x)\} \]</div>
+<p>Fourier Transform identities then show that, when imaging a real object, <span class="math notranslate nohighlight">\(f(x)\)</span>, it will be convolved by the point spread function in the actual image reconstructed, <span class="math notranslate nohighlight">\(\hat{f}(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{f}(x) = \mathcal{F}^{-1}\{\hat{F}(k_x)\} = \mathcal{F}^{-1}\{F(k_x) PSF(k_x)\} = f(x) \ast psf(x) \]</div>
 </section>
 <section id="discrete-fourier-transform">
 <h2>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this heading">#</a></h2>
-<p>Coming soon</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% stem()</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>The discrete Fourier transform (DFT) is used to perform Fourier analysis of the frequencies present in a signal from discretely sampled data.  It transforms a discrete set of values, <span class="math notranslate nohighlight">\(f[x_n], x_n = 0, 1, 2, ... N-1 \)</span>, into their frequency coefficients, <span class="math notranslate nohighlight">\(F[k_n], k_n = 0, 1, 2, ... N-1 \)</span> with the following formula.</p>
+<div class="math notranslate nohighlight">
+\[F[k_n] = \sum_{x_n=0}^{N-1} f[x_n] \exp(-i 2 \pi k_n x_n/N)\]</div>
+<p>The formulation is extremely similar to the Fourier transform, and thus many of the Fourier transform identities and pairs still apply when using the DFT.  It is also extended similarly into multiple dimensions.</p>
+<p>Practically, the DFT is computed using the Fast Fourier Transform (FFT) algorithm.</p>
+<p>The DFT can be analyzed starting from the (continuous) FT by incorporating the effects of sampling using the impulse train function, <span class="math notranslate nohighlight">\(Ш(x)\)</span>.</p>
 </section>
 </section>
 
@@ -665,11 +707,10 @@ We recommend using the qt toolkit instead.
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="MRI%20Notation.html"
@@ -677,7 +718,7 @@ We recommend using the qt toolkit instead.
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">MRI Notation</p>
+        <p class="prev-next-title">MRI Notation and Terminology</p>
       </div>
     </a>
     <a class="right-next"
@@ -689,10 +730,7 @@ We recommend using the qt toolkit instead.
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -708,7 +746,10 @@ We recommend using the qt toolkit instead.
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-train-sampling-function">Impulse train sampling function</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-functions">Other Functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution">Convolution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">Fourier Transforms</a><ul class="nav section-nav flex-column">
@@ -720,7 +761,8 @@ We recommend using the qt toolkit instead.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-identities-and-pairs">Fourier Transform Identities and Pairs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function">Point Spread function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-example-truncated-k-space-data">Fourier Transform Example - Truncated k-space data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function-psf-analysis">Point Spread function (PSF) Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">Discrete Fourier Transform</a></li>
 </ul>
   </nav></div>
@@ -745,7 +787,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -772,8 +814,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

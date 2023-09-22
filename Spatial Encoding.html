@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -73,8 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Spatial Encoding';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Image Reconstruction (In Progress Page)" href="Image%20Reconstruction.html" />
-    <link rel="prev" title="Building Up the MRI Signal Equation" href="MRI%20Signal%20Equation.html" />
+    <link rel="next" title="Image Reconstruction" href="Image%20Reconstruction.html" />
+    <link rel="prev" title="MRI Contrast" href="MRI%20Contrast.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -387,14 +411,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-encoding">Gradient Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">K-space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-signal-and-k-space">MR Signal and k-space</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-acquisition-to-image">MR acquisition to image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space trajectories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space Trajectories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">K-space trajectories</a></li>
 </ul>
 </li>
 </ul>
@@ -410,8 +439,22 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="spatial-encoding">
 <h1>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Permalink to this heading">#</a></h1>
-<section id="gradient-encoding">
-<h2>Gradient Encoding<a class="headerlink" href="#gradient-encoding" title="Permalink to this heading">#</a></h2>
+<p>To create images of the net magnetization, magnetic field gradients are applied in order to modulate the resonance frequency as a function of position.  This section describes the effect of magnetic field gradients during data acquisition to create spatial encoding, including frequency encoding, phase encoding and other k-space trajectories.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Describe the effects of gradients on the signal</p></li>
+<li><p>Understand how frequency encoding works</p></li>
+<li><p>Understand how phase encoding works</p></li>
+<li><p>Describe what a k-space trajectory is</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="effects-of-magnetic-field-gradients">
+<h2>Effects of Magnetic Field Gradients<a class="headerlink" href="#effects-of-magnetic-field-gradients" title="Permalink to this heading">#</a></h2>
 <p>Applied magnetic field gradients change the magnetic field linearly with position:</p>
 <div class="math notranslate nohighlight">
 \[\Delta B_z = \vec{G}\cdot\vec{x}\]</div>
@@ -419,15 +462,79 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ \omega = \gamma \vec{G}\cdot\vec{x} \]</div>
 <p>This forms the basis for spatial encoding.</p>
+<p>For constant gradients, <span class="math notranslate nohighlight">\(\vec{G}(t) = \vec{G}_0\)</span>, this variation in frequency can be described by (neglecting relaxation)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+M_{XY}(\vec{r},t) &amp; =  M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp\left( -i \gamma \vec{G}_0 \cdot \vec{r} \ t \right) \\ 
+&amp; \approx M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \vec{G}_0 \cdot \vec{r} \ t \right)
+\end{align}\end{split}\]</div>
+<p>For general time-varying gradients, their effect is to create phase accumulation depending on the cumulative gradient area, or the integral of the gradient.  This means we can turn the gradients on and off to start and stop the phase accumulation, and also reverse the gradient polarity to undo any prior phase accumulation.</p>
+<div class="math notranslate nohighlight">
+\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)\]</div>
 </section>
+<section id="k-space">
+<h2>k-space<a class="headerlink" href="#k-space" title="Permalink to this heading">#</a></h2>
+<p>Here, we introduce the concept of k-space, which is a simplified representation of the phase accumulation due to magnetic field gradients.  It is defined as</p>
+<div class="math notranslate nohighlight">
+\[\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau\]</div>
+<p>The effect of gradients on the transverse magnetization then becomes</p>
+<div class="math notranslate nohighlight">
+\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }\]</div>
+<p>The specific motivation for k-space will become apparent soon, when we formulate the signal equation and see that there is a Fourier Transform.</p>
+</section>
+<section id="mri-signal">
+<h2>MRI signal<a class="headerlink" href="#mri-signal" title="Permalink to this heading">#</a></h2>
+<p>The MRI signal comes from the precession of the transverse magnetization, and thus is proportional to the transverse magnetization.  The MRI signal also comes from any precessing magnetization within the sensitive volume of the RF receive coils.  In other words, it is also not localized to a single location, but rather is summed over a volume:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+s(t) &amp; = \int_\mathrm{Volume} M_{XY}(\vec{r},t) \ d\vec{r} \\
+ &amp; =  \int_{\textrm{Volume}} M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}
+ \end{align}\end{split}\]</div>
+<p>The amazing result here is that this describes our MRI signal in the form of a Fourier Transform:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F} \{ f(\vec{r}) \} = F(\vec{k}) = \int_{-\infty}^\infty f(\vec{r}) \exp(-i 2 \pi \vec{k} \cdot  \vec{r}) \ d\vec{r}\]</div>
+<p>This is the power of the k-space representation, that it describes how MRI is sampling data in the Fourier Transform domain, or the spatial frequency domain, of the object net magnetization.  In other words, MRI signals are a measure of the spatial frequencies of our object.</p>
+<p>This result means that, to reconstruct an image we need to put our MRI signals into their k-space location based on the applied gradients, and then use an inverse Fourier Transform.
+Our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, <span class="math notranslate nohighlight">\(\vec{k}\)</span>, that is determined by the k-space trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ s(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}(t)} \]</div>
+</section>
+<section id="from-mri-data-to-images">
+<h2>From MRI data to images<a class="headerlink" href="#from-mri-data-to-images" title="Permalink to this heading">#</a></h2>
+<p>First we use the following notation for simplification</p>
+<div class="math notranslate nohighlight">
+\[m(\vec{r}) = M_{XY}(\vec{r},0)\]</div>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}\{ m(\vec{r}) \} = M(\vec{k})\]</div>
+<p>The flow of the experiment and data is as follows:</p>
+<ol class="arabic simple">
+<li><p>RF excitation to create transverse magnetization, <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},0)\)</span></p></li>
+<li><p>Gradients applied as <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span> and data is acquired</p></li>
+<li><p>k-space locations, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, are determined based on the applied gradients</p></li>
+<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location:$<span class="math notranslate nohighlight">\( s(t) = M(\vec{k}(t))\)</span>$</p></li>
+<li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
+<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization$<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span>$</p></li>
+</ol>
+<p>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
+</section>
+<section id="cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">
+<h2>Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)<a class="headerlink" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging" title="Permalink to this heading">#</a></h2>
+<p>By far the most common way to perform spatial encoding is using a Cartesian k-space trajectory, which the name refers to the fact that data is sampled on a regularly spaced grid in k-space.
+This is also known 2DFT imaging, since we reconstruct images with an inverse 2D Fourier Transform.</p>
+<p>It consists of 2 types of encoding:</p>
+<ol class="arabic simple">
+<li><p>Frequency encoding - one dimension is encoded using a constant gradient applied during data acquisition</p></li>
+<li><p>Phase encoding - additional dimensions are encoded using gradient applied before data acquisition.  This gradient is incremented to provide complete spatial encoding.  Phase encoding is applied in 1 dimension for 2D imaging, and 2 dimensions for 3D imaging</p></li>
+</ol>
 <section id="frequency-encoding">
-<h2>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Permalink to this heading">#</a></h2>
+<h3>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Permalink to this heading">#</a></h3>
 <p>Typically 1 dimension of the object is encoded using “frequency encoding”.  This means that, after RF excitation, a magnetic field gradient is turned on and the signal is read out.  The frequencies present in the signal correspond to given spatial locations.  By convention, this is applied in the x-direction (but in practice can be rotated to any direction);</p>
 <div class="math notranslate nohighlight">
 \[\omega = \gamma G_{xr} x\]</div>
 <p>where <span class="math notranslate nohighlight">\(G_{xr}\)</span> is the readout gradient amplitude.  Therefore, the position is proportional to the frequency:</p>
 <div class="math notranslate nohighlight">
 \[ x = \frac{\omega}{\gamma G_{xr}}\]</div>
+<p>From frequency encoding data alone, a 1D image can be reconstructed with an inverse Fourier Transform</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency encoding</span>
@@ -477,21 +584,22 @@ be notified and will not update it&#39;s internal list of open figure windows.
 We recommend using the qt toolkit instead.
 </pre></div>
 </div>
-<img alt="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" src="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" />
-<img alt="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" src="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" />
-<img alt="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" src="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" />
-<img alt="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" src="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" />
-<img alt="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" src="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" />
 <img alt="_images/eacaff314d6ca100a1babd6711c2a3ebefa7a000b233cd854414a16ddfcf76f8.png" src="_images/eacaff314d6ca100a1babd6711c2a3ebefa7a000b233cd854414a16ddfcf76f8.png" />
+<img alt="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" src="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" />
+<img alt="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" src="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" />
+<img alt="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" src="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" />
+<img alt="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" src="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" />
+<img alt="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" src="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="phase-encoding">
 <h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Permalink to this heading">#</a></h2>
 <p>Typically the 2nd (and optionally 3rd) dimensions of the object are encoded using “phase encoding”.  This means that, after RF excitation but before the frequency encoding gradient, a pulsed gradient is applied such that the location is encoded in the phase of the next magnetization:</p>
 <div class="math notranslate nohighlight">
 \[ \Phi = \gamma G_{yp} y t_y\]</div>
-<p>These additional dimensions are fully encoded by repeating this pulsed gradient with different amplitudes.</p>
+<p>These additional dimensions are fully encoded by repeating this pulsed gradient with different amplitudes.  This is equivalent to taking different samples of a frequency encoding gradient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 2D object</span>
@@ -535,15 +643,15 @@ We recommend using the qt toolkit instead.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" src="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" />
-<img alt="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" src="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" />
-<img alt="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" src="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" />
-<img alt="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" src="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" />
-<img alt="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" src="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" />
 <img alt="_images/d3a7f0e6540bcb26db8b0480477d2511c249b42c8bfbf38f211e058c1e758e83.png" src="_images/d3a7f0e6540bcb26db8b0480477d2511c249b42c8bfbf38f211e058c1e758e83.png" />
+<img alt="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" src="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" />
+<img alt="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" src="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" />
+<img alt="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" src="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" />
+<img alt="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" src="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" />
+<img alt="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" src="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" />
 <img alt="_images/5dc4c6c9a59278cc0856faed17f29d353f5de24f614498aecac1ae37bd6d7ef2.png" src="_images/5dc4c6c9a59278cc0856faed17f29d353f5de24f614498aecac1ae37bd6d7ef2.png" />
 <img alt="_images/75a393e1f5c9b0c7948db12f3e0b9837e16a90bdd7ec0c51b50bdbea904b5f3b.png" src="_images/75a393e1f5c9b0c7948db12f3e0b9837e16a90bdd7ec0c51b50bdbea904b5f3b.png" />
-<img alt="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" src="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" />
+<img alt="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" src="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" />
 </div>
 </div>
 </section>
@@ -553,57 +661,20 @@ We recommend using the qt toolkit instead.
 <p><img alt="frequency_phase_encoding-simple-Mxy.gif" src="_images/frequency_phase_encoding-simple-Mxy.gif" /></p>
 <p>Instead of viewing the net magnetizations, we can also visualize this encoding as a map of the phase of the transverse magnetization:</p>
 <p><img alt="frequency_phase_encoding-simple-image_phase.gif" src="_images/frequency_phase_encoding-simple-image_phase.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
+<p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
 </section>
-<section id="k-space">
-<h2>K-space<a class="headerlink" href="#k-space" title="Permalink to this heading">#</a></h2>
-<p>A general method for capturing the effect of spatial encoding gradients is the concept of “k-space”:</p>
+<section id="k-space-trajectories">
+<h2>K-space Trajectories<a class="headerlink" href="#k-space-trajectories" title="Permalink to this heading">#</a></h2>
+<p>K-space is a very general method for capturing the effect of spatial encoding gradients, and the “k-space trajectory” is defined as the pattern created over time by the gradients:</p>
 <div class="math notranslate nohighlight">
 \[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
-<p>K-space captures the accumulative effect (integration) of gradients on the net magnetization.  Note that you always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span>.</p>
+<p>Note that k-space trajectories always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span>.</p>
 <p>The following simulation of the net magnetizations shows how rotations and k-space trajectory during a typical Cartesian (or 2D FT) gradient pulse sequence, which is differs from the simulation above in that an initial dephasing gradient in the frequency encoding direction is applied to sample both positive and negative spatial frequencies in k-space:</p>
 <p><img alt="frequency_phase_encoding-full-Mxy.gif" src="_images/frequency_phase_encoding-full-Mxy.gif" /></p>
 <p><img alt="frequency_phase_encoding-full-image_phase.gif" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
-</section>
-<section id="mr-signal-and-k-space">
-<h2>MR Signal and k-space<a class="headerlink" href="#mr-signal-and-k-space" title="Permalink to this heading">#</a></h2>
-<p>The power of k-space is that it describe how MRI is sampling data in the Fourier Transform domain, or the spatial frequency domain, of the object net magnetization.  In other words, MRI signals are a measure of the spatial frequencies of our object.  This means that, to reconstruct an image we need to put our MRI signals into their k-space location, and then use an inverse Fourier Transform.</p>
-<p>To show this, first we can describe the transverse magnetization in terms of k-space</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp(-i2\pi \vec{k}(t) \cdot \vec{r})\]</div>
-<p>Then we assume that <span class="math notranslate nohighlight">\(T_2\)</span> decay is slow relative to the readout time, so the transverse magnetization becomes</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) \approx M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r})\]</div>
-<p>Our MR signal is the sum of all the transverse magnetizations over space</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \int_{\textrm{Volume}} M_{XY}(\vec{r},t) d\vec{r} = \int_{\textrm{Volume}} M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) d\vec{r}\]</div>
-<p>Where this now the form of a Fourier Transform, and our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, <span class="math notranslate nohighlight">\(\vec{k}\)</span>, that is determined by the k-space trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}(t)} \]</div>
-<p>(The Notebook ‘MRI Signal Equation’ shows how to incorporate other effects such as T2, off-resonance, and RF coil profilesnon-idealities</p>
-<section id="mr-acquisition-to-image">
-<h3>MR acquisition to image<a class="headerlink" href="#mr-acquisition-to-image" title="Permalink to this heading">#</a></h3>
-<p>First we use the following notation for simplification</p>
-<div class="math notranslate nohighlight">
-\[m(\vec{r}) = M_{XY}(\vec{r},0)\]</div>
-<div class="math notranslate nohighlight">
-\[\mathcal{F}\{ m(\vec{r}) \} = M(\vec{k})\]</div>
-<p>The flow of the experiment and data is as follows:</p>
-<ol class="arabic simple">
-<li><p>RF excitation to create <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},0)\)</span></p></li>
-<li><p>Gradients applied <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
-<li><p>k-space location, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span> is determined by the gradients</p></li>
-<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location:
-$<span class="math notranslate nohighlight">\( s(t) = M(\vec{k}(t))\)</span>$</p></li>
-<li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
-<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization
-$<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span>$</p></li>
-</ol>
-<p>Hurray, we have now used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
-</section>
-<section id="k-space-trajectories">
-<h3>K-space trajectories<a class="headerlink" href="#k-space-trajectories" title="Permalink to this heading">#</a></h3>
+<p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
+<section id="id1">
+<h3>K-space trajectories<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>The k-space pattern during a MRI experiment is referred to as the k-space “trajectory”.  The most common are Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -655,16 +726,16 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" src="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" />
-<img alt="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" src="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" />
 <img alt="_images/8aa1880cf14e20241a4c18dec08445e58ad538bc97e4d51853965cc8f5414e49.png" src="_images/8aa1880cf14e20241a4c18dec08445e58ad538bc97e4d51853965cc8f5414e49.png" />
+<img alt="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" src="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" />
 <img alt="_images/3df8147b59babb1a31f57dc4d963cbcbf25f36d944827ba26639642004bc6998.png" src="_images/3df8147b59babb1a31f57dc4d963cbcbf25f36d944827ba26639642004bc6998.png" />
+<img alt="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" src="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" />
 </div>
 </div>
 <p>These movies illustrate the phase accumulation during non-Cartesian trajectories</p>
 <p><img alt="radial_encoding-full-Mxy.gif" src="_images/radial_encoding-full-Mxy.gif" /></p>
 <p><img alt="spiral_encoding-full-Mxy.gif" src="_images/spiral_encoding-full-Mxy.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
+<p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
 </section>
 </section>
 </section>
@@ -694,19 +765,18 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="MRI%20Signal%20Equation.html"
+       href="MRI%20Contrast.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Building Up the MRI Signal Equation</p>
+        <p class="prev-next-title">MRI Contrast</p>
       </div>
     </a>
     <a class="right-next"
@@ -714,14 +784,11 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Image Reconstruction (In Progress Page)</p>
+        <p class="prev-next-title">Image Reconstruction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -736,14 +803,19 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-encoding">Gradient Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">K-space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-signal-and-k-space">MR Signal and k-space</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-acquisition-to-image">MR acquisition to image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space trajectories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space Trajectories</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">K-space trajectories</a></li>
 </ul>
 </li>
 </ul>
@@ -769,7 +841,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -796,8 +868,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

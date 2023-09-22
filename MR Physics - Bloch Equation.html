@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -74,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Magnetic fields in MRI" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
-    <link rel="prev" title="The MRI System" href="MRI%20System.html" />
+    <link rel="prev" title="Spin Physics" href="Spin%20Physics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -388,16 +412,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-equation">THE Bloch Equation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation">RF Excitation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-versus-rotating-frame">Lab versus Rotating Frame</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-flip-angle-rf-excitations">Common flip angle RF excitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-equation">THE Bloch Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation">RF Excitation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-constant-amplitude-pulse">Example: Constant amplitude pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-versus-rotating-frame">Lab versus Rotating Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-flip-angle-rf-excitations">Common flip angle RF excitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations">Simulations</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a></li>
 </ul>
             </nav>
         </div>
@@ -411,7 +435,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bloch-equation">
 <h1>Bloch Equation<a class="headerlink" href="#bloch-equation" title="Permalink to this heading">#</a></h1>
-<p>The Bloch Equation, named after physicist Felix Bloch who won the Nobel Prize for discovery of magnetic resonance phenomena, describes almost all behavior seen in MRI.  Here, we will describe this equation and derive key results to use for explaining the behavior of the net magnetization.</p>
+<p>The Bloch Equation, named after physicist Felix Bloch who won the Nobel Prize for discovery of magnetic resonance phenomena, describes almost all behavior seen in MRI.  Here, we will describe this equation and derive key results to use for explaining the behavior of the net magnetization and its interaction with magnetic fields.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
@@ -442,13 +466,22 @@ loading signal
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Understand what MRI is measuring</p></li>
-<li><p>Describe the concepts of polarization, resonance, and relaxation</p></li>
+<li><p>Understand what MRI is measuring</p>
+<ul class="simple">
+<li><p>Understand what the net magnetization is</p></li>
+</ul>
+</li>
+<li><p>Describe the concepts of polarization, resonance, and relaxation</p>
+<ul class="simple">
+<li><p>Describe the rotation of the net magnetization in response to magnetic fields</p></li>
+<li><p>Describe the process of relaxation</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="the-bloch-equation">
 <h2>THE Bloch Equation<a class="headerlink" href="#the-bloch-equation" title="Permalink to this heading">#</a></h2>
-<p>The Bloch equation describes the behavior of the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span> in a magnetic field, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t)\)</span>, and can describe the vast majority of all MRI phenomena</p>
+<p>The Bloch equation describes the behavior of the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, in a magnetic field, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t)\)</span>, and can describe the vast majority of all MRI phenomena.  While the complete Bloch Equation is presented here, we can typically use results derived from this equation to analyze and design MRI experiments.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \frac{d\vec{M}(\vec{r},t)}{dt} =
@@ -474,8 +507,9 @@ M_0(\vec{r})/T_1(\vec{r})
 <li><p><span class="math notranslate nohighlight">\(T_2(\vec{r})\)</span> - the transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant</p></li>
 </ul>
 <p>All of which can vary across our subject (and all a valuable source of contrast!).</p>
+</section>
 <section id="precession">
-<h3>Precession<a class="headerlink" href="#precession" title="Permalink to this heading">#</a></h3>
+<h2>Precession<a class="headerlink" href="#precession" title="Permalink to this heading">#</a></h2>
 <p>The first term in the Bloch equation means that the
 net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span> rotates around the magnetic field, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, with a left-handed rotation.  This rotation is sometimes referred to as precession.</p>
 <p>To observe this, we neglect relaxation (<span class="math notranslate nohighlight">\(T_1, T_2 \rightarrow \infty\)</span>):</p>
@@ -530,43 +564,62 @@ ans = -9.5540
 </div>
 </section>
 <section id="rf-excitation">
-<h3>RF Excitation<a class="headerlink" href="#rf-excitation" title="Permalink to this heading">#</a></h3>
+<h2>RF Excitation<a class="headerlink" href="#rf-excitation" title="Permalink to this heading">#</a></h2>
 <p>RF excitation occurs when an oscillating magnetic field is applied orthogonally to the main magnetic field.  If we apply RF at the Larmor frequency, the magnetic field would be</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\vec{B}(t) = 
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-B_{1,0} \cos(\omega_0 t) \\
--B_{1,0} \sin(\omega_0 t) \\
-B_0 
+B_{1}^+(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t) \\
+B_{1}^+(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) \\
+B_0
 \end{bmatrix}\end{split}\]</div>
 <p>When applied at the Larmor frequency, the applied RF energy and the net magnetization are in resonance, and we achieve excitation.</p>
-<p><strong>RF excitation (rotating at the Larmor frequency)</strong></p>
+<section id="example-constant-amplitude-pulse">
+<h3>Example: Constant amplitude pulse<a class="headerlink" href="#example-constant-amplitude-pulse" title="Permalink to this heading">#</a></h3>
+<p>A good first RF excitation pulse to consider is a constant amplitude RF pulse, <span class="math notranslate nohighlight">\(B_{1}^+(\vec{r},t) = B_{1,0}\)</span>.  When this is applied on resonance, the Bloch equation results in a progressive rotation of the net magnetization away from the z-axis, as illustrated below:</p>
 <p><img alt="RF excitation Lab Frame" src="_images/RF_hard_lab_frame_on-resonance.gif" /></p>
 </section>
 <section id="lab-versus-rotating-frame">
 <h3>Lab versus Rotating Frame<a class="headerlink" href="#lab-versus-rotating-frame" title="Permalink to this heading">#</a></h3>
-<p>For simplification, we use the so-called “rotating frame” - a reference frame that is rotating around the main field (z-axis) at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>, which greatly simplifies the interpretation, visualization, and math when analyzing the Bloch equation.  This is in contrast to the “lab frame” or “stationary frame”.</p>
-<p>In the rotating frame, the magnetic field is</p>
+<p>For simplification, we use the so-called “rotating frame” - a reference frame that is rotating around the main field (z-axis) at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>, which greatly simplifies the interpretation, visualization, and math when analyzing the Bloch equation.  This is in contrast to the “lab frame” or “stationary frame”.</p>
+<p>In the rotating frame, the magnetic field vector is transformed to both have the rotation of the RF pulse terms removed.  In this transformation of reference frames, the main magnetic field, <span class="math notranslate nohighlight">\(B_0\)</span>, is also removed.  This change in the representation removes the precession of <span class="math notranslate nohighlight">\(\vec{M}\)</span> around the z-axis, as we should expect in the rotating frame.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(t) = 
 \begin{bmatrix}
-B_{1,0} \\
-0 \\
+B_{1,X}^+(\vec{r},t) \\
+B_{1,Y}^+(\vec{r},t) \\
 0
 \end{bmatrix}\end{split}\]</div>
-<p>and RF excitation is a rotation around this simplified representation of the magnetic field.</p>
-<p><strong>RF excitation (viewed in the rotating frame)</strong></p>
+<p>Now we can analyze RF excitation as a rotation around RF magnetic field amplitude and do not have to include Larmor frequency in our analysis, shown in the illustration below:</p>
 <p><img alt="RF excitation Rotating Frame" src="_images/RF_hard_rotating_frame_on-resonance.gif" /></p>
 <p>For another illustration of the stationary/lab versus rotating frames, try the “Change Frame” option in this Bloch simulator:</p>
 <p><a class="reference external" href="http://drcmr.dk/BlochSimulator/">http://drcmr.dk/BlochSimulator/</a></p>
+</section>
 <section id="common-flip-angle-rf-excitations">
-<h4>Common flip angle RF excitations<a class="headerlink" href="#common-flip-angle-rf-excitations" title="Permalink to this heading">#</a></h4>
-<p><strong>90-degree flip</strong>
-<img alt="RF 90-degree flip" src="_images/RF_90flip.gif" /></p>
-<p><strong>45-degree flip</strong>
-<img alt="RF 45-degree flip" src="_images/RF_45flip.gif" /></p>
-<p><strong>180-degree flip</strong>
-<img alt="RF 180-degree flip" src="_images/RF_90flip.gif" /></p>
+<h3>Common flip angle RF excitations<a class="headerlink" href="#common-flip-angle-rf-excitations" title="Permalink to this heading">#</a></h3>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><img alt="RF 45-degree flip" src="_images/RF_45flip.gif" /></p></th>
+<th class="head text-center"><p><img alt="RF 90-degree flip" src="_images/RF_90flip.gif" /></p></th>
+<th class="head text-center"><p><img alt="RF 180-degree flip" src="_images/RF_180flip.gif" /></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>45-degree flip</p></td>
+<td class="text-center"><p>90-degree flip</p></td>
+<td class="text-center"><p>180-degree flip</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="simulations">
+<h3>Simulations<a class="headerlink" href="#simulations" title="Permalink to this heading">#</a></h3>
+<p>The following Bloch equation simulations show</p>
+<ol class="arabic simple">
+<li><p>First, when a non-resonant magnetic field is applied.   An additional magnetic field is applied orthogonal to the main magnetic field, but <em>not</em> applied at the Larmor frequency, and there is no creation of transverse magnetization.</p></li>
+<li><p>After, this is corrected, and the RF pulse is applied at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>.  With a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p></li>
+<li><p>Finally, the simulation is converted into the rotating from.  It is hard to visualize the transverse magnetization in the lab because it is rotating at the Larmor frequency.  The excitation is more clearly visualized in the rotating frame</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% lab frame</span>
@@ -629,8 +682,6 @@ ans = -12.513
 <img alt="_images/60e7d3679630f0b0d959bdef8300d6cf3abfda46cfae772509150d26b636c34f.png" src="_images/60e7d3679630f0b0d959bdef8300d6cf3abfda46cfae772509150d26b636c34f.png" />
 </div>
 </div>
-<p>The above simulation shows when an additional magnetic field is applied orthogonal to the main magnetic field, but is <em>not</em> applied at the Larmor frequency.  There is no creation of transverse magnetization.</p>
-<p>Below, this is corrected, and the RF pulse is applied at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% RF pulse at Larmor frequency</span>
@@ -663,8 +714,6 @@ ans = -12.192
 <img alt="_images/5a13ff251dea32a7faaac41626649ee77b778d3c79c7932059c146f3ce325276.png" src="_images/5a13ff251dea32a7faaac41626649ee77b778d3c79c7932059c146f3ce325276.png" />
 </div>
 </div>
-<p>And now with a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p>
-<p>However, it is hard to visualize the transverse magnetization because it is rotating at the Larmor frequency.  To better visualize the transverse magnetization, we use the rotating frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% rotating frame</span>
@@ -700,10 +749,13 @@ ans = -12.438
 </section>
 </section>
 <section id="relaxation">
-<h3>Relaxation<a class="headerlink" href="#relaxation" title="Permalink to this heading">#</a></h3>
-<p>The net magnetization <span class="math notranslate nohighlight">\(\vec{M}\)</span> will return to equilibriuam (<span class="math notranslate nohighlight">\(\vec{M} = [0, 0, M_0]^T\)</span> oriented with the main magnetic field along the z-axis) with time constants <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.</p>
-<p><span class="math notranslate nohighlight">\(T_1\)</span> Longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant</p>
-<p><span class="math notranslate nohighlight">\(T_2\)</span> Transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant</p>
+<h2>Relaxation<a class="headerlink" href="#relaxation" title="Permalink to this heading">#</a></h2>
+<p>The other key result of the Bloch equation is that the net magnetization will return to equilibriuam over time with specific time constants, called <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.  More specifically relaxation depends on</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M_0(\vec{r})\)</span> - the equilibrium magnetization, where the magnetic field ultimately is oriented in the same direction as the main magnetic field along the z-axis as: <span class="math notranslate nohighlight">\(\vec{M}(\vec{r}, t \rightarrow \infty) = [0, 0, M_0(\vec{r})]^T\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T_1(\vec{r})\)</span> - the longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_2(\vec{r})\)</span> - the transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant</p></li>
+</ul>
 <p>In the rotating frame, without any applied RF energy, the Bloch equation is simplified to</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -743,6 +795,7 @@ M_0(1-e^{-t/T_1}
 \[M_{XY}(t) = M_{XY}(0) e^{-t/T_2}\]</div>
 <div class="math notranslate nohighlight">
 \[M_Z(t) = M_Z(0)e^{-t/T_1} + M_0(1- e^{-t/T_1})\]</div>
+<p>Where here the shorthand complex notation for the transverse magnetization is being used: <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},t) = M_X(\vec{r},t) + i M_Y(\vec{r},t)\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span> <span class="c">% s</span>
@@ -803,7 +856,6 @@ ans = -12.657
 <p><img alt="Relaxation T1 and T2" src="_images/relaxation_t1t2.gif" /></p>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -830,19 +882,18 @@ ans = -12.657
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="MRI%20System.html"
+       href="Spin%20Physics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">The MRI System</p>
+        <p class="prev-next-title">Spin Physics</p>
       </div>
     </a>
     <a class="right-next"
@@ -854,10 +905,7 @@ ans = -12.657
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -873,16 +921,16 @@ ans = -12.657
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-equation">THE Bloch Equation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation">RF Excitation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-versus-rotating-frame">Lab versus Rotating Frame</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-flip-angle-rf-excitations">Common flip angle RF excitations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bloch-equation">THE Bloch Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation">RF Excitation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-constant-amplitude-pulse">Example: Constant amplitude pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lab-versus-rotating-frame">Lab versus Rotating Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-flip-angle-rf-excitations">Common flip angle RF excitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations">Simulations</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a></li>
 </ul>
   </nav></div>
 
@@ -906,7 +954,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -933,8 +981,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

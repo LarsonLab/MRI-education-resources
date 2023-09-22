@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Building Up the MRI Signal Equation &#8212; Principles of MRI</title>
+    <title>The MRI Signal Equation and K-space &#8212; Principles of MRI</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -73,8 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'MRI Signal Equation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Spatial Encoding" href="Spatial%20Encoding.html" />
-    <link rel="prev" title="MRI Contrast" href="MRI%20Contrast.html" />
+    <link rel="next" title="Artifacts" href="Artifacts.html" />
+    <link rel="prev" title="Field of View (FOV) and Resolution" href="FOV%20and%20Resolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building Up the MRI Signal Equation</a></li>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -377,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Building Up the MRI Signal Equation</h1>
+    <h1>The MRI Signal Equation and K-space</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,11 +411,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-equation">Signal Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-signal-equation">Idealized Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-coil-sensitivity">Adding Coil Sensitivity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-during-signal-acquisition">Relaxation during signal acquisition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-and-chemical-shift">Off-resonance and Chemical Shift</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-signal-equation">Complete Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-data-weighting">K-space Data Weighting</a></li>
 </ul>
             </nav>
@@ -431,46 +456,56 @@ loading signal
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="building-up-the-mri-signal-equation">
-<h1>Building Up the MRI Signal Equation<a class="headerlink" href="#building-up-the-mri-signal-equation" title="Permalink to this heading">#</a></h1>
-<p>The purpose of this notebook is to build up, with increasing complexity, the MRI signal equation.  For the purposes of learning and understanding many parts of MRI, it is useful to use simplified versions of the MRI signal equation.</p>
-<section id="signal-equation">
-<h2>Signal Equation<a class="headerlink" href="#signal-equation" title="Permalink to this heading">#</a></h2>
-<p>We can start with the most intimidating version, a full version of signal equation, including relaxation, coil sensitivity, off-resonance and chemical shift, and gradients.</p>
-<p><span class="math notranslate nohighlight">\(\vec{r} = [x, y, z]^T\)</span> position in space</p>
-<p><span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r}, t=0)\)</span> initial transverse magnetization</p>
-<p><span class="math notranslate nohighlight">\(C_n(\vec{r})\)</span> receive coil sensitivity profile of the <span class="math notranslate nohighlight">\(n^\mathrm{th}\)</span> coil (complex valued)</p>
-<p><span class="math notranslate nohighlight">\(T_2^*(\vec{r})\)</span> relaxation rate</p>
-<p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r})\)</span> magnetic field inhomogeneity (macroscopic), including main field imperfections, and magnetic susceptibility effects</p>
-<p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p>
-<p><span class="math notranslate nohighlight">\(\vec{G}(t) = [G_X(t), G_Y(t), G_Z(t)]^T \)</span> magnetic field gradients</p>
-<p><span class="math notranslate nohighlight">\(\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau\)</span> k-space trajectory</p>
-<p>The signal from an individual RF coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}\]</div>
-<p>which is typically simplified for understanding image formation using k-space:</p>
-<div class="math notranslate nohighlight">
-\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
-<p>Note that this describes the signal behavior between RF pulses.  Incorporating RF pulses can be done either through rotation matrices or some solution of the Bloch equation.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="the-mri-signal-equation-and-k-space">
+<h1>The MRI Signal Equation and K-space<a class="headerlink" href="#the-mri-signal-equation-and-k-space" title="Permalink to this heading">#</a></h1>
+<p>The MRI signal equation can be used to understand how images are formed as well as the influence of other factors on contrast, image quality and artifacts.  It is derived from the Bloch equation, without any RF pulses being applied.  The signal equation can be greatly simplified to understand image formation, but can include additional effects to understand more complex behavior.  Here we start with the simplified, idealized signal equiation, and build up a full MRI signal equation.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Describe the effects of gradients on the signal</p></li>
+<li><p>What is the impact of relaxation and off-resonance/chemical shift on the signal</p></li>
+</ul>
+</li>
+<li><p>Understand the constraints and tradeoffs in MRI</p>
+<ul class="simple">
+<li><p>How do relaxation and off-resonance/chemical shift limit the readout duration</p></li>
+</ul>
+</li>
+<li><p>Manipulate MRI sequence parameters to improve performance</p>
+<ul class="simple">
+<li><p>How does the readout duration affect artifacts due to relaxation and off-resonnace/chemical shift</p></li>
+</ul>
+</li>
+<li><p>Identify artifacts and how to mitigate them</p>
+<ul class="simple">
+<li><p>What is the effect of relaxation and off-resonnace/chemical shift during the readout on the resulting images</p></li>
+</ul>
+</li>
+</ol>
 </section>
 <section id="idealized-signal-equation">
 <h2>Idealized Signal Equation<a class="headerlink" href="#idealized-signal-equation" title="Permalink to this heading">#</a></h2>
-<p>In many situations, an idealized signal equation is useful, particularly for understanding image formation.  In the idealized signal equation, we neglect relaxation, RF coil profile, and off-resonance, yielding</p>
+<p>Combining the effects of magnetic field gradients and the principles of the MRI signal, we obtain the following idealized signal equation:</p>
 <div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r}) \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}\]</div>
-<p>Simplified using k-space, we have</p>
+\[s(t) = \int m(\vec{r}) \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
+<p>using the notation <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r}, t=0)\)</span> for the initial transverse magnetization for reasons that will become clear soon.</p>
+<p>In many situations, an idealized signal equation is useful, particularly for understanding image formation.  The idealized signal equation neglects relaxation, RF coil profile, and off-resonance, but we will add them in later.</p>
+<p>This is simllified using the concept of k-space:</p>
 <div class="math notranslate nohighlight">
 \[s(t) = \int m(\vec{r})\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
-<p>From this idealized formulation, it is easiest to see that the signal is the Fourier Transform of the object:</p>
+<p>From this idealized formulation, it is easiest to see that the signal is the Fourier Transform of the transverse magnetization in the subject:</p>
 <div class="math notranslate nohighlight">
 \[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)}\]</div>
 <p>Simplified using the notation <span class="math notranslate nohighlight">\(M(\vec{k}) = \mathcal{F}\{m(\vec{r}) \}\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[s(t) = M(\vec{k}(t))\]</div>
+<p>The is a key result in image formation, showing that our signal represents the Fourier Transform, meaning that an inverse Fourier Transform will be used for image reconstruction from MRI signals.</p>
 </section>
 <section id="adding-coil-sensitivity">
 <h2>Adding Coil Sensitivity<a class="headerlink" href="#adding-coil-sensitivity" title="Permalink to this heading">#</a></h2>
-<p>From the idealized signal equation, the RF coil receive profile simply modulates the transverse magnetization, and the received signal for coil element <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(C_n(\vec{r})\)</span>, is</p>
+<p>From the idealized signal equation, the RF coil receive profile simply modulates the transverse magnetization, and the received signal for coil element <span class="math notranslate nohighlight">\(n\)</span>, which has a coil sensitivity profile <span class="math notranslate nohighlight">\(C_n(\vec{r})\)</span>, is</p>
 <div class="math notranslate nohighlight">
 \[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
 <p>And the signal is once again the Fourier Transform of the object, but now multiplied by the coil sensitivity:</p>
@@ -540,8 +575,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" src="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" />
 <img alt="_images/04e32389def1da9556efd712d119655989abaa4ab970ce8cc166a8125b4a22c0.png" src="_images/04e32389def1da9556efd712d119655989abaa4ab970ce8cc166a8125b4a22c0.png" />
+<img alt="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" src="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" />
 </div>
 </div>
 <p>Thus the reconstructed image will corrupted by a convolution (denoted by <span class="math notranslate nohighlight">\(*\)</span>) based on the k-space amplitude weighting</p>
@@ -587,8 +622,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" src="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" />
 <img alt="_images/c2bc6f3fee2a679d68cb3956f1dd71771107c64c4330c26801b306718311c22e.png" src="_images/c2bc6f3fee2a679d68cb3956f1dd71771107c64c4330c26801b306718311c22e.png" />
+<img alt="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" src="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" />
 </div>
 </div>
 <p>In the above plots, the height of the main peak in the center represents the expected SNR, including losses due to blurring, while the signal amplitude outside of the main peak represents blurring that will occur.   These show that the blurring and signal loss from <span class="math notranslate nohighlight">\(T_2^*\)</span> gets worse as the relaxation time is shorter, the blurring it is much worse for EPI (in phase encoding direction) versus Cartesian trajectories.</p>
@@ -596,6 +631,11 @@ loading signal
 <section id="off-resonance-and-chemical-shift">
 <h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Permalink to this heading">#</a></h2>
 <p>Off-resonance and chemical shift lead to changes in the precession frequency of the magnetization.  We can add this onto the idealized signal equation.</p>
+<p>Here we separately define:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r})\)</span> magnetic field inhomogeneity (macroscopic), including main field imperfections, and magnetic susceptibility effects</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p></li>
+</ul>
 <!-- $$s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$ -->
 <p>For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})\)</span> as</p>
 <div class="math notranslate nohighlight">
@@ -654,11 +694,22 @@ $<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" src="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" />
 <img alt="_images/7116ed83d8359b6883a12abf711538b5c0ffc32e612333da3dc4050edb5f88f6.png" src="_images/7116ed83d8359b6883a12abf711538b5c0ffc32e612333da3dc4050edb5f88f6.png" />
+<img alt="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" src="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" />
 </div>
 </div>
 <p>For frequency shift, the main peak of the convolution kernels is shifted frfom the origin.  This will result in a shift in the reconstructed image.  The shift is much larger for EPI and is in the phase encoding instead of the frequency encoding direction.  (The residual side lobes are due to sinc interpolation effects, similar to Gibbs ringing.)</p>
+</section>
+<section id="complete-signal-equation">
+<h2>Complete Signal Equation<a class="headerlink" href="#complete-signal-equation" title="Permalink to this heading">#</a></h2>
+<p>Finally, we can write the most intimidating version, a full version of signal equation, including relaxation, coil sensitivity, off-resonance and chemical shift, and gradients.
+The signal from an individual RF coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
+<p>which is typically simplified for understanding image formation using k-space:</p>
+<div class="math notranslate nohighlight">
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>Note that this describes the signal behavior between RF pulses.  Incorporating RF pulses can be done either through rotation matrices or some solution of the Bloch equation such as numerical solvers or phase graphs.</p>
 </section>
 <section id="k-space-data-weighting">
 <h2>K-space Data Weighting<a class="headerlink" href="#k-space-data-weighting" title="Permalink to this heading">#</a></h2>
@@ -681,7 +732,7 @@ $<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r
 <div class="math notranslate nohighlight">
 \[\hat{m}(\vec{r}) = m_1(\vec{r}) + m_2(\vec{r}) * w_2(\vec{r})\]</div>
 <p>providing an accurate image of thw water component but some corrupted fat image (typically shifted in space for Cartesian trajectories).</p>
-<p>The k-space data weighting concept is very powerful.  It can include frequency shifts. It can include weighting from all types of relaxation (<span class="math notranslate nohighlight">\(T_1, T_2, T_2^*\)</span>) from more complex acquisition strategies such as SSFP and fast spin-echos.  It can include diffusion-weighting, flow effects, and more</p>
+<p>The k-space data weighting concept is very powerful.  It can include frequency shifts. It can include weighting from all types of relaxation (<span class="math notranslate nohighlight">\(T_1, T_2, T_2^*\)</span>) from more complex acquisition strategies such as SSFP and fast spin-echos.  It can include diffusion-weighting, flow effects, and more.</p>
 </section>
 </section>
 
@@ -710,34 +761,30 @@ $<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="MRI%20Contrast.html"
+       href="FOV%20and%20Resolution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">MRI Contrast</p>
+        <p class="prev-next-title">Field of View (FOV) and Resolution</p>
       </div>
     </a>
     <a class="right-next"
-       href="Spatial%20Encoding.html"
+       href="Artifacts.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Spatial Encoding</p>
+        <p class="prev-next-title">Artifacts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -752,11 +799,12 @@ $<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-equation">Signal Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#idealized-signal-equation">Idealized Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-coil-sensitivity">Adding Coil Sensitivity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-during-signal-acquisition">Relaxation during signal acquisition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-and-chemical-shift">Off-resonance and Chemical Shift</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-signal-equation">Complete Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-data-weighting">K-space Data Weighting</a></li>
 </ul>
   </nav></div>
@@ -781,7 +829,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -808,8 +856,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

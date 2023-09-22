@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -73,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Magnetic Fields and RF Coils';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Contrast" href="MRI%20Contrast.html" />
+    <link rel="next" title="The Pulse Sequence" href="Pulse%20Sequence.html" />
     <link rel="prev" title="Bloch Equation" href="MR%20Physics%20-%20Bloch%20Equation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -391,7 +415,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t) B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-transmit-rf-fields">Creating Transmit RF fields</a></li>
@@ -505,7 +529,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>Where the gradients creates linear changes in the z-component of the magnetic field, <span class="math notranslate nohighlight">\(B_Z\)</span>, across space.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
-<h2>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t) B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Permalink to this heading">#</a></h2>
+<h2>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Permalink to this heading">#</a></h2>
 <p>The purpose of the RF coils and RF systems are</p>
 <ol class="arabic simple">
 <li><p>Excitation – perturb the net magnetization from equilibrium by creating magnetic fields at the resonance frequency</p></li>
@@ -574,7 +598,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <h3>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Permalink to this heading">#</a></h3>
 <p>Magnetic resonsance signal is received by the following sequence of events</p>
 <ol class="arabic simple">
-<li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(f_0 = \\bar{gamma} B_0\)</span></p></li>
+<li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span></p></li>
 <li><p>This precession creates oscillating magnetic fields at this same (Larmor) frequency.</p></li>
 <li><p>Oscillating magnetic fields will create oscillating current in loops of wire, which can be detected by amplifying and digitizing this signal</p></li>
 </ol>
@@ -628,7 +652,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </section>
 <section id="sensitivity-simulation">
 <h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Permalink to this heading">#</a></h3>
-<p>The following simulates the sensitivity profile of a single loop RF coil varying over space.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
+<p>The following simulates the sensitivity profile of a single loop RF coil varying over space, using the Biot-Savart law from electromagnetism.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="p">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c">% coil radius, cm</span>
@@ -706,11 +730,10 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="MR%20Physics%20-%20Bloch%20Equation.html"
@@ -722,18 +745,15 @@ B_0 + \vec{G}(t) \cdot \vec{r}
       </div>
     </a>
     <a class="right-next"
-       href="MRI%20Contrast.html"
+       href="Pulse%20Sequence.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Contrast</p>
+        <p class="prev-next-title">The Pulse Sequence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -752,7 +772,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t) B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-transmit-rf-fields">Creating Transmit RF fields</a></li>
@@ -793,7 +813,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -820,8 +840,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>

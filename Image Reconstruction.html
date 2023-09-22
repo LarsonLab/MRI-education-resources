@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Image Reconstruction (In Progress Page) &#8212; Principles of MRI</title>
+    <title>Image Reconstruction &#8212; Principles of MRI</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -85,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -165,33 +175,47 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Physics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
 
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">Building Up the MRI Signal Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Reconstruction (In Progress Page)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">RF Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun? RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods (In Progress Page)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
@@ -349,10 +373,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -360,7 +384,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -377,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Image Reconstruction (In Progress Page)</h1>
+    <h1>Image Reconstruction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,15 +411,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulating-the-reconstruction-problem">Formulating the Reconstruction Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier">Partial Fourier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-methods">K-space Methods</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressed-sensing-methods">Compressed Sensing Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-reconstructions">Neural Network Reconstructions</a></li>
 </ul>
             </nav>
         </div>
@@ -416,59 +435,131 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
+
+The gnuplot graphics toolkit is not actively maintained and has a number
+of limitations that are ulikely to be fixed.  Communication with gnuplot
+uses a one-directional pipe and limited information is passed back to the
+Octave interpreter so most changes made interactively in the plot window
+will not be reflected in the graphics properties managed by Octave.  For
+example, if the plot window is closed with a mouse click, Octave will not
+be notified and will not update it&#39;s internal list of open figure windows.
+We recommend using the qt toolkit instead.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction-in-progress-page">
-<h1>Image Reconstruction (In Progress Page)<a class="headerlink" href="#image-reconstruction-in-progress-page" title="Permalink to this heading">#</a></h1>
-<p>Image reconstruction in MRI means converting the raw signal collected in k-space into images.  For a fully-sampled acquisition using Cartesian sampling (e.g. on a grid), this can be done with a Fourier Transform.  However, the majority of MRI scans are now under-sampled, meaning some samples are skipped to accelerate the scan, which requires more complex image reconstruction methods.</p>
-<section id="formulating-the-reconstruction-problem">
-<h2>Formulating the Reconstruction Problem<a class="headerlink" href="#formulating-the-reconstruction-problem" title="Permalink to this heading">#</a></h2>
-<p>For image reconstruction, it is helpful to reformulate the MRI Signal Equation, which we can pose for MRI as a linear system and using standard mathematical notation describing systems as:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction">
+<h1>Image Reconstruction<a class="headerlink" href="#image-reconstruction" title="Permalink to this heading">#</a></h1>
+<p>Image reconstruction in MRI means converting the raw signal collected in k-space into images.  For a fully-sampled acquisition using Cartesian sampling (e.g. on a grid), this can be done with a discrete Fourier Transform.  In anticipation of advanced reconstruction methods, image reconstruction for MRI is formulated as a linear system.  The technique of Partial Fourier imaging is also introduced.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Describe how MRI raw data is reconstructed into an image</p></li>
+</ul>
+</li>
+<li><p>Manipulate MRI sequence parameters to improve performance</p>
+<ul class="simple">
+<li><p>Describe how the Partial Fourier method can be used</p></li>
+</ul>
+</li>
+<li><p>Manipulate and analyze MRI data</p>
+<ul class="simple">
+<li><p>Reconstruct an image from raw data</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="sorting-the-mri-data-into-k-space">
+<h2>Sorting the MRI Data into k-space<a class="headerlink" href="#sorting-the-mri-data-into-k-space" title="Permalink to this heading">#</a></h2>
+<p>Recall that the MRI signal is proportional to the Fourier Transform of the net magnetization of our object, evaluated at the k-space location defined by the gradients:</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise</p>
-<p>The encoding matrix, <span class="math notranslate nohighlight">\(E\)</span>, must include a discrete Fourier Transform matrix, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations.  It should also include coil sensitivity profiles in order to support parallel imaging formulations.</p>
+\[ s_i(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}_i(t)} \]</div>
+<p>Note that this includes a dimension for the readout, <span class="math notranslate nohighlight">\(t\)</span>, as well as different readouts for each TR, denoted by the subscript for the <span class="math notranslate nohighlight">\(i^\mathrm{th}\)</span> TR.</p>
+<p>The data acquired during the readout will be sorted into data based on the k-space trajectory.  The following example shows the Cartesian k-space trajectory, which acquired data in a raster fashion in k-space:</p>
+<p><img alt="Cartesian k-space trajectory and pulse sequence" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>
+<p>From this knowledge, the MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span>.</p>
+</section>
+<section id="fourier-transform-reconstruction">
+<h2>Fourier Transform Reconstruction<a class="headerlink" href="#fourier-transform-reconstruction" title="Permalink to this heading">#</a></h2>
+<p>Once the data has been sorted into the corresponding lines in k-space, an inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\]</div>
+<p>For typical Cartesian sampling, this can be done very simply with the 2D or 3D Fast Fourier Transform (FFT) algorithm</p>
+<p>The following animation illustrates typical k-space data as it would be acquired for different k-space lines (left) and the resulting image as more and more lines of k-space are accumulated</p>
+<p><img alt="Image formation from sequential Cartesian k-space data" src="_images/image_formation_sequential.gif" /></p>
+<p>We can also acquire our k-space lines in a “center-out” or random ordering, shown below</p>
+<p><img alt="Image formation from center-out Cartesian k-space data" src="_images/image_formation_centerout_lines.gif" />
+<img alt="Image formation from random Cartesian k-space data" src="_images/image_formation_random_lines.gif" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Image reconstruction example</span>
+
+<span class="n">m</span>
+
+<span class="n">M</span> <span class="p">=</span> <span class="n">fft2c</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;m&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;m&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="partial-fourier">
 <h2>Partial Fourier<a class="headerlink" href="#partial-fourier" title="Permalink to this heading">#</a></h2>
-<p>How does it work?</p>
-<p>How is it implemented (k-space sampling, reconstruction algorithm)?</p>
-<p>When can it be used?</p>
-</section>
-<section id="parallel-imaging">
-<h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this heading">#</a></h2>
-<p>For parallel imaging, we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>:</p>
+<p>Partial Fourier methods, also known as fractional NEX, are a way to sample a reduced amount of k-space while still reconstructing an image.</p>
+<p>These methods note one of the Fourier Transform properties which states that the positive k-space data equals the complex conjugate of the negative k-space data when the object is real-valued:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{E} = \mathbf{F} \mathbf{C}\]</div>
-<section id="image-space-methods">
-<h3>Image-space Methods<a class="headerlink" href="#image-space-methods" title="Permalink to this heading">#</a></h3>
-<p>Image-space parallel imaging (e.g. SENSE) can be formulated as the following optimization problem</p>
+\[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
+<p>Our object is the transverse magnetization, so if our transverse magnetization is all aligned along <span class="math notranslate nohighlight">\(M_X\)</span> then our object is real-valued and we can apply this relationship.</p>
 <div class="math notranslate nohighlight">
-\[\hat{x}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
-<p>In other words, parallel can be solved directly by a pseudo-inverse, but requires estimates of the coil sensitivity profiles.</p>
-</section>
-<section id="k-space-methods">
-<h3>K-space Methods<a class="headerlink" href="#k-space-methods" title="Permalink to this heading">#</a></h3>
-<p>K-space parallel imaging (e.g. GRAPPA) utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>.  These can also be generally formulated as the following optimization problem</p>
-<div class="math notranslate nohighlight">
-\[\hat{x}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2 \]</div>
-<p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneous enforces data consistency (first term) as well as self-consistency of the calibration (sescond term).</p>
-</section>
-</section>
-<section id="compressed-sensing-methods">
-<h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Permalink to this heading">#</a></h2>
-<p>Compressed Sensing theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  In other words, we can further accelerate our data acquisition.</p>
-<p>Compressed Sensing is formulated as the following optimization problem</p>
-<div class="math notranslate nohighlight">
-\[\hat{x}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} = \mathbf{Ex} \|^2_2 +\tau \| \mathbf{Wx} \|_1 \]</div>
-<p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse in some other domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.</p>
-</section>
-<section id="neural-network-reconstructions">
-<h2>Neural Network Reconstructions<a class="headerlink" href="#neural-network-reconstructions" title="Permalink to this heading">#</a></h2>
+\[m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0) \]</div>
+<p>Under ideal conditions, the RF pulse can excite the net magnetization just into <span class="math notranslate nohighlight">\(M_X\)</span>, meaning this requirement can be satisfied.    Taken together, this means only half of the k-space data (e.g positive data <span class="math notranslate nohighlight">\(\vec{k} \geq 0\)</span>) can be acquired and it can be used to fill in the negative k-space data.  This means 2 times faster scanning!</p>
+<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
+<p>However, this additional phase is typically contained in the low spatial frequencies, in other words they can be measured by our central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Partial Fourier examples</span>
+
+<span class="n">m</span>
+
+<span class="n">M</span> <span class="p">=</span> <span class="n">fft2c</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">imag</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;m&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;m&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;M&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: &#39;M&#39; undefined near line 1, column 1
+</pre></div>
+</div>
+<img alt="_images/434edeac7db487dd5bf9dd49107983109481438cb06a49b91abfe21236569440.png" src="_images/434edeac7db487dd5bf9dd49107983109481438cb06a49b91abfe21236569440.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -497,11 +588,10 @@ loading signal
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Spatial%20Encoding.html"
@@ -521,10 +611,7 @@ loading signal
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -539,15 +626,10 @@ loading signal
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulating-the-reconstruction-problem">Formulating the Reconstruction Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier">Partial Fourier</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-methods">K-space Methods</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressed-sensing-methods">Compressed Sensing Methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-reconstructions">Neural Network Reconstructions</a></li>
 </ul>
   </nav></div>
 
@@ -571,7 +653,7 @@ By Peder Larson
     
   <p class="copyright">
     
-      © Copyright 2021.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -598,8 +680,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
