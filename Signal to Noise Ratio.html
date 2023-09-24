@@ -505,7 +505,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="snr-efficiency">
 <h1>SNR Efficiency<a class="headerlink" href="#snr-efficiency" title="Permalink to this heading">#</a></h1>
 <p>The SNR efficiency for MRI provides a measure of overall efficiency within a MRI scan, which is the SNR normalized by the <em>total scan time</em>, <span class="math notranslate nohighlight">\(T_{scan}\)</span></p>
-<p>$$SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{meas} }{T_{scan}}}</p>
+<div class="math notranslate nohighlight">
+\[SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{meas} }{T_{scan}}}\]</div>
 <section id="snr-efficiency-versus-tr">
 <h2>SNR efficiency versus TR<a class="headerlink" href="#snr-efficiency-versus-tr" title="Permalink to this heading">#</a></h2>
 <p>The SNR efficiency is useful to examine the choice of TR.  It is especially interesting for spoiled gradient-echo sequences where when we can choose to use the optimal flip angle (“Ernst angle”) based on a <span class="math notranslate nohighlight">\(T_1\)</span> value of interest.  For these sequences, the optimal flip angle is</p>

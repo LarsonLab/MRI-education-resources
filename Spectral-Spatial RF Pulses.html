@@ -424,7 +424,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="spectral-spatial-rf-pulses">
+<h1>Spectral-Spatial RF Pulses<a class="headerlink" href="#spectral-spatial-rf-pulses" title="Permalink to this heading">#</a></h1>
+<p>Spectral-spatial RF pulses aim to provide both</p>
+<ul class="simple">
+<li><p>spectral selection, typically to only excite protons in water molecules, and not protons in lipids</p></li>
+<li><p>spatial selection, for slice-selective imaging</p></li>
+</ul>
+<p>These are particularly common in fMRI and diffusion with echo-planar imaging (EPI) in order to eliminate chemical shift displacement artifacts in the image, and are also used for water and/or fat suppression in MR spectroscopy.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Understand how spectral-spatial RF pulses work</p></li>
+</ul>
+</li>
+<li><p>Identify artifacts and how to mitigate them</p>
+<ul class="simple">
+<li><p>Determine when using spectral-spatial RF pulses would help remove chemical shift related artifacts</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="spectral-spatial-rf-pulse-design">
+<h2>Spectral-Spatial RF Pulse Design<a class="headerlink" href="#spectral-spatial-rf-pulse-design" title="Permalink to this heading">#</a></h2>
+<p>This is done by creating a 2D excitation profile in both the spectral and spatial dimensions.  This is most easily interpreted through excitation k-space, where the RF energy deposited can be Fourier Transformed to reveal the approximate spectral-spatial profile created.</p>
+<p>The gradient applied traverses spatial excitation k-space, while time traverses the spectral excitation k-space dimension, as demonstrated by the gradient and k-psace plot below</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
 <span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
@@ -487,33 +514,6 @@ error: called from
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="spectral-spatial-rf-pulses">
-<h1>Spectral-Spatial RF Pulses<a class="headerlink" href="#spectral-spatial-rf-pulses" title="Permalink to this heading">#</a></h1>
-<p>Spectral-spatial RF pulses aim to provide both</p>
-<ul class="simple">
-<li><p>spectral selection, typically to only excite protons in water molecules, and not protons in lipids</p></li>
-<li><p>spatial selection, for slice-selective imaging</p></li>
-</ul>
-<p>These are particularly common in fMRI and diffusion with echo-planar imaging (EPI) in order to eliminate chemical shift displacement artifacts in the image, and are also used for water and/or fat suppression in MR spectroscopy.</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Describe how images are formed</p>
-<ul class="simple">
-<li><p>Understand how spectral-spatial RF pulses work</p></li>
-</ul>
-</li>
-<li><p>Identify artifacts and how to mitigate them</p>
-<ul class="simple">
-<li><p>Determine when using spectral-spatial RF pulses would help remove chemical shift related artifacts</p></li>
-</ul>
-</li>
-</ol>
-</section>
-<section id="spectral-spatial-rf-pulse-design">
-<h2>Spectral-Spatial RF Pulse Design<a class="headerlink" href="#spectral-spatial-rf-pulse-design" title="Permalink to this heading">#</a></h2>
-<p>This is done by creating a 2D excitation profile in both the spectral and spatial dimensions.  This is most easily interpreted through excitation k-space, where the RF energy deposited can be Fourier Transformed to reveal the approximate spectral-spatial profile created.</p>
-<p>The gradient applied traverses spatial excitation k-space, while time traverses the spectral excitation k-space dimension, as demonstrated by the gradient and k-psace plot below</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Demonstrate gradient and spectral-spatial k-space trajectoy</span>

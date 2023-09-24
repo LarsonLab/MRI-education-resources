@@ -412,7 +412,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulating-the-reconstruction-problem">Formulating the Reconstruction Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
@@ -426,9 +425,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-compressed-sensing">Artifacts with Compressed Sensing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-deep-learning-reconstructions">Neural Network/Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">SNR in Compressed Sensing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Artifacts with Compressed Sensing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-reconstructions">Machine Learning Reconstructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-ml-reconstructions">SNR in ML Reconstructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-ml-reconstructions">Artifacts with ML Reconstructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -486,21 +486,12 @@ loading signal
 </li>
 </ol>
 </section>
-<section id="formulating-the-reconstruction-problem">
-<h2>Formulating the Reconstruction Problem<a class="headerlink" href="#formulating-the-reconstruction-problem" title="Permalink to this heading">#</a></h2>
-<p>For image reconstruction, it is helpful to reformulate the MRI Signal Equation, which we can pose for MRI as a linear system and using standard mathematical notation describing systems as:</p>
-<div class="math notranslate nohighlight">
-\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise</p>
-<p>The encoding matrix, <span class="math notranslate nohighlight">\(E\)</span>, must include a discrete Fourier Transform matrix, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations.  It should also include coil sensitivity profiles in order to support parallel imaging formulations.</p>
-</section>
 <section id="general-formulation-of-mri-reconstruction">
 <h2>General Formulation of MRI Reconstruction<a class="headerlink" href="#general-formulation-of-mri-reconstruction" title="Permalink to this heading">#</a></h2>
 <p>For advanced image reconstruction methods, it is helpful to reformulate the reconstruction problem as a linear system and using standard mathematical notation describing linear systems as:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
-<p>In 2D Cartesian</p>
-<p>vectorized data and images</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise.  In this formulation, the image is vectorized.  For example, 2D FT sampled data and the corresponding 2D image would be converted to:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} y = \left[ 
     \begin{array}{c}
@@ -525,14 +516,22 @@ m(x_{1},y_2) \\
 m(x_{Nx},y_{Ny}) 
 \end{array}
 \right]\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise</p>
-<p>The encoding matrix, <span class="math notranslate nohighlight">\(E\)</span>, must include a discrete Fourier Transform matrix, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations.  It should also include coil sensitivity profiles in order to support parallel imaging formulations.</p>
+<p>The encoding matrix, <span class="math notranslate nohighlight">\(E\)</span>, at a minimum includes a discrete Fourier Transform matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations.</p>
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this heading">#</a></h2>
-<p>For parallel imaging (PI), we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>:</p>
+<p>For parallel imaging (PI), we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}_i\)</span>, for each RF coil into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, as well as a k-space sampling operator, <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, for the measurements from each RF coil, <span class="math notranslate nohighlight">\(\mathbf{y}_i\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{E} = \mathbf{F} \mathbf{C}\]</div>
+\[\mathbf{y}_i = \mathbf{E}_i \mathbf{x} + \mathbf{n}_i = \mathbf{S} \mathbf{F} \mathbf{C_i} \mathbf{x} + \mathbf{n}_i \]</div>
+<p>Here we can return to our original formulation by concatenating the coil dimension, for example as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{y} = [\mathbf{y}_1 \ \mathbf{y}_2 \ldots \mathbf{y}_N]\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{E} = [\mathbf{E}_1 \ \mathbf{E}_2 \ldots \mathbf{E}_N]\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{y} = [\mathbf{n}_1 \ \mathbf{n}_2 \ldots \mathbf{n}_N]\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
 <section id="image-space-methods">
 <h3>Image-space Methods<a class="headerlink" href="#image-space-methods" title="Permalink to this heading">#</a></h3>
 <p>Image-space parallel imaging methods (e.g. SENSE) can be formulated as the following optimization problem</p>
@@ -581,21 +580,27 @@ m(x_{Nx},y_{Ny})
 <p>The most common artifacts from compressed sensing come from overfitting to the sparsity penalty.  This result in either an over-smoothed appearance or, in the case of a wavelet sparsifying transform, blocking artifacts.</p>
 </section>
 </section>
-<section id="neural-network-deep-learning-reconstructions">
-<h2>Neural Network/Deep Learning Reconstructions<a class="headerlink" href="#neural-network-deep-learning-reconstructions" title="Permalink to this heading">#</a></h2>
-<p>Convolutional neural networks (CNNs), which form the backbone of deep learning (DL), can be used to convert k-space to image data from a subset of data samples as well.  Conceptually, these methods can be trained to learn how to incorporate coil sensitivity information like parallel imaging and typical image sparsity patterns like compressed sensing.  Since they learn from real-world data, they can learn information that is the most relevant to MRI data and thus have been shown to support higher acceleration factors.</p>
-<p>Perhaps the most popular class of DL reconstruction methods for MRI are so-called “un-rolled” networks.  This term confirms</p>
-<p>Compressed Sensing is formulated as the following optimization problem</p>
+<section id="machine-learning-reconstructions">
+<h2>Machine Learning Reconstructions<a class="headerlink" href="#machine-learning-reconstructions" title="Permalink to this heading">#</a></h2>
+<p>Machine learning using convolutional neural networks (CNNs), which form the backbone of deep learning (DL), can be used to convert k-space to image data from a subset of data samples as well.  Conceptually, these methods can be trained to learn how to incorporate coil sensitivity information like parallel imaging and typical image sparsity patterns like compressed sensing.  Since they learn from real-world data, they can learn information that is the most relevant to MRI data and thus have been shown to support higher acceleration factors.</p>
+<p>These methods can often be considered general solutions to a regularized least-squares objective</p>
 <div class="math notranslate nohighlight">
-\[\hat{x}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} = \mathbf{Ex} \|^2_2 +\tau \| \mathbf{Wx} \|_1 \]</div>
-<p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse in some other domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.</p>
-<p>Popular sparsifying transforms include total variation (TV), total generalized variation (TGV), and wavelets.</p>
-<p>The k-space sampling patterns used for these methods typically use pseudo-random undersampling with a variable density that preferentially increases the number of samples near the center of k-space</p>
-<section id="id1">
-<h3>SNR in Compressed Sensing<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+\[\hat{x}_{reg} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \mathcal{R}(\mathbf{x}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{R}(\cdot)\)</span> can be a parallel imaging or compressed sensing regularizer as above, but can also be implicitly implemented via machine learning techniques.  This means that the machine learning reconstruction is attempting to constrain or regularize the reconstruction.</p>
+<p>Perhaps the most popular class of DL reconstruction methods for MRI are so-called “un-rolled” networks.  This term comes from the fact these networks are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
+<section id="snr-in-ml-reconstructions">
+<h3>SNR in ML Reconstructions<a class="headerlink" href="#snr-in-ml-reconstructions" title="Permalink to this heading">#</a></h3>
+<p>It is difficult to define SNR when using machine learning reconstruction methods, as they inherently perform some denoising when constraining the reconstruction.</p>
 </section>
-<section id="id2">
-<h3>Artifacts with Compressed Sensing<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="artifacts-with-ml-reconstructions">
+<h3>Artifacts with ML Reconstructions<a class="headerlink" href="#artifacts-with-ml-reconstructions" title="Permalink to this heading">#</a></h3>
+<p>A challenge with machine learning reconstructions is that artifacts can be difficult to identify.  They can result in an over-smoothed appearance.  These methods can also overfit to the learned anatomy and data, meaning features might be erased or hallucinated, although using physics-based techniques provide some assurances of data-consistency.</p>
+</section>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h3>
+<p>For a recent, comprehensive reference on thes methods I reccommend:</p>
+<p>Hammernik K, Küstner T, Yaman B, Huang Z, Rueckert D, Knoll F, Akçakaya M. Physics-Driven Deep Learning for Computational Magnetic Resonance Imaging: Combining physics and machine learning for improved medical imaging. IEEE Signal Process Mag. 2023 Jan;40(1):98-114. doi: 10.1109/msp.2022.3215288. Epub 2023 Jan 2. PMID: 37304755; PMCID: PMC10249732.</p>
+<p><a class="reference external" href="https://arxiv.org/pdf/2203.12215.pdf">https://arxiv.org/pdf/2203.12215.pdf</a></p>
 </section>
 </section>
 </section>
@@ -664,7 +669,6 @@ m(x_{Nx},y_{Ny})
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulating-the-reconstruction-problem">Formulating the Reconstruction Problem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
@@ -678,9 +682,10 @@ m(x_{Nx},y_{Ny})
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-compressed-sensing">Artifacts with Compressed Sensing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network-deep-learning-reconstructions">Neural Network/Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">SNR in Compressed Sensing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Artifacts with Compressed Sensing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-reconstructions">Machine Learning Reconstructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-ml-reconstructions">SNR in ML Reconstructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-ml-reconstructions">Artifacts with ML Reconstructions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
