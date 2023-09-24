@@ -11,24 +11,27 @@ parts:
     - file: "MR Physics - Bloch Equation"
     - file: "Magnetic Fields and RF Coils"
   - caption: MR Experiment
-    - file: Pulse Sequence
+    chapters:
+    - file: "Pulse Sequence"
     - file: "Gradient and Spin Echoes"
     - file: "MRI Contrast"
   - caption: Image Formation
     chapters:
-    - file: Spatial Encoding
+    - file: "Spatial Encoding"
     - file: "Image Reconstruction"
   - caption: Image Characteristics
-    - file: Signal to Noise Ratio
-    - file: FOV and Resolution
+    chapters:
+    - file: "Signal to Noise Ratio"
+    - file: "FOV and Resolution"
     - file: "MRI Signal Equation"
-    - file: Artifacts
+    - file: "Artifacts"
   - caption: Radiofrequency Pulses
     chapters:
     - file: "RF Pulses"
-    - file: Spectral-Spatial RF Pulses
+    - file: "Spectral-Spatial RF Pulses"
     - file: "Fun with RF Pulses"
   - caption: Fast Imaging
+    chapters:
     - file: "Fast Imaging Pulse Sequences"
     - file: "Accelerated Imaging Methods"
   - caption: Reference Material
