@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -155,13 +155,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/HPBrain-Anime.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/HPBrain-Anime.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/HPBrain-Anime.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/HPBrain-Anime.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
   
   
 </a></div>
@@ -496,10 +497,10 @@ M_0(\vec{r})
 \end{bmatrix}\end{split}\]</div>
 <p>And has an amplitude of that is defined as the Equilibrium Magnetization:</p>
 <div class="math notranslate nohighlight">
-\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 \hbar^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
 <p>where <span class="math notranslate nohighlight">\(N(\vec{r})\)</span> is the spin density,
-<span class="math notranslate nohighlight">\(\hbar\)</span> is Planck’s constant,
-<span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> is the gyromagnetic ratio,
+<span class="math notranslate nohighlight">\(h\)</span> is Planck’s constant (6.63e-34 J/Hz),
+<span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> is the gyromagnetic ratio (42.58e6 Hz/T for <span class="math notranslate nohighlight">\(^1 H\)</span>),
 <span class="math notranslate nohighlight">\(B_0\)</span> is the magnetic field,
 <span class="math notranslate nohighlight">\(I_Z\)</span> is the spin number (1/2 for hydrogen),
 <span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant (8.62e-5 eV/K or 1.38e-23 J/K), and
@@ -507,16 +508,16 @@ M_0(\vec{r})
 </section>
 <section id="fractional-polarization">
 <h3>Fractional Polarization<a class="headerlink" href="#fractional-polarization" title="Permalink to this heading">#</a></h3>
-<p>Another helpful formulation to describe the preference of spins to align with the magnetic field is to look at the fraction of spins that, if observed, would be aligned with the magnetic field.  This can be done using the Boltzman distribution that describes the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states.</p>
+<p>Another helpful formulation to describe the preference of spins to align with the magnetic field is to look at the fraction of spins that, if observed, would be aligned with the magnetic field.  This can be done using the Boltzman distribution that describes the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states, shown here for spin 1/2 nuclei(<span class="math notranslate nohighlight">\(I_Z = 1/2\)</span>):</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow}{N_\downarrow} = e^{\hbar \bar{\gamma} B_0 / kT}\]</div>
-<p>(This can also be used to derive the equilibrium magnetization above.)</p>
+\[ \frac{N_\uparrow}{N_\downarrow} = e^{h \bar{\gamma} B_0 / kT}\]</div>
+<p>This uses the separate between the two energy states, <span class="math notranslate nohighlight">\(\Delta E = h \bar{\gamma} B_0\)</span>.  It can also be used to derive the equilibrium magnetization above.</p>
 <p>From this distribution, a fractional polarization can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-\hbar \bar{\gamma} B_0 / kT} }{ 1 + e^{-\hbar \bar{\gamma} B_0 / kT} }\]</div>
+\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-h \bar{\gamma} B_0 / kT} }{ 1 + e^{-h \bar{\gamma} B_0 / kT} }\]</div>
 <p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{\hbar \bar{\gamma} B_0}{2 kT}\]</div>
+\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{h \bar{\gamma} B_0}{2 kT}\]</div>
 </section>
 </section>
 <section id="resonance">
@@ -809,8 +810,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
