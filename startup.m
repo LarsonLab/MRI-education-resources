@@ -1,3 +1,6 @@
+% turn off warnings in Jupyerbook
+warning('off','all')
+
 global isOctave;
 isOctave = exist('OCTAVE_VERSION', 'builtin') ~= 0;
 
@@ -40,6 +43,8 @@ else % OCTAVE
         end
     end
 
-    graphics_toolkit('qt')
+    % qt recommended, but not working for JupyterBook compile
+    % graphics_toolkit('qt')
+
 end
 end
