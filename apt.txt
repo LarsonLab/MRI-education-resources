@@ -5,4 +5,4 @@ octave-signal
 octave-miscellaneous
 liboctave-dev
 ghostscript
-gnuplot
+qt
