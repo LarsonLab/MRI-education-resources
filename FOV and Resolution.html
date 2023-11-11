@@ -519,7 +519,7 @@ loading signal
 
 <span class="nb">figure</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">(:))))])</span>
 <span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
 <span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon3</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon3</span><span class="p">(:)))])</span>
@@ -537,9 +537,14 @@ loading signal
                                                         ^
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: imagesc: CLIMITS must be in form [lo, hi]
+error: called from
+    imagesc at line 115 column 9
+</pre></div>
+</div>
 <img alt="_images/3f6c3d7a6c72afd9144365447192e2e753e94a22c3b96d6343334b023bf8829a.png" src="_images/3f6c3d7a6c72afd9144365447192e2e753e94a22c3b96d6343334b023bf8829a.png" />
 <img alt="_images/b7030ca9f2508ba6809e1f106121490f593d9ee006fb4141fe38522078613edd.png" src="_images/b7030ca9f2508ba6809e1f106121490f593d9ee006fb4141fe38522078613edd.png" />
-<img alt="_images/92ebb64b5ae058fa6dee8f06c18ea08381b27c2bb5ac926187082f4d196c58e9.png" src="_images/92ebb64b5ae058fa6dee8f06c18ea08381b27c2bb5ac926187082f4d196c58e9.png" />
+<img alt="_images/fab356631c9379e998cf5e6333c46c023b78b810154357f0999f3edc0c977e56.png" src="_images/fab356631c9379e998cf5e6333c46c023b78b810154357f0999f3edc0c977e56.png" />
 </div>
 </div>
 </section>
