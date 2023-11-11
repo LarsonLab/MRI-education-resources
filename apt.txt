@@ -5,4 +5,4 @@ octave-signal
 octave-miscellaneous
 liboctave-dev
 ghostscript
-qt6.6.0-essentials
+qt5-default
