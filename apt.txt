@@ -5,4 +5,3 @@ octave-signal
 octave-miscellaneous
 liboctave-dev
 ghostscript
-qt5-default

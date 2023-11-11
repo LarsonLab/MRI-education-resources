@@ -40,5 +40,6 @@ else % OCTAVE
         end
     end
 
+    graphics_toolkit('qt')
 end
 end
