@@ -419,7 +419,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-methods">K-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
@@ -480,10 +480,10 @@ document.write(`
 <h2>General Formulation of MRI Reconstruction<a class="headerlink" href="#general-formulation-of-mri-reconstruction" title="Permalink to this heading">#</a></h2>
 <p>For advanced image reconstruction methods, it is helpful to reformulate the reconstruction problem as a linear system and using standard mathematical notation describing linear systems as:</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(\mathbf{n}\)</span> is noise.  In this formulation, the image is vectorized.  For example, 2D FT sampled data and the corresponding 2D image would be converted to:</p>
+\[  y = \mathbf{E}x + n \]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(x\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(n\)</span> is noise.  In this formulation, the image is vectorized.  For example, 2D FT sampled data and the corresponding 2D image would be converted to:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \mathbf{y} = \left[ 
+\[\begin{split} y = \left[ 
     \begin{array}{c}
 s_1(t_1) \\
 s_1(t_2) \\
@@ -496,7 +496,7 @@ s_{Ny}(t_{Nx})\\
 \right]\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(s_m(t_n)\)</span> is the data from the <span class="math notranslate nohighlight">\(m\)</span>th TR at the <span class="math notranslate nohighlight">\(n\)</span>th sample.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \mathbf{x} = \left[ 
+\[\begin{split} x = \left[ 
     \begin{array}{c}
 m(x_1,y_1) \\
 m(x_2,y_1) \\
@@ -513,25 +513,25 @@ m(x_{Nx},y_{Ny})
 \[ \mathbf{f}_{i,j} = \exp(-i 2 \pi \vec{k}_i \cdot \vec{r}_j)\]</div>
 <p>In this case, the measurement is the discrete Fourier Transform of the image</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{y} = \mathbf{Fx} + \mathbf{n} \]</div>
+\[  y = \mathbf{F}x + n \]</div>
 <p>and image reconstruction is performed by inverse discrete Fourier Transform, which for fully sampled 2D FT imaging is well defined by matrix inversion:</p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{\hat{x}} = \mathbf{F^{H} y} \]</div>
+\[ \hat{x} = \mathbf{F^{H}} y \]</div>
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this heading">#</a></h2>
 <p>For parallel imaging (PI), we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span>, for each RF coil into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, as well as a k-space sub-sampling operator, <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, for the measurements from each RF coil, <span class="math notranslate nohighlight">\(\mathbf{y}_q\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{y}_q = \mathbf{E}_q \mathbf{x} + \mathbf{n}_q = \mathbf{S} \mathbf{F} \mathbf{C_q} \mathbf{x} + \mathbf{n}_q \]</div>
+\[ y_q = \mathbf{E}_q x + n_q = \mathbf{S} \mathbf{F} \mathbf{C_q} x + n_q  \]</div>
 <p>The coil sensitivity profiles <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span> is a diagonal matrix with entries corresponding to the coil sensitivity profile at each location in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
 <p>The k-space sub-sampling operator <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, is a diagnoal matrix with entries of 1 or 0, describing whether an expect grid location was sampled.  It is convenient to use when describing image reconstruction as filling in points in k-space.</p>
-<p>Here we can return to our original formulation by concatenating the coil dimension, for example as:</p>
+<p>Here we can return to our original formulation by creating augmented matrices, concatenating along the coil elements dimension for example as:</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{y} = [\mathbf{y}_1 \ \mathbf{y}_2 \ldots \mathbf{y}_N]\]</div>
+\[\mathbf{y} = [y_1 \ y_2 \ldots y_N]\]</div>
 <div class="math notranslate nohighlight">
 \[\mathbf{E} = [\mathbf{E}_1 \ \mathbf{E}_2 \ldots \mathbf{E}_N]\]</div>
 <div class="math notranslate nohighlight">
-\[\mathbf{y} = [\mathbf{n}_1 \ \mathbf{n}_2 \ldots \mathbf{n}_N]\]</div>
+\[\mathbf{n} = [n_1 \ n_2 \ldots n_N]\]</div>
 <p>resulting in:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
@@ -545,8 +545,8 @@ m(x_{Nx},y_{Ny})
 \[\mathbf{\hat{x}}_{PI} = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
 <p>The k-space sampling patterns used for these methods typically use regular undersampling, meaning there is a consistent pattern of acquired and skipped k-space lines.</p>
 </section>
-<section id="k-space-methods">
-<h3>K-space Methods<a class="headerlink" href="#k-space-methods" title="Permalink to this heading">#</a></h3>
+<section id="auto-calibrated-k-space-methods">
+<h3>Auto-calibrated K-space Methods<a class="headerlink" href="#auto-calibrated-k-space-methods" title="Permalink to this heading">#</a></h3>
 <p>K-space parallel imaging methods (e.g. GRAPPA) utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>.  These can also be generally formulated as the following optimization problem</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2 \]</div>
@@ -557,9 +557,9 @@ m(x_{Nx},y_{Ny})
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Permalink to this heading">#</a></h3>
 <p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Typically, more RF coil elements in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, fewer RF coil elements in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
-<p>This is characterized by the “g-factor”, where <span class="math notranslate nohighlight">\(g \geq 1\)</span> characterizes the SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
+<p>This is characterized by the “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
 <div class="math notranslate nohighlight">
-\[SNR_{PI} = \frac{SNR_{full}}{g\sqrt{R}}\]</div>
+\[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
 </section>
 <section id="artifacts-with-parallel-imaging">
 <h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Permalink to this heading">#</a></h3>
@@ -571,7 +571,7 @@ m(x_{Nx},y_{Ny})
 <p>Compressed Sensing (CS) theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  In other words, we can further accelerate our data acquisition.</p>
 <p>Compressed Sensing is formulated as the following optimization problem, specifically using the <span class="math notranslate nohighlight">\(\ell_1\)</span>-norm (<span class="math notranslate nohighlight">\(\|x\|_1 = \sum_{i=1}^n |x_i|\)</span>) that promotes sparsity in the solution:</p>
 <div class="math notranslate nohighlight">
-\[\hat{x}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda_{CS} \| \mathbf{Wx} \|_1 \]</div>
+\[\mathbf{\hat{x}}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda_{CS} \| \mathbf{Wx} \|_1 \]</div>
 <p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse using the <span class="math notranslate nohighlight">\(\ell_1\)</span> norm in some domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.  There is a regularization factor, <span class="math notranslate nohighlight">\(\lambda_{CS}\)</span>, that must be chosen to balance the data consistency and sparsity terms.</p>
 <p>These methods specifically require k-space sampling patterns with pseudo-random undersampling, which is illustratic by the diagram below of the undersampled reconstruction procedure:</p>
 <p><img alt="Compressed Sensing Illustration" src="_images/compressed_sensing_concept.gif" /></p>
@@ -606,8 +606,8 @@ Heuristic procedure for reconstruction from undersampled data. A sparse signal (
 The E2E-VN model takes under-sampled k-space as input and applies several cascades, followed by IFT and RSS. Bottom: The DC module brings intermediate k-space closer to measured values, the Refinement module maps multi-coil k-space to one image, applies a U-Net and maps back to k-space, and the SME estimates sensitivity maps used in the refinement step.</p>
 <p>The Model-based Deep Learning (MoDL) method uses the formulation where the regularizer is a CNN that estimates the noise and aliasing patterns</p>
 <div class="math notranslate nohighlight">
-\[ \mathcal{R}_{MoDL}(\mathbf{x}) = \lambda \| \mathcal{N}_\mathbf{w}(\mathbf{x}) \|^2\]</div>
-<p>and the estimated depends on a set of learned parameters, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, in the neural network.  It’s structure is overall similar to VarNets, as both are unrolled architectures, but with slightly different formulations.</p>
+\[ \mathcal{R}_{MoDL}(\mathbf{x}) = \lambda \| \mathcal{N}_w(\mathbf{x}) \|^2\]</div>
+<p>and the estimate depends on a set of learned parameters, <span class="math notranslate nohighlight">\(w\)</span>, in the neural network, <span class="math notranslate nohighlight">\(\mathcal{N}_\mathbf{w}(\cdot)\)</span>.  It’s structure is overall similar to VarNets, as both are unrolled architectures, but with slightly different formulations.</p>
 <section id="deep-learning-requirements">
 <h3>Deep Learning Requirements<a class="headerlink" href="#deep-learning-requirements" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
@@ -725,7 +725,7 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-methods">K-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
