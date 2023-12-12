@@ -1,15 +1,31 @@
 # MRI Questions
 
+Note that questions may have multiple possible answers.
 
 ## MRI System
 
 
+
+Which of the following parameter(s) change with the main magnetic field strength?
+* Resonance frequency
+* Magnetic field gradients
+* Equilibrium magnetization, $M_0$
+* Amount of displacement due to fat/water chemical shift
+* Magnetic field distortions due to magnetic susceptibility differences
+* Intensity of motion artifacts
 
 ## MR Physics
 
 
 
 ## Magnetic Fields and RF Coils
+
+
+What are the benefit(s) of using phased array receive coils?
+* Increase FOV
+* Increase SNR
+* Enables parallel imaging acceleration
+* Enables compressed sensing acceleration
 
 
 ## Contrast
@@ -22,7 +38,7 @@
 
 
 
-1. What magnetic resonance  property is used to perform fat/water (Dixon) imaging?
+1. What magnetic resonance property is used to perform fat/water (Dixon) imaging?
    - Proton density
    - T1
    - T2
@@ -49,6 +65,8 @@ In a typical pulse sequence, identify the gradients that serve the following fun
 1. spoil transverse magnetization
 1. refocus Mxy phase across the slice
 1. move to the edge of k-space
+
+![2D FT sequence](images/pulse_sequence-diagram.png)
 
 
 Which of the following statement is true for the slice select refocusing gradient?
