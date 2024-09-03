@@ -26,9 +26,15 @@ This book jumps pretty quickly into concepts, for a quick overview of MRI, here'
 
 [How MRI Works (Explained In under 10 minutes)](https://youtu.be/1Ku6-uXw7Ag)
 
+## Principles of MRI Course Lectures
+
 You can also access a full playlist of my lectures
 
 [Principles of MRI Recorded Lectures](https://www.youtube.com/playlist?list=PLjBt5Iq93BT9eXMsgevVTXKVv4BgVLB1X)
+
+## Using MRI-Education-Resources code
+
+If you would like to use the associated code that goes along with this book, it is available at the git repository https://github.com/LarsonLab/MRI-education-resources, and also the GitHub icon above.  I recommend cloning the repository via the GitHub Desktop application, this way you get all the code at once and then can pull any updates made to the repository.
 
 ## Acknowledgements
 
@@ -37,6 +43,5 @@ This book is greatly influenced by many other great resources that I want to ack
 * _Principles of Magnetic Resonance Imaging_ by Dwight Nishimura - I learned from this great text and borrowed a lot of its material.  For some of my students with less engineering/signal processing background, this book on its own was challenging.
 * Net magnetizations animation from Bill Overall and the [SpinBench](https://vista.ai/products/research-spinbench/) simulation and pulse sequence design tool
 * Miki Lustig's MRI course notes
-* Educational resources from the [Danish Research Centre for Magnetic Resonance](https://www.drcmr.dk/MR), which includes a great on-line [Bloch Simulation]
-(http://drcmr.dk/BlochSimulator/)
+* Educational resources from the [Danish Research Centre for Magnetic Resonance](https://www.drcmr.dk/MR), which includes a great on-line [Bloch Simulator](http://drcmr.dk/BlochSimulator/)
 
