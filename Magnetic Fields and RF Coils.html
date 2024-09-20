@@ -416,6 +416,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-fields">Magnetic Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
@@ -453,27 +454,17 @@ document.write(`
 <p>The magnetic fields created and manipulated during a MRI experiment critically determine the entire MRI experiment.  We will provide some background on creating and detecting magnetic fields, and then describe the magnetic fields present in MRI systems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
-<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
+<span class="n">cd</span> <span class="o">../</span>
 <span class="n">startup</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
-loading signal
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">cd</span> <span class="o">../</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -494,6 +485,66 @@ loading signal
 </li>
 </ol>
 </section>
+<section id="magnetic-fields">
+<h2>Magnetic Fields<a class="headerlink" href="#magnetic-fields" title="Permalink to this heading">#</a></h2>
+<p>Each of the main components of a MRI system creates magnetic fields, but with different orientations, magnitudes, and frequencies, which are summarized in the following table</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Notation</p></th>
+<th class="head"><p>Direction</p></th>
+<th class="head"><p>Frequency</p></th>
+<th class="head"><p>Strength</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Main Field</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p>0 Hz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> T</p></td>
+<td><p>Polarization</p></td>
+</tr>
+<tr class="row-odd"><td><p>Main Field Inhomogeneities</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Delta B_0(\vec{r})\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p>0 Hz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1-10\)</span> ppm</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>Magnetic Field Gradients</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> kHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 10\)</span> mT</p></td>
+<td><p>Spatial Encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p>Transmit RF Coils</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 10 \mu T\)</span></p></td>
+<td><p>Excitation</p></td>
+</tr>
+<tr class="row-even"><td><p>Receive RF Coils</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu T\)</span></p></td>
+<td><p>Reception</p></td>
+</tr>
+<tr class="row-odd"><td><p>Net Magnetization</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z,y,z\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu \mathrm{T}\)</span></p></td>
+<td><p>Signal Source</p></td>
+</tr>
+</tbody>
+</table>
+<p>Also included is the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, which captures the magnetic fields resulting from nuclear spins that we measure in MRI.</p>
+</section>
 <section id="loop-currents-and-magnetic-fields">
 <h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Permalink to this heading">#</a></h2>
 <p>Magnetic fields, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, can be created by current, <span class="math notranslate nohighlight">\(I\)</span>, through loop of wire, governed by the principles of electromagnetism in Maxwell’s equations.  The the “left-hand rule” determines the direction of the magnetic field.</p>
@@ -508,9 +559,9 @@ loading signal
 <h2>Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span><a class="headerlink" href="#main-magnet-b-0" title="Permalink to this heading">#</a></h2>
 <p>The main magnetic field is created with solenoid coils, shown above, that can provide a large region in space where there is large, homogeneous magnetic field.<br />
 The large magnetic field is required to create stronger polarization.
-The large region is psace determines where we can create an image.
+The large region is space determines where we can create an image.
 And having a homogeneous magnet ensures there are no image distortion artifacts.</p>
-<p>This magnet creates magnetic fields of usually 1.5 or 3 T, by convention oriented in the z-direction, and this field is always on.  Mathematically, we can add this to our magnetic field vector:</p>
+<p>This magnet creates magnetic fields of usually 1.5 or 3 T, by convention oriented in the z-direction, and this field is always on during the scan.  Mathematically, we can add this to our magnetic field vector:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
@@ -518,6 +569,7 @@ And having a homogeneous magnet ensures there are no image distortion artifacts.
 0 \\
 B_0 
 \end{bmatrix}\end{split}\]</div>
+<p>(Note that this magnetic field is never perfect, and this is captured by the main field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span> in the table above, we’ll add that in later.)</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
 <h2>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Permalink to this heading">#</a></h2>
@@ -570,31 +622,31 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>To create transmit RF fields, we simply put an oscillating electric current into a loop of wire, which is simulated below.  When this is performed at the Larmor frequency, this creates RF excitation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="p">=</span> <span class="p">.</span><span class="mi">1</span><span class="p">;</span> <span class="c">% coil radius [m]</span>
-<span class="n">I0</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% current amplitude [amps]</span>
-<span class="n">mu0</span> <span class="p">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="mf">1e-7</span><span class="p">;</span> <span class="c">% T⋅m/A; </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>R = .1; % coil radius [m]
+I0 = 0.1; % current amplitude [amps]
+mu0 = 4*pi*1e-7; % T⋅m/A; 
 
-<span class="n">t</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
-<span class="no">I</span> <span class="p">=</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">I0</span><span class="p">;</span>
+t = linspace(0,4, 401);
+I = cos(2*pi*t) * I0;
 
 
-<span class="n">BZ</span> <span class="p">=</span> <span class="n">mu0</span> <span class="o">*</span> <span class="no">I</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">);</span>    <span class="c">% magnetic field at the center of a single loop</span>
+BZ = mu0 * I / (2*R);    % magnetic field at the center of a single loop
 
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="no">I</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;I (A)&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Current in a single loop coil of radius &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="s">&#39; [m]&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">BZ</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;B_Z (T)&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Magnetic field at center of the coil&#39;</span><span class="p">])</span>
+subplot(211)
+plot(t,I)
+ylabel(&#39;I (A)&#39;)
+xlabel(&#39;time&#39;)
+title([&#39;Current in a single loop coil of radius &#39; num2str(R) &#39; [m]&#39;])
+subplot(212)
+plot(t,BZ)
+ylabel(&#39;B_Z (T)&#39;)
+xlabel(&#39;time&#39;)
+title([&#39;Magnetic field at center of the coil&#39;])
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/81df12c24547b093a68a5fe30376f7c8dbdda62b0ea0a5a26ea75a74fb0075eb.png" src="_images/81df12c24547b093a68a5fe30376f7c8dbdda62b0ea0a5a26ea75a74fb0075eb.png" />
+<img alt="_images/28286d12c196037a83e7e4db0d9a82bf131b57435e60c4f790118c0a4a6efcc2.png" src="_images/28286d12c196037a83e7e4db0d9a82bf131b57435e60c4f790118c0a4a6efcc2.png" />
 </div>
 </div>
 </section>
@@ -659,50 +711,50 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>The following simulates the sensitivity profile of a single loop RF coil varying over space, using the Biot-Savart law from electromagnetism.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="p">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c">% coil radius, cm</span>
-<span class="no">I</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c">% current in the coil</span>
-<span class="n">flag_2d</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% just plot 2D profile</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="o">%</span> <span class="n">coil</span> <span class="n">radius</span><span class="p">,</span> <span class="n">cm</span>
+<span class="n">I</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="o">%</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">coil</span>
+<span class="n">flag_2d</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">%</span> <span class="n">just</span> <span class="n">plot</span> <span class="mi">2</span><span class="n">D</span> <span class="n">profile</span>
 
-<span class="p">[</span><span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="n">BZ</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">zp</span><span class="p">]</span> <span class="p">=</span> <span class="n">loop_coil_field</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="no">I</span><span class="p">,</span> <span class="n">flag_2d</span><span class="p">);</span>
+<span class="p">[</span><span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="n">BZ</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">zp</span><span class="p">]</span> <span class="o">=</span> <span class="n">loop_coil_field</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">flag_2d</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4b2090a487a6d8711253946380ed9ba81a70eda400b453b6c991e53889fa98d1.png" src="_images/4b2090a487a6d8711253946380ed9ba81a70eda400b453b6c991e53889fa98d1.png" />
+<img alt="_images/668c45a8294cc6945c627894d613e0fcce878287f8d0fa8686052838cd27405c.png" src="_images/668c45a8294cc6945c627894d613e0fcce878287f8d0fa8686052838cd27405c.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the vector field</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">field</span>
 
-<span class="nb">quiver</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
-<span class="nb">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">18</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">18</span> <span class="mi">18</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x position (cm)&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y position (cm)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Magnetic field as a vector field&#39;</span><span class="p">)</span>
+<span class="n">quiver</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+<span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">18</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">18</span> <span class="mi">18</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x position (cm)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y position (cm)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Magnetic field as a vector field&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e169185decf7509f83b3aa4a0143d755a699dccc217a7c557d6babcba687ae2.png" src="_images/5e169185decf7509f83b3aa4a0143d755a699dccc217a7c557d6babcba687ae2.png" />
+<img alt="_images/b20086ac8db05aa4be274eaf240c6b92a06eeec76424914253aa6cf0de62db76.png" src="_images/b20086ac8db05aa4be274eaf240c6b92a06eeec76424914253aa6cf0de62db76.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Bmag</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">BX</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BY</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BZ</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">xhalf</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Bmag</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">BX</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BY</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BZ</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">xhalf</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
 
-<span class="nb">imagesc</span><span class="p">(</span><span class="n">yp</span><span class="p">,</span> <span class="n">xp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">),</span> <span class="n">Bmag</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">,:))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;position (cm)&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;position (cm)&#39;</span><span class="p">)</span>
-<span class="nb">axis</span> <span class="n">tight</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span><span class="nb">colorbar</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;One-sided B_1 sensitivity profile (coil located at bottom of the image)&#39;</span><span class="p">)</span>
+<span class="n">imagesc</span><span class="p">(</span><span class="n">yp</span><span class="p">,</span> <span class="n">xp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">),</span> <span class="n">Bmag</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">,:))</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;position (cm)&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;position (cm)&#39;</span><span class="p">)</span>
+<span class="n">axis</span> <span class="n">tight</span>
+<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span><span class="n">colorbar</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;One-sided B_1 sensitivity profile (coil located at bottom of the image)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37ced63ecf5238c86476a8762def88ad632cfcb6fe0c0a689a6a0a017029c46a.png" src="_images/37ced63ecf5238c86476a8762def88ad632cfcb6fe0c0a689a6a0a017029c46a.png" />
+<img alt="_images/cd5358b8578e3f0017622a95b14b1cfcbe4a08e35d5bf233c72cc86b98a01833.png" src="_images/cd5358b8578e3f0017622a95b14b1cfcbe4a08e35d5bf233c72cc86b98a01833.png" />
 </div>
 </div>
 </section>
@@ -718,16 +770,16 @@ B_0 + \vec{G}(t) \cdot \vec{r}
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            name: "octave",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -773,6 +825,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-fields">Magnetic Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>

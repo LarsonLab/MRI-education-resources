@@ -423,7 +423,6 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-fields">Magnetic Fields</a></li>
 </ul>
             </nav>
         </div>
@@ -486,19 +485,19 @@ loading signal
 <p>The purpose of the main magnetic field is “Polarization”.  This refers to the preferential alignment of nuclear spins with a magnetic field.
 The more alignment there is of spins, the greater the MRI signal.
 The stronger the magnetic field, the more alignment and therefore the stronger signal that will be received.</p>
-<p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is always on, and designed to be homogeneous.  To achieve this large of a mangetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium.</p>
+<p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is designed to be homogeneous.  To achieve this large of a mangetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium, and this type of magnet is always on.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
 <h3>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Permalink to this heading">#</a></h3>
-<p>The purpose of the RF coils is “Excitation” and signal reception.</p>
+<p>The purpose of the RF coils is “Excitation” and “Acquisition”.  RF coils are antennas designed to detect changes in electromagnetic fields in the radiofrequency range.</p>
 <p>Excitation refers to depositing energy at a specific frequency that perturbs the spins, causing them to resonate and release energy that is captured as the MRI signal.  This is performed using a transmit RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>.
-This energy is deposited in the radio-frequency (RF) range, typically around 100 MHz for MRI, which is the resonance frequency.</p>
-<p>After Excitaiton, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is performed by the receive RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>.</p>
-<p>The RF coils are typically separated in transmit and receive coils because of different requirements: the transmit coils for excitation are designed to be homogeneous in depositing energy across the field-of-view (FOV), while receive coils are designed for maximum maximum sensitivity to the relatively small signals detectable from the spins.</p>
+This energy is deposited in the radio-frequency (RF) range, typically in the 100 MHz range for MRI, which is the resonance frequency.</p>
+<p>After Excitaiton, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is measured in Acquisition where the signal is detected by the receive RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>.</p>
+<p>The RF coils are typically separated into separate transmit and receive coils because of different requirements: the transmit coils for excitation are designed to be homogeneous in depositing energy across the field-of-view (FOV), while receive coils are designed for maximum maximum sensitivity to the relatively small signals detectable from the spins.</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
 <h3>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Permalink to this heading">#</a></h3>
-<p>The purpose of the magnetic field gradient coils is for imaging.  Thes coils, commonly refered to simply as “gradients”, create linearly varying magnetic fields.  These are designed to add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
+<p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly refered to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
 </section>
 </section>
 <section id="fundamental-mri-experiment-procedure">
@@ -519,7 +518,7 @@ This energy is deposited in the radio-frequency (RF) range, typically around 100
 <li><p>Components required: receive RF coil, <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></li>
 </ul>
 </li>
-<li><p>Encoding: Create spatial variations in the magnetic field to distinguish spins at different locations</p>
+<li><p>Spatial Encoding: Create spatial variations in the magnetic field to distinguish spins at different locations</p>
 <ul class="simple">
 <li><p>Components required: Magnetic field gradient coils, <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
 </ul>
@@ -527,59 +526,6 @@ This energy is deposited in the radio-frequency (RF) range, typically around 100
 <li><p>Repeat Excitation, acquisition, and encoding as needed to acquire enough data to form an image</p></li>
 </ol>
 <p><img alt="Diagram of the MRI Experiment" src="_images/MRI_experiment_diagram.png" /></p>
-</section>
-<section id="magnetic-fields">
-<h2>Magnetic Fields<a class="headerlink" href="#magnetic-fields" title="Permalink to this heading">#</a></h2>
-<p>Each of the main components of a MRI system creates magnetic fields, but with different orientations, magnitudes, and frequencies, which are summarized in the following table</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Component</p></th>
-<th class="head"><p>Notation</p></th>
-<th class="head"><p>Direction</p></th>
-<th class="head"><p>Frequency</p></th>
-<th class="head"><p>Strength</p></th>
-<th class="head"><p>Purpose</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Main Field</p></td>
-<td><p><span class="math notranslate nohighlight">\(B_0\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
-<td><p>0 Hz</p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> T</p></td>
-<td><p>Polarization</p></td>
-</tr>
-<tr class="row-odd"><td><p>Magnetic Field Gradients</p></td>
-<td><p><span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> kHz</p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 10\)</span> mT</p></td>
-<td><p>Spatial Encoding</p></td>
-</tr>
-<tr class="row-even"><td><p>Transmit RF Coils</p></td>
-<td><p><span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 10 \mu T\)</span></p></td>
-<td><p>Excitation</p></td>
-</tr>
-<tr class="row-odd"><td><p>Receive RF Coils</p></td>
-<td><p><span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu T\)</span></p></td>
-<td><p>Reception</p></td>
-</tr>
-<tr class="row-even"><td><p>Net Magnetization</p></td>
-<td><p><span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(z,y,z\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
-<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu \mathrm{T}\)</span></p></td>
-<td><p>Signal Source</p></td>
-</tr>
-</tbody>
-</table>
-<p>Also included is the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, which captures the magnetic fields resulting from nuclear spins that we measure in MRI.</p>
 </section>
 </section>
 
@@ -654,7 +600,6 @@ This energy is deposited in the radio-frequency (RF) range, typically around 100
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-fields">Magnetic Fields</a></li>
 </ul>
   </nav></div>
 
