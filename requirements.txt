@@ -3,3 +3,4 @@ matplotlib
 numpy
 octave-kernel
 ghp-import
+jupyter_contrib_nbextensions

@@ -5,7 +5,7 @@ title: Principles of MRI
 author: Peder Larson
 email: peder.larson@ucsf.edu
 logo: images/HPBrain-Anime.png
-copyright: "2023"
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -39,6 +39,11 @@ html:
 description: >- # this means to ignore newlines until "baseurl:"
   This provides an introduction to the principles of magnetic resonance imaging (MRI)
   
+sphinx:
+  config:
+    nb_hide_input: True
+
+
 # # the name of your GitHub Repo. 
 # # If there is no subpath for your site, use an empty string ""  
 # baseurl: "/MRI-education-resouces"
