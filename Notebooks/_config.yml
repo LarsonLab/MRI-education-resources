@@ -38,10 +38,9 @@ html:
 
 description: >- # this means to ignore newlines until "baseurl:"
   This provides an introduction to the principles of magnetic resonance imaging (MRI)
-  
-sphinx:
-  config:
-    nb_hide_input: True
+
+jupyter:
+  hide-input: true
 
 
 # # the name of your GitHub Repo. 
