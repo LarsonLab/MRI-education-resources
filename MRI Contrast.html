@@ -189,7 +189,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">MRI Contrast</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
@@ -415,7 +414,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MRI Contrast</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-determines-t1-and-t2-values">What determines T1 and T2 values?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t1">T1</a></li>
@@ -431,7 +429,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t2-t2">TE and T2/T2*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t1">TR and T1</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smaller-less-that-90-degrees-flip-angles">Smaller (less that 90-degrees) flip angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">&lt; 90-degree flip angles</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-t2-and-proton-density-weighting">T1, T2 and Proton Density Weighting</a><ul class="nav section-nav flex-column">
@@ -441,18 +439,13 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -782,8 +775,8 @@ Stronger coupling between spins leads to more microscopic dephasing and shorter 
 </div>
 </div>
 </section>
-<section id="smaller-less-that-90-degrees-flip-angles">
-<h3>Smaller (less that 90-degrees) flip angles<a class="headerlink" href="#smaller-less-that-90-degrees-flip-angles" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h3>&lt; 90-degree flip angles<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>For T1-weighting, it is generally more efficient in terms of signal acqruied per time to use &lt; 90-degree flip angles every TR, in which case</p>
 <div class="math notranslate nohighlight">
 \[S \propto M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
@@ -1119,9 +1112,8 @@ t2_plus =
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="contrast-agents">
-<h1>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Permalink to this heading">#</a></h1>
+<section id="contrast-agents">
+<h2>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Permalink to this heading">#</a></h2>
 <p>Contrast agents used in MRI, such as gadolinium chelates and superparamagnetic iron oxides, shorten the relaxation rates wherever they are present.
 This is quantified by their relaxivities, <span class="math notranslate nohighlight">\(r_1, r_2\)</span>, typiclaly in units of [L / (mmol s)]:</p>
 <div class="math notranslate nohighlight">
@@ -1136,7 +1128,8 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 % MAGNETVIST R1 = 4.3 l/MMOL/S R2 = 4.4
 % resovist (iron) r1 = 7  r2 = 77
 % 0.5 mM 
-><section id="image-contrast-examples">
+></section>
+<section id="image-contrast-examples">
 <h2>Image Contrast Examples<a class="headerlink" href="#image-contrast-examples" title="Permalink to this heading">#</a></h2>
 <p><img alt="Brain contrast from Pauly and Gold" src="_images/contrast_brain_example.png" /></p>
 <p><img alt="Brain contrast from Vasily Yarnkh" src="_images/contrast_brain_example-all.png" /></p>
@@ -1278,7 +1271,6 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MRI Contrast</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-determines-t1-and-t2-values">What determines T1 and T2 values?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t1">T1</a></li>
@@ -1294,7 +1286,7 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t2-t2">TE and T2/T2*</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t1">TR and T1</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smaller-less-that-90-degrees-flip-angles">Smaller (less that 90-degrees) flip angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">&lt; 90-degree flip angles</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t1-t2-and-proton-density-weighting">T1, T2 and Proton Density Weighting</a><ul class="nav section-nav flex-column">
@@ -1304,18 +1296,13 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
