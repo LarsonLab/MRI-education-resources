@@ -458,7 +458,7 @@ loading signal
 <ul class="simple">
 <li><p>What are the required components of MRI system?</p></li>
 <li><p>What is the purpose of these components?</p></li>
-<li><p>How do they work?  In other words, what are the magnetic fields they create?)</p></li>
+<li><p>How do they work?  In other words, what are the magnetic fields they create?</p></li>
 <li><p>Answer these questions:</p>
 <ul>
 <li><p>Why is MRI so loud?</p></li>
@@ -485,6 +485,7 @@ loading signal
 The more alignment there is of spins, the greater the MRI signal.
 The stronger the magnetic field, the more alignment and therefore the stronger signal that will be received.</p>
 <p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is designed to be homogeneous.  To achieve this large of a mangetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium, and this type of magnet is always on.</p>
+<p>Due to <span class="math notranslate nohighlight">\(B_0\)</span>, there is a large magnetic field inside and around the MRI scanner, making it very dagerous to bring certain materials near the scanner.  These materials, typically metals that are ferromagnetic like iron, can be sucked into the scanner by the powerful magnetic field.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
 <h3>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Permalink to this heading">#</a></h3>
@@ -497,6 +498,7 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
 <section id="magnetic-field-gradient-coils-vec-g-t">
 <h3>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Permalink to this heading">#</a></h3>
 <p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly refered to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
+<p>The noises during a MRI scan are due to the rapid switching of electric currents in the gradient coils.  The change in electric currents and resulting change in magnetic field interacts with the main magnetic field and exerts a force (known as Lorentz force) on the gradient coil.  Thus the gradient coils will vibrate as they are switched on and off, creating loud noises.</p>
 </section>
 </section>
 <section id="fundamental-mri-experiment-procedure">
