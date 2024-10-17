@@ -578,8 +578,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" src="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" />
 <img alt="_images/04e32389def1da9556efd712d119655989abaa4ab970ce8cc166a8125b4a22c0.png" src="_images/04e32389def1da9556efd712d119655989abaa4ab970ce8cc166a8125b4a22c0.png" />
+<img alt="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" src="_images/92ac396d1094116faca36e071635f22ff14da490df79aa5b1e645af612d2ec53.png" />
 </div>
 </div>
 <p>Thus the reconstructed image will corrupted by a convolution (denoted by <span class="math notranslate nohighlight">\(*\)</span>) based on the k-space amplitude weighting</p>
@@ -625,8 +625,8 @@ loading signal
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" src="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" />
 <img alt="_images/c2bc6f3fee2a679d68cb3956f1dd71771107c64c4330c26801b306718311c22e.png" src="_images/c2bc6f3fee2a679d68cb3956f1dd71771107c64c4330c26801b306718311c22e.png" />
+<img alt="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" src="_images/2ac77f1e3c485944eb84049be4e604109e3623a5e7fef06e080c1bd6acd6f1e0.png" />
 </div>
 </div>
 <p>In the above plots, the height of the main peak in the center represents the expected SNR, including losses due to blurring, while the signal amplitude outside of the main peak represents blurring that will occur.   These show that the blurring and signal loss from <span class="math notranslate nohighlight">\(T_2^*\)</span> gets worse as the relaxation time is shorter, the blurring it is much worse for EPI (in phase encoding direction) versus Cartesian trajectories.</p>
@@ -636,8 +636,8 @@ loading signal
 <p>Off-resonance and chemical shift lead to changes in the precession frequency of the magnetization.  We can add this onto the idealized signal equation.</p>
 <p>Here we separately define:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r})\)</span> magnetic field inhomogeneity (macroscopic), including main field imperfections, and magnetic susceptibility effects</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r}) = \bar \gamma \)</span>\Delta B_0(\vec{r})$$ - magnetic field inhomogeneities, including main field imperfections, and magnetic susceptibility effects</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> - frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p></li>
 </ul>
 <!-- $$s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$ -->
 <p>For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})\)</span> as</p>
@@ -697,8 +697,8 @@ $<span class="math notranslate nohighlight">\(s_{r_0}(t) = \mathcal{F}\{m(\vec{r
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" src="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" />
 <img alt="_images/7116ed83d8359b6883a12abf711538b5c0ffc32e612333da3dc4050edb5f88f6.png" src="_images/7116ed83d8359b6883a12abf711538b5c0ffc32e612333da3dc4050edb5f88f6.png" />
+<img alt="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" src="_images/8f6a3cbbd80b72ee00d3a30c540d68b3fd29709b58d9cb727045d05a021c1418.png" />
 </div>
 </div>
 <p>For frequency shift, the main peak of the convolution kernels is shifted frfom the origin.  This will result in a shift in the reconstructed image.  The shift is much larger for EPI and is in the phase encoding instead of the frequency encoding direction.  (The residual side lobes are due to sinc interpolation effects, similar to Gibbs ringing.)</p>
@@ -722,7 +722,7 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 \[\hat{M}(\vec{k}) = M(\vec{k}) W(\vec{k}) \]</div>
 <div class="math notranslate nohighlight">
 \[\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} \{ W(\vec{k}) \} = m(\vec{r}) * w(\vec{r})\]</div>
-<p>Where <span class="math notranslate nohighlight">\(w(\vec{r})\)</span> is the inverse Fourier Transform of the weighting function.Thus the effects can be boiled down to a convolution operation in the resulting reconstructed image.</p>
+<p>Where <span class="math notranslate nohighlight">\(w(\vec{r})\)</span> is the inverse Fourier Transform of the weighting function.  This is also known as a point spread function (PSF) or impulse response function.  Thus the effects can be boiled down to a convolution operation in the resulting reconstructed image.</p>
 <p>When the frequency shift and relaxation rates vary across space, it is helpful to decompose the image into components, <span class="math notranslate nohighlight">\(m_i\)</span> that experience the same weighting (e.g. same frequency shift, or same <span class="math notranslate nohighlight">\(T_2^*\)</span>) <span class="math notranslate nohighlight">\(W_i\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[ m(\vec{r}) = \sum_i m_i(\vec{r}) \]</div>

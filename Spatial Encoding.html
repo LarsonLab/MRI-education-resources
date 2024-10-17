@@ -419,7 +419,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">Cartesian K-space (Frequency and Phase encoding, or FT Imaging)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
 </ul>
 </li>
@@ -463,7 +463,7 @@ document.write(`
 \[\Delta B_z = \vec{G}\cdot\vec{r}\]</div>
 <p>which leads to linear variation in the resonance frequency as a function of position:</p>
 <div class="math notranslate nohighlight">
-\[ \omega = \gamma \vec{G}\cdot\vec{r} \]</div>
+\[ f = \bar \gamma \ \vec{G}\cdot\vec{r} \]</div>
 <p>This forms the basis for spatial encoding.</p>
 <p>For constant gradients, <span class="math notranslate nohighlight">\(\vec{G}(t) = \vec{G}_0\)</span>, this variation in frequency can be described by (neglecting relaxation)</p>
 <div class="math notranslate nohighlight">
@@ -520,10 +520,10 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 </ol>
 <p>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
 </section>
-<section id="cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">
-<h2>Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)<a class="headerlink" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging" title="Permalink to this heading">#</a></h2>
+<section id="cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">
+<h2>Cartesian K-space (Frequency and Phase encoding, or FT Imaging)<a class="headerlink" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging" title="Permalink to this heading">#</a></h2>
 <p>By far the most common way to perform spatial encoding is using a Cartesian k-space trajectory, which the name refers to the fact that data is sampled on a regularly spaced grid in k-space.
-This is also known 2DFT imaging, since we reconstruct images with an inverse 2D Fourier Transform.</p>
+This is also known FT imaging, since we reconstruct images with a 2D Fourier Transform.</p>
 <p>It consists of 2 types of encoding:</p>
 <ol class="arabic simple">
 <li><p>Frequency encoding - one dimension is encoded using a constant gradient applied during data acquisition</p></li>
@@ -533,66 +533,54 @@ This is also known 2DFT imaging, since we reconstruct images with an inverse 2D 
 <h3>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Permalink to this heading">#</a></h3>
 <p>Typically 1 dimension of the object is encoded using “frequency encoding”.  This means that, after RF excitation, a magnetic field gradient is turned on and the signal is read out.  The frequencies present in the signal correspond to given spatial locations.  By convention, this is applied in the x-direction (but in practice can be rotated to any direction);</p>
 <div class="math notranslate nohighlight">
-\[\omega = \gamma G_{xr} x\]</div>
+\[f = \bar \gamma G_{xr} x\]</div>
 <p>where <span class="math notranslate nohighlight">\(G_{xr}\)</span> is the readout gradient amplitude.  Therefore, the position is proportional to the frequency:</p>
 <div class="math notranslate nohighlight">
-\[ x = \frac{\omega}{\gamma G_{xr}}\]</div>
+\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
 <p>From frequency encoding data alone, a 1D image can be reconstructed with an inverse Fourier Transform</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency encoding</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">Mxy</span><span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">simulate</span> <span class="n">frequency</span> <span class="n">encoding</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">Mxy</span><span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
-<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
-<span class="n">Splot</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+<span class="n">Splot</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-<span class="n">kFE</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">Tfe</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">kFE</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">Tfe</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-<span class="n">GAMMA</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
+<span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">42.58</span><span class="p">;</span>
 
 
-<span class="k">for</span> <span class="n">tfe</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="n">Tfe</span>
-    <span class="n">phase_x</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">kFE</span><span class="o">*</span><span class="n">x</span> <span class="o">*</span><span class="n">tfe</span><span class="o">/</span><span class="n">Tfe</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">tfe</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="n">Tfe</span>
+    <span class="n">phase_x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">kFE</span><span class="o">*</span><span class="n">x</span> <span class="o">*</span><span class="n">tfe</span><span class="o">/</span><span class="n">Tfe</span><span class="p">;</span>
         
-    <span class="n">Mxy_FE</span> <span class="p">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_x</span><span class="p">);</span>
+    <span class="n">Mxy_FE</span> <span class="o">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_x</span><span class="p">);</span>
         
-    <span class="nb">figure</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">),</span> <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tfe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kFE</span><span class="o">/</span><span class="p">(</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tfe</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_X&#39;</span><span class="p">)</span>
-    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency Encoding&#39;</span><span class="p">)</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-    <span class="nb">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
-    <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
-    <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">figure</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">),</span> <span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tfe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kFE</span><span class="o">/</span><span class="p">(</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tfe</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;G_X&#39;</span><span class="p">)</span>
+    <span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency Encoding&#39;</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+    <span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-    <span class="nb">drawnow</span>
-<span class="k">end</span>
+    <span class="n">title</span><span class="p">(</span><span class="s1">&#39;M_</span><span class="si">{XY}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">drawnow</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
+             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
-<img alt="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" src="_images/633fd62680141f067fd0027944b5856b7f36825f6b9614c7852ef6dc936df389.png" />
-<img alt="_images/eacaff314d6ca100a1babd6711c2a3ebefa7a000b233cd854414a16ddfcf76f8.png" src="_images/eacaff314d6ca100a1babd6711c2a3ebefa7a000b233cd854414a16ddfcf76f8.png" />
-<img alt="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" src="_images/aa622fa30e442abad38f8adbf513e8f8afc703d56338cb1620ca3acd0ebe30ab.png" />
-<img alt="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" src="_images/94f0bb94ef66078a0702a9a60652e1592422b13023ec17d8caf206975519be25.png" />
-<img alt="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" src="_images/ee9681136c56b2b7a3abc0065df5a7c4465b4d0c3564bb93bcbfcdb805e76a81.png" />
-<img alt="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" src="_images/77cfcd054449f55c4465bccad72f41e206eb0861f80630d348f6a70d7eb54681.png" />
 </div>
 </div>
 </section>
@@ -605,56 +593,56 @@ We recommend using the qt toolkit instead.
 <p>These additional dimensions are fully encoded by repeating this pulsed gradient with different amplitudes.  This is equivalent to taking different samples of a frequency encoding gradient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 2D object</span>
-<span class="c">% simulate frequencies + phase encoding</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="mi">2</span><span class="n">D</span> <span class="nb">object</span>
+<span class="o">%</span> <span class="n">simulate</span> <span class="n">frequencies</span> <span class="o">+</span> <span class="n">phase</span> <span class="n">encoding</span>
 
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">Mxy</span><span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="n">Mxy</span><span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
-<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
-<span class="n">Splot</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
+<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+<span class="n">Splot</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-<span class="n">kPE</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span> <span class="c">%</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">Tpe</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">kPE</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span> <span class="o">%</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">Tpe</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
-<span class="n">GAMMA</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
+<span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">42.58</span><span class="p">;</span>
 
-<span class="k">for</span> <span class="n">Ipe</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">kPE</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">Ipe</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">kPE</span><span class="p">)</span>
     
-    <span class="k">for</span> <span class="n">tpe</span> <span class="p">=</span> <span class="n">Tpe</span> <span class="c">%[0:dt:Tpe]</span>
-        <span class="n">phase_y</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">*</span><span class="n">tpe</span><span class="o">/</span><span class="n">Tpe</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">tpe</span> <span class="o">=</span> <span class="n">Tpe</span> <span class="o">%</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tpe</span><span class="p">]</span>
+        <span class="n">phase_y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">*</span><span class="n">tpe</span><span class="o">/</span><span class="n">Tpe</span><span class="p">;</span>
         
-        <span class="n">Mxy_PE</span> <span class="p">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_y</span><span class="p">);</span>
+        <span class="n">Mxy_PE</span> <span class="o">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_y</span><span class="p">);</span>
         
-        <span class="nb">figure</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span>
+        <span class="n">figure</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span>
         
-        <span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-        <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tpe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_Y&#39;</span><span class="p">)</span> 
-        <span class="nb">title</span><span class="p">([</span><span class="s">&#39;Phase encoding, Step &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)])</span>
-        <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-        <span class="nb">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
-        <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
-        <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+        <span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tpe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;G_Y&#39;</span><span class="p">)</span> 
+        <span class="n">title</span><span class="p">([</span><span class="s1">&#39;Phase encoding, Step &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)])</span>
+        <span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+        <span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
+        <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+        <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-        <span class="nb">title</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-        <span class="nb">drawnow</span>
-    <span class="k">end</span>
-<span class="k">end</span>
+        <span class="n">title</span><span class="p">(</span><span class="s1">&#39;M_</span><span class="si">{XY}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">drawnow</span>
+    <span class="n">end</span>
+<span class="n">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/75a393e1f5c9b0c7948db12f3e0b9837e16a90bdd7ec0c51b50bdbea904b5f3b.png" src="_images/75a393e1f5c9b0c7948db12f3e0b9837e16a90bdd7ec0c51b50bdbea904b5f3b.png" />
-<img alt="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" src="_images/5e937688aa6f798671b70d6a4466fa2c6a099ee18dfb22ac3d920559cacd6cf6.png" />
-<img alt="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" src="_images/1be703ba81b8a1b721b93d9c7830be74efab2fcacfef101ad876a2f4dbaa1dca.png" />
-<img alt="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" src="_images/d479e33cd40c7e8f050b885cfc7516482374b52d7e1e07a4de34632ef4da98a4.png" />
-<img alt="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" src="_images/d70e301f75685957891808a298dc6593fb63e3e55c93ea5d37ae1cf4ed3bf08c.png" />
-<img alt="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" src="_images/32efafd44f9c42012b9e052358871df664cdf95eb347386f28f8355d2367511f.png" />
-<img alt="_images/5dc4c6c9a59278cc0856faed17f29d353f5de24f614498aecac1ae37bd6d7ef2.png" src="_images/5dc4c6c9a59278cc0856faed17f29d353f5de24f614498aecac1ae37bd6d7ef2.png" />
-<img alt="_images/d3a7f0e6540bcb26db8b0480477d2511c249b42c8bfbf38f211e058c1e758e83.png" src="_images/d3a7f0e6540bcb26db8b0480477d2511c249b42c8bfbf38f211e058c1e758e83.png" />
-<img alt="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" src="_images/011e2056fd0c8fbb0da3c4e71a79966c2eee21e53b758099e3d05cd0014d4d84.png" />
+<img alt="_images/e8157c8e2646b591cebc1497e61e0b35a6db60dc88f82732791c2e3cf6853c1d.png" src="_images/e8157c8e2646b591cebc1497e61e0b35a6db60dc88f82732791c2e3cf6853c1d.png" />
+<img alt="_images/a6fa61c88b8b5a66cb07c0e9435bcd54915f89f4461a50f15ae1ef8070edd4b7.png" src="_images/a6fa61c88b8b5a66cb07c0e9435bcd54915f89f4461a50f15ae1ef8070edd4b7.png" />
+<img alt="_images/93039522589251e0c593eac9deb6ffb011120e3750e4086dc8bc6655d6b2a42a.png" src="_images/93039522589251e0c593eac9deb6ffb011120e3750e4086dc8bc6655d6b2a42a.png" />
+<img alt="_images/d745bec0537600ab6a6e4855eb24aa73506635f0b90707164a822acb970662a7.png" src="_images/d745bec0537600ab6a6e4855eb24aa73506635f0b90707164a822acb970662a7.png" />
+<img alt="_images/1cdf78c961bf2f408eba613c20b43f09837510c1b2f1a10ea571aa5c4f9c0c91.png" src="_images/1cdf78c961bf2f408eba613c20b43f09837510c1b2f1a10ea571aa5c4f9c0c91.png" />
+<img alt="_images/02b013495b526e232f1e51521476aeee4346424df8c62a46d5a70f71412064c5.png" src="_images/02b013495b526e232f1e51521476aeee4346424df8c62a46d5a70f71412064c5.png" />
+<img alt="_images/b3698ba1e1d19e46c84a8e8477849ebf1c372adbf68de7584655cc1ac4f3a3b2.png" src="_images/b3698ba1e1d19e46c84a8e8477849ebf1c372adbf68de7584655cc1ac4f3a3b2.png" />
+<img alt="_images/6b498db82f8fd884a4ee33ce2be5e3f46d68600f324d095ee38180f4610835f8.png" src="_images/6b498db82f8fd884a4ee33ce2be5e3f46d68600f324d095ee38180f4610835f8.png" />
+<img alt="_images/b2ebaf1ffc7beaa5180e2c06110c556ecdf7ae48c942e0bb7f7822ff236d55b1.png" src="_images/b2ebaf1ffc7beaa5180e2c06110c556ecdf7ae48c942e0bb7f7822ff236d55b1.png" />
 </div>
 </div>
 </section>
@@ -681,58 +669,100 @@ We recommend using the qt toolkit instead.
 <p>The k-space pattern during a MRI experiment is referred to as the k-space “trajectory”.  The most common are Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%  plot k-space trajectories</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span>  <span class="n">plot</span> <span class="mi">2</span><span class="n">D</span> <span class="n">k</span><span class="o">-</span><span class="n">space</span> <span class="n">trajectories</span>
 
-<span class="c">% Cartesian</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="o">%</span> <span class="n">Cartesian</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 
-<span class="n">k</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="p">[</span><span class="n">ky</span><span class="p">,</span><span class="n">kx</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+<span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+<span class="p">[</span><span class="n">ky</span><span class="p">,</span><span class="n">kx</span><span class="p">]</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
 
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Cartesian trajectory&#39;</span><span class="p">)</span>
+<span class="n">figure</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cartesian trajectory&#39;</span><span class="p">)</span>
 
-<span class="c">% echo-planar</span>
-<span class="n">kx_ep</span> <span class="p">=</span> <span class="n">kx</span><span class="p">;</span> <span class="n">kx_ep</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="n">kx_ep</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
-<span class="n">kx_ep</span> <span class="p">=</span> <span class="n">kx_ep</span><span class="p">(:);</span>
+<span class="o">%</span> <span class="n">echo</span><span class="o">-</span><span class="n">planar</span>
+<span class="n">kx_ep</span> <span class="o">=</span> <span class="n">kx</span><span class="p">;</span> <span class="n">kx_ep</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">)</span> <span class="o">=</span> <span class="n">kx_ep</span><span class="p">(</span><span class="n">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">);</span>
+<span class="n">kx_ep</span> <span class="o">=</span> <span class="n">kx_ep</span><span class="p">(:);</span>
 
-<span class="n">ky_ep</span> <span class="p">=</span> <span class="n">ky</span><span class="p">(:);</span>
+<span class="n">ky_ep</span> <span class="o">=</span> <span class="n">ky</span><span class="p">(:);</span>
 
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">kx_ep</span><span class="p">,</span> <span class="n">ky_ep</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Echo-Planar trajectory&#39;</span><span class="p">)</span>
+<span class="n">figure</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">kx_ep</span><span class="p">,</span> <span class="n">ky_ep</span><span class="p">,</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Echo-Planar trajectory&#39;</span><span class="p">)</span>
 
-<span class="c">% radial</span>
+<span class="o">%</span> <span class="n">radial</span>
 
-<span class="n">k_theta</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">));</span>
-<span class="n">k_radial</span> <span class="p">=</span> <span class="n">k</span><span class="p">.</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">k_theta</span><span class="p">;</span>
+<span class="n">k_theta</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">));</span>
+<span class="n">k_radial</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="s1">&#39; * k_theta;</span>
 
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Radial trajectory&#39;</span><span class="p">)</span>
+<span class="n">figure</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="n">imag</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Radial trajectory&#39;</span><span class="p">)</span>
 
 
-<span class="c">% spiral</span>
-<span class="n">n</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">201</span><span class="p">);</span>
-<span class="n">Nturns</span> <span class="p">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">k_spiral</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">.*</span><span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">Nturns</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>
+<span class="o">%</span> <span class="n">spiral</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">201</span><span class="p">);</span>
+<span class="n">Nturns</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">k_spiral</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">.*</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">Nturns</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>
 
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spiral trajectory&#39;</span><span class="p">)</span>
+<span class="n">figure</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">real</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="n">imag</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Spiral trajectory&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3df8147b59babb1a31f57dc4d963cbcbf25f36d944827ba26639642004bc6998.png" src="_images/3df8147b59babb1a31f57dc4d963cbcbf25f36d944827ba26639642004bc6998.png" />
-<img alt="_images/8aa1880cf14e20241a4c18dec08445e58ad538bc97e4d51853965cc8f5414e49.png" src="_images/8aa1880cf14e20241a4c18dec08445e58ad538bc97e4d51853965cc8f5414e49.png" />
-<img alt="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" src="_images/664b3007373405934594a65d112b5f6e16a3faf902c01ceefc8070e9b24232b7.png" />
-<img alt="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" src="_images/107b01413359be936345972297aeb26b6e959de9d334de9840ed6e33e9ffc27b.png" />
+<img alt="_images/5b39e1ebc881f649c67f5ac15ce8c8a75e4a4c90e457944d4fcdebecb9765e0e.png" src="_images/5b39e1ebc881f649c67f5ac15ce8c8a75e4a4c90e457944d4fcdebecb9765e0e.png" />
+<img alt="_images/7fb4dad9c315d2e6180b1051ed906c6aa4d468982a0a6b51fb2c3ce32f3b84b0.png" src="_images/7fb4dad9c315d2e6180b1051ed906c6aa4d468982a0a6b51fb2c3ce32f3b84b0.png" />
+<img alt="_images/682a80458c6d6462569bebe71790fb3febb4b4c02786b73b1137a08da5e5bd7d.png" src="_images/682a80458c6d6462569bebe71790fb3febb4b4c02786b73b1137a08da5e5bd7d.png" />
+<img alt="_images/2149bec492121a4c0c21ee11bde6587912c06f6bb9a9c159cbccaa6653da593c.png" src="_images/2149bec492121a4c0c21ee11bde6587912c06f6bb9a9c159cbccaa6653da593c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span>  <span class="n">plot</span> <span class="mi">3</span><span class="n">D</span> <span class="n">k</span><span class="o">-</span><span class="n">space</span> <span class="n">trajectories</span>
+
+<span class="o">%</span> <span class="n">Cartesian</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+<span class="p">[</span><span class="n">ky</span><span class="p">,</span><span class="n">kx</span><span class="p">,</span><span class="n">kz</span><span class="p">]</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
+
+
+<span class="n">figure</span>
+<span class="n">plot3</span><span class="p">(</span><span class="n">reshape</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">]),</span> <span class="n">reshape</span><span class="p">(</span><span class="n">ky</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">]),</span> <span class="n">reshape</span><span class="p">(</span><span class="n">kz</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span> <span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">]),</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">),</span> <span class="n">zlabel</span><span class="p">(</span><span class="s1">&#39;k_z&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Cartesian trajectory&#39;</span><span class="p">)</span>
+
+<span class="o">%</span> <span class="n">radial</span>
+
+<span class="n">N_radial</span> <span class="o">=</span> <span class="n">N</span><span class="o">^</span><span class="mi">3</span><span class="p">;</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_radial</span><span class="p">;</span>
+
+<span class="n">kz</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span> <span class="o">-</span> <span class="n">N_radial</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_radial</span><span class="p">;</span>
+<span class="n">kx</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_radial</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">.*</span> <span class="n">asin</span><span class="p">(</span><span class="n">kz</span><span class="p">))</span> <span class="o">.*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kz</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">ky</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N_radial</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">.*</span> <span class="n">asin</span><span class="p">(</span><span class="n">kz</span><span class="p">))</span> <span class="o">.*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">kz</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="n">figure</span>
+<span class="n">plot3</span><span class="p">([</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N_radial</span><span class="p">);</span> <span class="n">kx</span><span class="p">],</span> <span class="p">[</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N_radial</span><span class="p">);</span> <span class="n">ky</span><span class="p">],</span> <span class="p">[</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N_radial</span><span class="p">);</span> <span class="n">kz</span><span class="p">])</span>
+<span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">]),</span> <span class="n">zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;k_x&#39;</span><span class="p">),</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;k_y&#39;</span><span class="p">),</span> <span class="n">zlabel</span><span class="p">(</span><span class="s1">&#39;k_z&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Radial trajectory&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5b39e1ebc881f649c67f5ac15ce8c8a75e4a4c90e457944d4fcdebecb9765e0e.png" src="_images/5b39e1ebc881f649c67f5ac15ce8c8a75e4a4c90e457944d4fcdebecb9765e0e.png" />
+<img alt="_images/7fb4dad9c315d2e6180b1051ed906c6aa4d468982a0a6b51fb2c3ce32f3b84b0.png" src="_images/7fb4dad9c315d2e6180b1051ed906c6aa4d468982a0a6b51fb2c3ce32f3b84b0.png" />
+<img alt="_images/682a80458c6d6462569bebe71790fb3febb4b4c02786b73b1137a08da5e5bd7d.png" src="_images/682a80458c6d6462569bebe71790fb3febb4b4c02786b73b1137a08da5e5bd7d.png" />
+<img alt="_images/2149bec492121a4c0c21ee11bde6587912c06f6bb9a9c159cbccaa6653da593c.png" src="_images/2149bec492121a4c0c21ee11bde6587912c06f6bb9a9c159cbccaa6653da593c.png" />
 </div>
 </div>
 <p>These movies illustrate the phase accumulation during non-Cartesian trajectories</p>
@@ -752,16 +782,16 @@ We recommend using the qt toolkit instead.
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            name: "octave",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -811,7 +841,7 @@ We recommend using the qt toolkit instead.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-2dft-imaging">Cartesian K-space (Frequency and Phase encoding, 2DFT Imaging)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">Cartesian K-space (Frequency and Phase encoding, or FT Imaging)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
 </ul>
 </li>

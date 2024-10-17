@@ -415,6 +415,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-turbo-spin-echo-fse-tse">Fast/Turbo Spin-echo (FSE/TSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-gradient-echo-sequences">Fast gradient-echo sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spoiler-or-crusher-gradients">Spoiler or Crusher gradients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-spoiling">RF spoiling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-fast-gradient-echo-sequences">Types of fast gradient-echo sequences</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -442,18 +448,21 @@ document.write(`
 <ul class="simple">
 <li><p>Describe how EPI works</p></li>
 <li><p>Describe how FSE/TSE sequences work</p></li>
+<li><p>Describe how fast gradient-echo sequences work</p></li>
 </ul>
 </li>
 <li><p>Manipulate MRI sequence parameters to improve performance</p>
 <ul class="simple">
 <li><p>Understand how and when to accelerate with EPI</p></li>
 <li><p>Understand how and when to accelerate with FSE/TSE</p></li>
+<li><p>Understand how contrast changes in fast gradient-echo sequences</p></li>
 </ul>
 </li>
 <li><p>Identify artifacts and how to mitigate them</p>
 <ul class="simple">
 <li><p>Identify EPI artifacts including distortion and T2*</p></li>
 <li><p>Identify FSE/TSE artifacts include T2 blurring</p></li>
+<li><p>Identify fast gradient-echo artifacts such as banding in bSSFP</p></li>
 </ul>
 </li>
 </ol>
@@ -465,6 +474,47 @@ document.write(`
 <section id="fast-turbo-spin-echo-fse-tse">
 <h2>Fast/Turbo Spin-echo (FSE/TSE)<a class="headerlink" href="#fast-turbo-spin-echo-fse-tse" title="Permalink to this heading">#</a></h2>
 <p>These pulse sequences use multiple spin-echo refocusing pulses after a single exictation pulse.  This enables multiple k-space lines to be acquired during the multiple spin-echoes that are formed.  This technique was originally called Rapid Acquisition with Relaxation Enhancement (RARE), and is known on various MRI scanners as fast spin-echo (FSE, GE Healthcare), turbo spin-echo (TSE, Siemens Healthineers), or turbo field-echo (TFE, Philips Healthcare).</p>
+</section>
+<section id="fast-gradient-echo-sequences">
+<h2>Fast gradient-echo sequences<a class="headerlink" href="#fast-gradient-echo-sequences" title="Permalink to this heading">#</a></h2>
+<p>The basic gradient-echo sequence is typically a spoiled gradient-echo sequence.  The sequence is called spoiled because the transverse magnetization is spoiled by a spoiler gradient before the next RF pulse.</p>
+<section id="spoiler-or-crusher-gradients">
+<h3>Spoiler or Crusher gradients<a class="headerlink" href="#spoiler-or-crusher-gradients" title="Permalink to this heading">#</a></h3>
+<p>A large, unbalanced gradient will create dephasing of the transverse magnetization across the imaging voxels.  This effectively eliminates the signal.  However, the net magnetization is not truly eliminated, and this can be refocused by gradients.</p>
+</section>
+<section id="rf-spoiling">
+<h3>RF spoiling<a class="headerlink" href="#rf-spoiling" title="Permalink to this heading">#</a></h3>
+<p>The RF axis of rotation is changed every TR.  This reduces the chances of magnetization from previous TRs to become coherently excited.  Specific RF spoiling schemes, such as quadratic phase incrementation, is required for this to be effective.</p>
+</section>
+<section id="types-of-fast-gradient-echo-sequences">
+<h3>Types of fast gradient-echo sequences<a class="headerlink" href="#types-of-fast-gradient-echo-sequences" title="Permalink to this heading">#</a></h3>
+<p>Spoiled gradient-echo (SPGR)/fast low-angle shot (FLASH)</p>
+<ul class="simple">
+<li><p>Aims to full spoil transverse magnetization every TR</p></li>
+<li><p>Both gradient and RF spoiling are used</p></li>
+<li><p>Pure T1 weighted contrast</p></li>
+</ul>
+<p>Gradient-recalled acquisition in the steady state (GRASS)/fast imaging with steady-state precession (FISP)</p>
+<ul class="simple">
+<li><p>Allows for residual transverse magnetization to be used in the next TR</p></li>
+<li><p>Refouces frequency and phase encoding gradients</p></li>
+<li><p>RF spoiling used</p></li>
+<li><p>Increases T2* contrast</p></li>
+</ul>
+<p>Steady-state free precession (SSFP)/time-reversed fast imaging with steady-state precession (PSIF)</p>
+<ul class="simple">
+<li><p>Use gradients to refocus signals from previous TRs</p></li>
+<li><p>Gradient spoiling but refocused in later TRs</p></li>
+<li><p>Creates T2/T1 contrast</p></li>
+</ul>
+<p>Balanced SSFP/TrueFISP</p>
+<ul class="simple">
+<li><p>Balanced gradients every TR</p></li>
+<li><p>No spoiling, all magnetization preserved each TR</p></li>
+<li><p>Creates T2/T1 contrast</p></li>
+<li><p>High SNR efficiency</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -534,6 +584,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-turbo-spin-echo-fse-tse">Fast/Turbo Spin-echo (FSE/TSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-gradient-echo-sequences">Fast gradient-echo sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spoiler-or-crusher-gradients">Spoiler or Crusher gradients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-spoiling">RF spoiling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-fast-gradient-echo-sequences">Types of fast gradient-echo sequences</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
