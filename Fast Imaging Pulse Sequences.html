@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Fast Imaging Pulse Sequences (Under Construction) &#8212; Principles of MRI</title>
+    <title>Fast Imaging Pulse Sequences &#8212; Principles of MRI</title>
   
   
   
@@ -69,6 +69,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Fast Imaging Pulse Sequences';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -209,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
@@ -402,7 +404,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fast Imaging Pulse Sequences (Under Construction)</h1>
+    <h1>Fast Imaging Pulse Sequences</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -413,8 +415,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-turbo-spin-echo-fse-tse">Fast/Turbo Spin-echo (FSE/TSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-spin-echo-sequences-rare-fse-tse">Multiple Spin-echo Sequences (RARE/FSE/TSE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplified-pulse-sequence-diagram">Simplified Pulse Sequence Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-parameters">Sequence parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tradeoffs">Tradeoffs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-sequence-and-k-space-diagram">Pulse Sequence and K-space Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sequence parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tradeoffs</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-gradient-echo-sequences">Fast gradient-echo sequences</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spoiler-or-crusher-gradients">Spoiler or Crusher gradients</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-spoiling">RF spoiling</a></li>
@@ -432,9 +444,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fast-imaging-pulse-sequences-under-construction">
-<h1>Fast Imaging Pulse Sequences (Under Construction)<a class="headerlink" href="#fast-imaging-pulse-sequences-under-construction" title="Permalink to this heading">#</a></h1>
-<p>Modern MRI scanning relies heavily fast imaging pulse sequences, primarily echo-planar imaging (EPI) and Fast/Turbo Spin-echo (FSE/TSE) methods.  These allow for multiple k-space lines to be acquired within a single TR.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="fast-imaging-pulse-sequences">
+<h1>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Permalink to this heading">#</a></h1>
+<p>Modern MRI scanning relies heavily fast imaging pulse sequences, primarily echo-planar imaging (EPI) and multiple Spin-echo (RARE/FSE/TSE) methods.  These allow for multiple k-space lines to be acquired within a single TR.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -467,13 +479,65 @@ document.write(`
 </li>
 </ol>
 </section>
+<section id="multiple-spin-echo-sequences-rare-fse-tse">
+<h2>Multiple Spin-echo Sequences (RARE/FSE/TSE)<a class="headerlink" href="#multiple-spin-echo-sequences-rare-fse-tse" title="Permalink to this heading">#</a></h2>
+<p>These pulse sequences use multiple spin-echo refocusing pulses after a single exictation pulse to acquire multiple k-space lines to be acquired during the multiple spin-echoes that are formed.  This technique was originally called Rapid Acquisition with Relaxation Enhancement (RARE), and is known on various MRI scanners as fast spin-echo (FSE, GE Healthcare), turbo spin-echo (TSE, Siemens Healthineers), or turbo field-echo (TFE, Philips Healthcare).</p>
+<p>This is the most common pulse sequence used in clinical practice.  This is because it is highly SNR efficient and can also be used to generate multiple contrasts.  They are particularly effective for T2 and PD-weighted imaging.</p>
+<section id="simplified-pulse-sequence-diagram">
+<h3>Simplified Pulse Sequence Diagram<a class="headerlink" href="#simplified-pulse-sequence-diagram" title="Permalink to this heading">#</a></h3>
+<p><img alt="Multiple spin-echo Pulse Sequence Diagram" src="_images/pulse_sequence-diagram-fastspinecho-simple.png" /></p>
+</section>
+<section id="sequence-parameters">
+<h3>Sequence parameters<a class="headerlink" href="#sequence-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>) - time between each spin-echo</p></li>
+<li><p>Echo train length (ETL) - number of spin-echoes with a repetition</p></li>
+<li><p>Effective TE (<span class="math notranslate nohighlight">\(TE_{eff}\)</span>) - the echo time when the data closest to the center of k-space is acquired.</p></li>
+</ul>
+</section>
+<section id="tradeoffs">
+<h3>Tradeoffs<a class="headerlink" href="#tradeoffs" title="Permalink to this heading">#</a></h3>
+<p>Pros</p>
+<ul class="simple">
+<li><p>Fast</p></li>
+<li><p>SNR efficient</p></li>
+<li><p>Supports multiple contrasts by manipulating <span class="math notranslate nohighlight">\(TE_{eff}\)</span></p></li>
+</ul>
+<p>Cons</p>
+<ul class="simple">
+<li><p>Long echo train lengths can lead to T2 blurring or other distortions</p></li>
+<li><p>High SAR from repeated refocusing pulses</p></li>
+</ul>
+</section>
+</section>
 <section id="echo-planar-imaging-epi">
 <h2>Echo-planar Imaging (EPI)<a class="headerlink" href="#echo-planar-imaging-epi" title="Permalink to this heading">#</a></h2>
-<p>These pulse sequences readout multiple k-space lines in a row for faster imaging.</p>
+<p>These pulse sequences readout multiple k-space lines sequentially for faster imaging.  It is commonly used for diffusion-weighted imaging and fMRI.</p>
+<section id="pulse-sequence-and-k-space-diagram">
+<h3>Pulse Sequence and K-space Diagram<a class="headerlink" href="#pulse-sequence-and-k-space-diagram" title="Permalink to this heading">#</a></h3>
+<p><img alt="EPI Pulse Sequence" src="_images/pulse_sequence-diagram-EPI.png" /></p>
 </section>
-<section id="fast-turbo-spin-echo-fse-tse">
-<h2>Fast/Turbo Spin-echo (FSE/TSE)<a class="headerlink" href="#fast-turbo-spin-echo-fse-tse" title="Permalink to this heading">#</a></h2>
-<p>These pulse sequences use multiple spin-echo refocusing pulses after a single exictation pulse.  This enables multiple k-space lines to be acquired during the multiple spin-echoes that are formed.  This technique was originally called Rapid Acquisition with Relaxation Enhancement (RARE), and is known on various MRI scanners as fast spin-echo (FSE, GE Healthcare), turbo spin-echo (TSE, Siemens Healthineers), or turbo field-echo (TFE, Philips Healthcare).</p>
+<section id="id1">
+<h3>Sequence parameters<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>) - time between each readout and gradient-echo</p></li>
+<li><p>Echo train length (ETL) - number of readouts or k-space lines acquired within a repetition</p></li>
+<li><p>TE - the time when the data closest to the center of k-space is acquired.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Tradeoffs<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Pros</p>
+<ul class="simple">
+<li><p>Extremely Fast, supporting single-shot imaging</p></li>
+</ul>
+<p>Cons</p>
+<ul class="simple">
+<li><p>Susceptible to chemical shift and susceptibility displacement artifacts</p></li>
+<li><p>Sensitive to gradient fidelity artifacts (e.g. Nyquist ghosting)</p></li>
+<li><p>Long echo train lengths can lead to T2* blurring</p></li>
+</ul>
+</section>
 </section>
 <section id="fast-gradient-echo-sequences">
 <h2>Fast gradient-echo sequences<a class="headerlink" href="#fast-gradient-echo-sequences" title="Permalink to this heading">#</a></h2>
@@ -582,8 +646,18 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-turbo-spin-echo-fse-tse">Fast/Turbo Spin-echo (FSE/TSE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-spin-echo-sequences-rare-fse-tse">Multiple Spin-echo Sequences (RARE/FSE/TSE)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplified-pulse-sequence-diagram">Simplified Pulse Sequence Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-parameters">Sequence parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tradeoffs">Tradeoffs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#echo-planar-imaging-epi">Echo-planar Imaging (EPI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-sequence-and-k-space-diagram">Pulse Sequence and K-space Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Sequence parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tradeoffs</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-gradient-echo-sequences">Fast gradient-echo sequences</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spoiler-or-crusher-gradients">Spoiler or Crusher gradients</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-spoiling">RF spoiling</a></li>

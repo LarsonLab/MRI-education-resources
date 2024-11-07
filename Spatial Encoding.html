@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
@@ -659,7 +659,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <p>K-space is a very general method for capturing the effect of spatial encoding gradients, and the “k-space trajectory” is defined as the pattern created over time by the gradients:</p>
 <div class="math notranslate nohighlight">
 \[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
-<p>Note that k-space trajectories always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span>.</p>
+<p>Note that k-space trajectories always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span> and are only defined once there is transverse magnetization (e.g. after an RF pulse).</p>
 <p>The following simulation of the net magnetizations shows how rotations and k-space trajectory during a typical Cartesian (or 2D FT) gradient pulse sequence, which is differs from the simulation above in that an initial dephasing gradient in the frequency encoding direction is applied to sample both positive and negative spatial frequencies in k-space:</p>
 <p><img alt="frequency_phase_encoding-full-Mxy.gif" src="_images/frequency_phase_encoding-full-Mxy.gif" /></p>
 <p><img alt="frequency_phase_encoding-full-image_phase.gif" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>

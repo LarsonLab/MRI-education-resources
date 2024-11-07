@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences (Under Construction)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
@@ -512,6 +512,8 @@ It is important to remeber when looking at the data acquisition window that it i
 <li><p>Echo Time (TE) - the time between excitation and data acquisition, typically measured between the center of the RF excitation pulse and the data acquisition window</p></li>
 <li><p>Repetition Time (TR) - the time between repetitions of the main pulse sequence block</p></li>
 <li><p>Number of Repetitions (<span class="math notranslate nohighlight">\(\mathrm{N}_\mathrm{TR}\)</span>) - how many times the pulse sequence block must be repeated</p></li>
+<li><p>Readout time (<span class="math notranslate nohighlight">\(T_{read}\)</span>) - the time the data acquisition window is open within a single repetition</p></li>
+<li><p>Active time (<span class="math notranslate nohighlight">\(T_{active}\)</span>) - the time required for all RF pulses and gradients to be applied within a single repetition.  This determines the minimum TR.</p></li>
 </ul>
 <p><img alt="Pulse Sequence Diagram" src="_images/pulse_sequence-diagram-all.png" /></p>
 </section>
