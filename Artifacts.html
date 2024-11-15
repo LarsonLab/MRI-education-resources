@@ -69,6 +69,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Artifacts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -415,6 +417,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
             </nav>
@@ -512,6 +515,22 @@ loading signal
 </tr>
 </tbody>
 </table>
+</section>
+<section id="displacement-artifacts">
+<h2>Displacement Artifacts<a class="headerlink" href="#displacement-artifacts" title="Permalink to this heading">#</a></h2>
+<p>Since MRI relies on frequency to encode spatial information, unknown frequency shifts can lead to disortions of the image.  These frequency shifts are due to chemical shift (e.g. fat) and/or off-resonance (e.g. main field inhomogeneities, susceptibility differences).</p>
+<p>There will be a shift during frequency encoding of</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{FE} = \frac{\Delta f}{RBW} FOV_{FE}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta f\)</span> is the frequency shift, <span class="math notranslate nohighlight">\(RBW\)</span> is the receiver bandwidth, and <span class="math notranslate nohighlight">\(FOV_{FE}\)</span> is the field of view in the frequency encoding direction.</p>
+<p>During EPI, there is typically a much larger shift in the phase encoding direction that depends on the echo spacing, <span class="math notranslate nohighlight">\(t_{esp}\)</span>.  For simplicity, I convert the echo spacing into a “phase encoding bandwidth”, <span class="math notranslate nohighlight">\(BW_{PE} = 1/t_{esp}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{PE} = \frac{\Delta f}{BW_{PE} N_{interleaves}} FOV_{PE}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N_{interleaves}\)</span> is the number of interleaves that can be used to reduce the displacement.</p>
+<p>Finally, there will also be a displacement of the slice selection, and this will be</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{SS} = \frac{\Delta f}{BW_{rf}} \Delta_z\]</div>
+<p>where <span class="math notranslate nohighlight">\(BW_{rf}\)</span> is the slice select pulse bandwidth.</p>
 </section>
 <section id="simulations-of-artifacts">
 <h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this heading">#</a></h2>
@@ -763,6 +782,7 @@ loading signal
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
   </nav></div>

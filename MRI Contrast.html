@@ -440,6 +440,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-water-imaging">Fat/Water Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
@@ -458,7 +459,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mri-contrast">
 <h1>MRI Contrast<a class="headerlink" href="#mri-contrast" title="Permalink to this heading">#</a></h1>
-<p>MRI contrast is a rich dimension of information and the variety of contrasts achieveable is arguably the main advantage of MRI.  This section introduces the fundamental techniques of T1, T2, and proton density weighted contrasts as well as inversion recovery and Gd-based contrast agents.</p>
+<p>MRI contrast is a rich dimension of information and the variety of contrasts achieveable is arguably the main advantage of MRI.  This section introduces the fundamental techniques of T1, T2, and proton density weighted contrasts, inversion recovery, Gd-based contrast agents, and fat/water imaging.</p>
 <p><img alt="MRI is a modality with a multiple Contrasts" src="_images/3DMagic.gif" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1129,6 +1130,24 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 % resovist (iron) r1 = 7  r2 = 77
 % 0.5 mM 
 ></section>
+<section id="fat-water-imaging">
+<h2>Fat/Water Imaging<a class="headerlink" href="#fat-water-imaging" title="Permalink to this heading">#</a></h2>
+<p>The major sources of signal in MRI are hydrogen atoms in water molecules and hydrogen atoms in lipids.  In lipids, the protons experience a different chemical shift, meaning they have a different resonance frequence from water protons.  This can be exploited to create images that isolate fat and water signals.</p>
+<p>While lipids have a relatively complex set of chemical shifts, in MRI a general “fat” signal is typically modeled as a single peak that has a -3.5 parts per million (ppm) shift from water.  This leads to a resonance frequency shift <span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> of approximately 220 Hz at 1.5 T and 440 Hz at 3 T.</p>
+<p>Separate fat and water images are created by so-called “Dixon” methods, which acquire images at multiple echo times and then use the phase differences that result from the different resonance frequencies to separate them.  Ideally, the signal in these images can be represented as</p>
+<div class="math notranslate nohighlight">
+\[S(TE) = S_{water} + S_{fat} exp(-i 2 \pi \Delta f_{cs} TE)\]</div>
+<p>Then fat and water images can be created from in-phase TE, <span class="math notranslate nohighlight">\(TE_{in-phase} = n / \Delta f_{cs}\)</span> and out-of-phase TE, <span class="math notranslate nohighlight">\(TE_{out-of-phase} = (n+ 1/2) / \Delta f_{cs}\)</span>, images:</p>
+<div class="math notranslate nohighlight">
+\[ S(TE_{in-phase}) = S_{water} + S_{fat}\]</div>
+<div class="math notranslate nohighlight">
+\[ S(TE_{out-of-phase}) = S_{water} - S_{fat}\]</div>
+<div class="math notranslate nohighlight">
+\[ S_{water} = \frac{S(TE_{in-phase}) + S(TE_{out-of-phase})}{2}\]</div>
+<div class="math notranslate nohighlight">
+\[ S_{fat} = \frac{S(TE_{in-phase}) - S(TE_{out-of-phase})}{2}\]</div>
+<p>In reality, additional corrections are required to account for off-resonance, <span class="math notranslate nohighlight">\(\Delta f_r(\vec r)\)</span>, and more advanced methods also use a multi-peak model accounting for the various chemical shifts in fatty tissue.</p>
+</section>
 <section id="image-contrast-examples">
 <h2>Image Contrast Examples<a class="headerlink" href="#image-contrast-examples" title="Permalink to this heading">#</a></h2>
 <p><img alt="Brain contrast from Pauly and Gold" src="_images/contrast_brain_example.png" /></p>
@@ -1297,6 +1316,7 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast-agents">Contrast Agents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-water-imaging">Fat/Water Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-contrast-examples">Image Contrast Examples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-contrast-phantom">Simple Contrast Phantom</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-yourself">Challenge Yourself!</a></li>
