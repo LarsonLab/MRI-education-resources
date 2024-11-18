@@ -418,6 +418,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
             </nav>
@@ -497,7 +498,7 @@ loading signal
 <td><p>Signal loss around magnetic suscpetibility differences (e.g. implants, air)</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Slice Misregistration</p></td>
+<tr class="row-odd"><td><p>Slice Displacement</p></td>
 <td><p>Slice shifting due to chemical shift or off-resonance</p></td>
 <td><p>N/A</p></td>
 </tr>
@@ -531,6 +532,15 @@ loading signal
 <div class="math notranslate nohighlight">
 \[\Delta_{SS} = \frac{\Delta f}{BW_{rf}} \Delta_z\]</div>
 <p>where <span class="math notranslate nohighlight">\(BW_{rf}\)</span> is the slice select pulse bandwidth.</p>
+</section>
+<section id="motion-and-flow-artifacts">
+<h2>Motion and Flow Artifacts<a class="headerlink" href="#motion-and-flow-artifacts" title="Permalink to this heading">#</a></h2>
+<p>Motion, including flow, can result in artifacts in MRI if it leads to inconsistency in the data.</p>
+<p>Periodic motion such as breathing, heart beating, and pulsatile flow will lead to distinct ghosting artifacts in the phase encoding direction.  The location of ghosting artifacts in sequential phase encoding, will be at predictable intervals in the phase encoding direction:</p>
+<div class="math notranslate nohighlight">
+\[\Delta_{PE} = \frac{TR}{T_{motion}} FOV_{PE}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{motion}\)</span> is the period of the motion (e.g. <span class="math notranslate nohighlight">\(T_{motion} = 1 s\)</span> for a heart rate of 60 beats per minute ).</p>
+<p>Incoherent or more random motion such as irregular breathing, arrhytthmias, coughing, bulk motion will lead to more diffuse ghosting artifacts.</p>
 </section>
 <section id="simulations-of-artifacts">
 <h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this heading">#</a></h2>
@@ -783,6 +793,7 @@ loading signal
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
   </nav></div>

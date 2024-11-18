@@ -484,6 +484,7 @@ loading signal
 <li><p>Describe how T1, T2, and proton density weighted images are formed</p></li>
 <li><p>Describe how inversion recovery works</p></li>
 <li><p>Describe how Gd-based contrast agents work</p></li>
+<li><p>Describe how fat/water imaging works</p></li>
 <li><p>Identify various image contrasts</p></li>
 </ul>
 </li>
@@ -1143,9 +1144,9 @@ https://doi.org/10.1097/01.rli.0000184756.66360.d3
 <div class="math notranslate nohighlight">
 \[ S(TE_{out-of-phase}) = S_{water} - S_{fat}\]</div>
 <div class="math notranslate nohighlight">
-\[ S_{water} = \frac{S(TE_{in-phase}) + S(TE_{out-of-phase})}{2}\]</div>
+\[ \hat S_{water} = S(TE_{in-phase}) + S(TE_{out-of-phase})\]</div>
 <div class="math notranslate nohighlight">
-\[ S_{fat} = \frac{S(TE_{in-phase}) - S(TE_{out-of-phase})}{2}\]</div>
+\[ \hat S_{fat} = S(TE_{in-phase}) - S(TE_{out-of-phase})\]</div>
 <p>In reality, additional corrections are required to account for off-resonance, <span class="math notranslate nohighlight">\(\Delta f_r(\vec r)\)</span>, and more advanced methods also use a multi-peak model accounting for the various chemical shifts in fatty tissue.</p>
 </section>
 <section id="image-contrast-examples">
