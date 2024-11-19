@@ -462,56 +462,81 @@ loading signal
 </section>
 <section id="artifact-comparison">
 <h2>Artifact Comparison<a class="headerlink" href="#artifact-comparison" title="Permalink to this heading">#</a></h2>
+<p>MRI artifacts can generally be categorized as originating from the sample, the sequence, or the system (Source in table below).  The table below provides a high-level comparison of these artifacts.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Artifact Name</p></th>
+<th class="head"><p>Source</p></th>
 <th class="head"><p>Appearance</p></th>
+<th class="head"><p>What to do?</p></th>
 <th class="head"><p>Frequency or Phase encoding</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Aliasing</p></td>
+<td><p>Sequence - FOV too small</p></td>
 <td><p>Signal folds across image</p></td>
+<td><p>Increase FOV, swap PE/FE</p></td>
 <td><p>Phase encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p>Spike Noise</p></td>
-<td><p>Specific spatial frequency on top of entire image</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Gibbs Ringing/Truncation</p></td>
+<tr class="row-odd"><td><p>Gibbs Ringing/Truncation</p></td>
+<td><p>Sequence - due to Fourier encoding of edges</p></td>
 <td><p>Ripples/ringing at sharp edges</p></td>
+<td><p>Filtering of data</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>RF interference/Zipper</p></td>
-<td><p>Line of noisy signal on top of image</p></td>
-<td><p>At a specific frequency encoding location</p></td>
+<tr class="row-even"><td><p>Boundary Artifacts/Partial Volume</p></td>
+<td><p>Sequence and Sample - opposite <span class="math notranslate nohighlight">\(M_{XY}\)</span> phases with a voxel due to inversion or chemical shift</p></td>
+<td><p>Artificial dark lines at tissue boundaries</p></td>
+<td><p>fat suppresion, fat/water imaging</p></td>
+<td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Motion/Flow</p></td>
+<tr class="row-odd"><td><p>Motion/Flow</p></td>
+<td><p>Sample - signal modulated during spatial encoding</p></td>
 <td><p>Copies or “Ghosts” of image regions that are changing due to motion or flow</p></td>
+<td><p>Breath-hold, gating, triggering, flow compensation, swap PE/FE</p></td>
 <td><p>Phase encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p>Displacement/Distortion</p></td>
-<td><p>Shifts in location due to chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<tr class="row-even"><td><p>Image Displacement/Distortion</p></td>
+<td><p>Sample - chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<td><p>Shifts in image</p></td>
+<td><p>Increase bandwidths, shimming, fat suppression, fat/water imaging, swap PE/FE</p></td>
 <td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
 </tr>
-<tr class="row-even"><td><p>T2*</p></td>
-<td><p>Signal loss around magnetic suscpetibility differences (e.g. implants, air)</p></td>
-<td><p>N/A</p></td>
-</tr>
 <tr class="row-odd"><td><p>Slice Displacement</p></td>
-<td><p>Slice shifting due to chemical shift or off-resonance</p></td>
+<td><p>Sample chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<td><p>Slice location shifts</p></td>
+<td><p>Increase RF bandwidth, shimming, 3D</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Dielectric Shading</p></td>
+<tr class="row-even"><td><p>T2*</p></td>
+<td><p>Sample - magnetic suscpetibility differences (e.g. implants, air)</p></td>
+<td><p>Signal loss</p></td>
+<td><p>Spin-echo, shimming</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dielectric Shading</p></td>
+<td><p>System - RF propogates unevenly, creating B1 inhomogeneity</p></td>
 <td><p>Shading across entire image, particularly large FOV, higher B0</p></td>
+<td><p>B1-insensitive pulse sequences (e.g. adiabatic pulses), image bias correction</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Boundary Artifacts</p></td>
-<td><p>Artificial dark lines at tissue boundaries due to inversion or chemical shift</p></td>
-<td><p>N/A</p></td>
+<tr class="row-even"><td><p>RF interference/Zipper</p></td>
+<td><p>System - unwanted RF signal in data</p></td>
+<td><p>Line of noisy signal on top of image</p></td>
+<td><p>RF shielding (close door), check RF hardware, check room lights</p></td>
+<td><p>At a specific frequency encoding location</p></td>
 </tr>
-<tr class="row-even"><td><p>Gradient non-linearity</p></td>
+<tr class="row-odd"><td><p>Gradient non-linearity</p></td>
+<td><p>System - magnetic field gradients are not linear, especially away from isocenter</p></td>
 <td><p>Distortion of subject, particularly near edges of large FOV</p></td>
+<td><p>Gradient warping correction</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Spike Noise</p></td>
+<td><p>System - intermittent unwanted signal</p></td>
+<td><p>Specific spatial frequency on top of entire image</p></td>
+<td><p>check RF hardware (loose connections, broken components)</p></td>
 <td><p>N/A</p></td>
 </tr>
 </tbody>
