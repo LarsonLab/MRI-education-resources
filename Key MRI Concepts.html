@@ -423,11 +423,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In vivo spin physics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In vivo contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In Vivo Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In Vivo Contrasts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characeristics">Image Characeristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics">Image Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
@@ -453,16 +453,20 @@ document.write(`
 </section>
 <section id="mr-spin-physics">
 <h2>MR Spin Physics<a class="headerlink" href="#mr-spin-physics" title="Permalink to this heading">#</a></h2>
-<p>Resonance
-$<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>$</p>
-<p>Polarization and Net Magnetization
-$<span class="math notranslate nohighlight">\(\vec{M}(\vec{r},0) = 
+<p>Resonance - nuclear spins in a magnetic field precess at a frequency proportional to the magnetic field strength</p>
+<div class="math notranslate nohighlight">
+\[f = \bar{\gamma} \|\vec{B}\|\]</div>
+<p>Polarization - equilibrium magnetization</p>
+<div class="math notranslate nohighlight">
+\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+<p>Net Magnetization at Equilibrium</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{M}(\vec{r},0) = 
 \begin{bmatrix}
 0 \\
 0 \\
 M_0(\vec{r})
-\end{bmatrix}\)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\(M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\)</span>$</p>
+\end{bmatrix}\end{split}\]</div>
 <p>Excitation</p>
 <ul class="simple">
 <li><p>Apply magnetic field at resonant frequency to rotate net magnetization out of alignment with static magnetic field</p></li>
@@ -477,7 +481,12 @@ M_0(\vec{r})
 <h2>MRI System<a class="headerlink" href="#mri-system" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
-<li><p>Radiofrequency (RF) coils, including a transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span> - and a receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></li>
+<li><p>Radiofrequency (RF) coils</p>
+<ul class="simple">
+<li><p>transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>: provide homogeneous excitation</p></li>
+<li><p>receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>: detect signal with high sensitivity</p></li>
+</ul>
+</li>
 <li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
 </ol>
 </section>
@@ -496,16 +505,25 @@ M_0(\vec{r})
 </section>
 <section id="mr-contrasts">
 <h2>MR Contrasts<a class="headerlink" href="#mr-contrasts" title="Permalink to this heading">#</a></h2>
+<p>Contrast weightings</p>
+<ul class="simple">
+<li><p>T1-weighted - short TE, short TR</p></li>
+<li><p>T2-weighted - long TE, long TR</p></li>
+<li><p>Proton Density (PD)-weighted - short TE, long TR</p></li>
+</ul>
 <p>spoiled GRE contrast</p>
 <div class="math notranslate nohighlight">
 \[S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
-<p>Contrast weightings: T1w, T2w, PDw</p>
-<p>Magnetization Preparation:</p>
-<p>Inversion Recovery
-$<span class="math notranslate nohighlight">\(S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\)</span>$</p>
+<p>Ernst angle - flip angle for maximum SNR</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
+<p>Magnetization Preparation:
+Inversion Recovery</p>
+<div class="math notranslate nohighlight">
+\[S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\]</div>
 </section>
 <section id="in-vivo-spin-physics">
-<h2>In vivo spin physics<a class="headerlink" href="#in-vivo-spin-physics" title="Permalink to this heading">#</a></h2>
+<h2>In Vivo Spin Physics<a class="headerlink" href="#in-vivo-spin-physics" title="Permalink to this heading">#</a></h2>
 <p>Magnetic susceptibility effects</p>
 <ul class="simple">
 <li><p>magnetic susceptibility is inherent property of materials</p></li>
@@ -519,7 +537,8 @@ $<span class="math notranslate nohighlight">\(S_{IR} \propto M_0  \exp(-TE/T_2) 
 </ul>
 </section>
 <section id="in-vivo-contrasts">
-<h2>In vivo contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Permalink to this heading">#</a></h2>
+<h2>In Vivo Contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Permalink to this heading">#</a></h2>
+<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in MR signal</p>
 <p>T2*</p>
 <ul class="simple">
 <li><p>intra-voxel dephasing due to magnetic field inhomogeneity</p></li>
@@ -527,15 +546,15 @@ $<span class="math notranslate nohighlight">\(S_{IR} \propto M_0  \exp(-TE/T_2) 
 <li><p>eliminate with spin-echo</p></li>
 <li><p>create susceptibility contrast</p></li>
 </ul>
-<p>fat</p>
+<p>Fat</p>
 <ul class="simple">
 <li><p>fat/water imaging - separate fat and water images based on multiple echo times</p></li>
 <li><p>fat suppression - spectrally-selective RF pulses and/or inversion recovery</p></li>
 </ul>
 <p>Contrast Agents</p>
 <ul class="simple">
-<li><p>Gd-based contrast agents - most common, primarily shortens <span class="math notranslate nohighlight">\(T_1\)</span></p></li>
-<li><p>iron-basec contrast agents - less common, shortens <span class="math notranslate nohighlight">\(T_1\)</span> but also can shorten <span class="math notranslate nohighlight">\(T_2\)</span></p></li>
+<li><p>Gadolinium (Gd)-based contrast agents - most common, primarily shortens <span class="math notranslate nohighlight">\(T_1\)</span></p></li>
+<li><p>Iron-based contrast agents - less common, shortens <span class="math notranslate nohighlight">\(T_1\)</span> but also can shorten <span class="math notranslate nohighlight">\(T_2\)</span></p></li>
 </ul>
 </section>
 <section id="rf-pulses">
@@ -580,20 +599,23 @@ $<span class="math notranslate nohighlight">\( f_{off} = \bar{\gamma} G_{Z,SS} \
 <li><p>supports 2D and 3D imaging</p></li>
 </ul>
 </section>
-<section id="image-characeristics">
-<h2>Image Characeristics<a class="headerlink" href="#image-characeristics" title="Permalink to this heading">#</a></h2>
+<section id="image-characteristics">
+<h2>Image Characteristics<a class="headerlink" href="#image-characteristics" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
 <div class="math notranslate nohighlight">
 \[ FOV = \frac{1}{\Delta k}\]</div>
 <div class="math notranslate nohighlight">
 \[ \delta = \frac{1}{2 k_{max}}\]</div>
+<p>Scan Time</p>
+<div class="math notranslate nohighlight">
+\[ T_{scan} = \frac{ TR \cdot N_{PE,total} \cdot NEX}{ETL \cdot R}\]</div>
 </section>
 <section id="ft-imaging-sequence">
 <h2>FT Imaging Sequence<a class="headerlink" href="#ft-imaging-sequence" title="Permalink to this heading">#</a></h2>
-<p>Typical acquisition uses frequency and phase encoding.</p>
+<p>Typical acquisition uses frequency and phase encoding</p>
 <p>See <a class="reference internal" href="Pulse%20Sequence.html"><span class="doc std std-doc">Pulse Sequence</span></a> for a typical 2D gradient-echo sequence</p>
-<p>Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time</p>
+<p>Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time, as well as predict relative SNR</p>
 </section>
 <section id="fast-imaging-pulse-sequences">
 <h2>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Permalink to this heading">#</a></h2>
@@ -637,12 +659,12 @@ $<span class="math notranslate nohighlight">\( f_{off} = \bar{\gamma} G_{Z,SS} \
 <li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
 <li><p>How does it work?  Excite multiple slices simultaneously</p></li>
 </ul>
-<p>Compressed Sensing and Deep Learning Reconstructions</p>
+<p>Compressed Sensing</p>
 <ul class="simple">
 <li><p>Why does it work?  MRI data has typical patterns that can be predicted are represented by sparse coefficients</p></li>
 <li><p>How does it work?  Skip k-space data with a pseudo-random pattern.  Define a sparsity domain</p></li>
 </ul>
-<p>Deep Learning Reconstructions</p>
+<p>Deep Learning Reconstruction</p>
 <ul class="simple">
 <li><p>Why does it work?  MRI data has typical patterns that can be learned</p></li>
 <li><p>How does it work?  Skip k-space data.  Train a neural network using a large MRI dataset.</p></li>
@@ -722,11 +744,11 @@ $<span class="math notranslate nohighlight">\( f_{off} = \bar{\gamma} G_{Z,SS} \
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In vivo spin physics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In vivo contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In Vivo Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In Vivo Contrasts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characeristics">Image Characeristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics">Image Characteristics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>

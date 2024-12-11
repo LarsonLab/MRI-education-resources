@@ -698,7 +698,9 @@ Stronger coupling between spins leads to more microscopic dephasing and shorter 
 <p>For T1-weighting, it is generally more efficient in terms of signal acqruied per time to use &lt; 90-degree flip angles every TR, in which case</p>
 <div class="math notranslate nohighlight">
 \[S \propto M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
-<p>Illustrated in this second example below.  This shows that the magnetization can take many TRs to reach steady state.</p>
+<p>Illustrated in this second example below.  This shows that the magnetization can take many TRs to reach steady state.  These acquisitions are commonly done to maximize signal for a typical <span class="math notranslate nohighlight">\(T_1\)</span> range.  This is done by choosing using the so-called “Ernst angle”, which is the flip angle that maximizes the signal for a given <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(TR\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Signal evolution between TRs with 90-degree pulses</span>

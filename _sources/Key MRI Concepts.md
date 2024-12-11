@@ -10,17 +10,22 @@ Signals and Systems
 
 ## MR Spin Physics
 
-Resonance
+Resonance - nuclear spins in a magnetic field precess at a frequency proportional to the magnetic field strength
+
 $$f = \bar{\gamma} \|\vec{B}\|$$
 
-Polarization and Net Magnetization 
+Polarization - equilibrium magnetization
+
+$$M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}$$
+
+Net Magnetization at Equilibrium
+
 $$\vec{M}(\vec{r},0) = 
 \begin{bmatrix}
 0 \\
 0 \\
 M_0(\vec{r})
 \end{bmatrix}$$
-$$M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}$$
 
 Excitation
 * Apply magnetic field at resonant frequency to rotate net magnetization out of alignment with static magnetic field
@@ -34,7 +39,9 @@ $$M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})
 ## MRI System
 
 1. Main magnet - $B_0$
-1. Radiofrequency (RF) coils, including a transmit RF coil - $B_1^+(\vec{r},t)$ - and a receive RF coil - $B_1^-(\vec{r},t)$
+1. Radiofrequency (RF) coils
+    * transmit RF coil - $B_1^+(\vec{r},t)$: provide homogeneous excitation
+    * receive RF coil - $B_1^-(\vec{r},t)$: detect signal with high sensitivity
 1. Magnetic field gradient coils - $\vec{G}(t)$
 
 ## MRI Experiment
@@ -49,18 +56,25 @@ Experiment described by a "Pulse Sequence"
 
 ## MR Contrasts
 
+Contrast weightings
+* T1-weighted - short TE, short TR
+* T2-weighted - long TE, long TR
+* Proton Density (PD)-weighted - short TE, long TR
+
 spoiled GRE contrast
 
 $$S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}$$
 
-Contrast weightings: T1w, T2w, PDw
+Ernst angle - flip angle for maximum SNR
+
+$$\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))$$
 
 Magnetization Preparation:
-
 Inversion Recovery
+
 $$S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )$$
 
-## In vivo spin physics
+## In Vivo Spin Physics
 
 Magnetic susceptibility effects 
 * magnetic susceptibility is inherent property of materials
@@ -71,7 +85,9 @@ Chemical Shift
 * chemcial environment of an atom creates variations in local magnetic field
 * in vivo consideration: "fat", assumed to have a -3.5 ppm chemcial shift from water protons
 
-## In vivo contrasts
+## In Vivo Contrasts
+
+Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in MR signal
 
 T2*
 * intra-voxel dephasing due to magnetic field inhomogeneity
@@ -79,13 +95,13 @@ T2*
 * eliminate with spin-echo
 * create susceptibility contrast
 
-fat
+Fat
 * fat/water imaging - separate fat and water images based on multiple echo times
 * fat suppression - spectrally-selective RF pulses and/or inversion recovery
 
 Contrast Agents
-* Gd-based contrast agents - most common, primarily shortens $T_1$
-* iron-basec contrast agents - less common, shortens $T_1$ but also can shorten $T_2$
+* Gadolinium (Gd)-based contrast agents - most common, primarily shortens $T_1$
+* Iron-based contrast agents - less common, shortens $T_1$ but also can shorten $T_2$
 
 
 ## RF Pulses
@@ -128,7 +144,7 @@ $$s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)} = M(\vec{k}(t))$$
 * effects of gradients can be refocused
 * supports 2D and 3D imaging
 
-## Image Characeristics
+## Image Characteristics
 
 $$SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}$$
 
@@ -136,13 +152,17 @@ $$ FOV = \frac{1}{\Delta k}$$
 
 $$ \delta = \frac{1}{2 k_{max}}$$
 
+Scan Time
+
+$$ T_{scan} = \frac{ TR \cdot N_{PE,total} \cdot NEX}{ETL \cdot R}$$
+
 ## FT Imaging Sequence
 
-Typical acquisition uses frequency and phase encoding.
+Typical acquisition uses frequency and phase encoding
 
 See [Pulse Sequence](./Pulse%20Sequence.ipynb) for a typical 2D gradient-echo sequence
 
-Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time
+Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time, as well as predict relative SNR
 
 ## Fast Imaging Pulse Sequences
 
@@ -178,11 +198,11 @@ Simultaneous Multi-slice
 * Why does it work?  RF coil arrays with different elements provide spatial encoding
 * How does it work?  Excite multiple slices simultaneously
 
-Compressed Sensing and Deep Learning Reconstructions
+Compressed Sensing
 * Why does it work?  MRI data has typical patterns that can be predicted are represented by sparse coefficients
 * How does it work?  Skip k-space data with a pseudo-random pattern.  Define a sparsity domain
 
-Deep Learning Reconstructions
+Deep Learning Reconstruction
 * Why does it work?  MRI data has typical patterns that can be learned
 * How does it work?  Skip k-space data.  Train a neural network using a large MRI dataset.
 

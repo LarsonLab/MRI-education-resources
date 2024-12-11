@@ -423,6 +423,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-examples">Artifact Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motion">Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-displacement-distortion">Image Displacement/Distortion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t2">T2*</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
             </nav>
@@ -478,9 +485,9 @@ loading signal
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Aliasing</p></td>
-<td><p>Sequence - FOV too small</p></td>
+<td><p>Sequence - FOV too small, or parallel imaging failed</p></td>
 <td><p>Signal folds across image</p></td>
-<td><p>Increase FOV, swap PE/FE</p></td>
+<td><p>Increase FOV, swap PE/FE, reacquire sensitivity maps (parallel imaging)</p></td>
 <td><p>Phase encoding</p></td>
 </tr>
 <tr class="row-odd"><td><p>Gibbs Ringing/Truncation</p></td>
@@ -553,23 +560,45 @@ loading signal
 <div class="math notranslate nohighlight">
 \[\Delta_{FE} = \frac{\Delta f}{RBW} FOV_{FE}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta f\)</span> is the frequency shift, <span class="math notranslate nohighlight">\(RBW\)</span> is the receiver bandwidth, and <span class="math notranslate nohighlight">\(FOV_{FE}\)</span> is the field of view in the frequency encoding direction.</p>
-<p>During EPI, there is typically a much larger shift in the phase encoding direction that depends on the echo spacing, <span class="math notranslate nohighlight">\(t_{esp}\)</span>.  For simplicity, I convert the echo spacing into a “phase encoding bandwidth”, <span class="math notranslate nohighlight">\(BW_{PE} = 1/t_{esp}\)</span>:</p>
+<p>During EPI, there is typically a much larger shift in the phase encoding direction that depends on how much phase accumulates across k-space.  This depends on the echo spacing, <span class="math notranslate nohighlight">\(t_{esp}\)</span>, and well as how many k-space lines are covered in adjacent echoes, defined here as <span class="math notranslate nohighlight">\(N_{steps}\)</span>.  To characterize this, we can define a “phase encoding bandwidth”, <span class="math notranslate nohighlight">\(BW_{PE} = N_{steps}/t_{esp}\)</span>, and the displacement will be</p>
 <div class="math notranslate nohighlight">
-\[\Delta_{PE} = \frac{\Delta f}{BW_{PE} N_{interleaves}} FOV_{PE}\]</div>
-<p>where <span class="math notranslate nohighlight">\(N_{interleaves}\)</span> is the number of interleaves that can be used to reduce the displacement.</p>
+\[\Delta_{PE} = \frac{\Delta f}{BW_{PE}} FOV_{PE}\]</div>
+<p><span class="math notranslate nohighlight">\(N_{steps}\)</span> will depend on whether there is any interleaving, and whether parallel imaging is used to skip lines.  For example, EPI without acceleration in a single-shot is <span class="math notranslate nohighlight">\(N_{steps} = 1\)</span>, 2 interleaves would have <span class="math notranslate nohighlight">\(N_{steps} = 2\)</span>, while single-shot with <span class="math notranslate nohighlight">\(R=2\)</span> parallel imaging acceleration would have <span class="math notranslate nohighlight">\(N_{steps} = 2\)</span>, and 2 interleaves with <span class="math notranslate nohighlight">\(R=2\)</span> parallel imaging would have <span class="math notranslate nohighlight">\(N_{steps} = 4\)</span>.</p>
 <p>Finally, there will also be a displacement of the slice selection, and this will be</p>
 <div class="math notranslate nohighlight">
-\[\Delta_{SS} = \frac{\Delta f}{BW_{rf}} \Delta_z\]</div>
+\[\Delta_{SS} = \frac{\Delta f}{BW_{rf}} \Delta z\]</div>
 <p>where <span class="math notranslate nohighlight">\(BW_{rf}\)</span> is the slice select pulse bandwidth.</p>
 </section>
 <section id="motion-and-flow-artifacts">
 <h2>Motion and Flow Artifacts<a class="headerlink" href="#motion-and-flow-artifacts" title="Permalink to this heading">#</a></h2>
 <p>Motion, including flow, can result in artifacts in MRI if it leads to inconsistency in the data.</p>
-<p>Periodic motion such as breathing, heart beating, and pulsatile flow will lead to distinct ghosting artifacts in the phase encoding direction.  The location of ghosting artifacts in sequential phase encoding, will be at predictable intervals in the phase encoding direction:</p>
+<p>Periodic motion such as breathing, heart beating, and pulsatile flow will lead to distinct ghosting artifacts in the phase encoding direction.  The location of ghosting artifacts in sequential phase encoding without parallel imaging will be at predictable intervals in the phase encoding direction:</p>
 <div class="math notranslate nohighlight">
 \[\Delta_{PE} = \frac{TR}{T_{motion}} FOV_{PE}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_{motion}\)</span> is the period of the motion (e.g. <span class="math notranslate nohighlight">\(T_{motion} = 1 s\)</span> for a heart rate of 60 beats per minute ).</p>
 <p>Incoherent or more random motion such as irregular breathing, arrhytthmias, coughing, bulk motion will lead to more diffuse ghosting artifacts.</p>
+</section>
+<section id="artifact-examples">
+<h2>Artifact Examples<a class="headerlink" href="#artifact-examples" title="Permalink to this heading">#</a></h2>
+<section id="aliasing">
+<h3>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this heading">#</a></h3>
+<p><img alt="Axial abdomen image with aliasing" src="_images/abdomen_aliasing.png" /></p>
+</section>
+<section id="motion">
+<h3>Motion<a class="headerlink" href="#motion" title="Permalink to this heading">#</a></h3>
+<p><img alt="Axial abdomen image with motion" src="_images/abdomen_motion.png" /></p>
+<p><img alt="Coronal brain image with motion" src="_images/brain_coronal_eyes_artifact.jpg" /></p>
+<p><img alt="Axial brain image with motion" src="_images/brain_motion_artifact.jpg" /></p>
+</section>
+<section id="image-displacement-distortion">
+<h3>Image Displacement/Distortion<a class="headerlink" href="#image-displacement-distortion" title="Permalink to this heading">#</a></h3>
+<p><img alt="Axial brian EPI with distortion" src="_images/epi_distortion_artifact_changes.jpg" /></p>
+<p><img alt="Axial brian EPI with fat displacement" src="_images/epi_fat_artifact.jpg" /></p>
+</section>
+<section id="t2">
+<h3>T2*<a class="headerlink" href="#t2" title="Permalink to this heading">#</a></h3>
+<p><img alt="Axial brain image with T2* artifact" src="_images/epi_T2star_artifact.png" /></p>
+</section>
 </section>
 <section id="simulations-of-artifacts">
 <h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this heading">#</a></h2>
@@ -823,6 +852,13 @@ loading signal
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-artifacts">Displacement Artifacts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-examples">Artifact Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motion">Motion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-displacement-distortion">Image Displacement/Distortion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t2">T2*</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulations-of-artifacts">Simulations of Artifacts</a></li>
 </ul>
   </nav></div>
