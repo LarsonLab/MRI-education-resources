@@ -34,6 +34,9 @@ parts:
     chapters:
     - file: "Fast Imaging Pulse Sequences"
     - file: "Accelerated Imaging Methods"
+  - caption: Summary
+    chapters:
+    - file: "Key MRI Concepts"
   - caption: Reference Material
     chapters:
     - file: "MRI Notation"
