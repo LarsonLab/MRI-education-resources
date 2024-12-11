@@ -214,6 +214,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
@@ -527,7 +531,10 @@ document.write(`
 <p>The spatial resolution is determined by the maximum sample extent in k-space, with the simple relationship based on the maximum k-space sample locations, <span class="math notranslate nohighlight">\(k_{max}\)</span> as:</p>
 <div class="math notranslate nohighlight">
 \[ \delta = \frac{1}{2 k_{max}}\]</div>
-<p>For example, <span class="math notranslate nohighlight">\(\delta_x = \frac{1}{2 k_{x,max}}\)</span></p>
+<p>For example, <span class="math notranslate nohighlight">\(\delta_x = \frac{1}{2 k_{x,max}}\)</span>.</p>
+<p>For symmetric sampling in k-space, this can also be defined based on the width of the k-space sampling, <span class="math notranslate nohighlight">\(W_k = 2 k_{max}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \delta = \frac{1}{W_k}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">rectangular</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">demonstrate</span> <span class="n">resolution</span>

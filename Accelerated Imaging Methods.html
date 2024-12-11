@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Accelerated Imaging Methods';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
+    <link rel="next" title="Key MRI Concepts and Equations" href="Key%20MRI%20Concepts.html" />
     <link rel="prev" title="Fast Imaging Pulse Sequences" href="Fast%20Imaging%20Pulse%20Sequences.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -213,6 +213,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -416,6 +420,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>
@@ -516,6 +521,14 @@ m(x_{Nx},y_{Ny})
 <p>and image reconstruction is performed by inverse discrete Fourier Transform, which for fully sampled 2D FT imaging is well defined by matrix inversion:</p>
 <div class="math notranslate nohighlight">
 \[ \hat{x} = \mathbf{F^{H}} y \]</div>
+</section>
+<section id="partial-fourier-imaging">
+<h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Permalink to this heading">#</a></h2>
+<p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, <span class="math notranslate nohighlight">\(m(\vec{r})\)</span>, is real-valued, then the k-space data satisfies</p>
+<div class="math notranslate nohighlight">
+\[ M(\vec{k}) = M(-\vec{k})^*\]</div>
+<p>In this case, only half of k-space is required, and the other half can be filled in by this property.</p>
+<p>In practice, there is typically low spatial frequency phase components in the image so the initial assumption of a real-valued image is violated.  However, the data acquisition can still be accelerated by acquiring slightly more than half of k-space, and the fully sampled center of k-space can provide sufficient information about the low spatial frequency phase to still allow for accelerationg based on this conjugate symmetry property.</p>
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this heading">#</a></h2>
@@ -697,11 +710,11 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
       </div>
     </a>
     <a class="right-next"
-       href="MRI%20Notation.html"
+       href="Key%20MRI%20Concepts.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Notation and Terminology</p>
+        <p class="prev-next-title">Key MRI Concepts and Equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -722,6 +735,7 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>

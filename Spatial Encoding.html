@@ -214,6 +214,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
@@ -589,7 +593,8 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Permalink to this heading">#</a></h2>
 <p>Typically the 2nd (and optionally 3rd) dimensions of the object are encoded using “phase encoding”.  This means that, after RF excitation but before the frequency encoding gradient, a pulsed gradient is applied such that the location is encoded in the phase of the next magnetization:</p>
 <div class="math notranslate nohighlight">
-\[ \Phi = \gamma G_{yp} y t_y\]</div>
+\[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y\]</div>
+<p>This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span>.  <span class="math notranslate nohighlight">\(G_{yp}\)</span> is the maximum phase encoding gradient strength, <span class="math notranslate nohighlight">\(G_{yi}\)</span> is the phase encoding gradient amplitude increment, and <span class="math notranslate nohighlight">\(t_y\)</span> is the phase encoding gradient duration.  Note that <span class="math notranslate nohighlight">\(2 G_{yp} = (N_{PE} - 1) G_{yi}\)</span>.</p>
 <p>These additional dimensions are fully encoded by repeating this pulsed gradient with different amplitudes.  This is equivalent to taking different samples of a frequency encoding gradient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

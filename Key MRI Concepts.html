@@ -74,6 +74,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Key MRI Concepts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
+    <link rel="prev" title="Accelerated Imaging Methods" href="Accelerated%20Imaging%20Methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -211,6 +213,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Key MRI Concepts and Equations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -412,13 +418,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-physics">Spin Physics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-material">Background Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-spin-physics">MR Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In vivo spin physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In vivo contrasts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characeristics">Image Characeristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal-equation">MRI Signal Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging">Fast Imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
 </ul>
             </nav>
         </div>
@@ -432,65 +445,212 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="key-mri-concepts-and-equations">
 <h1>Key MRI Concepts and Equations<a class="headerlink" href="#key-mri-concepts-and-equations" title="Permalink to this heading">#</a></h1>
-<p>SEE ALSO MRI Math Concepts</p>
+<section id="background-material">
+<h2>Background Material<a class="headerlink" href="#background-material" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="MRI%20Math%20Concepts.html"><span class="doc std std-doc">MRI Math Concepts</span></a></p>
-<section id="spin-physics">
-<h2>Spin Physics<a class="headerlink" href="#spin-physics" title="Permalink to this heading">#</a></h2>
-<p>Larmor Frequency</p>
-<p>M0</p>
-<p>Polarization</p>
+<p>Electricity and Magnetism</p>
+<p>Signals and Systems</p>
+</section>
+<section id="mr-spin-physics">
+<h2>MR Spin Physics<a class="headerlink" href="#mr-spin-physics" title="Permalink to this heading">#</a></h2>
+<p>Resonance
+$<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>$</p>
+<p>Polarization and Net Magnetization
+$<span class="math notranslate nohighlight">\(\vec{M}(\vec{r},0) = 
+\begin{bmatrix}
+0 \\
+0 \\
+M_0(\vec{r})
+\end{bmatrix}\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\)</span>$</p>
+<p>Excitation</p>
+<ul class="simple">
+<li><p>Apply magnetic field at resonant frequency to rotate net magnetization out of alignment with static magnetic field</p></li>
+</ul>
+<p>Relaxation</p>
 <div class="math notranslate nohighlight">
 \[M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) e^{-t/T_2(\vec{r})}\]</div>
 <div class="math notranslate nohighlight">
 \[M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})})\]</div>
 </section>
-<section id="contrast">
-<h2>Contrast<a class="headerlink" href="#contrast" title="Permalink to this heading">#</a></h2>
-<p>T2/T2*</p>
-<p>T1</p>
+<section id="mri-system">
+<h2>MRI System<a class="headerlink" href="#mri-system" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
+<li><p>Radiofrequency (RF) coils, including a transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span> - and a receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></li>
+<li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
+</ol>
+</section>
+<section id="mri-experiment">
+<h2>MRI Experiment<a class="headerlink" href="#mri-experiment" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Polarization</p></li>
+<li><p>Excitation</p></li>
+<li><p>Signal Acquisition</p></li>
+</ol>
+<ul class="simple">
+<li><p>Gradients during Excitation and Acquisition for spatial encoding</p></li>
+<li><p>Repeat Excitation and Acquisition as needed</p></li>
+</ul>
+<p>Experiment described by a “Pulse Sequence”</p>
+</section>
+<section id="mr-contrasts">
+<h2>MR Contrasts<a class="headerlink" href="#mr-contrasts" title="Permalink to this heading">#</a></h2>
 <p>spoiled GRE contrast</p>
 <div class="math notranslate nohighlight">
 \[S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
+<p>Contrast weightings: T1w, T2w, PDw</p>
+<p>Magnetization Preparation:</p>
 <p>Inversion Recovery
 $<span class="math notranslate nohighlight">\(S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\)</span>$</p>
 </section>
+<section id="in-vivo-spin-physics">
+<h2>In vivo spin physics<a class="headerlink" href="#in-vivo-spin-physics" title="Permalink to this heading">#</a></h2>
+<p>Magnetic susceptibility effects</p>
+<ul class="simple">
+<li><p>magnetic susceptibility is inherent property of materials</p></li>
+<li><p>differences in magnetic susceptibility lead to distortions of the magnetic field</p></li>
+<li><p>in vivo sources include: iron, oxygenated versus deoxygenated blood</p></li>
+</ul>
+<p>Chemical Shift</p>
+<ul class="simple">
+<li><p>chemcial environment of an atom creates variations in local magnetic field</p></li>
+<li><p>in vivo consideration: “fat”, assumed to have a -3.5 ppm chemcial shift from water protons</p></li>
+</ul>
+</section>
+<section id="in-vivo-contrasts">
+<h2>In vivo contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Permalink to this heading">#</a></h2>
+<p>T2*</p>
+<ul class="simple">
+<li><p>intra-voxel dephasing due to magnetic field inhomogeneity</p></li>
+<li><p>largely driven by magnetic susceptibility</p></li>
+<li><p>eliminate with spin-echo</p></li>
+<li><p>create susceptibility contrast</p></li>
+</ul>
+<p>fat</p>
+<ul class="simple">
+<li><p>fat/water imaging - separate fat and water images based on multiple echo times</p></li>
+<li><p>fat suppression - spectrally-selective RF pulses and/or inversion recovery</p></li>
+</ul>
+<p>Contrast Agents</p>
+<ul class="simple">
+<li><p>Gd-based contrast agents - most common, primarily shortens <span class="math notranslate nohighlight">\(T_1\)</span></p></li>
+<li><p>iron-basec contrast agents - less common, shortens <span class="math notranslate nohighlight">\(T_1\)</span> but also can shorten <span class="math notranslate nohighlight">\(T_2\)</span></p></li>
+</ul>
+</section>
 <section id="rf-pulses">
 <h2>RF Pulses<a class="headerlink" href="#rf-pulses" title="Permalink to this heading">#</a></h2>
-<p>flip angle</p>
-<p>SAR</p>
-<p>TBW = BW_RF T_{RF}</p>
-<p>Slice thickness</p>
-<p>slice shifting</p>
+<p>Pulse Characteristics</p>
+<ul class="simple">
+<li><p>pulse profile - approximately proportional to the Fourier Transform of the pulse shape</p></li>
+<li><p>flip angle
+$<span class="math notranslate nohighlight">\(\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau \)</span>$</p></li>
+<li><p>Time-bandwidth product - constant for a given pulse shape
+$<span class="math notranslate nohighlight">\( TBW = T_{rf} \cdot BW_{rf} \)</span>$</p></li>
+<li><p>SAR
+$<span class="math notranslate nohighlight">\( SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \)</span>$</p></li>
+</ul>
+<p>Slice Selection</p>
+<ul class="simple">
+<li><p>Slice thickness
+$<span class="math notranslate nohighlight">\( \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} \)</span>$</p></li>
+<li><p>Slice shifting
+$<span class="math notranslate nohighlight">\( f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} \)</span>$</p></li>
+</ul>
 </section>
 <section id="spatial-encoding">
 <h2>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Permalink to this heading">#</a></h2>
-<p>k-space</p>
+<p>Frequency encoding - turn on gradient during data acquisition to map frequency to position</p>
+<div class="math notranslate nohighlight">
+\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
+<p>Phase encoding - perform step-wise frequency encoding, which appears in the phase versus position of the signals.   This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \Phi(n) = \gamma (-G_{y,PE} + (n-1) G_{yi} ) t_y y\]</div>
+<p>k-space - define spatial encoding based on the cumulative sum of the gradients (i.e. gradient areas) applied after excitation</p>
 <div class="math notranslate nohighlight">
 \[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
+<ul class="simple">
+<li><p>Formulates image reconstruction as an inverse Fourier Transform</p></li>
+</ul>
 <div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-s(t) &amp; = \int_\mathrm{Volume} M_{XY}(\vec{r},t) \ d\vec{r} \\
- &amp; =  \int_{\textrm{Volume}} M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}
- \end{align}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r})\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
-<div class="math notranslate nohighlight">
-\[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)}$ = M(\vec{k}(t))\]</div>
+\[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)} = M(\vec{k}(t))\]</div>
+<ul class="simple">
+<li><p>describes all MRI acquisitions including frequency and phase encoding</p></li>
+<li><p>effects of gradients can be refocused</p></li>
+<li><p>supports 2D and 3D imaging</p></li>
+</ul>
 </section>
 <section id="image-characeristics">
 <h2>Image Characeristics<a class="headerlink" href="#image-characeristics" title="Permalink to this heading">#</a></h2>
-<p>SNR</p>
-<p>FOV/resolution - in general, in Cartesian sequence</p>
+<div class="math notranslate nohighlight">
+\[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
+<div class="math notranslate nohighlight">
+\[ FOV = \frac{1}{\Delta k}\]</div>
+<div class="math notranslate nohighlight">
+\[ \delta = \frac{1}{2 k_{max}}\]</div>
 </section>
-<section id="mri-signal-equation">
-<h2>MRI Signal Equation<a class="headerlink" href="#mri-signal-equation" title="Permalink to this heading">#</a></h2>
+<section id="ft-imaging-sequence">
+<h2>FT Imaging Sequence<a class="headerlink" href="#ft-imaging-sequence" title="Permalink to this heading">#</a></h2>
+<p>Typical acquisition uses frequency and phase encoding.</p>
+<p>See <a class="reference internal" href="Pulse%20Sequence.html"><span class="doc std std-doc">Pulse Sequence</span></a> for a typical 2D gradient-echo sequence</p>
+<p>Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time</p>
 </section>
-<section id="fast-imaging">
-<h2>Fast Imaging<a class="headerlink" href="#fast-imaging" title="Permalink to this heading">#</a></h2>
-<p>Scan times</p>
-<p>effective TE</p>
+<section id="fast-imaging-pulse-sequences">
+<h2>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Permalink to this heading">#</a></h2>
+<p>Volumetric coverage</p>
+<ul class="simple">
+<li><p>2D multislice imaging - interleave multiple slices within a single TR</p></li>
+<li><p>3D imaging - cover 3D k-space</p></li>
+</ul>
+<p>EPI</p>
+<ul class="simple">
+<li><p>k-space trajectory that covers multiple k-space lines per excitation</p></li>
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
+</ul>
+<p>Multiple Spin-echo imaging (FSE/TSE/RARE)</p>
+<ul class="simple">
+<li><p>multiple spin-echoes per excitation used to acquire different k-space lines</p></li>
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
+<li><p>echo time, <span class="math notranslate nohighlight">\(TE = TE_{eff}\)</span>, defined when data closest to center of k-space is acquired.  Used to create different contrasts</p></li>
+</ul>
+<p>Gradient Echo methods</p>
+<ul class="simple">
+<li><p>Contrast can be changed based on whether transverse magnetization is available or refocused in a subsequent TR</p></li>
+<li><p>Variations based on whether RF and/or gradient spoiling are used</p></li>
+</ul>
+</section>
+<section id="accelerated-imaging-methods">
+<h2>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Permalink to this heading">#</a></h2>
+<p>Partial Fourier</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI approximately satisfies conjugate symmetry property of k-space data</p></li>
+<li><p>How does it work?  Only sample slightly more than half of k-space</p></li>
+</ul>
+<p>Parallel Imaging</p>
+<ul class="simple">
+<li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
+<li><p>How does it work?  Skip k-space data in the direction(s) that have variation in RF coil element sensitivity profiles</p></li>
+<li><p>Key variations: May require measurement of coil sensitivity maps, also autocalibrated methods</p></li>
+</ul>
+<p>Simultaneous Multi-slice</p>
+<ul class="simple">
+<li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
+<li><p>How does it work?  Excite multiple slices simultaneously</p></li>
+</ul>
+<p>Compressed Sensing and Deep Learning Reconstructions</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI data has typical patterns that can be predicted are represented by sparse coefficients</p></li>
+<li><p>How does it work?  Skip k-space data with a pseudo-random pattern.  Define a sparsity domain</p></li>
+</ul>
+<p>Deep Learning Reconstructions</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI data has typical patterns that can be learned</p></li>
+<li><p>How does it work?  Skip k-space data.  Train a neural network using a large MRI dataset.</p></li>
+</ul>
+</section>
+<section id="artifacts">
+<h2>Artifacts<a class="headerlink" href="#artifacts" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="Artifacts.html"><span class="doc std std-doc">Artifacts</span></a> for high-level comparison</p>
 </section>
 </section>
 
@@ -524,6 +684,24 @@ s(t) &amp; = \int_\mathrm{Volume} M_{XY}(\vec{r},t) \ d\vec{r} \\
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Accelerated%20Imaging%20Methods.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accelerated Imaging Methods</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MRI%20Notation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MRI Notation and Terminology</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -539,13 +717,20 @@ s(t) &amp; = \int_\mathrm{Volume} M_{XY}(\vec{r},t) \ d\vec{r} \\
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-physics">Spin Physics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-material">Background Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-spin-physics">MR Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In vivo spin physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In vivo contrasts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characeristics">Image Characeristics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal-equation">MRI Signal Equation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging">Fast Imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
 </ul>
   </nav></div>
 
