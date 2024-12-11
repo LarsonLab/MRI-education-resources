@@ -109,16 +109,24 @@ Contrast Agents
 Pulse Characteristics
 * pulse profile - approximately proportional to the Fourier Transform of the pulse shape
 * flip angle
+
 $$\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau $$
+
 * Time-bandwidth product - constant for a given pulse shape
+
 $$ TBW = T_{rf} \cdot BW_{rf} $$
+
 * SAR
+
 $$ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau $$
 
 Slice Selection
 * Slice thickness
+
 $$ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} $$
+
 * Slice shifting
+
 $$ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} $$
 
 ## Spatial Encoding
