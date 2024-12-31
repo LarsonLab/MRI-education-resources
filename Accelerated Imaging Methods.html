@@ -422,8 +422,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
@@ -547,9 +547,9 @@ m(x_{Nx},y_{Ny})
 <p>resulting in:</p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{y} = \mathbf{Ex} + \mathbf{n} \]</div>
-<section id="image-space-methods">
-<h3>Image-space Methods<a class="headerlink" href="#image-space-methods" title="Permalink to this heading">#</a></h3>
-<p>Image-space parallel imaging methods (e.g. SENSE) can be formulated as the following optimization problem</p>
+<section id="model-based-methods">
+<h3>Model-based Methods<a class="headerlink" href="#model-based-methods" title="Permalink to this heading">#</a></h3>
+<p>Model-based parallel imaging methods use some simulation of the MRI system and include the methods of SENSE, ESPIRiT, and NLINV.  These reconstruct a single underlying image by solving an optimization problem.  The popular SENSE methods solves</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2\]</div>
 <p>This can be solved directly by a pseudo-inverse, but requires measurements of the coil sensitivity profiles to calculate <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>:</p>
@@ -557,9 +557,9 @@ m(x_{Nx},y_{Ny})
 \[\mathbf{\hat{x}}_{PI} = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y} \]</div>
 <p>The k-space sampling patterns used for these methods typically use regular undersampling, meaning there is a consistent pattern of acquired and skipped k-space lines.</p>
 </section>
-<section id="auto-calibrated-k-space-methods">
-<h3>Auto-calibrated K-space Methods<a class="headerlink" href="#auto-calibrated-k-space-methods" title="Permalink to this heading">#</a></h3>
-<p>K-space parallel imaging methods (e.g. GRAPPA) utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>.  These can also be generally formulated as the following optimization problem</p>
+<section id="linear-predictability-methods">
+<h3>Linear Predictability Methods<a class="headerlink" href="#linear-predictability-methods" title="Permalink to this heading">#</a></h3>
+<p>Linear predictability parallel imaging methods assume that each k-space sample is a linear combination of other k-space samples and inlcude the methods of AUTO-SMASH, GRAPPA, and SPIRiT.  These utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, and can be generally formulated as the following optimization problem</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2 \]</div>
 <p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning or regularization parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneous enforces data consistency (first term) as well as self-consistency of the calibration (sescond term).</p>
@@ -568,7 +568,7 @@ m(x_{Nx},y_{Ny})
 </section>
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Permalink to this heading">#</a></h3>
-<p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Typically, more RF coil elements in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, fewer RF coil elements in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
+<p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
 <p>This is characterized by the “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
 <div class="math notranslate nohighlight">
 \[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
@@ -610,7 +610,7 @@ Heuristic procedure for reconstruction from undersampled data. A sparse signal (
 <p>The most straightforward approach using deep learning is to train a CNN to invert the encoding operation in image space, e.g. after applying the inverse Fourier Transform to the data:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\hat{x}}_{DL} = g_{DNN}(\mathbf{E^{H} y})\]</div>
-<p>The learned deeep neural network, <span class="math notranslate nohighlight">\(g_{NN}()\)</span>, includes many weights that must be trained prior to being able to perform the reconstruction.</p>
+<p>The learned deep neural network, <span class="math notranslate nohighlight">\(g_{DNN}()\)</span>, includes many weights that must be trained prior to being able to perform the reconstruction.</p>
 <p>However, so-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and also are often more compact.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
 <p>Variational Networks (VarNets) for undersampled MRI reconstruction are formulated as the above regularlized least-squares objective, but models the architecture after a single gradient update in iterative gradient descent (used to solve optimization problems) and uses a CNN (e.g. UNet) within the iterations</p>
 <p><img alt="Variational Network for MRI Reconstruction" src="_images/end-to-end_varnet.jpg" /></p>
@@ -737,8 +737,8 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-space-methods">Image-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-calibrated-k-space-methods">Auto-calibrated K-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>

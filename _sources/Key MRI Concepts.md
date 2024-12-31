@@ -4,9 +4,9 @@
 
 [MRI Math Concepts](./MRI%20Math%20Concepts.ipynb)
 
-Electricity and Magnetism
-
 Signals and Systems
+
+Electricity and Magnetism
 
 ## MR Spin Physics
 
