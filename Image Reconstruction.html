@@ -421,7 +421,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier">Partial Fourier</a></li>
 </ul>
             </nav>
         </div>
@@ -435,25 +434,13 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
-<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
+<span class="n">cd</span> <span class="o">../</span>
 <span class="n">startup</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
-
-The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
-uses a one-directional pipe and limited information is passed back to the
-Octave interpreter so most changes made interactively in the plot window
-will not be reflected in the graphics properties managed by Octave.  For
-example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
 </pre></div>
@@ -505,45 +492,6 @@ loading signal
 <p><img alt="Image formation from center-out Cartesian k-space data" src="_images/image_formation_centerout_lines.gif" />
 <img alt="Image formation from random Cartesian k-space data" src="_images/image_formation_random_lines.gif" /></p>
 </section>
-<section id="partial-fourier">
-<h2>Partial Fourier<a class="headerlink" href="#partial-fourier" title="Permalink to this heading">#</a></h2>
-<p>Partial Fourier methods, also known as fractional NEX, are a way to sample a reduced amount of k-space while still reconstructing an image.</p>
-<p>These methods note one of the Fourier Transform properties which states that the positive k-space data equals the complex conjugate of the negative k-space data when the object is real-valued:</p>
-<div class="math notranslate nohighlight">
-\[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
-<p>Our object is the transverse magnetization, so if our transverse magnetization is all aligned along <span class="math notranslate nohighlight">\(M_X\)</span> then our object is real-valued and we can apply this relationship.</p>
-<div class="math notranslate nohighlight">
-\[m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0) \]</div>
-<p>Under ideal conditions, the RF pulse can excite the net magnetization just into <span class="math notranslate nohighlight">\(M_X\)</span>, meaning this requirement can be satisfied.    Taken together, this means only half of the k-space data (e.g positive data <span class="math notranslate nohighlight">\(\vec{k} \geq 0\)</span>) can be acquired and it can be used to fill in the negative k-space data.  This means 2 times faster scanning!</p>
-<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
-<p>However, this additional phase is typically contained in the low spatial frequencies, in other words they can be measured by our central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Partial Fourier examples</span>
-
-<span class="n">dataname</span> <span class="p">=</span> <span class="s">&#39;Data/se_t1_sag_data&#39;</span><span class="p">;</span>
-<span class="nb">load</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
-<span class="n">kdata</span> <span class="p">=</span> <span class="n">data</span><span class="p">;</span>
-<span class="n">S</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
-
-<span class="n">im_original</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">im_original</span><span class="p">))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Real(image)&#39;</span><span class="p">)</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">imagesc</span><span class="p">(</span><span class="nb">imag</span><span class="p">(</span><span class="n">im_original</span><span class="p">))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Imag(image)&#39;</span><span class="p">)</span>
-<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-
-
-<span class="c">% is this image suitable for Partial Fourier reconstruction?</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -555,16 +503,16 @@ loading signal
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            name: "octave",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -612,7 +560,6 @@ loading signal
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier">Partial Fourier</a></li>
 </ul>
   </nav></div>
 
