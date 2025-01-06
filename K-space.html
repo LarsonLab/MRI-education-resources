@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Spatial Encoding &#8212; Principles of MRI</title>
+    <title>K-space Encoding &#8212; Principles of MRI</title>
   
   
   
@@ -71,11 +71,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Spatial Encoding';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'K-space';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="K-space Encoding" href="K-space.html" />
-    <link rel="prev" title="MRI Contrast" href="MRI%20Contrast.html" />
+    <link rel="next" title="Image Reconstruction" href="Image%20Reconstruction.html" />
+    <link rel="prev" title="Spatial Encoding" href="Spatial%20Encoding.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,8 +192,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">K-space Encoding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
@@ -295,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpatial Encoding.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FK-space.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Spatial Encoding.ipynb" target="_blank"
+      <li><a href="_sources/K-space.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spatial Encoding</h1>
+    <h1>K-space Encoding</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,10 +420,6 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">Cartesian K-space (Frequency and Phase encoding, or FT Imaging)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
 </ul>
@@ -445,84 +441,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="spatial-encoding">
-<h1>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Permalink to this heading">#</a></h1>
-<p>To create images of the net magnetization, magnetic field gradients are applied in order to modulate the resonance frequency as a function of position.  This section describes the effect of magnetic field gradients during data acquisition to create spatial encoding, and introduces the concept of “k-space” to characterize the gradient encoding.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="k-space-encoding">
+<h1>K-space Encoding<a class="headerlink" href="#k-space-encoding" title="Permalink to this heading">#</a></h1>
+<p>MRI is a so-called Fourier imaging technique, where data is acquired in the Fourier Transform domain.  The Fourier Transform domain is referred to as “k-space”.  This section describes the how to characterize MRI spatial encoding using k-space, including frequency encoding, phase encoding and other k-space trajectories.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Describe how images are formed</p>
 <ul class="simple">
-<li><p>Describe the effects of gradients on the signal</p></li>
-<li><p>Understand why MRI is a Fourier imaging method</p></li>
-<li><p>Describe how MRI data is accumulated and sorted</p></li>
+<li><p>Understand how frequency encoding works</p></li>
+<li><p>Understand how phase encoding works</p></li>
+<li><p>Describe what a k-space trajectory is</p></li>
 </ul>
 </li>
 </ol>
-</section>
-<section id="effects-of-magnetic-field-gradients">
-<h2>Effects of Magnetic Field Gradients<a class="headerlink" href="#effects-of-magnetic-field-gradients" title="Permalink to this heading">#</a></h2>
-<p>Applied magnetic field gradients change the magnetic field linearly with position:</p>
-<div class="math notranslate nohighlight">
-\[\Delta B_z = \vec{G}\cdot\vec{r}\]</div>
-<p>which leads to linear variation in the resonance frequency as a function of position:</p>
-<div class="math notranslate nohighlight">
-\[ f = \bar \gamma \ \vec{G}\cdot\vec{r} \]</div>
-<p>This forms the basis for spatial encoding.</p>
-<p>For constant gradients, <span class="math notranslate nohighlight">\(\vec{G}(t) = \vec{G}_0\)</span>, this variation in frequency can be described by (neglecting relaxation)</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-M_{XY}(\vec{r},t) &amp; =  M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp\left( -i \gamma \vec{G}_0 \cdot \vec{r} \ t \right) \\ 
-&amp; \approx M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \vec{G}_0 \cdot \vec{r} \ t \right)
-\end{align}\end{split}\]</div>
-<p>For general time-varying gradients, their effect is to create phase accumulation depending on the cumulative gradient area, or the integral of the gradient.  This means we can turn the gradients on and off to start and stop the phase accumulation, and also reverse the gradient polarity to undo any prior phase accumulation.</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)\]</div>
-</section>
-<section id="k-space">
-<h2>k-space<a class="headerlink" href="#k-space" title="Permalink to this heading">#</a></h2>
-<p>Here, we introduce the concept of k-space, which is a simplified representation of the phase accumulation due to magnetic field gradients.  It is defined as</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau\]</div>
-<p>The effect of gradients on the transverse magnetization then becomes</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }\]</div>
-<p>The specific motivation for k-space will become apparent soon, when we formulate the signal equation and see that there is a Fourier Transform.</p>
-</section>
-<section id="mri-signal">
-<h2>MRI signal<a class="headerlink" href="#mri-signal" title="Permalink to this heading">#</a></h2>
-<p>The MRI signal comes from the precession of the transverse magnetization, and thus is proportional to the transverse magnetization.  The MRI signal also comes from any precessing magnetization within the sensitive volume of the RF receive coils.  In other words, it is also not localized to a single location, but rather is summed over a volume:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-s(t) &amp; = \int_\mathrm{Volume} M_{XY}(\vec{r},t) \ d\vec{r} \\
- &amp; =  \int_{\textrm{Volume}} M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}
- \end{align}\end{split}\]</div>
-<p>The amazing result here is that this describes our MRI signal in the form of a Fourier Transform:</p>
-<div class="math notranslate nohighlight">
-\[\mathcal{F} \{ f(\vec{r}) \} = F(\vec{k}) = \int_{-\infty}^\infty f(\vec{r}) \exp(-i 2 \pi \vec{k} \cdot  \vec{r}) \ d\vec{r}\]</div>
-<p>This is the power of the k-space representation, that it describes how MRI is sampling data in the Fourier Transform domain, or the spatial frequency domain, of the object net magnetization.  In other words, MRI signals are a measure of the spatial frequencies of our object.</p>
-<p>This result means that, to reconstruct an image we need to put our MRI signals into their k-space location based on the applied gradients, and then use an inverse Fourier Transform.
-Our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, <span class="math notranslate nohighlight">\(\vec{k}\)</span>, that is determined by the k-space trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}(t)} \]</div>
-</section>
-<section id="from-mri-data-to-images">
-<h2>From MRI data to images<a class="headerlink" href="#from-mri-data-to-images" title="Permalink to this heading">#</a></h2>
-<p>First we use the following notation for simplification</p>
-<div class="math notranslate nohighlight">
-\[m(\vec{r}) = M_{XY}(\vec{r},0)\]</div>
-<div class="math notranslate nohighlight">
-\[\mathcal{F}\{ m(\vec{r}) \} = M(\vec{k})\]</div>
-<p>The flow of the experiment and data is as follows:</p>
-<ol class="arabic simple">
-<li><p>RF excitation to create transverse magnetization, <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},0)\)</span></p></li>
-<li><p>Gradients applied as <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span> and data is acquired</p></li>
-<li><p>k-space locations, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, are determined based on the applied gradients</p></li>
-<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location: <span class="math notranslate nohighlight">\( s(t) = M(\vec{k}(t))\)</span></p></li>
-<li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
-<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization <span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span></p></li>
-</ol>
-<p>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
 </section>
 <section id="cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">
 <h2>Cartesian K-space (Frequency and Phase encoding, or FT Imaging)<a class="headerlink" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging" title="Permalink to this heading">#</a></h2>
@@ -809,20 +741,20 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="MRI%20Contrast.html"
+       href="Spatial%20Encoding.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">MRI Contrast</p>
+        <p class="prev-next-title">Spatial Encoding</p>
       </div>
     </a>
     <a class="right-next"
-       href="K-space.html"
+       href="Image%20Reconstruction.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">K-space Encoding</p>
+        <p class="prev-next-title">Image Reconstruction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -842,10 +774,6 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space">k-space</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-signal">MRI signal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cartesian-k-space-frequency-and-phase-encoding-or-ft-imaging">Cartesian K-space (Frequency and Phase encoding, or FT Imaging)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
 </ul>
