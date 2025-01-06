@@ -18,6 +18,7 @@ parts:
   - caption: Image Formation
     chapters:
     - file: "Spatial Encoding"
+    - file: "K-space"
     - file: "Image Reconstruction"
   - caption: Image Characteristics
     chapters:
