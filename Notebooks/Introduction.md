@@ -10,7 +10,7 @@ Upon completing this book, the following Learning Goals should be achieved
 
 1. Describe the 4 fundmanetal components of a MRI scan and why they are necessary
 1. Understand what MRI is measuring
-1. Describe the concepts of polarization, resonance, and relaxation
+1. Describe the concepts of polarization, resonance, excitation, and relaxation
 1. Describe how various types of MRI contrast are created
 1. Describe how images are formed
 1. Understand the most popular pulse sequences and their acronyms
