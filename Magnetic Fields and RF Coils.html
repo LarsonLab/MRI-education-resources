@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Magnetic fields in MRI &#8212; Principles of MRI</title>
   
@@ -15,47 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -63,12 +60,16 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Magnetic Fields and RF Coils';</script>
@@ -85,28 +86,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -128,12 +124,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -149,6 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="Introduction.html">
@@ -167,7 +173,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -239,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -248,14 +265,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -380,10 +397,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -391,14 +408,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -451,10 +468,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="magnetic-fields-in-mri">
-<h1>Magnetic fields in MRI<a class="headerlink" href="#magnetic-fields-in-mri" title="Permalink to this heading">#</a></h1>
+<h1>Magnetic fields in MRI<a class="headerlink" href="#magnetic-fields-in-mri" title="Link to this heading">#</a></h1>
 <p>The magnetic fields created and manipulated during a MRI experiment critically determine the entire MRI experiment.  We will provide some background on creating and detecting magnetic fields, and then describe the magnetic fields present in MRI systems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -474,7 +491,7 @@ document.write(`
 </div>
 </div>
 <section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Describe the 4 fundmanetal components of a MRI scan and why they are necessary</p>
 <ul class="simple">
@@ -490,9 +507,9 @@ document.write(`
 </ol>
 </section>
 <section id="magnetic-fields">
-<h2>Magnetic Fields<a class="headerlink" href="#magnetic-fields" title="Permalink to this heading">#</a></h2>
+<h2>Magnetic Fields<a class="headerlink" href="#magnetic-fields" title="Link to this heading">#</a></h2>
 <p>Each of the main components of a MRI system creates magnetic fields, but with different orientations, magnitudes, and frequencies, which are summarized in the following table</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Component</p></th>
 <th class="head"><p>Notation</p></th>
@@ -547,10 +564,11 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>Also included is the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, which captures the magnetic fields resulting from nuclear spins that we measure in MRI.</p>
 </section>
 <section id="loop-currents-and-magnetic-fields">
-<h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Permalink to this heading">#</a></h2>
+<h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Link to this heading">#</a></h2>
 <p>Magnetic fields, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, can be created by current, <span class="math notranslate nohighlight">\(I\)</span>, through loop of wire, governed by the principles of electromagnetism in Maxwell’s equations.  The the “left-hand rule” determines the direction of the magnetic field.</p>
 <p><img alt="loop%20small%20current.png" src="_images/loop_small_current.png" /></p>
 <p>By increasing the current, the magnetic field is increased</p>
@@ -560,7 +578,7 @@ document.write(`
 <p>A solenoid design is typically used to create the main magnetic field for MRI, <span class="math notranslate nohighlight">\(B_0\)</span>, to create a large region in space with a homogeneous magnetic field, as required for MRI across a volume.</p>
 </section>
 <section id="main-magnet-b-0">
-<h2>Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span><a class="headerlink" href="#main-magnet-b-0" title="Permalink to this heading">#</a></h2>
+<h2>Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span><a class="headerlink" href="#main-magnet-b-0" title="Link to this heading">#</a></h2>
 <p>The main magnetic field is created with solenoid coils, shown above, that can provide a large region in space where there is large, homogeneous magnetic field.<br />
 The large magnetic field is required to create stronger polarization.
 The large region is space determines where we can create an image.
@@ -576,7 +594,7 @@ B_0
 <p>(Note that this magnetic field is never perfect, and this is captured by the main field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span> in the table above, we’ll add that in later.)</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
-<h2>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Permalink to this heading">#</a></h2>
+<h2>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Link to this heading">#</a></h2>
 <p>The magnetic field gradient coils are designed to add and subtract from the main magnetic field.  In this way, they create a spatially varying magnetic field.  Since the frequency of magnetic resonance is proportional to the magnetic field, this means that when the gradients are on the resonance frequency varies as function of position.  This gives us a way to separate signals from different regions based on resonance frequency, and create images.</p>
 <p>The gradient coil fields have a maximum amplitude of around 50 mT/m = 0.05 T/m, aligned with <span class="math notranslate nohighlight">\(B_0\)</span> in the z-direction, and this field is switched on and off during MRI experiments.  The gradients are typically varied every few ms, with minimum switching times around 0.1 ms.  Mathematically, we can add this to our magnetic field vector:</p>
 <div class="math notranslate nohighlight">
@@ -589,7 +607,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>Where the gradients creates linear changes in the z-component of the magnetic field, <span class="math notranslate nohighlight">\(B_Z\)</span>, across space.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
-<h2>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Permalink to this heading">#</a></h2>
+<h2>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Link to this heading">#</a></h2>
 <p>The purpose of the RF coils and RF systems are</p>
 <ol class="arabic simple">
 <li><p>Excitation – perturb the net magnetization from equilibrium by creating magnetic fields at the resonance frequency</p></li>
@@ -606,7 +624,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>Note that the sin/cos in the magnetic field represent a rotation of the RF field at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>.</p>
 <p>The RF system is divided up into transmit and receive paths.  All components are tuned to Larmor frequency, meaning they are most sensitive to transmitting or receiving signals at this frequency.  Reactive components (capacitors and inductors) are used for tuning to the correct frequency.</p>
 <section id="transmit-tx-system-for-excitation-b-1-vec-r-t">
-<h3>Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span><a class="headerlink" href="#transmit-tx-system-for-excitation-b-1-vec-r-t" title="Permalink to this heading">#</a></h3>
+<h3>Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span><a class="headerlink" href="#transmit-tx-system-for-excitation-b-1-vec-r-t" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Transmit high power (10s of kW) RF signals</p></li>
 <li><p>Key requirement is homogeneity, i.e. same magnetic field that creates the same flip angle across imaging FOV</p></li>
@@ -614,7 +632,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </ul>
 </section>
 <section id="receive-rx-system-for-reception-b-1-vec-r-t">
-<h3>Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#receive-rx-system-for-reception-b-1-vec-r-t" title="Permalink to this heading">#</a></h3>
+<h3>Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#receive-rx-system-for-reception-b-1-vec-r-t" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Receive small signals (mV) arising from body</p></li>
 <li><p>Key requirement is high sensitivity to detect small signals with the least noise</p></li>
@@ -622,30 +640,30 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </ul>
 </section>
 <section id="creating-transmit-rf-fields">
-<h3>Creating Transmit RF fields<a class="headerlink" href="#creating-transmit-rf-fields" title="Permalink to this heading">#</a></h3>
+<h3>Creating Transmit RF fields<a class="headerlink" href="#creating-transmit-rf-fields" title="Link to this heading">#</a></h3>
 <p>To create transmit RF fields, we simply put an oscillating electric current into a loop of wire, which is simulated below.  When this is performed at the Larmor frequency, this creates RF excitation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>R = .1; % coil radius [m]
-I0 = 0.1; % current amplitude [amps]
-mu0 = 4*pi*1e-7; % T⋅m/A; 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="mf">.1</span><span class="p">;</span> <span class="o">%</span> <span class="n">coil</span> <span class="n">radius</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="o">%</span> <span class="n">current</span> <span class="n">amplitude</span> <span class="p">[</span><span class="n">amps</span><span class="p">]</span>
+<span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="mf">1e-7</span><span class="p">;</span> <span class="o">%</span> <span class="n">T</span><span class="err">⋅</span><span class="n">m</span><span class="o">/</span><span class="n">A</span><span class="p">;</span> 
 
-t = linspace(0,4, 401);
-I = cos(2*pi*t) * I0;
+<span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">I0</span><span class="p">;</span>
 
 
-BZ = mu0 * I / (2*R);    % magnetic field at the center of a single loop
+<span class="n">BZ</span> <span class="o">=</span> <span class="n">mu0</span> <span class="o">*</span> <span class="n">I</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">);</span>    <span class="o">%</span> <span class="n">magnetic</span> <span class="n">field</span> <span class="n">at</span> <span class="n">the</span> <span class="n">center</span> <span class="n">of</span> <span class="n">a</span> <span class="n">single</span> <span class="n">loop</span>
 
-subplot(211)
-plot(t,I)
-ylabel(&#39;I (A)&#39;)
-xlabel(&#39;time&#39;)
-title([&#39;Current in a single loop coil of radius &#39; num2str(R) &#39; [m]&#39;])
-subplot(212)
-plot(t,BZ)
-ylabel(&#39;B_Z (T)&#39;)
-xlabel(&#39;time&#39;)
-title([&#39;Magnetic field at center of the coil&#39;])
+<span class="n">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">I</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;I (A)&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">([</span><span class="s1">&#39;Current in a single loop coil of radius &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="s1">&#39; [m]&#39;</span><span class="p">])</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">BZ</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;B_Z (T)&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">([</span><span class="s1">&#39;Magnetic field at center of the coil&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -655,7 +673,7 @@ title([&#39;Magnetic field at center of the coil&#39;])
 </div>
 </section>
 <section id="receiving-magnetic-resonance-signal">
-<h3>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Permalink to this heading">#</a></h3>
+<h3>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Link to this heading">#</a></h3>
 <p>Magnetic resonsance signal is received by the following sequence of events</p>
 <ol class="arabic simple">
 <li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span></p></li>
@@ -665,14 +683,14 @@ title([&#39;Magnetic field at center of the coil&#39;])
 <p><img alt="RF%20reception.gif" src="_images/RF_reception.gif" /></p>
 </section>
 <section id="reciprocity">
-<h3>Reciprocity<a class="headerlink" href="#reciprocity" title="Permalink to this heading">#</a></h3>
+<h3>Reciprocity<a class="headerlink" href="#reciprocity" title="Link to this heading">#</a></h3>
 <p>The principle of reciprocity in electromagnetism tells us that the same relationships govern creating magnetic fields from oscillating currents and creating electric currents from oscillating magnetic fields.  So far we have discussed that an oscillating current in a loop of wire will create an oscillating magnetic field, which describes the transmit RF process.  So, reciprocity says that an oscillating magnetic field will create a current in a loop of wire.  This describe the receive RF process, as shown above.</p>
 </section>
 </section>
 <section id="rf-coils">
-<h2>RF Coils<a class="headerlink" href="#rf-coils" title="Permalink to this heading">#</a></h2>
+<h2>RF Coils<a class="headerlink" href="#rf-coils" title="Link to this heading">#</a></h2>
 <section id="transmit-tx-rf-coils">
-<h3>Transmit (Tx) RF coils<a class="headerlink" href="#transmit-tx-rf-coils" title="Permalink to this heading">#</a></h3>
+<h3>Transmit (Tx) RF coils<a class="headerlink" href="#transmit-tx-rf-coils" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Typically performed with “BODY” coil</p></li>
 <li><p>Birdcage design</p></li>
@@ -686,7 +704,7 @@ title([&#39;Magnetic field at center of the coil&#39;])
 <p><img alt="BODY coil" src="_images/BODY_coil.png" /></p>
 </section>
 <section id="receive-rx-rf-coils">
-<h3>Receive (Rx) RF coils<a class="headerlink" href="#receive-rx-rf-coils" title="Permalink to this heading">#</a></h3>
+<h3>Receive (Rx) RF coils<a class="headerlink" href="#receive-rx-rf-coils" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Tailored to the anatomy of interest, e.g. knee coils, abdomen coils, head coils</p></li>
 <li><p>Configured in arrays (or “phased arrays”)</p></li>
@@ -704,14 +722,14 @@ title([&#39;Magnetic field at center of the coil&#39;])
 </section>
 </section>
 <section id="rf-coil-profiles">
-<h2>RF Coil Profiles<a class="headerlink" href="#rf-coil-profiles" title="Permalink to this heading">#</a></h2>
+<h2>RF Coil Profiles<a class="headerlink" href="#rf-coil-profiles" title="Link to this heading">#</a></h2>
 <section id="receive-elements">
-<h3>Receive elements<a class="headerlink" href="#receive-elements" title="Permalink to this heading">#</a></h3>
+<h3>Receive elements<a class="headerlink" href="#receive-elements" title="Link to this heading">#</a></h3>
 <p>Coil elements are most sensitive to signals originating near the element, and the so-called sensitivity off as we move away from the coil.  The following images show that each element is most sensitive, or has the brightest image, closest to that element:</p>
 <p><img alt="Spine Array" src="_images/SpineArray.png" /></p>
 </section>
 <section id="sensitivity-simulation">
-<h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Permalink to this heading">#</a></h3>
+<h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Link to this heading">#</a></h3>
 <p>The following simulates the sensitivity profile of a single loop RF coil varying over space, using the Biot-Savart law from electromagnetism.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +810,7 @@ title([&#39;Magnetic field at center of the coil&#39;])
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -821,6 +839,7 @@ title([&#39;Magnetic field at center of the coil&#39;])
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -902,8 +921,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

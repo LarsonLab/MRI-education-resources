@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Bloch Equation &#8212; Principles of MRI</title>
   
@@ -15,47 +14,45 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -63,12 +60,16 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MR Physics - Bloch Equation';</script>
@@ -85,28 +86,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -128,12 +124,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -149,6 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="Introduction.html">
@@ -167,7 +173,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -239,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -248,14 +265,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -380,10 +397,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -391,14 +408,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -445,10 +462,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bloch-equation">
-<h1>Bloch Equation<a class="headerlink" href="#bloch-equation" title="Permalink to this heading">#</a></h1>
+<h1>Bloch Equation<a class="headerlink" href="#bloch-equation" title="Link to this heading">#</a></h1>
 <p>The Bloch Equation, named after physicist Felix Bloch who won the Nobel Prize for discovery of magnetic resonance phenomena, describes almost all behavior seen in MRI.  Here, we will describe this equation and derive key results to use for explaining the behavior of the net magnetization and its interaction with magnetic fields.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,23 +479,31 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: using the gnuplot graphics toolkit is discouraged
 
 The gnuplot graphics toolkit is not actively maintained and has a number
-of limitations that are ulikely to be fixed.  Communication with gnuplot
+of limitations that are unlikely to be fixed.  Communication with gnuplot
 uses a one-directional pipe and limited information is passed back to the
 Octave interpreter so most changes made interactively in the plot window
 will not be reflected in the graphics properties managed by Octave.  For
 example, if the plot window is closed with a mouse click, Octave will not
-be notified and will not update it&#39;s internal list of open figure windows.
-We recommend using the qt toolkit instead.
+be notified and will not update its internal list of open figure windows.
+The qt toolkit is recommended instead.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
-loading signal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading signal
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Understand what MRI is measuring</p>
 <ul class="simple">
@@ -494,7 +519,7 @@ loading signal
 </ol>
 </section>
 <section id="the-bloch-equation">
-<h2>THE Bloch Equation<a class="headerlink" href="#the-bloch-equation" title="Permalink to this heading">#</a></h2>
+<h2>THE Bloch Equation<a class="headerlink" href="#the-bloch-equation" title="Link to this heading">#</a></h2>
 <p>The Bloch equation describes the behavior of the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, in a magnetic field, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t)\)</span>, and can describe the vast majority of all MRI phenomena.  While the complete Bloch Equation is presented here, we can typically use results derived from this equation to analyze and design MRI experiments.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -525,7 +550,7 @@ M_0(\vec{r})/T_1(\vec{r})
 <a class="reference external" href="https://www.drcmr.dk/BlochSimulator/">Bloch Equation Simulator</a></p>
 </section>
 <section id="precession">
-<h2>Precession<a class="headerlink" href="#precession" title="Permalink to this heading">#</a></h2>
+<h2>Precession<a class="headerlink" href="#precession" title="Link to this heading">#</a></h2>
 <p>The first term in the Bloch equation means that the
 net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span> rotates around the magnetic field, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, with a left-handed rotation.  This rotation is sometimes referred to as precession.</p>
 <p>To observe this, we neglect relaxation (<span class="math notranslate nohighlight">\(T_1, T_2 \rightarrow \infty\)</span>):</p>
@@ -536,7 +561,7 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 \]</div>
 <p><img alt="RF reception" src="_images/RF_reception.gif" /></p>
 <section id="simulation-of-precession">
-<h3>Simulation of Precession<a class="headerlink" href="#simulation-of-precession" title="Permalink to this heading">#</a></h3>
+<h3>Simulation of Precession<a class="headerlink" href="#simulation-of-precession" title="Link to this heading">#</a></h3>
 <p>Open up the <a class="reference external" href="https://www.drcmr.dk/BlochSimulator/">Bloch Equation Simulator</a>.  You will see a visualization of a net magnetization vector that is precessing around the magnetic field (thin line).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -574,17 +599,13 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -9.5540
-ans = -9.5540
-</pre></div>
-</div>
-<img alt="_images/960ae2df059fe612a2adf2167de388c4df90389d4357c26db96ce8b3b62aed41.png" src="_images/960ae2df059fe612a2adf2167de388c4df90389d4357c26db96ce8b3b62aed41.png" />
+<img alt="_images/d4288dd376c6ed05f25dcbbdc2097d10bd7b13372753e22309aeae3c506846f8.png" src="_images/d4288dd376c6ed05f25dcbbdc2097d10bd7b13372753e22309aeae3c506846f8.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="rf-excitation">
-<h2>RF Excitation<a class="headerlink" href="#rf-excitation" title="Permalink to this heading">#</a></h2>
+<h2>RF Excitation<a class="headerlink" href="#rf-excitation" title="Link to this heading">#</a></h2>
 <p>RF excitation occurs when an oscillating magnetic field is applied orthogonally to the main magnetic field.  If we apply RF at the Larmor frequency, the magnetic field would be</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(\vec{r},t) = 
@@ -595,12 +616,12 @@ B_0
 \end{bmatrix}\end{split}\]</div>
 <p>When applied at the Larmor frequency, the applied RF energy and the net magnetization are in resonance, and we achieve excitation.</p>
 <section id="example-constant-amplitude-pulse">
-<h3>Example: Constant amplitude pulse<a class="headerlink" href="#example-constant-amplitude-pulse" title="Permalink to this heading">#</a></h3>
+<h3>Example: Constant amplitude pulse<a class="headerlink" href="#example-constant-amplitude-pulse" title="Link to this heading">#</a></h3>
 <p>A good first RF excitation pulse to consider is a constant amplitude RF pulse, <span class="math notranslate nohighlight">\(B_{1}^+(\vec{r},t) = B_{1,0}\)</span>.  When this is applied on resonance, the Bloch equation results in a progressive rotation of the net magnetization away from the z-axis, as illustrated below:</p>
 <p><img alt="RF excitation Lab Frame" src="_images/RF_hard_lab_frame_on-resonance.gif" /></p>
 </section>
 <section id="lab-versus-rotating-frame">
-<h3>Lab versus Rotating Frame<a class="headerlink" href="#lab-versus-rotating-frame" title="Permalink to this heading">#</a></h3>
+<h3>Lab versus Rotating Frame<a class="headerlink" href="#lab-versus-rotating-frame" title="Link to this heading">#</a></h3>
 <p>For simplification, we use the so-called “rotating frame” - a reference frame that is rotating around the main field (z-axis) at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>, which greatly simplifies the interpretation, visualization, and math when analyzing the Bloch equation.  This is in contrast to the “lab frame” or “stationary frame”.</p>
 <p>In the rotating frame, the magnetic field vector is transformed to both have the rotation of the RF pulse terms removed.  In this transformation of reference frames, the main magnetic field, <span class="math notranslate nohighlight">\(B_0\)</span>, is also removed.  This change in the representation removes the precession of <span class="math notranslate nohighlight">\(\vec{M}\)</span> around the z-axis, as we should expect in the rotating frame.</p>
 <div class="math notranslate nohighlight">
@@ -614,11 +635,11 @@ B_{1,Y}^+(\vec{r},t) \\
 <p><img alt="RF excitation Rotating Frame" src="_images/RF_hard_rotating_frame_on-resonance.gif" /></p>
 </section>
 <section id="common-flip-angle-rf-excitations">
-<h3>Common flip angle RF excitations<a class="headerlink" href="#common-flip-angle-rf-excitations" title="Permalink to this heading">#</a></h3>
+<h3>Common flip angle RF excitations<a class="headerlink" href="#common-flip-angle-rf-excitations" title="Link to this heading">#</a></h3>
 <p>For a constant amplitude RF pulse, the flip angle depends on the duration of the RF pulse, <span class="math notranslate nohighlight">\(T_{rf}\)</span> and the strength of the RF magnetic field, <span class="math notranslate nohighlight">\(b_{1,0}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\theta = \gamma  b_{1,0} T_{rf} \]</div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><img alt="RF 45-degree flip" src="_images/RF_45flip.gif" /></p></th>
 <th class="head text-center"><p><img alt="RF 90-degree flip" src="_images/RF_90flip.gif" /></p></th>
@@ -632,9 +653,10 @@ B_{1,Y}^+(\vec{r},t) \\
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="simulations-of-rf-excitation">
-<h3>Simulations of RF Excitation<a class="headerlink" href="#simulations-of-rf-excitation" title="Permalink to this heading">#</a></h3>
+<h3>Simulations of RF Excitation<a class="headerlink" href="#simulations-of-rf-excitation" title="Link to this heading">#</a></h3>
 <p>Again, open up the <a class="reference external" href="https://www.drcmr.dk/BlochSimulator/">Bloch Equation Simulator</a>.</p>
 <ol class="arabic simple">
 <li><p>Lab versus rotating frame:  The default view is in the lab (stationary) frame.  If you select the ‘B0’ option from the ‘Frame’ in the top left it will change to the rotating frame.</p></li>
@@ -698,11 +720,7 @@ B_{1,Y}^+(\vec{r},t) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.513
-ans = -12.513
-</pre></div>
-</div>
-<img alt="_images/60e7d3679630f0b0d959bdef8300d6cf3abfda46cfae772509150d26b636c34f.png" src="_images/60e7d3679630f0b0d959bdef8300d6cf3abfda46cfae772509150d26b636c34f.png" />
+<img alt="_images/0bbcdcca94ab6d63a6d69ac00483efa0dcb54a7be4de85ac31e5a2ea1144af9e.png" src="_images/0bbcdcca94ab6d63a6d69ac00483efa0dcb54a7be4de85ac31e5a2ea1144af9e.png" />
 </div>
 </div>
 <p>To achieve excitation the RF pulse is applied at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>.  With a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p>
@@ -731,11 +749,7 @@ ans = -12.513
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.192
-ans = -12.192
-</pre></div>
-</div>
-<img alt="_images/5a13ff251dea32a7faaac41626649ee77b778d3c79c7932059c146f3ce325276.png" src="_images/5a13ff251dea32a7faaac41626649ee77b778d3c79c7932059c146f3ce325276.png" />
+<img alt="_images/290c4c0a5c775cbaa7e300fa31d84c4a4e8c9eddb8d14fdacfffe7fd35ed3649.png" src="_images/290c4c0a5c775cbaa7e300fa31d84c4a4e8c9eddb8d14fdacfffe7fd35ed3649.png" />
 </div>
 </div>
 <p>Finally, the simulation is converted into the rotating frame.  It is hard to visualize the transverse magnetization in the lab because it is rotating at the Larmor frequency.  The excitation is more clearly visualized in the rotating frame.</p>
@@ -764,17 +778,13 @@ ans = -12.192
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.438
-ans = -12.438
-</pre></div>
-</div>
-<img alt="_images/52296173825700c6e7f7f6a63c1e633763673ed3c817f1704f25cdd13b88f423.png" src="_images/52296173825700c6e7f7f6a63c1e633763673ed3c817f1704f25cdd13b88f423.png" />
+<img alt="_images/1be7151a30f62bca06684c0cdc8eb3a46ee98cc51fedfbc4cf7d27511e759d72.png" src="_images/1be7151a30f62bca06684c0cdc8eb3a46ee98cc51fedfbc4cf7d27511e759d72.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="relaxation">
-<h2>Relaxation<a class="headerlink" href="#relaxation" title="Permalink to this heading">#</a></h2>
+<h2>Relaxation<a class="headerlink" href="#relaxation" title="Link to this heading">#</a></h2>
 <p>The other key result of the Bloch equation is that the net magnetization will return to equilibriuam over time with specific time constants, called <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.  More specifically relaxation depends on</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(M_0(\vec{r})\)</span> - the equilibrium magnetization, where the magnetic field ultimately is oriented in the same direction as the main magnetic field along the z-axis as: <span class="math notranslate nohighlight">\(\vec{M}(\vec{r}, t \rightarrow \infty) = [0, 0, M_0(\vec{r})]^T\)</span></p></li>
@@ -824,7 +834,7 @@ M_0(1-e^{-t/T_1})
 <p><strong>T1 and T2 relaxation after RF Excitation</strong></p>
 <p><img alt="Relaxation T1 and T2" src="_images/relaxation_t1t2.gif" /></p>
 <section id="simulation-of-relaxation">
-<h3>Simulation of Relaxation<a class="headerlink" href="#simulation-of-relaxation" title="Permalink to this heading">#</a></h3>
+<h3>Simulation of Relaxation<a class="headerlink" href="#simulation-of-relaxation" title="Link to this heading">#</a></h3>
 <p>One more time, open up the <a class="reference external" href="https://www.drcmr.dk/BlochSimulator/">Bloch Equation Simulator</a>.  Under the ‘Relaxation’ options in the top left, you can adjust T1 and T2 relaxation rates.</p>
 <ol class="arabic simple">
 <li><p>Experiment with different T1 and T2 relaxation values</p></li>
@@ -881,11 +891,7 @@ M_0(1-e^{-t/T_1})
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -12.657
-ans = -12.657
-</pre></div>
-</div>
-<img alt="_images/02ce669ad0b5dd91283feee8b19371dc6510c2ed6d0eca05a5454529a4eeeab6.png" src="_images/02ce669ad0b5dd91283feee8b19371dc6510c2ed6d0eca05a5454529a4eeeab6.png" />
+<img alt="_images/b732719cc9923a52b10712ecf199dfc1edc1d1808557cb857d66c3f3773571a4.png" src="_images/b732719cc9923a52b10712ecf199dfc1edc1d1808557cb857d66c3f3773571a4.png" />
 </div>
 </div>
 </section>
@@ -919,7 +925,7 @@ ans = -12.657
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -948,6 +954,7 @@ ans = -12.657
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1023,8 +1030,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
