@@ -3,5 +3,5 @@ octave-optim
 octave-image
 octave-signal
 octave-miscellaneous
-liboctave-dev
+octave-dev
 ghostscript
