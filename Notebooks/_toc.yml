@@ -6,15 +6,26 @@ root: Introduction
 parts:
   - caption: Magnetic Resonance Physics
     chapters:
-    - file: "MRI System"
     - file: "Spin Physics"
-    - file: "MR Physics - Bloch Equation"
+    - file: "Bloch Equation"
+    - file: "In Vivo Spin Physics"
+  - caption: MRI System
+    chapters:
+    - file: "MRI System"
     - file: "Magnetic Fields and RF Coils"
   - caption: MR Experiment
     chapters:
+    - file: "MRI Signal Equation"
     - file: "Pulse Sequence"
     - file: "Gradient and Spin Echoes"
-    - file: "MRI Contrast"
+  - caption: Contrast
+    chapters:
+    - file: "Basic Contrast Mechanisms"
+    - file: "In vivo Contrast Mechanisms"
+  - caption: Radiofrequency Pulses
+    chapters:
+    - file: "RF Pulses"
+    - file: "Slice Selection"
   - caption: Image Formation
     chapters:
     - file: "Spatial Encoding"
@@ -24,13 +35,7 @@ parts:
     chapters:
     - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
-    - file: "MRI Signal Equation"
     - file: "Artifacts"
-  - caption: Radiofrequency Pulses
-    chapters:
-    - file: "RF Pulses"
-    - file: "Spectral-Spatial RF Pulses"
-    - file: "Fun with RF Pulses"
   - caption: Fast Imaging
     chapters:
     - file: "Fast Imaging Pulse Sequences"
@@ -42,4 +47,9 @@ parts:
     chapters:
     - file: "MRI Notation"
     - file: "MRI Math Concepts"
+    - file: "Signals and Systems for MRI"
     - file: "Software_Resources"
+  - caption: Advanced and Fun Topics
+    chapters:
+    - file: "Spectral-Spatial RF Pulses"
+    - file: "Fun with RF Pulses"

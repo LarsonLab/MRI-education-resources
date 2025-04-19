@@ -34,7 +34,7 @@ You can also access a full playlist of my lectures
 
 ## Using MRI-Education-Resources code
 
-If you would like to use the associated code that goes along with this book, it is available at the git repository https://github.com/LarsonLab/MRI-education-resources, and also the GitHub icon above.  I recommend cloning the repository via the GitHub Desktop application, this way you get all the code at once and then can pull any updates made to the repository.
+There is a set of some associated code that goes along with this book, it is available at the git repository https://github.com/LarsonLab/MRI-education-resources, and also the GitHub icon above.  I recommend cloning the repository via the GitHub Desktop application, this way you get all the code at once and then can pull any updates made to the repository.
 
 ## Acknowledgements
 
