@@ -15,8 +15,8 @@ parts:
     - file: "Magnetic Fields and RF Coils"
   - caption: MR Experiment
     chapters:
-    - file: "MRI Signal Equation"
     - file: "Pulse Sequence"
+    - file: "MRI Signal Equation"
     - file: "Gradient and Spin Echoes"
   - caption: Contrast
     chapters:
@@ -35,7 +35,10 @@ parts:
     chapters:
     - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
-    - file: "Artifacts"
+  - caption: Imperfections and Artifacts
+    chapters:
+    - file: "Blurring and Displacement"
+    - file: "Artifacts Inventory and Examples"
   - caption: Fast Imaging
     chapters:
     - file: "Fast Imaging Pulse Sequences"
