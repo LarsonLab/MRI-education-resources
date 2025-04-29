@@ -54,5 +54,6 @@ parts:
     - file: "Software_Resources"
   - caption: Advanced and Fun Topics
     chapters:
+    - file: "Excitation K-space"
     - file: "Spectral-Spatial RF Pulses"
     - file: "Fun with RF Pulses"
