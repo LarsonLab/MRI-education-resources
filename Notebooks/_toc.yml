@@ -13,15 +13,15 @@ parts:
     chapters:
     - file: "MRI System"
     - file: "Magnetic Fields and RF Coils"
-  - caption: MR Experiment
+  - caption: MRI Experiment
     chapters:
     - file: "Pulse Sequence"
     - file: "MRI Signal Equation"
-    - file: "Gradient and Spin Echoes"
   - caption: Contrast
     chapters:
     - file: "Basic Contrast Mechanisms"
     - file: "In vivo Contrast Mechanisms"
+    - file: "Gradient and Spin Echoes"
   - caption: Radiofrequency Pulses
     chapters:
     - file: "RF Pulses"
