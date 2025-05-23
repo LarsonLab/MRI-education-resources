@@ -22,6 +22,7 @@ parts:
     - file: "Basic Contrast Mechanisms"
     - file: "In vivo Contrast Mechanisms"
     - file: "Gradient and Spin Echoes"
+    - file: "Image Contrast Examples"
   - caption: Radiofrequency Pulses
     chapters:
     - file: "RF Pulses"
