@@ -27,6 +27,7 @@ parts:
     chapters:
     - file: "RF Pulses"
     - file: "Slice Selection"
+    - file: "RF Pulse Design"
   - caption: Image Formation
     chapters:
     - file: "Spatial Encoding"
