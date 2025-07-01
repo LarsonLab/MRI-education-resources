@@ -59,3 +59,4 @@ parts:
     - file: "Excitation K-space"
     - file: "Spectral-Spatial RF Pulses"
     - file: "Fun with RF Pulses"
+    - file: "Advanced SNR"
