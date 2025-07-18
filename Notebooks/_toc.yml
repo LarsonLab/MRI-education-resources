@@ -39,8 +39,8 @@ parts:
     - file: "FOV and Resolution"
   - caption: Imperfections and Artifacts
     chapters:
-    - file: "Blurring and Displacement"
-    - file: "Artifacts Inventory and Examples"
+    - file: "Artifacts"
+    - file: "Point Spread Function Analysis"
   - caption: Fast Imaging
     chapters:
     - file: "Fast Imaging Pulse Sequences"
