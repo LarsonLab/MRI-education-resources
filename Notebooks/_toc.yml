@@ -6,15 +6,28 @@ root: Introduction
 parts:
   - caption: Magnetic Resonance Physics
     chapters:
-    - file: "MRI System"
     - file: "Spin Physics"
-    - file: "MR Physics - Bloch Equation"
+    - file: "Bloch Equation"
+    - file: "In Vivo Spin Physics"
+  - caption: MRI System
+    chapters:
+    - file: "MRI System"
     - file: "Magnetic Fields and RF Coils"
-  - caption: MR Experiment
+  - caption: MRI Experiment
     chapters:
     - file: "Pulse Sequence"
+    - file: "MRI Signal Equation"
+  - caption: Contrast
+    chapters:
+    - file: "Basic Contrast Mechanisms"
+    - file: "In vivo Contrast Mechanisms"
     - file: "Gradient and Spin Echoes"
-    - file: "MRI Contrast"
+    - file: "Image Contrast Examples"
+  - caption: Radiofrequency Pulses
+    chapters:
+    - file: "RF Pulses"
+    - file: "Slice Selection"
+    - file: "RF Pulse Design"
   - caption: Image Formation
     chapters:
     - file: "Spatial Encoding"
@@ -24,13 +37,11 @@ parts:
     chapters:
     - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
-    - file: "MRI Signal Equation"
-    - file: "Artifacts"
-  - caption: Radiofrequency Pulses
+    - file: "2D FT Image Characteristics"
+  - caption: Imperfections and Artifacts
     chapters:
-    - file: "RF Pulses"
-    - file: "Spectral-Spatial RF Pulses"
-    - file: "Fun with RF Pulses"
+    - file: "Artifacts"
+    - file: "Point Spread Function Analysis"
   - caption: Fast Imaging
     chapters:
     - file: "Fast Imaging Pulse Sequences"
@@ -43,3 +54,9 @@ parts:
     - file: "MRI Notation"
     - file: "MRI Math Concepts"
     - file: "Software_Resources"
+  - caption: Advanced and Fun Topics
+    chapters:
+    - file: "Excitation K-space"
+    - file: "Spectral-Spatial RF Pulses"
+    - file: "Fun with RF Pulses"
+    - file: "Advanced SNR"
