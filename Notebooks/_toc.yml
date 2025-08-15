@@ -37,6 +37,7 @@ parts:
     chapters:
     - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
+    - file: "2D FT Image Characteristics"
   - caption: Imperfections and Artifacts
     chapters:
     - file: "Artifacts"
