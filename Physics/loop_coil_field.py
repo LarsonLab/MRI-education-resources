@@ -40,7 +40,7 @@ def loop_coil_field(radius, I, flag_2d=0):
     else:
         zp = xp
 
-    X, Y, Z = np.meshgrid(xp, yp, zp, indexing='ij')
+    X, Y, Z = np.meshgrid(xp, yp, zp)
 
     BX = np.zeros_like(X)
     BY = np.zeros_like(Y)
@@ -103,6 +103,7 @@ def loop_coil_field(radius, I, flag_2d=0):
                 BX[Ix, Iy, Iz] = np.sum(Bx1)
                 BY[Ix, Iy, Iz] = np.sum(By1)
                 BZ[Ix, Iy, Iz] = np.sum(Bz1)
+
 
     Bmag = np.sqrt(BX**2 + BY**2 + BZ**2)
 

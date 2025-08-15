@@ -1,8 +1,6 @@
 # Introduction to Principles of MRI
 
-This is a short book and associated simulation code for learning the principles of magnetic resonance imaging (MRI).  It is based on the https://github.com/LarsonLab/MRI-education-resources repository, a set of helper functions I built up in the course of about a decade of teaching MRI to 1st year graduate students coming from a broad range of educational backgrounds (primarily natural sciences and engineering).
-
-This book will be undergoing updates during the Fall Quarter 2023 as it has a more prominent role in my course.
+This is a book and associated simulations for learning the principles of magnetic resonance imaging (MRI).  It is based on about a decade of teaching MRI to 1st year graduate students coming from a broad range of educational backgrounds (primarily natural sciences and engineering).
 
 ## Learning Goals
 
