@@ -20,7 +20,7 @@ parts:
   - caption: Contrast
     chapters:
     - file: "Basic Contrast Mechanisms"
-    - file: "In vivo Contrast Mechanisms"
+    - file: "In Vivo Contrast Mechanisms"
     - file: "Gradient and Spin Echoes"
     - file: "Image Contrast Examples"
   - caption: Radiofrequency Pulses
@@ -37,7 +37,7 @@ parts:
     chapters:
     - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
-    - file: "2D FT Image Characteristics"
+    - file: "Cartesian Image Characteristics"
   - caption: Imperfections and Artifacts
     chapters:
     - file: "Artifacts"
