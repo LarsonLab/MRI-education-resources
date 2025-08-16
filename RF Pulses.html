@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -75,8 +75,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'RF Pulses';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Spectral-Spatial RF Pulses" href="Spectral-Spatial%20RF%20Pulses.html" />
-    <link rel="prev" title="Artifacts" href="Artifacts.html" />
+    <link rel="next" title="Slice Selection" href="Slice%20Selection.html" />
+    <link rel="prev" title="Image Contrast Examples" href="Image%20Contrast%20Examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,16 +196,31 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields and RF Coils</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
@@ -215,17 +230,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
@@ -241,6 +252,13 @@
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
 </ul>
 
     </div>
@@ -440,20 +458,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-properties">RF Pulse Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-angle">Flip Angle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product">Time-bandwidth Product</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-thickness">Slice Thickness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-shifting">Slice Shifting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-absorption-rate">Specific Absorption Rate</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-rf-pulses">Selective RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-pulse-versus-shaped-pulse">Hard pulse versus Shaped Pulse</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-resonance-excitation">On-resonance Excitation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-excitation">Off-resonance Excitation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-design">RF Pulse Design</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product-and-pulse-selectivity">Time-bandwidth Product and Pulse Selectivity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-flip-angle-pulse-design">High flip angle pulse design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-profile">RF Pulse Profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-content-in-rf-pulses">Frequency Content in RF Pulses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-frequencies">Sum of Frequencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-approximation">Fourier Transform Approximation</a></li>
 </ul>
 </li>
 </ul>
@@ -494,11 +510,6 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <li><p>Understand how changes in flip angle are implemented</p></li>
 </ul>
 </li>
-<li><p>Describe how images are formed</p>
-<ul class="simple">
-<li><p>Describe slice selection using RF Pulses</p></li>
-</ul>
-</li>
 <li><p>Manipulate MRI sequence parameters to improve performance</p>
 <ul class="simple">
 <li><p>Understand how changes in flip angle are implemented</p></li>
@@ -508,6 +519,8 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 </section>
 <section id="rf-pulse-properties">
 <h2>RF Pulse Properties<a class="headerlink" href="#rf-pulse-properties" title="Link to this heading">#</a></h2>
+<p>Here is a summary of RF pulse properties and parameters that are important for MRI.  These will be explained in detail later.</p>
+<p><img alt="RF Pulse Parameters" src="_images/RF_Pulses-pulse_parameters.png" /></p>
 <section id="flip-angle">
 <h3>Flip Angle<a class="headerlink" href="#flip-angle" title="Link to this heading">#</a></h3>
 <p>The flip angle (on-resonance) is equal to the integral of the RF pulse shape, <span class="math notranslate nohighlight">\(b_1(t)\)</span> (in units of magnetic field)):</p>
@@ -520,18 +533,6 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <div class="math notranslate nohighlight">
 \[ TBW = T_{rf} \cdot BW_{rf} \]</div>
 </section>
-<section id="slice-thickness">
-<h3>Slice Thickness<a class="headerlink" href="#slice-thickness" title="Link to this heading">#</a></h3>
-<p>When applying a magnetic field gradient during a selective RF pulse (more details below), the gradient amplitude, <span class="math notranslate nohighlight">\(G_{Z,SS}\)</span>, and RF pulse bandwidth determine the slice thickness:</p>
-<div class="math notranslate nohighlight">
-\[ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} \]</div>
-</section>
-<section id="slice-shifting">
-<h3>Slice Shifting<a class="headerlink" href="#slice-shifting" title="Link to this heading">#</a></h3>
-<p>The slice location can be shifted by a distance <span class="math notranslate nohighlight">\(z_{off}\)</span> through shifting the frequency of the RF pulse by <span class="math notranslate nohighlight">\(f_{off}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} \]</div>
-</section>
 <section id="specific-absorption-rate">
 <h3>Specific Absorption Rate<a class="headerlink" href="#specific-absorption-rate" title="Link to this heading">#</a></h3>
 <p>The Specific Absorption Rate (SAR) measures the amount of energy absorbed by the body from a RF pulse.  Since this absorption can cause tissue heating there are safety limits on SAR.  It is proportional to the integrated total RF pulse power:</p>
@@ -541,167 +542,9 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 For for MRI, SAR can cause tissue heating and thus there are SAR safety limits to minimize this heating.</p>
 </section>
 </section>
-<section id="selective-rf-pulses">
-<h2>Selective RF Pulses<a class="headerlink" href="#selective-rf-pulses" title="Link to this heading">#</a></h2>
-<p>Another key function of RF pulses is slice-selection.  This means applying a shaped RF pulse along with a magnetic field gradient that only flips the net magnetization within a slice.</p>
-<p>This is first achieved by applying RF pulses that are frequency selective, meaning they only contain a range of resonant frequencies and thus these are the only frequencies excited.  Illustrated in the plots below are:</p>
-<ol class="arabic simple">
-<li><p>Sinusoidal RF pulse, exciting a single resonance frequency</p></li>
-<li><p>Adding multiple frequencies together to creating a “slice” of frequencies that are excited</p></li>
-<li><p>Multiple frequencies is equivalent to a sinc-shaped pulse</p></li>
-<li><p>Convert this frequency profile to a slice profile with a magnetic field gradient</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Sinusoid has a single resonance frequency</span>
-
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.002</span><span class="p">;</span>
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-<span class="c">% frequency of RF</span>
-<span class="n">f0</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
-
-<span class="n">rf_sinusoid</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
-
-<span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-<span class="c">% Fourier Transform used to approximate the RF pulse profile (small tip approximation)</span>
-<span class="n">FT_sinusoid</span> <span class="p">=</span> <span class="nb">fftshift</span><span class="p">(</span><span class="nb">fft</span><span class="p">(</span><span class="n">rf_sinusoid</span><span class="p">));</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">rf_sinusoid</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span><span class="nb">imag</span><span class="p">(</span><span class="n">rf_sinusoid</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rf_sinusoid</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">,</span><span class="s">&#39;imaginary&#39;</span><span class="p">,</span> <span class="s">&#39;magnitude&#39;</span><span class="p">)</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">FT_sinusoid</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile (Small-tip)&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;flip&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span> <span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/304ddd72edc28b77f95654d382fd413808b98eeadf47d40208e590776d4d04d4.png" src="_images/304ddd72edc28b77f95654d382fd413808b98eeadf47d40208e590776d4d04d4.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% To excite a slice, we create a RF pulse with a range of frequencies, used while applying magnetic field gradient</span>
-
-
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.002</span><span class="p">;</span>
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-<span class="c">% center frequency of RF</span>
-<span class="n">f0</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
-
-<span class="c">% range of frequencies to sum</span>
-<span class="n">df</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="mi">5</span><span class="p">];</span>
-
-<span class="p">[</span><span class="n">tmat</span> <span class="n">dfmat</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">df</span><span class="o">+</span><span class="n">f0</span><span class="p">);</span>
-<span class="n">rf_all</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">dfmat</span><span class="o">.*</span><span class="n">tmat</span><span class="p">);</span>
-
-<span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">rf_n</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">rf_all</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">,:),</span><span class="mi">1</span><span class="p">);</span>
-
-    <span class="c">% Fourier Transform used to approximate the RF pulse profile (small tip approximation)</span>
-    <span class="n">FT_n</span> <span class="p">=</span> <span class="nb">fftshift</span><span class="p">(</span><span class="nb">fft</span><span class="p">(</span><span class="n">rf_n</span><span class="p">));</span>
-
-    <span class="nb">figure</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-    <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">rf_n</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span><span class="nb">imag</span><span class="p">(</span><span class="n">rf_n</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rf_n</span><span class="p">))</span>
-    <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">,</span><span class="s">&#39;imaginary&#39;</span><span class="p">,</span> <span class="s">&#39;magnitude&#39;</span><span class="p">)</span>
-
-    <span class="nb">title</span><span class="p">([</span><span class="n">int2str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="s">&#39; frequencies in RF&#39;</span><span class="p">])</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-    <span class="nb">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">FT_n</span><span class="p">))</span>
-    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile (Small-tip)&#39;</span><span class="p">)</span>
-    <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;flip&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span> <span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="p">])</span>
-
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/049806e3f56de743d60530ddaf28676a30d17785c65938624f51934a48a8af67.png" src="_images/049806e3f56de743d60530ddaf28676a30d17785c65938624f51934a48a8af67.png" />
-<img alt="_images/28077c34f1e4a6f2c31b61b55fce1f6bee6c6b1d4578e62cd85262016d42a051.png" src="_images/28077c34f1e4a6f2c31b61b55fce1f6bee6c6b1d4578e62cd85262016d42a051.png" />
-<img alt="_images/ffc3268989929c5bbc43a474569aa5f8b0378fb0385d0bf78719057a2e6dffbf.png" src="_images/ffc3268989929c5bbc43a474569aa5f8b0378fb0385d0bf78719057a2e6dffbf.png" />
-<img alt="_images/4187c40790c34c1c17943058fd7855207ee0a0ff0f2a9bfc9feaa6f865434320.png" src="_images/4187c40790c34c1c17943058fd7855207ee0a0ff0f2a9bfc9feaa6f865434320.png" />
-<img alt="_images/ec6209b3fe5bb0db4b78ef4c6288d9c1a206afa410a3bc1e8903639ba58e93dd.png" src="_images/ec6209b3fe5bb0db4b78ef4c6288d9c1a206afa410a3bc1e8903639ba58e93dd.png" />
-<img alt="_images/471d035d399f80f71d8cf1c7af57740fd77f2db80cbe6ed5bc29d2b2cac95674.png" src="_images/471d035d399f80f71d8cf1c7af57740fd77f2db80cbe6ed5bc29d2b2cac95674.png" />
-<img alt="_images/97efda5dce229b92adfb0f931a8f827f284fc31b675c76bb63ccb81b4863fd87.png" src="_images/97efda5dce229b92adfb0f931a8f827f284fc31b675c76bb63ccb81b4863fd87.png" />
-<img alt="_images/09b1414db933e9ad440c518691e476c01717858b57bbc49244aef94e5e9454eb.png" src="_images/09b1414db933e9ad440c518691e476c01717858b57bbc49244aef94e5e9454eb.png" />
-<img alt="_images/6eef6aee1e8349e26f7796439d64d44345991c2ce82f5b48d87cdace4c7bae5e.png" src="_images/6eef6aee1e8349e26f7796439d64d44345991c2ce82f5b48d87cdace4c7bae5e.png" />
-<img alt="_images/ee4f9efac4e0f946507a7b3b47c0a6dd537882f59ec65c4a7001d56d7f2a5ca2.png" src="_images/ee4f9efac4e0f946507a7b3b47c0a6dd537882f59ec65c4a7001d56d7f2a5ca2.png" />
-<img alt="_images/d6368896beef6c248103ddb9a277c627e2f2d80ef72d11b524e882273076e2ec.png" src="_images/d6368896beef6c248103ddb9a277c627e2f2d80ef72d11b524e882273076e2ec.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% This sum of sinusoids is a sinc function!</span>
-
-
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.002</span><span class="p">;</span>
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-
-<span class="c">% frequency of RF</span>
-<span class="n">f0</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c">% center frequency</span>
-<span class="n">fwidth</span> <span class="p">=</span> <span class="mi">11</span><span class="p">;</span> <span class="c">% frequency range</span>
-<span class="n">rf_sinc</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">.*</span><span class="nb">sinc</span><span class="p">(</span><span class="n">fwidth</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
-
-<span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-<span class="c">% Fourier Transform used to approximate the RF pulse profile (small tip approximation)</span>
-<span class="n">FT_sinc</span> <span class="p">=</span> <span class="nb">fftshift</span><span class="p">(</span><span class="nb">fft</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">));</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span><span class="nb">imag</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">,</span><span class="s">&#39;imaginary&#39;</span><span class="p">,</span> <span class="s">&#39;magnitude&#39;</span><span class="p">)</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">FT_sinc</span><span class="p">))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile (Small-tip)&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;flip&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span> <span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/e99bc77330b151699eb6cbd14f1187b241d8e41b9a16f88e85ecbb33cbad24cf.png" src="_images/e99bc77330b151699eb6cbd14f1187b241d8e41b9a16f88e85ecbb33cbad24cf.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Convert this plot to slice profile with gradient</span>
-
-<span class="n">Gz</span> <span class="p">=</span> <span class="p">.</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
-<span class="n">z</span> <span class="p">=</span> <span class="n">gammabar</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">Gz</span><span class="p">;</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span><span class="nb">imag</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">),</span> <span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">rf_sinc</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;real&#39;</span><span class="p">,</span><span class="s">&#39;imaginary&#39;</span><span class="p">,</span> <span class="s">&#39;magnitude&#39;</span><span class="p">)</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">FT_sinc</span><span class="p">))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile (Small-tip)&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;position&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;flip&#39;</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">Gz</span> <span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">Gz</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/61d2f2fe7bb6b337abd7f378063bb597a9af7dbfa712e914173cbbe4b889abeb.png" src="_images/61d2f2fe7bb6b337abd7f378063bb597a9af7dbfa712e914173cbbe4b889abeb.png" />
-</div>
-</div>
-<p>This “sum of frequencies” illustration of RF pulses is also shown in the following animations.</p>
-<p>In the lab frame, this happens around the Larmor frequency:</p>
-<p><img alt="RF_pulse_frequencies-lab_frame.gif" src="_images/RF_pulse_frequencies-lab_frame.gif" /></p>
-<p>In the rotating frame, the frequencies build up around frequency = 0</p>
-<p><img alt="RF_pulse_frequencies-rotating_frame.gif" src="_images/RF_pulse_frequencies-rotating_frame.gif" /></p>
-</section>
 <section id="hard-pulse-versus-shaped-pulse">
 <h2>Hard pulse versus Shaped Pulse<a class="headerlink" href="#hard-pulse-versus-shaped-pulse" title="Link to this heading">#</a></h2>
-<p>The first RF pulse typically introduced in MRI education is the so-called “hard” pulse - a constant amplitude pulse applied for some period of time.  As will be shown below, this pulse performs poorly for slice-selection, so shaped sinc-like pulses are used, as introduced above.  Shaped pulses create frequency profiles that excite a range of frequencies approximately uniformly (with the same flip angle), while not exciting spins outside this frequency range.</p>
+<p>The first RF pulse typically introduced in MRI education is the so-called “hard” pulse - a constant amplitude pulse applied for some period of time.  As will be shown below, this pulse performs poorly for slice-selection, so shaped sinc-like pulses are used.  Shaped pulses create frequency profiles that excite a range of frequencies approximately uniformly (with the same flip angle), while not exciting spins outside this frequency range.</p>
 <section id="on-resonance-excitation">
 <h3>On-resonance Excitation<a class="headerlink" href="#on-resonance-excitation" title="Link to this heading">#</a></h3>
 <p>We can visualize the rotation of the net magnetization as before as a rotation about the RF pulse vector, for Hard and Shaped pulses:</p>
@@ -721,6 +564,14 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
 <p><img alt="Sinc pulse off resonance" src="_images/sinc_pulse_frequencies.gif" /></p>
 <p>These simulations are for an identical range of positions, allowing for visualization the majority of net magnetizations in this case are either at an approximate 90-degree or 0-degree excitation, with very few intermediate flip angles. that the range of resulting magnetizations from the <em>hard pulse</em> is wide, representing a spread of different flip angles at  different positions, whereas with the sinc-like pulse  the majority of net magnetizations in this case are either at an approximate 90-degree or 0-degree excitation, with very few intermediate flip angles. (Also note the refocusing gradient at the end, which is necessary for corrected for additional phase during the gradient &amp; RF.)</p>
 <p>This behavior can be analyzed by simulation of the RF pulse profile as well, now using the Bloch equation for a more precise simulation as compared to using Fourier Transform approximation:</p>
+</section>
+</section>
+<section id="rf-pulse-profile">
+<h2>RF Pulse Profile<a class="headerlink" href="#rf-pulse-profile" title="Link to this heading">#</a></h2>
+<p>To precisely characterize the behavior of an RF pulse, a pulse profile can be computed.</p>
+<p>In this section, we will characterize the behavior of RF pulses as a function of off-resonance, or frequency.  In the next section, gradients will be added to perform slice selection and the profile will be computed as a function of space.</p>
+<p>The RF pulse profile can plot several parameters, including the flip angle, the resulting transverse magnetization <span class="math notranslate nohighlight">\(M_{XY}\)</span>, and the resulting longitudinal magnetization <span class="math notranslate nohighlight">\(M_Z\)</span>.</p>
+<p>The following simulations compute the magnetization profiles after hard and shaped RF pulses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
@@ -750,7 +601,6 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
         <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
     <span class="k">end</span>
 <span class="k">end</span>
-
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">([</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="nb">eps</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="o">+</span><span class="nb">eps</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="n">RF</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
@@ -799,447 +649,28 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
 </div>
 </div>
 </section>
+<section id="frequency-content-in-rf-pulses">
+<h2>Frequency Content in RF Pulses<a class="headerlink" href="#frequency-content-in-rf-pulses" title="Link to this heading">#</a></h2>
+<p>For RF pulses, we generally want to control the frequencies that are excited.  Most commonly, we want to excite a range of frequencies that then will correspond to a range of positions to excite a slice.</p>
+<section id="sum-of-frequencies">
+<h3>Sum of Frequencies<a class="headerlink" href="#sum-of-frequencies" title="Link to this heading">#</a></h3>
+<p>One way to think of the RF pulse design then, is that we can add a range of frequencies together in the RF pulse, which will then excite a range of off-resonance frequencies.
+This “sum of frequencies” illustration of RF pulses is shown in the following animations.</p>
+<p>In the lab frame, this happens around the Larmor frequency:</p>
+<p><img alt="RF_pulse_frequencies-lab_frame.gif" src="_images/RF_pulse_frequencies-lab_frame.gif" /></p>
+<p>In the rotating frame, the frequencies build up around frequency = 0</p>
+<p><img alt="RF_pulse_frequencies-rotating_frame.gif" src="_images/RF_pulse_frequencies-rotating_frame.gif" /></p>
 </section>
-<section id="rf-pulse-design">
-<h2>RF Pulse Design<a class="headerlink" href="#rf-pulse-design" title="Link to this heading">#</a></h2>
-<p>RF pulse designs should address the limited available pulse duration and, for large flip angle designs (e.g. 90 and 180 degrees) the non-linearities in the Bloch equation.</p>
-<p>Limited available durations are addressed, in small flip angle pulses, by using windowing functions along with sinc pulses.  The end result are windowed sinc pulses, which have less ringing in the coil profile as illustrated below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% windowed versus non-windowed sinc function</span>
-
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% ms</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">60</span><span class="p">;</span>
-
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-
-<span class="n">BW</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BW</span><span class="p">,</span><span class="n">BW</span><span class="p">);</span>
-
-<span class="c">% Sinc pulse</span>
-<span class="n">RF</span> <span class="p">=</span>  <span class="nb">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Sinc Pulse&#39;</span><span class="p">)</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-<span class="c">% Windowed Sinc Pulse</span>
-<span class="n">RF</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Windowed Sinc Pulse&#39;</span><span class="p">)</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/105746626b386cb222fac5ec726225146ade013ae6bb68ec0d0e817204100ddd.png" src="_images/105746626b386cb222fac5ec726225146ade013ae6bb68ec0d0e817204100ddd.png" />
-<img alt="_images/9ff5c2f5b00a597af30249b8da22454e1e14d4d6d9bc78f3350a3d5336565aa5.png" src="_images/9ff5c2f5b00a597af30249b8da22454e1e14d4d6d9bc78f3350a3d5336565aa5.png" />
-</div>
-</div>
-<section id="time-bandwidth-product-and-pulse-selectivity">
-<h3>Time-bandwidth Product and Pulse Selectivity<a class="headerlink" href="#time-bandwidth-product-and-pulse-selectivity" title="Link to this heading">#</a></h3>
-<p>Arguably the most important RF pulse design parameter is the “time-bandwidth” product.  As the name implies, this is the pulse duration (time) times the pulse bandwidth</p>
+<section id="fourier-transform-approximation">
+<h3>Fourier Transform Approximation<a class="headerlink" href="#fourier-transform-approximation" title="Link to this heading">#</a></h3>
+<p>Based on the above illustration, we can see that the profile of an RF pulse is similar to a Fourier Transform - an operation that determines the frequency content of a signal.<br />
+In practice, the RF pulse profile is only approximately proportional to the Fourier Transform of the RF pulse shape, but this approximation is useful for understanding the frequency content of RF pulses.</p>
 <div class="math notranslate nohighlight">
-\[ TBW = T_{rf} \times BW_{rf} \]</div>
-<p>A given RF pulse shape has an associated TBW, and this shape can be stretched or shrunk in time to modulate the resulting bandwidth.</p>
-<p>The key feature of the TBW is that it controls the <em>pulse selectivity</em>, that is how sharp the pulse profile is, or, in other words, how quickly the profile goes from the desired flip angle to zero flip angle.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Illustration of time-bandwidth product</span>
-
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">60</span><span class="p">;</span>
-<span class="n">BWplot</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BWplot</span><span class="p">,</span><span class="n">BWplot</span><span class="p">);</span>
-
-<span class="c">% Create TBW = 4 pulse shape</span>
-<span class="n">TBW</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="n">IN</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">RF_shape</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span><span class="nb">sinc</span><span class="p">(</span><span class="n">IN</span> <span class="o">*</span> <span class="n">TBW</span><span class="p">);</span>
-
-<span class="c">% Trf = 4 ms pulse, TBW = 4, so BWrf = TBW/Trf = 1 kHz</span>
-<span class="n">Trf</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="n">IN</span><span class="o">*</span><span class="n">Trf</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="n">Trf</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF_shape</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF_shape</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc Pulse, TBW = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">TBW</span><span class="p">)])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-
-<span class="c">% Trf = 8 ms pulse, TBW = 4, so BWrf = TBW/Trf = 0.5 kHz</span>
-<span class="n">Trf</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="n">IN</span><span class="o">*</span><span class="n">Trf</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="n">Trf</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF_shape</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF_shape</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc Pulse, TBW = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">TBW</span><span class="p">)])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-
-<span class="c">% Create TBW = 8 pulse shape</span>
-<span class="n">TBW</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="n">IN</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">RF_shape</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span><span class="nb">sinc</span><span class="p">(</span><span class="n">IN</span> <span class="o">*</span> <span class="n">TBW</span><span class="p">);</span>
-
-<span class="c">% Trf = 8 ms pulse, TBW = 8, so BWrf = TBW/Trf = 1 kHz</span>
-<span class="n">Trf</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="n">IN</span><span class="o">*</span><span class="n">Trf</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="n">Trf</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF_shape</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF_shape</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc Pulse, TBW = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">TBW</span><span class="p">)])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/bd8c760240e13b32ff4362dfbf73990d75f22e1535e70d098cc9068e8612e05c.png" src="_images/bd8c760240e13b32ff4362dfbf73990d75f22e1535e70d098cc9068e8612e05c.png" />
-<img alt="_images/802998495da195200209f59d63296b2faa1d6bc7e47252543d310f7d87d67870.png" src="_images/802998495da195200209f59d63296b2faa1d6bc7e47252543d310f7d87d67870.png" />
-<img alt="_images/57bb74bf48105ca7b4664a56cb2f09766ce380ff5ab9e97a3881de72b5130627.png" src="_images/57bb74bf48105ca7b4664a56cb2f09766ce380ff5ab9e97a3881de72b5130627.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Play around with the time-bandwidth product!!</span>
-<span class="n">TBW</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="n">Trf</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
-
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">60</span><span class="p">;</span>
-<span class="n">BWplot</span> <span class="p">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BWplot</span><span class="p">,</span><span class="n">BWplot</span><span class="p">);</span>
-
-<span class="n">N</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="n">IN</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">RF_shape</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span><span class="nb">sinc</span><span class="p">(</span><span class="n">IN</span> <span class="o">*</span> <span class="n">TBW</span><span class="p">);</span>
-
-<span class="n">t</span> <span class="p">=</span> <span class="n">IN</span><span class="o">*</span><span class="n">Trf</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="n">Trf</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF_shape</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF_shape</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">figure</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc Pulse, TBW = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">TBW</span><span class="p">)])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/115c9797d5a87551f29a316fde218a962631a09493fa9bccc25847da19ee3dfa.png" src="_images/115c9797d5a87551f29a316fde218a962631a09493fa9bccc25847da19ee3dfa.png" />
-</div>
-</div>
-<p>Notice that the higher TBW pulse has much sharper frequency profile for the same pulse duration!  (But also higher peak power.)</p>
-</section>
-<section id="high-flip-angle-pulse-design">
-<h3>High flip angle pulse design<a class="headerlink" href="#high-flip-angle-pulse-design" title="Link to this heading">#</a></h3>
-<p>For small flip angles, the frequency profile of a RF pulse is approximately given by the Fourier Transform.  However, non-linearities in the Bloch equation cause this approximation to break down for large flip angles, as shown below by the resulting “ripples” in the frequency profile when the flip angle of the windowed.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% small tip vs large tip</span>
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% ms</span>
-
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-
-<span class="n">BW</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BW</span><span class="p">,</span><span class="n">BW</span><span class="p">);</span>
-
-<span class="c">% Windowed Sinc Pulse</span>
-<span class="n">RF</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">60</span><span class="p">;</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Flip = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">flip</span><span class="p">)</span> <span class="s">&#39; degrees&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">90</span><span class="p">;</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Flip = &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">flip</span><span class="p">)</span> <span class="s">&#39; degrees&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/e387061ddc9b381e5b67763d1828f1c239e61368963559db4bb6bd3f87a5bfe0.png" src="_images/e387061ddc9b381e5b67763d1828f1c239e61368963559db4bb6bd3f87a5bfe0.png" />
-</div>
-</div>
-<p>Note that with Fourier Transform based design small ripples that appear outside the desired slice.</p>
-<p>The solution is to use a more sophisticated pulse design that takes into account these non-linearities, such as the Shinnar-Le Roux (SLR) transform.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Large tip pulse designs</span>
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% ms</span>
-
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-
-<span class="n">BW</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BW</span><span class="p">,</span><span class="n">BW</span><span class="p">);</span>
-
-<span class="c">% Windowed Sinc Pulse</span>
-<span class="n">RF</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">90</span><span class="p">;</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-<span class="c">% Shinnar-Le Roux (SLR) Pulse design</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="n">dzrf</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmax</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;ex&#39;</span><span class="p">);</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">RF</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;SLR Pulse&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a1459cc0d3521dc7ccea7ff5819212f8fdee917fdce5249e30575a9af3777454.png" src="_images/a1459cc0d3521dc7ccea7ff5819212f8fdee917fdce5249e30575a9af3777454.png" />
-</div>
-</div>
-<p>Note that now the ripples in the <span class="math notranslate nohighlight">\(M_{XY}\)</span> profile are now removed!  (There is some increased ripple in <span class="math notranslate nohighlight">\(M_Z\)</span>, but this isn’t an issue for excitation pulses).  The RF pulses themselves are only subtly different.</p>
-<p>The degradation of the slice (frequency) profile of sinc-pulses becomes substantial with a 180-degree flip angle inversion pulse:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Inversion (large-tip) pulses</span>
-<span class="n">gammabar</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span> <span class="c">% kHz/mT</span>
-
-<span class="n">M0</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">M_equilibrium</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">M0</span><span class="p">].</span><span class="o">&#39;</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% ms</span>
-
-<span class="n">tmax</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
-<span class="n">N</span> <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">dt</span><span class="p">;</span>
-<span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
-
-<span class="n">BW</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% kHz</span>
-<span class="n">df</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">BW</span><span class="p">,</span><span class="n">BW</span><span class="p">);</span>
-
-<span class="c">% Windowed Sinc Pulse</span>
-<span class="n">RF</span> <span class="p">=</span>  <span class="nb">hamming</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">.*</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
-
-<span class="n">flip</span> <span class="p">=</span> <span class="mi">180</span><span class="p">;</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="n">RF</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Windowed Sinc&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-
-<span class="c">% Shinnar-Le Roux (SLR) Pulse design</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="n">dzrf</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmax</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;inv&#39;</span><span class="p">);</span>
-<span class="n">RF</span> <span class="p">=</span> <span class="p">(</span><span class="n">flip</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">RF</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">RF</span><span class="p">)</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">gammabar</span><span class="o">*</span><span class="n">dt</span><span class="p">);</span>
-
-<span class="n">M</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">M_equilibrium</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)]);</span>
-<span class="k">for</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">)</span> <span class="p">=</span> <span class="n">bloch_rotate</span><span class="p">(</span> <span class="n">M</span><span class="p">(:,</span><span class="n">f</span><span class="p">),</span> <span class="n">dt</span><span class="p">,</span> <span class="p">[</span><span class="nb">real</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="nb">imag</span><span class="p">(</span><span class="n">RF</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span><span class="n">df</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="n">gammabar</span><span class="p">]);</span>
-    <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">RF</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time (ms)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF (mT)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">([</span><span class="s">&#39;SLR Pulse&#39;</span><span class="p">])</span>
-<span class="nb">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="mi">2</span><span class="p">,:)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="n">df</span><span class="p">,</span> <span class="n">M</span><span class="p">(</span><span class="mi">3</span><span class="p">,:))</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency profile&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;frequency (kHz)&#39;</span><span class="p">),</span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;|M_{XY}|&#39;</span><span class="p">,</span> <span class="s">&#39;M_Z&#39;</span><span class="p">)</span><span class="c">%, ylabel(&#39;flip&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/59710576503276db86c7ca0df62c88c6786b339ff1c4ef00ad220a5fd49e324a.png" src="_images/59710576503276db86c7ca0df62c88c6786b339ff1c4ef00ad220a5fd49e324a.png" />
-</div>
-</div>
-<p>Note that the inversion profile <span class="math notranslate nohighlight">\(M_Z\)</span> is much more selective, in other words more like a rectangular function, with the SLR pulse design.    The SLR RF pulse is now noticeably different from a windowed sinc.</p>
+\[\theta(f) \approx \gamma \mathcal{F}\{b_1(t)\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(b_1(t)\)</span> is the RF pulse shape, and <span class="math notranslate nohighlight">\(\theta(f)\)</span> is the flip angle at frequency <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>For this reason, our typical RF pulse shapes are sinc-like, which have a Fourier Transform that are rect-like.
+In practice, this approximation is only valid for small flip angles, typically up to 60 degrees.  There are tools such as the SLR transform that can be used to design RF pulses with larger flip angles, which are described later.</p>
+<p><img alt="RF pulse profiles is small and large flip angles, computed with Bloch equation and Fourier Transform approximation" src="_images/RF_Pulses-small_large_tip_example.png" /></p>
 </section>
 </section>
 </section>
@@ -1275,20 +706,20 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Artifacts.html"
+       href="Image%20Contrast%20Examples.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Artifacts</p>
+        <p class="prev-next-title">Image Contrast Examples</p>
       </div>
     </a>
     <a class="right-next"
-       href="Spectral-Spatial%20RF%20Pulses.html"
+       href="Slice%20Selection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Spectral-Spatial RF Pulses</p>
+        <p class="prev-next-title">Slice Selection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1312,20 +743,18 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-properties">RF Pulse Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-angle">Flip Angle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product">Time-bandwidth Product</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-thickness">Slice Thickness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-shifting">Slice Shifting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-absorption-rate">Specific Absorption Rate</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selective-rf-pulses">Selective RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-pulse-versus-shaped-pulse">Hard pulse versus Shaped Pulse</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#on-resonance-excitation">On-resonance Excitation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-excitation">Off-resonance Excitation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-design">RF Pulse Design</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product-and-pulse-selectivity">Time-bandwidth Product and Pulse Selectivity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#high-flip-angle-pulse-design">High flip angle pulse design</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-profile">RF Pulse Profile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-content-in-rf-pulses">Frequency Content in RF Pulses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-of-frequencies">Sum of Frequencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-approximation">Fourier Transform Approximation</a></li>
 </ul>
 </li>
 </ul>

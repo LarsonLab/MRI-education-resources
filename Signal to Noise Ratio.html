@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Signal to Noise Ratio (SNR) &#8212; Principles of MRI</title>
+    <title>Scan Time and Signal to Noise Ratio (SNR) &#8212; Principles of MRI</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -196,16 +196,31 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields and RF Coils</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
@@ -215,17 +230,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Signal to Noise Ratio (SNR)</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Scan Time and Signal to Noise Ratio (SNR)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
@@ -241,6 +252,13 @@
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
 </ul>
 
     </div>
@@ -426,7 +444,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Signal to Noise Ratio (SNR)</h1>
+    <h1>Scan Time and Signal to Noise Ratio (SNR)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -436,29 +454,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Signal to Noise Ratio (SNR)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-time">Scan Time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-dependencies">SNR Dependencies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voxel-volume">Voxel Volume</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-time">Data Acquisition Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-magnetization">Transverse Magnetization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-equation">SNR Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-equations">SNR Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-formulations-of-snr">Alternative formulations of SNR</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency">SNR Efficiency</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency-versus-tr">SNR efficiency versus TR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency">SNR Efficiency</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-and-snr-in-post-processing">Resolution and SNR in Post-Processing</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upsampling">Upsampling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downsampling">Downsampling</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -469,23 +483,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="signal-to-noise-ratio-snr">
-<h1>Signal to Noise Ratio (SNR)<a class="headerlink" href="#signal-to-noise-ratio-snr" title="Link to this heading">#</a></h1>
-<p>The signal to noise ratio (SNR) is a critical characteristic that impacts images quality.  For MRI, there is a strong theoretical foundation for the SNR dependency based on the MRI physics and pulse sequence characteristics.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="scan-time-and-signal-to-noise-ratio-snr">
+<h1>Scan Time and Signal to Noise Ratio (SNR)<a class="headerlink" href="#scan-time-and-signal-to-noise-ratio-snr" title="Link to this heading">#</a></h1>
+<p>The scan time and signal to noise ratio (SNR) are critical characteristics that impacts image quality and what is practical in MRI.  For MRI, there is a strong theoretical foundation for the SNR dependency based on the MRI physics and pulse sequence characteristics.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Understand the constraints and tradeoffs in MRI</p>
 <ul class="simple">
+<li><p>Determine how long a scan takes</p></li>
 <li><p>Describe the factors that influence image SNR</p></li>
 </ul>
 </li>
 <li><p>Manipulate MRI sequence parameters to improve performance</p>
 <ul class="simple">
-<li><p>Understand how modifications in sequence parameters will affect the expected SNR</p></li>
+<li><p>Understand how modifications in sequence parameters will affect the total scan time and expected SNR</p></li>
 </ul>
 </li>
 </ol>
+</section>
+<section id="scan-time">
+<h2>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h2>
+<p>The total scan time, <span class="math notranslate nohighlight">\(T_{scan}\)</span>, depends on the length of each component in the pulse sequence as well as how many times these components are repeated.</p>
+<p>For sequences with a single component of length <span class="math notranslate nohighlight">\(TR\)</span>, this can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[T_{scan} = TR \ N_{TR}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N_{TR}\)</span> is the total number of TRs which can depend on the number of phase encodes, preparation or dummy cycles to get into the steady-state, acceleration factor, and number of averages.</p>
 </section>
 <section id="snr-dependencies">
 <h2>SNR Dependencies<a class="headerlink" href="#snr-dependencies" title="Link to this heading">#</a></h2>
@@ -508,7 +531,9 @@ document.write(`
 <p>Every additional measurement allows for signal averaging since the noise varies at each measurement.  Note that MRI noise is zero-mean with a Gaussian distribution.  Additional data acquisition time increases signal linearly, while the total noise increases as the square root.  So</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto \frac{S}{\sigma} = \frac{T_{meas}}{\sqrt{T_{meas}}} = \sqrt{T_{meas}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{meas}\)</span> is the <em>total data acquisition/measurement time</em> including all TRs and signal averaging, but not including the sequence downtime.</p>
+<p>where <span class="math notranslate nohighlight">\(T_{meas}\)</span> is the <em>total data acquisition/measurement time</em> including all TRs and signal averaging, but not including the sequence downtime.  This can be defined in terms of the readout duration per TR, <span class="math notranslate nohighlight">\(T_{read}\)</span>, and the total number of TRs, <span class="math notranslate nohighlight">\(N_{TR}\)</span>, which for example includes number of ,phase encoding steps and signal averages, as:</p>
+<div class="math notranslate nohighlight">
+\[T_{meas} = N_{TR} T_{read}\]</div>
 </section>
 <section id="transverse-magnetization">
 <h3>Transverse Magnetization<a class="headerlink" href="#transverse-magnetization" title="Link to this heading">#</a></h3>
@@ -520,144 +545,45 @@ document.write(`
 \[f_{seq,GRE} = M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
 </section>
 </section>
-<section id="snr-equation">
-<h2>SNR Equation<a class="headerlink" href="#snr-equation" title="Link to this heading">#</a></h2>
+<section id="snr-equations">
+<h2>SNR Equations<a class="headerlink" href="#snr-equations" title="Link to this heading">#</a></h2>
 <p>Putting it all together,</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
 <p><strong>This simple equation describes the majority of SNR effects in MRI, and is extremely powerful when designing and improving MRI scans!</strong></p>
+<section id="alternative-formulations-of-snr">
+<h3>Alternative formulations of SNR<a class="headerlink" href="#alternative-formulations-of-snr" title="Link to this heading">#</a></h3>
+<p>MRI scanner interfaces often do not provide direct control of the resolutions or measurement times, but instead parameters such as matrix sizes, field-of-views (FOVs) and readout bandwidths are used.  The following relationships can generally be used to convert these parameters into the SNR equation above.</p>
+<div class="math notranslate nohighlight">
+\[ FOV = \delta \ N_{matrix} \]</div>
+<div class="math notranslate nohighlight">
+\[ T_{read} = \frac{N_{readout}}{BW} = \frac{N_{readout}}{2 BW_{one-sided}} \]</div>
+<p>If acceleration methods such as partial Fourier, parallel imaging, or compressed sensing are NOT used, the following relationships also apply</p>
+<div class="math notranslate nohighlight">
+\[ T_{read} = \frac{N_{FE}}{BW} = \frac{1}{BW/pixel} \]</div>
+<div class="math notranslate nohighlight">
+\[ N_{TR} = N_{FE} \ N_{PE} \ N_{averages} \]</div>
+<p>However, partial Fourier methods can potentially be used to reduce the readout time or number of encoding steps, and parallel imaging/compressed sensing can be used to reduce the number of encoding steps.</p>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="snr-efficiency">
-<h1>SNR Efficiency<a class="headerlink" href="#snr-efficiency" title="Link to this heading">#</a></h1>
+<section id="snr-efficiency">
+<h2>SNR Efficiency<a class="headerlink" href="#snr-efficiency" title="Link to this heading">#</a></h2>
 <p>The SNR efficiency for MRI provides a measure of overall efficiency within a MRI scan, which is the SNR normalized by the <em>total scan time</em>, <span class="math notranslate nohighlight">\(T_{scan}\)</span></p>
 <div class="math notranslate nohighlight">
 \[SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{meas} }{T_{scan}}}\]</div>
-<section id="snr-efficiency-versus-tr">
-<h2>SNR efficiency versus TR<a class="headerlink" href="#snr-efficiency-versus-tr" title="Link to this heading">#</a></h2>
-<p>The SNR efficiency is useful to examine the choice of TR.  It is especially interesting for spoiled gradient-echo sequences where when we can choose to use the optimal flip angle (“Ernst angle”) based on a <span class="math notranslate nohighlight">\(T_1\)</span> value of interest.  For these sequences, the optimal flip angle is</p>
-<div class="math notranslate nohighlight">
-\[\theta_{optimal} = \cos^{-1} \exp(-TR/T_1)\]</div>
-<p>And <span class="math notranslate nohighlight">\(f_{seq,GRE}\)</span> is defined above.</p>
-<p>Under this condition, we see the following intriguing result …</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
-<span class="n">cd</span> <span class="o">../</span>
-<span class="n">startup</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
-loading signal
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SNR</span> <span class="n">efficiency</span> <span class="k">for</span> <span class="n">spoiled</span> <span class="n">gradient</span> <span class="n">echo</span> <span class="n">pulse</span> <span class="n">sequences</span>
-
-<span class="n">TRdT1</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
-<span class="n">T1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">400</span> <span class="mi">800</span> <span class="mi">1600</span><span class="p">];</span>
-
-<span class="o">%</span> <span class="n">To</span> <span class="n">remove</span> <span class="n">TE</span> <span class="ow">or</span> <span class="n">T2</span> <span class="n">effect</span>
-<span class="n">TE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">T2</span> <span class="o">=</span> <span class="n">Inf</span><span class="p">;</span>
-<span class="n">M0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="n">theta_optimal</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">TR</span><span class="p">));</span>
-<span class="n">SNR_efficiency</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">TR</span><span class="p">));</span>
-
-<span class="k">for</span> <span class="n">IT1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
-
-<span class="n">theta_optimal</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">/</span><span class="n">T1</span><span class="p">(</span><span class="n">IT1</span><span class="p">)));</span>
-
-
-<span class="n">SNR_efficiency</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">MRsignal_spoiled_gradient_echo</span><span class="p">(</span><span class="n">theta_optimal</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:),</span> <span class="n">TE</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">M0</span><span class="p">,</span> <span class="n">T1</span><span class="p">(</span><span class="n">IT1</span><span class="p">),</span> <span class="n">T2</span><span class="p">)</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">TR</span><span class="p">);</span>
-<span class="n">end</span>
-<span class="o">%</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">theta_optimal</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TR [ms]&#39;</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flip angle [degrees]&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Optimal (Ernst) Angle for different T_1 values&#39;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">int2str</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="s1">&#39;))</span>
-<span class="o">%</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="n">figure</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">SNR_efficiency</span><span class="p">)</span>
-<span class="n">ylim</span><span class="p">([</span><span class="mi">0</span> <span class="mf">1.1</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">SNR_efficiency</span><span class="p">(:))])</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">int2str</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="s1">&#39;))</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TR [ms]&#39;</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;SNR efficiency&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Spoiled gradient echo SNR efficiency for different T_1 values&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/1e791d75008c0b4354de49bee8260b76cc3af0b7c98c117e0b382a3770ba6792.png" src="_images/1e791d75008c0b4354de49bee8260b76cc3af0b7c98c117e0b382a3770ba6792.png" />
-<img alt="_images/fdd4d710d438c7bea932cc6fbbcd3ae409969ef2708cf8c4303f1fd249408f65.png" src="_images/fdd4d710d438c7bea932cc6fbbcd3ae409969ef2708cf8c4303f1fd249408f65.png" />
-</div>
-</div>
-<p>Once the optimal flip angle begins to approach 90-degrees, the SNR efficiency begins to drop.  But for the shorter TRs, the SNR efficiency is relatively stable for different TRs.</p>
 </section>
 <section id="resolution-and-snr-in-post-processing">
 <h2>Resolution and SNR in Post-Processing<a class="headerlink" href="#resolution-and-snr-in-post-processing" title="Link to this heading">#</a></h2>
-<p>The image resolution is often changed in post-processing, and can be either upsampled to finer (“higher”) spatial resolution or downsampled to coarser (“lower”) spatial resolution.  When using the SNR equation above, the native resolution should be considered.</p>
+<p>The image resolution is often changed in post-processing, and can be either upsampled to finer (“higher”) spatial resolution or downsampled to coarser (“lower”) spatial resolution.  When using the SNR equation above, the acquired resolution should be considered.</p>
 <section id="upsampling">
 <h3>Upsampling<a class="headerlink" href="#upsampling" title="Link to this heading">#</a></h3>
 <p>Upsampling is typically done with some type of interpolation.  In MRI, this can be easily implemented in k-space through zero-padding, which is equivalent to sinc interpolation.  Upsampling with a reasonable method does not affect SNR.</p>
 </section>
 <section id="downsampling">
 <h3>Downsampling<a class="headerlink" href="#downsampling" title="Link to this heading">#</a></h3>
-<p>Downsampling is done to increase SNR by changing the image to a coarser resolution.  However, downsampling is effectively averaging signals from nearby voxels which also averages out the noise.  Therefore, downsampling scales SNR as the square root of the voxel size, similarly to the measurement time.</p>
+<p>Downsampling is done to increase SNR by changing the image to a coarser resolution.  However, downsampling is effectively averaging signals from nearby voxels which also averages out the noise.  Therefore, <em>downsampling scales SNR as the square root of the voxel size, similarly to the measurement time</em>.</p>
 <p>This is a very important distinction from changed the acquired resolution, where the SNR scales linearly with voxel size.  Therefore, the SNR is higher when acquiring at the desired spatial resolution compared to acquiring at a finer resolution and then downsampling.  Care should be taken to choose the acquired resolution to match the desired resolution.</p>
 </section>
-</section>
-<section id="snr-and-t-2-decay">
-<h2>SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay<a class="headerlink" href="#snr-and-t-2-decay" title="Link to this heading">#</a></h2>
-<p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the <span class="math notranslate nohighlight">\(T_2^*\)</span> decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for <span class="math notranslate nohighlight">\(T_2^*\)</span>, which will offset signal gains from extending the readout</p>
-<div class="math notranslate nohighlight">
-\[SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }\]</div>
-<p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
-<p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:
-$<span class="math notranslate nohighlight">\(SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\)</span>$</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tread</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="n">T2s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-
-<span class="n">SNR_T2s_onesided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="n">T2s</span><span class="p">))</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
-<span class="p">[</span><span class="o">~</span><span class="p">,</span> <span class="n">Imax_onesided</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">SNR_T2s_onesided</span><span class="p">);</span>
-
-<span class="n">SNR_T2s_twosided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="mi">2</span> <span class="o">/</span> <span class="n">T2s</span><span class="p">))</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
-<span class="p">[</span><span class="o">~</span><span class="p">,</span> <span class="n">Imax_twosided</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">SNR_T2s_twosided</span><span class="p">);</span>
-
-<span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_onesided</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;T_</span><span class="si">{read}</span><span class="s1"> / T_2^*&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Relative SNR&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;One-sided T_2^* decay (gradient-echo)&#39;</span><span class="p">);</span>
-
-<span class="n">disp</span><span class="p">([</span><span class="s1">&#39;Maximum for one-sided decay: T_</span><span class="si">{read}</span><span class="s1"> / T_2^* =&#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">Tread</span><span class="p">(</span><span class="n">Imax_onesided</span><span class="p">))])</span>
-
-<span class="n">figure</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_twosided</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;T_</span><span class="si">{read}</span><span class="s1"> / T_2^*&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Relative SNR&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Two-sided T_2^* decay (spin-echo)&#39;</span><span class="p">);</span>
-
-<span class="n">disp</span><span class="p">([</span><span class="s1">&#39;Maximum for two-sided decay: T_</span><span class="si">{read}</span><span class="s1"> / T_2^* =&#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">Tread</span><span class="p">(</span><span class="n">Imax_twosided</span><span class="p">))])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum for one-sided decay: T_{read} / T_2^* =1.2806
-Maximum for two-sided decay: T_{read} / T_2^* =2.4907
-</pre></div>
-</div>
-<img alt="_images/55bed0bbdb3e1d4c96d9c050e494d7777d73bf32ae86daaf389422f497d6d893.png" src="_images/55bed0bbdb3e1d4c96d9c050e494d7777d73bf32ae86daaf389422f497d6d893.png" />
-<img alt="_images/373cde533ed48a3b125ff56db7007f4cea8b3db2228e932e7f2e70b11e1742eb.png" src="_images/373cde533ed48a3b125ff56db7007f4cea8b3db2228e932e7f2e70b11e1742eb.png" />
-</div>
-</div>
-<p>From this result, we can see that the optimal choice of <span class="math notranslate nohighlight">\(T_{read}\)</span> from a SNR point of view is approximately <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 1.3\)</span> (one-sided) and <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 2.5\)</span> (two-sided).</p>
-<p>However, this relationship does not take into account the effects of resolution loss that will typically occur due to decaying <span class="math notranslate nohighlight">\(T_2^*\)</span> weighting in k-space.  (See “MRI Signal Equation” for information on this effect).</p>
 </section>
 </section>
 
@@ -725,29 +651,25 @@ Maximum for two-sided decay: T_{read} / T_2^* =2.4907
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Signal to Noise Ratio (SNR)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-time">Scan Time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-dependencies">SNR Dependencies</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voxel-volume">Voxel Volume</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-time">Data Acquisition Time</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transverse-magnetization">Transverse Magnetization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-equation">SNR Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-equations">SNR Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-formulations-of-snr">Alternative formulations of SNR</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency">SNR Efficiency</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency-versus-tr">SNR efficiency versus TR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency">SNR Efficiency</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolution-and-snr-in-post-processing">Resolution and SNR in Post-Processing</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upsampling">Upsampling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downsampling">Downsampling</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

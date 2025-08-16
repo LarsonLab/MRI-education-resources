@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -75,7 +75,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Image Reconstruction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
+    <link rel="next" title="Scan Time and Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
     <link rel="prev" title="K-space" href="K-space.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,16 +196,31 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields and RF Coils</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="current nav bd-sidenav">
@@ -215,17 +230,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
@@ -241,6 +252,13 @@
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
 </ul>
 
     </div>
@@ -439,6 +457,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system-formulation">Linear System Formulation</a></li>
 </ul>
             </nav>
         </div>
@@ -450,35 +469,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
-<span class="n">cd</span> <span class="o">../</span>
-<span class="n">startup</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
-loading signal
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction">
+  <section class="tex2jax_ignore mathjax_ignore" id="image-reconstruction">
 <h1>Image Reconstruction<a class="headerlink" href="#image-reconstruction" title="Link to this heading">#</a></h1>
-<p>Image reconstruction in MRI means converting the raw signal collected in k-space into images.  For a fully-sampled acquisition using Cartesian sampling (e.g. on a grid), this can be done with a discrete Fourier Transform.  In anticipation of advanced reconstruction methods, image reconstruction for MRI is formulated as a linear system.  The technique of Partial Fourier imaging is also introduced.</p>
+<p>Image reconstruction in MRI means converting the raw signal collected in k-space into images.  For a fully-sampled acquisition using Cartesian sampling (e.g. on a grid), this can be done with a discrete Fourier Transform.  In anticipation of advanced reconstruction methods, image reconstruction for MRI is formulated as a linear system.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Describe how images are formed</p>
 <ul class="simple">
 <li><p>Describe how MRI raw data is reconstructed into an image</p></li>
-</ul>
-</li>
-<li><p>Manipulate MRI sequence parameters to improve performance</p>
-<ul class="simple">
-<li><p>Describe how the Partial Fourier method can be used</p></li>
 </ul>
 </li>
 <li><p>Manipulate and analyze MRI data</p>
@@ -503,12 +502,59 @@ loading signal
 <p>Once the data has been sorted into the corresponding lines in k-space, an inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\]</div>
-<p>For typical Cartesian sampling, this can be done very simply with the 2D or 3D Fast Fourier Transform (FFT) algorithm</p>
+<p>For typical Cartesian sampling, this can be done very simply with the 2D or 3D Fast Fourier Transform (FFT) algorithm.</p>
 <p>The following animation illustrates typical k-space data as it would be acquired for different k-space lines (left) and the resulting image as more and more lines of k-space are accumulated</p>
 <p><img alt="Image formation from sequential Cartesian k-space data" src="_images/image_formation_sequential.gif" /></p>
 <p>We can also acquire our k-space lines in a “center-out” or random ordering, shown below</p>
 <p><img alt="Image formation from center-out Cartesian k-space data" src="_images/image_formation_centerout_lines.gif" />
 <img alt="Image formation from random Cartesian k-space data" src="_images/image_formation_random_lines.gif" /></p>
+</section>
+<section id="linear-system-formulation">
+<h2>Linear System Formulation<a class="headerlink" href="#linear-system-formulation" title="Link to this heading">#</a></h2>
+<p>Alternatively, the reconstruction can be formulated as a linear system, using a discrete Fourier Transform matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>.  For this matrix, the entries are defined by k-space location being sampled, <span class="math notranslate nohighlight">\(\vec{k}_i\)</span> and the spatial locations, <span class="math notranslate nohighlight">\(\vec{r}_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{f}_{i,j} = \exp(-i 2 \pi \vec{k}_i \cdot \vec{r}_j)\]</div>
+<p>In this case, the measurement is the discrete Fourier Transform of the image</p>
+<div class="math notranslate nohighlight">
+\[  y = \mathbf{F}x + n \]</div>
+<p>and image reconstruction is performed by inverse discrete Fourier Transform, which for fully sampled 2D FT imaging is well defined by matrix inversion:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{x} = \mathbf{F^{H}} y \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample Image Reconstruction</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Load k-space data from .mat file</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="s1">&#39;../Data/se_t1_sag_data.mat&#39;</span><span class="p">)</span>
+<span class="n">kspace</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+<span class="c1"># Reconstruct the image by inverse FFT</span>
+<span class="n">recon_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">kspace</span><span class="p">)))</span>
+
+<span class="c1"># Plot k-space data and reconstructed images</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kspace</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;k-space (log magnitude)&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">recon_image</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Reconstructed Image&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.5, 255.5, 255.5, -0.5)
+</pre></div>
+</div>
+<img alt="_images/f87d65e9ada8a13d7a42c5586a5379d5d0611858a5823546bb9706e717d2e648.png" src="_images/f87d65e9ada8a13d7a42c5586a5379d5d0611858a5823546bb9706e717d2e648.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -556,7 +602,7 @@ loading signal
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Signal to Noise Ratio (SNR)</p>
+        <p class="prev-next-title">Scan Time and Signal to Noise Ratio (SNR)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -579,6 +625,7 @@ loading signal
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-mri-data-into-k-space">Sorting the MRI Data into k-space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system-formulation">Linear System Formulation</a></li>
 </ul>
   </nav></div>
 

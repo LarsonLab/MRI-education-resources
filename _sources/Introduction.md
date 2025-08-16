@@ -1,8 +1,6 @@
 # Introduction to Principles of MRI
 
-This is a short book and associated simulation code for learning the principles of magnetic resonance imaging (MRI).  It is based on the https://github.com/LarsonLab/MRI-education-resources repository, a set of helper functions I built up in the course of about a decade of teaching MRI to 1st year graduate students coming from a broad range of educational backgrounds (primarily natural sciences and engineering).
-
-This book will be undergoing updates during the Fall Quarter 2023 as it has a more prominent role in my course.
+This is a book and associated simulations for learning the principles of magnetic resonance imaging (MRI).  It is based on about a decade of teaching MRI to 1st year graduate students coming from a broad range of educational backgrounds (primarily natural sciences and engineering).
 
 ## Learning Goals
 
@@ -10,7 +8,7 @@ Upon completing this book, the following Learning Goals should be achieved
 
 1. Describe the 4 fundmanetal components of a MRI scan and why they are necessary
 1. Understand what MRI is measuring
-1. Describe the concepts of polarization, resonance, and relaxation
+1. Describe the concepts of polarization, resonance, excitation, and relaxation
 1. Describe how various types of MRI contrast are created
 1. Describe how images are formed
 1. Understand the most popular pulse sequences and their acronyms
@@ -34,7 +32,7 @@ You can also access a full playlist of my lectures
 
 ## Using MRI-Education-Resources code
 
-If you would like to use the associated code that goes along with this book, it is available at the git repository https://github.com/LarsonLab/MRI-education-resources, and also the GitHub icon above.  I recommend cloning the repository via the GitHub Desktop application, this way you get all the code at once and then can pull any updates made to the repository.
+There is a set of some associated code that goes along with this book, it is available at the git repository https://github.com/LarsonLab/MRI-education-resources, and also the GitHub icon above.  I recommend cloning the repository via the GitHub Desktop application, this way you get all the code at once and then can pull any updates made to the repository.
 
 ## Acknowledgements
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -75,8 +75,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'FOV and Resolution';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The MRI Signal Equation and K-space" href="MRI%20Signal%20Equation.html" />
-    <link rel="prev" title="Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
+    <link rel="next" title="Artifacts" href="Artifacts.html" />
+    <link rel="prev" title="Scan Time and Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,16 +196,31 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields in MRI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MR Experiment</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">Magnetic fields and RF Coils</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Contrast.html">MRI Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="nav bd-sidenav">
@@ -215,17 +230,13 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Signal to Noise Ratio (SNR)</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation and K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging</span></p>
 <ul class="nav bd-sidenav">
@@ -241,6 +252,13 @@
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
 </ul>
 
     </div>
@@ -467,23 +485,6 @@ document.write(`
 </ul>
 </li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
-<span class="n">cd</span> <span class="o">../</span>
-<span class="n">startup</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="n">cd</span> <span class="o">../</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="field-of-view-fov">
 <h2>Field-of-View (FOV)<a class="headerlink" href="#field-of-view-fov" title="Link to this heading">#</a></h2>
@@ -493,54 +494,79 @@ document.write(`
 <p>For example, <span class="math notranslate nohighlight">\(FOV_{x} = \frac{1}{\Delta k_x}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">rectangular</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">demonstrate</span> <span class="n">FOV</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">N_rect</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">4</span><span class="p">;</span>
-<span class="n">kdata</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span><span class="n">N_rect</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39; * sinc(kx *N_rect);</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">rect_recon</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))))</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Full FOV&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ifft2c</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Centered inverse 2D FFT</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 
-<span class="n">kdata2</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">;</span>
-<span class="n">kdata2</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">,:)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata2</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="n">end</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">rect_recon2</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata2</span><span class="p">);</span>
+<span class="c1"># rectangular object to demonstrate FOV</span>
 
-<span class="n">figure</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata2</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata2</span><span class="p">(:))))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon2</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon2</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Doubled \Delta k, Half FOV&#39;</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">N_rect</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">4</span>
+<span class="n">kdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span> <span class="n">N_rect</span><span class="p">),</span> <span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span> <span class="n">N_rect</span><span class="p">))</span>
 
-<span class="n">kdata3</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">;</span>
-<span class="n">kdata3</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">end</span><span class="p">,:)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata3</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">end</span><span class="p">,:)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata3</span><span class="p">(:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">end</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata3</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="n">end</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">rect_recon3</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata3</span><span class="p">);</span>
+<span class="n">rect_recon</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span>
 
-<span class="n">figure</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">(:))))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon3</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon3</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Tripled \Delta k, One Third FOV&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span><span class="o">+</span><span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (Full FOV)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Full FOV&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">kdata2</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">kdata2</span><span class="p">[::</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata2</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rect_recon2</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (Half FOV)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Doubled Δk, Half FOV&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">kdata3</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">kdata3</span><span class="p">[::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata3</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata3</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata3</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata3</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata3</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">::</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rect_recon3</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata3</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (One Fourth FOV)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon3</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;4x Δk, One Fourth FOV&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/04e63eb664ac24a7a717df2bfaa58b005851f9fef5c811ea85aa8e989af5a91c.png" src="_images/04e63eb664ac24a7a717df2bfaa58b005851f9fef5c811ea85aa8e989af5a91c.png" />
+<img alt="_images/8c63ab9aa11717c22229dcda27371e13a426cd3185dbaafd32f967ecdb6e026f.png" src="_images/8c63ab9aa11717c22229dcda27371e13a426cd3185dbaafd32f967ecdb6e026f.png" />
+<img alt="_images/3e80130804c8386f1589472e3b3e4acd46e646fc66d5d1bb08f55be2c0ad1ff4.png" src="_images/3e80130804c8386f1589472e3b3e4acd46e646fc66d5d1bb08f55be2c0ad1ff4.png" />
 </div>
 </div>
 </section>
@@ -555,52 +581,83 @@ document.write(`
 \[ \delta = \frac{1}{W_k}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">rectangular</span> <span class="nb">object</span> <span class="n">to</span> <span class="n">demonstrate</span> <span class="n">resolution</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rectangular object to demonstrate resolution</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="n">N_rect</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">kdata</span> <span class="o">=</span> <span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span><span class="n">N_rect</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39; * sinc(kx *N_rect);</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_center_line</span><span class="p">(</span><span class="n">recon</span><span class="p">,</span> <span class="n">fig_num</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="n">center</span> <span class="o">=</span> <span class="n">recon</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">recon</span><span class="p">[</span><span class="n">center</span><span class="p">,</span> <span class="p">:]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
-<span class="n">rect_recon</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
+    
+<span class="c1"># Create k-space for two point objects separated by 1 pixel</span>
+<span class="n">kdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">kx</span> <span class="o">*</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">kx</span> <span class="o">*</span> <span class="mi">4</span> <span class="p">))</span>
+<span class="n">rect_recon</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span>
 
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Full Resolution&#39;</span><span class="p">)</span>
+<span class="c1"># Full resolution (already defined as kdata and rect_recon)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (Full Resolution)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Full Resolution&#39;</span><span class="p">)</span>
+<span class="n">plot_center_line</span><span class="p">(</span><span class="n">rect_recon</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Center Line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">kdata4</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">;</span>
-<span class="n">kdata4</span><span class="p">([[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">],[</span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]],:)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata4</span><span class="p">(:,[[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">],[</span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]])</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">rect_recon4</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata4</span><span class="p">);</span>
+<span class="c1"># 1/2 k_max, 2x voxel size</span>
+<span class="n">kdata2</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">kdata2</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">4</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata2</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">4</span><span class="p">):,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata2</span><span class="p">[:,</span> <span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">4</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata2</span><span class="p">[:,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">4</span><span class="p">):]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rect_recon2</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata2</span><span class="p">)</span>
 
-<span class="n">figure</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata4</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata4</span><span class="p">(:))))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon4</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon4</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;1/4 k_</span><span class="si">{max}</span><span class="s1">, 4x voxel size&#39;</span><span class="p">)</span>
+<span class="c1"># 1/2 k_max, 2x voxel size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (1/2 $k_</span><span class="si">{max}</span><span class="s1">$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;1/2 $k_</span><span class="si">{max}</span><span class="s1">$, 2x voxel size&#39;</span><span class="p">)</span>
+<span class="n">plot_center_line</span><span class="p">(</span><span class="n">rect_recon2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Center Line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">kdata8</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">;</span>
-<span class="n">kdata8</span><span class="p">([[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">16</span><span class="p">],[</span><span class="mi">9</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">16</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]],:)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">kdata8</span><span class="p">(:,[[</span><span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">16</span><span class="p">],[</span><span class="mi">9</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">16</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]])</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">rect_recon8</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata8</span><span class="p">);</span>
+<span class="c1"># 1/4 k_max, 4x voxel size</span>
+<span class="n">kdata4</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">kdata4</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">),</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata4</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">):,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata4</span><span class="p">[:,</span> <span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">kdata4</span><span class="p">[:,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">8</span><span class="p">):]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">rect_recon4</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata4</span><span class="p">)</span>
 
-<span class="n">figure</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata8</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata8</span><span class="p">(:))))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
-<span class="n">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon8</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">rect_recon8</span><span class="p">(:)))])</span>
-<span class="n">colormap</span><span class="p">(</span><span class="n">gray</span><span class="p">),</span> <span class="n">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;1/8 k_</span><span class="si">{max}</span><span class="s1">, 8x voxel size&#39;</span><span class="p">)</span>
+
+<span class="c1"># 1/4 k_max, 4x voxel size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata4</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (1/4 $k_</span><span class="si">{max}</span><span class="s1">$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_recon4</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;1/4 $k_</span><span class="si">{max}</span><span class="s1">$, 4x voxel size&#39;</span><span class="p">)</span>
+<span class="n">plot_center_line</span><span class="p">(</span><span class="n">rect_recon4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Center Line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/35c6a595fc6e379e86c2be060d1eb3ebb092eb5cf4d3b6daee08af7a46fad9ba.png" src="_images/35c6a595fc6e379e86c2be060d1eb3ebb092eb5cf4d3b6daee08af7a46fad9ba.png" />
+<img alt="_images/3c71ce1049874095eb28119e65df171e55685719e251603522b319b57874cc0f.png" src="_images/3c71ce1049874095eb28119e65df171e55685719e251603522b319b57874cc0f.png" />
+<img alt="_images/3ee76af90f62eef606fe517592c2c729cbf825dfa7294ddabd39e3e272fb7f2a.png" src="_images/3ee76af90f62eef606fe517592c2c729cbf825dfa7294ddabd39e3e272fb7f2a.png" />
 </div>
 </div>
 </section>
@@ -642,15 +699,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Signal to Noise Ratio (SNR)</p>
+        <p class="prev-next-title">Scan Time and Signal to Noise Ratio (SNR)</p>
       </div>
     </a>
     <a class="right-next"
-       href="MRI%20Signal%20Equation.html"
+       href="Artifacts.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">The MRI Signal Equation and K-space</p>
+        <p class="prev-next-title">Artifacts</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
