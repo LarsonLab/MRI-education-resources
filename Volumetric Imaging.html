@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Spin Physics &#8212; Principles of MRI</title>
+    <title>Volumetric Imaging &#8212; Principles of MRI</title>
   
   
   
@@ -72,11 +72,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Spin Physics';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Volumetric Imaging';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bloch Equation" href="Bloch%20Equation.html" />
-    <link rel="prev" title="Introduction to Principles of MRI" href="Introduction.html" />
+    <link rel="next" title="Fast Imaging Pulse Sequences" href="Fast%20Imaging%20Pulse%20Sequences.html" />
+    <link rel="prev" title="Cartesian Sampling Image Characteristics" href="Cartesian%20Image%20Characteristics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -195,8 +195,8 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Spin Physics</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
@@ -236,8 +236,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Volumetric Imaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
 </ul>
@@ -333,7 +333,7 @@
       
       
       
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpin Physics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FVolumetric Imaging.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -363,7 +363,7 @@
       
       
       
-      <li><a href="_sources/Spin Physics.ipynb" target="_blank"
+      <li><a href="_sources/Volumetric Imaging.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -447,7 +447,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spin Physics</h1>
+    <h1>Volumetric Imaging</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -458,25 +458,17 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-spin">Nuclear Spin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polarization-and-the-net-magnetization">Polarization and the Net Magnetization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-magnetization">Equilibrium Magnetization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-polarization">Fractional Polarization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-multi-slice-imaging">2D Multi-slice Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interleaving">Interleaving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-talk">Cross-talk</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance">Resonance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-frequency">Resonance Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-resonance">Simulation of Resonance</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excitation-and-precession">Excitation and Precession</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excitation">Excitation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-excitation-and-precession">Simulation of Excitation and Precession</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-relaxation">Simulation of Relaxation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-imaging">3D Imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-multi-slice-vs-3d-imaging">2D Multi-slice vs 3D Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-time">Scan Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
 </ul>
 </li>
 </ul>
@@ -490,149 +482,80 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="spin-physics">
-<h1>Spin Physics<a class="headerlink" href="#spin-physics" title="Link to this heading">#</a></h1>
-<p>To understand MRI, we must delve into physics and understand what is fundamentally being measured by MRI, which are nuclear “spins”, and how they behave in a magnetic field which includes the resonance phenomenom that forms the basis of MRI.  A key concept is the “Net Magnetization” <span class="math notranslate nohighlight">\(\vec{M}\)</span> which is the sum of all the spins in a given volume.  This chapter provides a higher level overview of these concepts, and a more rigorous mathematical description is provided in the Bloch Equation chapter.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="volumetric-imaging">
+<h1>Volumetric Imaging<a class="headerlink" href="#volumetric-imaging" title="Link to this heading">#</a></h1>
+<p>Volumetric imaging refers to the ability to acquire images across a volume.  So far we have discussed methods for a single slice.  This chapter will cover the techniques of 2D multi-slice imaging and 3D imaging.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Understand what MRI is measuring</p>
+<li><p>Describe how images are formed</p>
 <ul class="simple">
-<li><p>Define a nuclear spin</p></li>
-<li><p>Define the concept of the net magnetization</p></li>
+<li><p>Describe how 2D-multislice imaging works</p></li>
+<li><p>Describe how 3D imaging works</p></li>
 </ul>
 </li>
-<li><p>Describe the concepts of polarization, resonance, excitation, and relaxation</p></li>
+<li><p>Understand the constraints and tradeoffs in MRI</p>
+<ul class="simple">
+<li><p>Determine what type of contrast benefits from 2D-multislice vs 3D imaging</p></li>
+<li><p>Determine how SNR changes with 2D-multislice vs 3D imaging</p></li>
+<li><p>Understand when either 2D-multislice or 3D imaging is preferred</p></li>
+</ul>
+</li>
 </ol>
 </section>
-<section id="nuclear-spin">
-<h2>Nuclear Spin<a class="headerlink" href="#nuclear-spin" title="Link to this heading">#</a></h2>
-<p>A nuclear spin is defined as a nucleus with a non-zero net angular momentum.  This means that the nucleus has a net magnetic moment, <span class="math notranslate nohighlight">\(\mu\)</span>, meaning it can act as a small magnet.  It also experiences magnetic resonance, which means it will respond to a specific frequency of electromagnetic fields.  This resonance is the basis for the MRI signal.</p>
-<p>In MRI, we are tyipcally imaging hydrogen nuclei (<span class="math notranslate nohighlight">\(^1 H\)</span>) which are about 80% of the atoms in our bodies.  The primary source of <span class="math notranslate nohighlight">\(^1 H\)</span>, also referred to as protons, is water, although protons in lipids are also imaged.</p>
-<p>Other nuclei also have spin, including <span class="math notranslate nohighlight">\(^{13}C, ^{19}F, ^{23}Na, ^{31}P\)</span>, but these are much less abundant and thus have less available signal compared to protons.</p>
+<section id="d-multi-slice-imaging">
+<h2>2D Multi-slice Imaging<a class="headerlink" href="#d-multi-slice-imaging" title="Link to this heading">#</a></h2>
+<p>A single slice sequence can be easily extended to acquire multiple slices.  The identical sequence can be used, and only the center frequency of the RF pulse needs to be changed to move the slice location.</p>
+<section id="interleaving">
+<h3>Interleaving<a class="headerlink" href="#interleaving" title="Link to this heading">#</a></h3>
+<p>2D multi-slice is typically done in an interleaved fashion, meaning that the acquisitions for different slices will be going on at the same time.  This is done because there is often extra time within each TR, which can be used to acquire other slices.  An example of interleaving is shown below:</p>
+<p><img alt="Interleaving Illustration" src="_images/volumetric_imaging-2D_multislice.png" /></p>
+<p>Note that the TR for each slice is defined when each individual slice is excited, meaning this time defines the T1 recovery and contrast.</p>
 </section>
-<section id="polarization-and-the-net-magnetization">
-<h2>Polarization and the Net Magnetization<a class="headerlink" href="#polarization-and-the-net-magnetization" title="Link to this heading">#</a></h2>
-<p>In the absence of a magnetic field, nuclear spins will be randomly aligned.  However when spins experience a magnetic field, they will preferentially align with that magnetic field.  In MRI, we cannot measure individual spins, but we observe the ensemble of spins,  which is is known as the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>.</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p><img alt="Distribution of spins in the absense of a magnetic field" src="_images/MagSpherical2.jpg" /></p></th>
-<th class="head text-center"><p><img alt="Distribution of spins in the presence of a magnetic field" src="_images/MagPrecession2.jpg" /></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p>Distribution of spins in the absense of a magnetic field</p></td>
-<td class="text-center"><p>Distribution of spins after application of a strong magnetic field that polarizes the spins as reflected in increased density of arrows in the direction of the field (here vertical).  The large arrow pointing up represents the sum of all these spins, or the Net Magnetization.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Source <a class="reference external" href="https://www.drcmr.dk/mr">https://www.drcmr.dk/mr</a></p>
-<section id="equilibrium-magnetization">
-<h3>Equilibrium Magnetization<a class="headerlink" href="#equilibrium-magnetization" title="Link to this heading">#</a></h3>
-<p>In MRI, we define the main magnetic field, <span class="math notranslate nohighlight">\(B_0\)</span>, to be oriented along the z-axis.  When a subject is placed in a MRI scanner, the equilibrium magnetic field is</p>
+<section id="cross-talk">
+<h3>Cross-talk<a class="headerlink" href="#cross-talk" title="Link to this heading">#</a></h3>
+<p>Cross-talk occurs due to the imperfect slice profiles of RF pulses.  If slices are placed immediately adjacent to each other, then there is some excitation by the adjacent slice RF pulses.  This can be mitigated by using higher TBW RF pulses for sharper slice profiles, or by placing gaps between slices.</p>
+</section>
+</section>
+<section id="d-imaging">
+<h2>3D Imaging<a class="headerlink" href="#d-imaging" title="Link to this heading">#</a></h2>
+<p>True 3D imaging resolves voxels in 3 dimensions with spatial encoding gradients.  In Cartesian encoding, this is done by adding a phase encoding gradient in what is normally the slice dimensions.  Then, a 3D area in k-space is sampled.  A slice selective RF pulse can still be used, but with a bigger slice thickness, and are sometimes referred to as “slab-selective”.  In some cases, non-slice selective RF pulses are used, instead relying on the limited extent of the RF receive coil profiles to limit the FOV.  A 3D FT pulse sequence is shown below:</p>
+<p><img alt="3D FT Pulse Sequence" src="_images/pulse_sequence-diagram-all-3D.png" /></p>
+<p>Note that now the number of TRs required is the product of the number of phase encodes in two phase encoding directions.</p>
+</section>
+<section id="d-multi-slice-vs-3d-imaging">
+<h2>2D Multi-slice vs 3D Imaging<a class="headerlink" href="#d-multi-slice-vs-3d-imaging" title="Link to this heading">#</a></h2>
+<p>This section outlines the tradeoffs between 2D multi-slice and 3D imaging.</p>
+<section id="coverage">
+<h3>Coverage<a class="headerlink" href="#coverage" title="Link to this heading">#</a></h3>
+<p>2D multi-slice imaging can have gaps in coverage if slices are not contiguous.</p>
+<p>3D imaging provides continuous coverages without gaps, allow for more seamless evaluation of structures.</p>
+</section>
+<section id="contrast">
+<h3>Contrast<a class="headerlink" href="#contrast" title="Link to this heading">#</a></h3>
+<p>2D multi-slice imaging methods with interleaving can efficiently support longer TRs for PD and T2-weighted imaging, as any extra time in the TR can be used to acquire other slices.</p>
+<p>3D imaging methods require a larger <span class="math notranslate nohighlight">\(N_{TR}\)</span> to complete two dimensions of phase encoding.  For this reason, they are much better suited for T1-weighted imaging which can use shorter TRs.</p>
+</section>
+<section id="scan-time">
+<h3>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h3>
+<p>In 2D multi-slice imaging, the scan time tradeoff depends on the number of slices that can be interleaved in a single TR.  The maximum number of slices is determined by the active time:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\vec{B}(\vec{r},0) = 
-\begin{bmatrix}
-0 \\
-0 \\
-B_0 
-\end{bmatrix}\end{split}\]</div>
-<p>Under this condition of equilibrium, the net magnetization is oriented in the direction of the main magnetic field</p>
+\[N_{slices,max} = \frac{TR}{T_{active}}\]</div>
+<p>Provided the number of slices is limited by this maximum, the scan time for fully sampled Cartesian encoding is:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\vec{M}(\vec{r},0) = 
-\begin{bmatrix}
-0 \\
-0 \\
-M_0(\vec{r})
-\end{bmatrix}\end{split}\]</div>
-<p>And has an amplitude of that is defined as the Equilibrium Magnetization:</p>
+\[T_{scan, 2D} = TR \ N_{PE} \ N_{avg}\]</div>
+<p>In 3D imaging, the scan time depends on the size of both phase encoding dimensions:</p>
 <div class="math notranslate nohighlight">
-\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
-<p>where <span class="math notranslate nohighlight">\(N(\vec{r})\)</span> is the spin density,
-<span class="math notranslate nohighlight">\(h\)</span> is Planck’s constant (6.63e-34 J/Hz),
-<span class="math notranslate nohighlight">\(\bar{\gamma}\)</span> is the gyromagnetic ratio (42.58e6 Hz/T for <span class="math notranslate nohighlight">\(^1 H\)</span>),
-<span class="math notranslate nohighlight">\(B_0\)</span> is the magnetic field,
-<span class="math notranslate nohighlight">\(I_Z\)</span> is the spin number (1/2 for hydrogen),
-<span class="math notranslate nohighlight">\(k\)</span> is Boltzmann’s constant (8.62e-5 eV/K or 1.38e-23 J/K), and
-<span class="math notranslate nohighlight">\(T\)</span> is temperature (human body temperature = 310 K).</p>
+\[T_{scan, 3D} = TR \ N_{PE,1} \ N_{PE,2} \ N_{avg}\]</div>
 </section>
-<section id="fractional-polarization">
-<h3>Fractional Polarization<a class="headerlink" href="#fractional-polarization" title="Link to this heading">#</a></h3>
-<p>Another helpful formulation to describe the preference of spins to align with the magnetic field is to look at the fraction of spins that, if observed, would be aligned with the magnetic field.  This can be done using the Boltzman distribution that describes the ratio of spins in the spin-up, <span class="math notranslate nohighlight">\(N_\uparrow\)</span>, to the spin-down, <span class="math notranslate nohighlight">\(N_-\)</span>, states, shown here for spin 1/2 nuclei (<span class="math notranslate nohighlight">\(I_Z = 1/2\)</span>):</p>
+<section id="snr">
+<h3>SNR<a class="headerlink" href="#snr" title="Link to this heading">#</a></h3>
+<p>Here are relationships if fully-sampled Cartesian encoding is used:</p>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow}{N_\downarrow} = e^{h \bar{\gamma} B_0 / kT}\]</div>
-<p>This includes the separation between the two energy states, <span class="math notranslate nohighlight">\(\Delta E = h \bar{\gamma} B_0\)</span>.  It can also be used to derive the equilibrium magnetization above.</p>
-<p>From this distribution, a fractional polarization can be defined as the difference between spin up and spin down states, divided by the total number of spins, which describes the fraction of spins that contribute to the MR signal:</p>
+\[SNR_{2D} \propto f_{seq,2D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE} N_{avg}}\]</div>
 <div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} = \frac{ 1 - e^{-h \bar{\gamma} B_0 / kT} }{ 1 + e^{-h \bar{\gamma} B_0 / kT} }\]</div>
-<p>If the exponent is small (or, when the polarization is low), this simplifies to</p>
-<div class="math notranslate nohighlight">
-\[ \frac{N_\uparrow - N_\downarrow}{N_\uparrow + N_\downarrow} \approx \frac{h \bar{\gamma} B_0}{2 kT}\]</div>
-</section>
-</section>
-<section id="resonance">
-<h2>Resonance<a class="headerlink" href="#resonance" title="Link to this heading">#</a></h2>
-<p>When in a mangetic field, spins and therefore the net magnetization experience magnetic resonance, which means they will respond strongly to a specific frequency of electromagnetic fields.</p>
-<p>An analogy for resonance is to consider a swing: In order to swing higher and higher, you must move your legs back and forth at the right rate.  If you move your legs at the wrong rate, you will simply not move much higher.</p>
-<p>In MRI, we can perturb the net magnetization from equilibrium by applying a time-varying magnetic field (<span class="math notranslate nohighlight">\(B_1\)</span>) at the “resonance frequency”.  This will perturb or “tip” the net magnetization away its equilibrium where it is in alignment with the magnetic field.</p>
-<p><img alt="RF excitation Lab Frame" src="_images/RF_hard_lab_frame_on-resonance.gif" /></p>
-<section id="resonance-frequency">
-<h3>Resonance Frequency<a class="headerlink" href="#resonance-frequency" title="Link to this heading">#</a></h3>
-<p>The magnetic resonance frequency is proportional to the magnetic field amplitude</p>
-<div class="math notranslate nohighlight">
-\[f = \bar{\gamma} \|\vec{B}\|\]</div>
-<p>When the magnetic field is simply our main field, <span class="math notranslate nohighlight">\(B_0\)</span>, then we get the so-called Larmor frequency</p>
-<div class="math notranslate nohighlight">
-\[f_0 = \bar{\gamma} B_0\]</div>
-</section>
-<section id="simulation-of-resonance">
-<h3>Simulation of Resonance<a class="headerlink" href="#simulation-of-resonance" title="Link to this heading">#</a></h3>
-<p>For this simulation use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator for visualizing resonance.  To simulate</p>
-<ol class="arabic simple">
-<li><p>Start in the default compass mode, with an applied <span class="math notranslate nohighlight">\(B_0\)</span> field(default)</p></li>
-<li><p>Move the <span class="math notranslate nohighlight">\(B_1\)</span> magnetic field slider - this should change the angle of the compass slightly</p></li>
-<li><p>Now adjust the <span class="math notranslate nohighlight">\(B_1\)</span> freq(uency) slider - if you choose the correct frequency, then you should be able to create large oscillations in the compass</p></li>
-<li><p>Change the main field, <span class="math notranslate nohighlight">\(B_0\)</span>, and see that now you need a new <span class="math notranslate nohighlight">\(B_1\)</span> freq(uency) to achieve resonance</p></li>
-<li><p>Switch to using the Coil for <span class="math notranslate nohighlight">\(B_1\)</span> in the top right checkbox and repeat.  This is one step closer to a real experiment.</p></li>
-</ol>
-</section>
-</section>
-<section id="excitation-and-precession">
-<h2>Excitation and Precession<a class="headerlink" href="#excitation-and-precession" title="Link to this heading">#</a></h2>
-<section id="precession">
-<h3>Precession<a class="headerlink" href="#precession" title="Link to this heading">#</a></h3>
-<p>Precession refers to the rotation of the spins and therefore the net magnetization around the magnetic field.  This precession is part of the magnetic resonance phenomenom and is what creates signal in MRI.  The spins and net magnetization will rotate around the magnetic field, with the resonance frequency.</p>
-<p><img alt="RF reception" src="_images/RF_reception.gif" /></p>
-</section>
-<section id="excitation">
-<h3>Excitation<a class="headerlink" href="#excitation" title="Link to this heading">#</a></h3>
-<p>In order for precession to occur, the spins or net magnetization must not be aligned with the magnetic field.  As the nuclear spins are only preferentially aligned with the magnetic field, many of them will experience precession at any given time.  However, the net magnetization will be aligned with the magnetic field at equilibrium, and therefore will not precess.</p>
-<p>To cause the net magnetization to precess, an time-varying magnetic field (<span class="math notranslate nohighlight">\(B_1\)</span>) is applied at the resonance frequency.  This perturbs the net magnetization away from alignment with the magnetic field, and it will continue to precess after the <span class="math notranslate nohighlight">\(B_1\)</span> field is turned off.</p>
-<p>Once we have precession of the net magnetization, it creates a time-varying magnetic field that can then be detected as MRI signal.</p>
-</section>
-<section id="simulation-of-excitation-and-precession">
-<h3>Simulation of Excitation and Precession<a class="headerlink" href="#simulation-of-excitation-and-precession" title="Link to this heading">#</a></h3>
-<p>Again, use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator for visualizing resonance and precession.</p>
-<ol class="arabic simple">
-<li><p>Start in the default compass mode again</p></li>
-<li><p>Hit the Push button in the top right.  Notice how the needle now precesses at a specific frequency</p></li>
-<li><p>Switch on using the Coil for <span class="math notranslate nohighlight">\(B_1\)</span> in the top right checkbox, and hit Push again.  Now the blue trace highlights the signal created in this coil by the precessing needle.  This is because the needle will also create a time-varying magnetic field that can be detected</p></li>
-<li><p>Now switch to the Spin mode in the top right checkbox, and Push the spin.  It will now precess in 3D around the up-down direction of <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
-</ol>
-</section>
-</section>
-<section id="relaxation">
-<h2>Relaxation<a class="headerlink" href="#relaxation" title="Link to this heading">#</a></h2>
-<p>Relaxation refers to the process by which the net magnetization, our ensemble of individual spins, returns to thermal equilibrium.  This is governed by 2 time constants, <span class="math notranslate nohighlight">\(T_1(\vec{r})\)</span> - the longitudinal (<span class="math notranslate nohighlight">\(M_Z\)</span>) or spin-lattice relaxation time constant, and <span class="math notranslate nohighlight">\(T_2(\vec{r})\)</span> - the transverse (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) or spin-spin relaxation time constant.  These time constants differ depending on tissue composition and structure, and both of these relaxation time constants are valuable sources of MRI contrast.</p>
-<p><img alt="Relaxation" src="_images/relaxation_t1t2.gif" /></p>
-<section id="simulation-of-relaxation">
-<h3>Simulation of Relaxation<a class="headerlink" href="#simulation-of-relaxation" title="Link to this heading">#</a></h3>
-<p>One last time in this chapter, use the <a class="reference external" href="https://www.drcmr.dk/CompassMR/">CompassMR</a> simulator.</p>
-<ol class="arabic simple">
-<li><p>Start in the default compass mode</p></li>
-<li><p>Hit the Push button in the top right.  The needle will begin to precesses but then returns to alignment with the <span class="math notranslate nohighlight">\(B_0\)</span> magnetic field (in the vertical direction).  This return to equilibrium is relaxation</p></li>
-</ol>
+\[SNR_{3D} \propto f_{seq,3D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE,1} N_{PE,2} N_{avg}}\]</div>
+<p>3D imaging has a measurement time advantage over 2D multi-slice imaging, since each acquisition acquires signal from the entire volume.  However, some of this advantage is mitigated by greater T1 recovery in 2D multi-slice imaging, which is captured by <span class="math notranslate nohighlight">\(f_{seq}\)</span>.</p>
 </section>
 </section>
 </section>
@@ -668,20 +591,20 @@ M_0(\vec{r})
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Introduction.html"
+       href="Cartesian%20Image%20Characteristics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to Principles of MRI</p>
+        <p class="prev-next-title">Cartesian Sampling Image Characteristics</p>
       </div>
     </a>
     <a class="right-next"
-       href="Bloch%20Equation.html"
+       href="Fast%20Imaging%20Pulse%20Sequences.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bloch Equation</p>
+        <p class="prev-next-title">Fast Imaging Pulse Sequences</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -702,25 +625,17 @@ M_0(\vec{r})
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nuclear-spin">Nuclear Spin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polarization-and-the-net-magnetization">Polarization and the Net Magnetization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium-magnetization">Equilibrium Magnetization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-polarization">Fractional Polarization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-multi-slice-imaging">2D Multi-slice Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interleaving">Interleaving</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-talk">Cross-talk</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance">Resonance</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resonance-frequency">Resonance Frequency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-resonance">Simulation of Resonance</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excitation-and-precession">Excitation and Precession</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#precession">Precession</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#excitation">Excitation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-excitation-and-precession">Simulation of Excitation and Precession</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation">Relaxation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-of-relaxation">Simulation of Relaxation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-imaging">3D Imaging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-multi-slice-vs-3d-imaging">2D Multi-slice vs 3D Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coverage">Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scan-time">Scan Time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
 </ul>
 </li>
 </ul>
