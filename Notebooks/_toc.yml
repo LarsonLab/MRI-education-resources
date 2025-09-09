@@ -12,7 +12,7 @@ parts:
   - caption: MRI System
     chapters:
     - file: "MRI System"
-    - file: "Magnetic Fields and RF Coils"
+    - file: "Magnetic Fields in MRI"
   - caption: MRI Experiment
     chapters:
     - file: "Pulse Sequence"
@@ -35,17 +35,18 @@ parts:
     - file: "Image Reconstruction"
   - caption: Image Characteristics
     chapters:
-    - file: "Signal to Noise Ratio"
     - file: "FOV and Resolution"
+    - file: "Signal to Noise Ratio"
     - file: "Cartesian Image Characteristics"
-  - caption: Imperfections and Artifacts
+  - caption: Fast Imaging Methods
     chapters:
-    - file: "Artifacts"
-    - file: "Point Spread Function Analysis"
-  - caption: Fast Imaging
-    chapters:
+    - file: "Volumetric Imaging"
     - file: "Fast Imaging Pulse Sequences"
     - file: "Accelerated Imaging Methods"
+  - caption: Imperfections and Artifacts
+    chapters:
+    - file: "Point Spread Function Analysis"
+    - file: "Artifacts"
   - caption: Summary
     chapters:
     - file: "Key MRI Concepts"
