@@ -621,11 +621,11 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-B_{1,X}^+(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t) \\
-B_{1,Y}^+(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) \\
+B_{1,X}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) \\
+- B_{1,X}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t)  \\
 B_0 + \vec{G}(t) \cdot \vec{r}
 \end{bmatrix}\end{split}\]</div>
-<p>Note that the sin/cos in the magnetic field represent a rotation of the RF field at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>.</p>
+<p>In this representation, the RF magnetic field, <span class="math notranslate nohighlight">\(B_{1,X}, B_{1,Y}\)</span>, is rotating at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>, in the transverse plane.  In the rotating frame, this rotation is removed, and we are left with a transverse magnetic field with X and Y components.</p>
 <p>The RF system is divided up into transmit and receive paths.  All components are tuned to Larmor frequency, meaning they are most sensitive to transmitting or receiving signals at this frequency.  Reactive components (capacitors and inductors) are used for tuning to the correct frequency.</p>
 <section id="transmit-tx-system-for-excitation-b-1-vec-r-t">
 <h3>Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span><a class="headerlink" href="#transmit-tx-system-for-excitation-b-1-vec-r-t" title="Link to this heading">#</a></h3>
