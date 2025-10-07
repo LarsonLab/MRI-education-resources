@@ -512,25 +512,12 @@ document.write(`
 <section id="refocusing-off-resonance-with-a-spin-echo">
 <h2>Refocusing off-resonance with a spin-echo<a class="headerlink" href="#refocusing-off-resonance-with-a-spin-echo" title="Link to this heading">#</a></h2>
 <p>Gradient-echo sequences are sensitive to off-resonance effects and exhibit <span class="math notranslate nohighlight">\(T_2^*\)</span> contrast.  However, the effects of off-resonance can be reversed by applying a 180-degree flip angle “refocusing” RF pulse some time after the initial excitation RF pulse.  This has the effect of inverting the phase accumulation of off-resonance net magnetizations, after which the off-resonance phase begins to cancel out.  This is most easily illustrated in the voxel decay illustrations below:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head text-center"><p><img alt="Voxel signal decay, no off-resonance" src="_images/t2star-spinecho_no_off-resonance.gif" /></p></th>
-<th class="head text-center"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p>Spin-echo with No off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</p></td>
-<td class="text-center"><p></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><img alt="Voxel signal decay, mild off-resonance" src="_images/t2star-spinecho_mild_off-resonance.gif" /></p></td>
-<td class="text-center"><p><img alt="Voxel signal decay, severe off-resonance" src="_images/t2star-spinecho_severe_off-resonance.gif" /></p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p>Spin-echo with Mild off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</p></td>
-<td class="text-center"><p>Spin-echo with Severe off-resonance <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><img alt="Voxel signal decay, no off-resonance" src="_images/t2star-spinecho_no_off-resonance.gif" /></p>
+<p><strong>Spin-echo with No off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><img alt="Voxel signal decay, mild off-resonance" src="_images/t2star-spinecho_mild_off-resonance.gif" /></p>
+<p><strong>Spin-echo with Mild off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><img alt="Voxel signal decay, severe off-resonance" src="_images/t2star-spinecho_severe_off-resonance.gif" /></p>
+<p><strong>Spin-echo with Severe off-resonance <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
 <p>The spin-echo does not make any difference when there is no off-resonance.<br />
 Can you identify when the 180-degree refocusing pulse was applied?  This is when the <span class="math notranslate nohighlight">\(M_{XY}\)</span> reverts its phase.</p>
 <section id="simulation-for-visualization-of-refocusing-off-resonance">
