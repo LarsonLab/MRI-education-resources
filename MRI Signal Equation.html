@@ -461,8 +461,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transverse-magnetization">The Transverse Magnetization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-relaxation">Adding Relaxation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-off-resonance-and-chemical-shift">Adding Off-resonance and Chemical Shift</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-rf-coil-profiles">Adding RF Coil Profiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-gradients">Adding Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-rf-coil-profiles">Adding RF Coil Profiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-signal-equation">Complete Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplified-versions-of-the-signal-equation">Simplified Versions of the Signal Equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-formation-with-only-gradients">Image Formation with only Gradients</a></li>
@@ -503,8 +503,8 @@ The signal equation can be simplified in many ways, which we will use throughout
 \[s(t) = \int M_{XY}(\vec{r},t) \  d\vec{r}\]</div>
 <p>For simplifaction, we use the notation</p>
 <div class="math notranslate nohighlight">
-\[m(\vec{r}) = M_{XY}(\vec{r}, t=0)\]</div>
-<p>and then assume the transverse magnetization does not change in time (don’t worry, we will add this back in below), we get:</p>
+\[m(\vec{r}) = M_{XY}(\vec{r}, t=TE)\]</div>
+<p>which indicates that our signal is primarily determined by the transverse magnetization at the echo time, TE, and assumes the transverse magnetization does not change during data acquisition (we will add this back in below as needed).  Then we get a simple expression:</p>
 <div class="math notranslate nohighlight">
 \[s(t) = \int m(\vec{r}) \  d\vec{r}\]</div>
 <p>Here we also use the rotating frame.</p>
@@ -513,7 +513,7 @@ The signal equation can be simplified in many ways, which we will use throughout
 <h2>Adding Relaxation<a class="headerlink" href="#adding-relaxation" title="Link to this heading">#</a></h2>
 <p>The transverse magnetization decays due to relaxation, which can be added to the signal equation:</p>
 <div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\  d\vec{r}\]</div>
+\[s(t) = \int m(\vec{r})\ e^{-t/T_2(\vec{r})}\  d\vec{r}\]</div>
 </section>
 <section id="adding-off-resonance-and-chemical-shift">
 <h2>Adding Off-resonance and Chemical Shift<a class="headerlink" href="#adding-off-resonance-and-chemical-shift" title="Link to this heading">#</a></h2>
@@ -521,12 +521,19 @@ The signal equation can be simplified in many ways, which we will use throughout
 <p>Here we separately define:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Delta f_r(\vec{r}) = \bar \gamma \Delta B_0(\vec{r})\)</span> - magnetic field inhomogeneities, including main field imperfections, and magnetic susceptibility effects</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> - frequency changes due to chemical shift, so depends on the chemical species being examined (could sum or index signal over this dimension)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> - frequency changes due to chemical shift, so depends on the chemical species being examined.  For example, for water, <span class="math notranslate nohighlight">\(\Delta f_{cs} =0\)</span>, while for fat, <span class="math notranslate nohighlight">\(\Delta f_{cs} = \Delta f_{fat}\)</span>.</p></li>
 </ul>
 <!-- $$s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$ -->
 <p>For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f(\vec{r}) t} \  d\vec{r}\]</div>
+</section>
+<section id="adding-gradients">
+<h2>Adding Gradients<a class="headerlink" href="#adding-gradients" title="Link to this heading">#</a></h2>
+<p>Magnetic field gradients also lead to changes in the precession frequency of the magnetization.  Unlike off-resonance and chemical shift, which are static and fixed for a given experiment, the gradients can be controlled and can be varied over time.  This leads to rotations in the transverse magnetization that depend on the gradient waveforms and position, and can be added to the signal equation as:</p>
+<div class="math notranslate nohighlight">
+\[s(t) = \int m(\vec{r}) \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
+<p>The effect of gradients depends on their cumulative area, as described by the integral in the exponential.</p>
 </section>
 <section id="adding-rf-coil-profiles">
 <h2>Adding RF Coil Profiles<a class="headerlink" href="#adding-rf-coil-profiles" title="Link to this heading">#</a></h2>
@@ -535,19 +542,12 @@ The signal equation can be simplified in many ways, which we will use throughout
 <div class="math notranslate nohighlight">
 \[s_n(t) = \int m(\vec{r})\ C_n(\vec{r}) \  d\vec{r}\]</div>
 </section>
-<section id="adding-gradients">
-<h2>Adding Gradients<a class="headerlink" href="#adding-gradients" title="Link to this heading">#</a></h2>
-<p>Magnetic field gradients create rotations in the transverse magnetization, and can be added to the signal equation:</p>
-<div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r}) \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
-<p>The effect of gradients depends on their cumulative area, as described by the integral in the equation.</p>
-</section>
 <section id="complete-signal-equation">
 <h2>Complete Signal Equation<a class="headerlink" href="#complete-signal-equation" title="Link to this heading">#</a></h2>
 <p>Finally, we can write the most intimidating version, a comprehensive version of signal equation, including relaxation, coil sensitivity, off-resonance and chemical shift, and gradients.
 The signal from an individual RF coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
 <div class="math notranslate nohighlight">
-\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
+\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
 </section>
 <section id="simplified-versions-of-the-signal-equation">
 <h2>Simplified Versions of the Signal Equation<a class="headerlink" href="#simplified-versions-of-the-signal-equation" title="Link to this heading">#</a></h2>
@@ -562,7 +562,7 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 <h3>Relaxation, Off-resonance, and Chemical Shift in Images<a class="headerlink" href="#relaxation-off-resonance-and-chemical-shift-in-images" title="Link to this heading">#</a></h3>
 <p>Often the effects of the gradients and RF coil volume are neglected for understanding the effects of relaxation and off-resonance on the signal.</p>
 <div class="math notranslate nohighlight">
-\[s(t) = m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f(\vec{r}) t} \  \]</div>
+\[s(t) = m(\vec{r})\ e^{-t/T_2(\vec{r})}\ e^{-i 2 \pi \Delta f(\vec{r}) t} \  \]</div>
 <p>When we perform proper spatial encoding and image reconstruction the effect of gradients and the integration over a volume are effectively removed, and the resulting image is proportional to this simplified version of the signal equation.</p>
 </section>
 </section>
@@ -636,8 +636,8 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transverse-magnetization">The Transverse Magnetization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-relaxation">Adding Relaxation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-off-resonance-and-chemical-shift">Adding Off-resonance and Chemical Shift</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-rf-coil-profiles">Adding RF Coil Profiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-gradients">Adding Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-rf-coil-profiles">Adding RF Coil Profiles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-signal-equation">Complete Signal Equation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplified-versions-of-the-signal-equation">Simplified Versions of the Signal Equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-formation-with-only-gradients">Image Formation with only Gradients</a></li>
