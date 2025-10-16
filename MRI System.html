@@ -465,6 +465,11 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrations">Calibrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-calibrations">Installation Calibrations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-scan-calibrations">Per-scan Calibrations</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -486,6 +491,7 @@ document.write(`
 <ul class="simple">
 <li><p>What are the required components of MRI system?</p></li>
 <li><p>What is the purpose of these components?</p></li>
+<li><p>What calibrations are required for a MRI scan?</p></li>
 <li><p>Answer these questions:</p>
 <ul>
 <li><p>Why is MRI so loud?</p></li>
@@ -554,6 +560,26 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
 <li><p>Repeat Excitation, acquisition, and encoding as needed to acquire enough data to form an image</p></li>
 </ol>
 <p><img alt="Diagram of the MRI Experiment" src="_images/MRI_experiment_diagram.png" /></p>
+</section>
+<section id="calibrations">
+<h2>Calibrations<a class="headerlink" href="#calibrations" title="Link to this heading">#</a></h2>
+<p>Calibrations are performed of the individual components of a MRI scanner both when the system is installed and during each scan.</p>
+<section id="installation-calibrations">
+<h3>Installation Calibrations<a class="headerlink" href="#installation-calibrations" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Main magnet:  Minor adjustments to the main magnetic field, called “shimming”, is performed to make the main magnetic field more homogeneous</p></li>
+<li><p>RF systems:  Checking for sources of RF interference entering the scanner room</p></li>
+<li><p>Gradient coils: Calibration of the gradient strength and mapping of the gradient fields to ensure accurate spatial encoding.</p></li>
+</ol>
+</section>
+<section id="per-scan-calibrations">
+<h3>Per-scan Calibrations<a class="headerlink" href="#per-scan-calibrations" title="Link to this heading">#</a></h3>
+<p>Different people and different places in the body will create differences in both the main magnetic field as well as the RF fields due to loading and magnetic susceptibility, thus requiring calibrations to be performed for each scan.  This is sometimes referred to as “prescan”.</p>
+<ol class="arabic simple">
+<li><p>Main magnetic field: Measurements of the resonance frequency across the imaging field-of-view are used to perform shimming and choosing the correct RF frequency (“center frequency”)</p></li>
+<li><p>RF systems:  The transmit RF field created, <span class="math notranslate nohighlight">\(B_1^{+}\)</span>, is calibrated by modifying the RF transmit power, implemented via amplifier gains.  Often, the RF receive coil profiles, <span class="math notranslate nohighlight">\(B_1^{-}\)</span>, are also measured for intensity correction and accelerated imaging methods.</p></li>
+</ol>
+</section>
 </section>
 </section>
 
@@ -629,6 +655,11 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrations">Calibrations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-calibrations">Installation Calibrations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-scan-calibrations">Per-scan Calibrations</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

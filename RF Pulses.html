@@ -458,6 +458,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-rf-pulses-are-used-in-mri">How RF Pulses are Used in MRI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-rf-pulses">Types of RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-properties">RF Pulse Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-angle">Flip Angle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product">Time-bandwidth Product</a></li>
@@ -518,7 +520,51 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <li><p>Understand how changes in flip angle are implemented</p></li>
 </ul>
 </li>
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Describe how RF pulses are frequency-selective</p></li>
+</ul>
+</li>
 </ol>
+</section>
+<section id="how-rf-pulses-are-used-in-mri">
+<h2>How RF Pulses are Used in MRI<a class="headerlink" href="#how-rf-pulses-are-used-in-mri" title="Link to this heading">#</a></h2>
+<p>Fundamentally, RF pulses are used to flip the net magnetization.  This creates signal and also manipultes contrast.  Also, applying magnetic field gradients during an RF pulse will create slice selection.</p>
+</section>
+<section id="types-of-rf-pulses">
+<h2>Types of RF Pulses<a class="headerlink" href="#types-of-rf-pulses" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pulse Type</p></th>
+<th class="head"><p>Purpose</p></th>
+<th class="head"><p>Magnetization Effect</p></th>
+<th class="head"><p>Flip Angle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Excitation</p></td>
+<td><p>Create signal</p></td>
+<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to <span class="math notranslate nohighlight">\(M_{XY}\)</span></p></td>
+<td><p>up to 90-degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>Inversion</p></td>
+<td><p>Enhance contrast</p></td>
+<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to -<span class="math notranslate nohighlight">\(M_Z\)</span></p></td>
+<td><p>180-degrees</p></td>
+</tr>
+<tr class="row-even"><td><p>Refocusing</p></td>
+<td><p>Create spin-echoes</p></td>
+<td><p><span class="math notranslate nohighlight">\(M_{XY}\)</span> to <span class="math notranslate nohighlight">\(M_{XY}\)</span></p></td>
+<td><p>180-degrees</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturation</p></td>
+<td><p>Suppress magnetization</p></td>
+<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to 0</p></td>
+<td><p>90-degrees</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="rf-pulse-properties">
 <h2>RF Pulse Properties<a class="headerlink" href="#rf-pulse-properties" title="Link to this heading">#</a></h2>
@@ -534,7 +580,8 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <h3>Time-bandwidth Product<a class="headerlink" href="#time-bandwidth-product" title="Link to this heading">#</a></h3>
 <p>The time-bandwidth product (TBW) characterizes the relationship between pulse duration, <span class="math notranslate nohighlight">\(T_{rf}\)</span>, and bandwidth, <span class="math notranslate nohighlight">\(BW_{rf}\)</span> and is a fixed value for a given pulse shape. It is defined as</p>
 <div class="math notranslate nohighlight">
-\[ TBW = T_{rf} \cdot BW_{rf} \]</div>
+\[ TBW_{rf} = T_{rf} \cdot BW_{rf} \]</div>
+<p>For a sinc or sinc-like pulse, the TBW product is equal to the number of zero-crossings in the pulse shape.</p>
 </section>
 <section id="specific-absorption-rate">
 <h3>Specific Absorption Rate<a class="headerlink" href="#specific-absorption-rate" title="Link to this heading">#</a></h3>
@@ -743,6 +790,8 @@ In practice, this approximation is only valid for small flip angles, typically u
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-rf-pulses-are-used-in-mri">How RF Pulses are Used in MRI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-rf-pulses">Types of RF Pulses</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulse-properties">RF Pulse Properties</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flip-angle">Flip Angle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-bandwidth-product">Time-bandwidth Product</a></li>
