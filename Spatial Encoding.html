@@ -465,6 +465,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ft-imaging-pulse-sequence">2D FT Imaging Pulse Sequence</a></li>
 </ul>
             </nav>
         </div>
@@ -583,7 +584,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Link to this heading">#</a></h2>
 <p>Typically the 2nd (and optionally 3rd) dimensions of the object are encoded using “phase encoding”.  This means that, after RF excitation but before the frequency encoding gradient, a pulsed gradient is applied such that the location is encoded in the phase of the next magnetization:</p>
 <div class="math notranslate nohighlight">
-\[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y\]</div>
+\[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y \]</div>
 <p>This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span>.  <span class="math notranslate nohighlight">\(G_{yp}\)</span> is the maximum phase encoding gradient strength, <span class="math notranslate nohighlight">\(G_{yi}\)</span> is the phase encoding gradient amplitude increment, and <span class="math notranslate nohighlight">\(t_y\)</span> is the phase encoding gradient duration.  Note that <span class="math notranslate nohighlight">\(2 G_{yp} = (N_{PE} - 1) G_{yi}\)</span>.</p>
 <p><strong>This is equivalent to taking different samples of a frequency encoding gradient.</strong></p>
 <div class="cell docutils container">
@@ -641,6 +642,9 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <p>Instead of viewing the net magnetizations, we can also visualize this encoding as a map of the phase of the transverse magnetization:</p>
 <p><img alt="frequency_phase_encoding-simple-image_phase.gif" src="_images/frequency_phase_encoding-simple-image_phase.gif" /></p>
 <p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
+</section>
+<section id="d-ft-imaging-pulse-sequence">
+<h2>2D FT Imaging Pulse Sequence<a class="headerlink" href="#d-ft-imaging-pulse-sequence" title="Link to this heading">#</a></h2>
 <p>The following pulse sequence diagram shows a Cartesian 2D FT sequence with frequency and phase encoding including relevant pulse amplitudes and durations.  A gradient-echo sequence is shown, and the principles can simply be extended to a spin-echo sequence.  Idealized rectangular gradients are shown for simplicity.</p>
 <p><img alt="Pulse Sequence Diagram" src="_images/pulse_sequence-diagram-Cartesian-parameters.png" /></p>
 </section>
@@ -718,6 +722,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ft-imaging-pulse-sequence">2D FT Imaging Pulse Sequence</a></li>
 </ul>
   </nav></div>
 
