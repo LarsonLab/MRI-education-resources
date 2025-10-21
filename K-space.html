@@ -498,7 +498,7 @@ document.write(`
 <h2>Generalized Spatial Encoding<a class="headerlink" href="#generalized-spatial-encoding" title="Link to this heading">#</a></h2>
 <p>In general, the application of magnetic field gradients will change the phase of the transverse magnetization with dependence on the gradient waveforms used and position:</p>
 <div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)\]</div>
+\[ M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \]</div>
 <p>Using the notation <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r}, t=0)\)</span>, this can be written as</p>
 <div class="math notranslate nohighlight">
 \[M_{XY}(\vec{r}, t) = m(\vec{r}) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)\]</div>
@@ -653,7 +653,7 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <span class="c1"># Plot all points in the 3D Cartesian k-space grid</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">kx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">kx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">ky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">kz</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kz</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">ky</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">kx</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,:],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
@@ -679,9 +679,9 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N_radial</span><span class="p">):</span>
     <span class="c1"># Plot radial lines from the origin to each point</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">kx_r</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">ky_r</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">kz_r</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;$k_z$&#39;</span><span class="p">)</span>
@@ -692,8 +692,8 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5d54d2b55403bedf3c7c007f353b326ab363a034247ae8167e899d640979b207.png" src="_images/5d54d2b55403bedf3c7c007f353b326ab363a034247ae8167e899d640979b207.png" />
-<img alt="_images/d75d45fc1ff17f46cb6b15a81e9465691f6b26183c3b6b08640ca2bce2ee97bd.png" src="_images/d75d45fc1ff17f46cb6b15a81e9465691f6b26183c3b6b08640ca2bce2ee97bd.png" />
+<img alt="_images/0257858cdcafe740c85b1eeb7dfd36e5aa24ae34cf1c55b1c98b93fe0774acfa.png" src="_images/0257858cdcafe740c85b1eeb7dfd36e5aa24ae34cf1c55b1c98b93fe0774acfa.png" />
+<img alt="_images/94a2e0db0c459a8230cb5815b5b1425141646f9edeced1a005203a65d63296e7.png" src="_images/94a2e0db0c459a8230cb5815b5b1425141646f9edeced1a005203a65d63296e7.png" />
 </div>
 </div>
 <p>These movies illustrate the phase accumulation during non-Cartesian trajectories</p>
