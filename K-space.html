@@ -507,7 +507,7 @@ document.write(`
 <h3>Definition of k-space<a class="headerlink" href="#definition-of-k-space" title="Link to this heading">#</a></h3>
 <p>Here, we introduce the concept of k-space, which is a simplified representation of the phase accumulation due to magnetic field gradients.  It is defined as</p>
 <div class="math notranslate nohighlight">
-\[\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau\]</div>
+\[\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \ d\tau\]</div>
 <p>The effect of gradients on the transverse magnetization then becomes</p>
 <div class="math notranslate nohighlight">
 \[M_{XY}(\vec{r}, t) =  m(\vec{r}) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }\]</div>
@@ -549,7 +549,7 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
 <li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization <span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span></p></li>
 </ol>
-<p>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
+<p><em><strong>Key Result</strong></em>: <em>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an</em> <strong>IMAGE</strong>!!</p>
 </section>
 <section id="k-space-trajectories">
 <h2>K-space Trajectories<a class="headerlink" href="#k-space-trajectories" title="Link to this heading">#</a></h2>

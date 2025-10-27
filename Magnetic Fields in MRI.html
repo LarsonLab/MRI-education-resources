@@ -470,7 +470,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocity">Reciprocity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-coils">RF Coils</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-and-receive-rf-coils">Transmit and Receive RF Coils</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-rf-coils">Transmit (Tx) RF coils</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-rf-coils">Receive (Rx) RF coils</a></li>
 </ul>
@@ -617,7 +617,8 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li><p>Excitation – perturb the net magnetization from equilibrium by creating magnetic fields at the resonance frequency</p></li>
 <li><p>Reception – after excitation, the precessing net magnetization creates magnetic fields at the resonance frequency</p></li>
 </ol>
-<p>These are called RF coils since the resonance frequencies for MRI, typically around 100 MHz, is in the so-called radio-frequency (RF) range.  Their amplitude is much smaller than the other magnetic fields, typically in the 10 <span class="math notranslate nohighlight">\(\mu\)</span>T = .00001 T range.  The magnetic fields created by the RF coils are oriented perpedicularly to the main magnetic field, and thus are in the transverse (XY) plane.  Mathematically, we add this final magnetic field as</p>
+<p>These are called RF coils since the resonance frequencies for MRI, typically around 100 MHz, is in the so-called radio-frequency (RF) range.  All RF coils used for MRI must be tuned to the resonance frequency to effectively transmit and receive signals at this frequency.</p>
+<p>Their amplitude is much smaller than the other magnetic fields, typically in the 10 <span class="math notranslate nohighlight">\(\mu\)</span>T = .00001 T range.  The magnetic fields created by the RF coils are oriented perpedicularly to the main magnetic field, and thus are in the transverse (XY) plane.  Mathematically, we add this final magnetic field as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
@@ -685,7 +686,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </section>
 <section id="receiving-magnetic-resonance-signal">
 <h3>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Link to this heading">#</a></h3>
-<p>Magnetic resonsance signal is received by the following sequence of events</p>
+<p>Magnetic resonance signal is received by the following sequence of events</p>
 <ol class="arabic simple">
 <li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span></p></li>
 <li><p>This precession creates oscillating magnetic fields at this same (Larmor) frequency.</p></li>
@@ -698,8 +699,8 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <p>The principle of reciprocity in electromagnetism tells us that the same relationships govern creating magnetic fields from oscillating currents and creating electric currents from oscillating magnetic fields.  So far we have discussed that an oscillating current in a loop of wire will create an oscillating magnetic field, which describes the transmit RF process.  So, reciprocity says that an oscillating magnetic field will create a current in a loop of wire.  This describe the receive RF process, as shown above.</p>
 </section>
 </section>
-<section id="rf-coils">
-<h2>RF Coils<a class="headerlink" href="#rf-coils" title="Link to this heading">#</a></h2>
+<section id="transmit-and-receive-rf-coils">
+<h2>Transmit and Receive RF Coils<a class="headerlink" href="#transmit-and-receive-rf-coils" title="Link to this heading">#</a></h2>
 <section id="transmit-tx-rf-coils">
 <h3>Transmit (Tx) RF coils<a class="headerlink" href="#transmit-tx-rf-coils" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -889,7 +890,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocity">Reciprocity</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-coils">RF Coils</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-and-receive-rf-coils">Transmit and Receive RF Coils</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-rf-coils">Transmit (Tx) RF coils</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-rf-coils">Receive (Rx) RF coils</a></li>
 </ul>
