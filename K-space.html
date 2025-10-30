@@ -465,7 +465,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space Trajectories</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">K-space trajectories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-gradients-to-k-space-trajectory">Mapping Gradients to K-space trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-echo-effect-on-k-space">Spin-echo Effect on K-space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-k-space-trajectories">Example K-space Trajectories</a></li>
 </ul>
 </li>
 </ul>
@@ -561,10 +563,134 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <p><img alt="frequency_phase_encoding-full-Mxy.gif" src="_images/frequency_phase_encoding-full-Mxy.gif" /></p>
 <p><img alt="frequency_phase_encoding-full-image_phase.gif" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>
 <p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
-<section id="id1">
-<h3>K-space trajectories<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>The k-space pattern during a MRI experiment is referred to as the k-space “trajectory”.  The most common are Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.</p>
-<p>The gradient for a given k-space trajectory is determined by the derivative of the trajectory.</p>
+<section id="mapping-gradients-to-k-space-trajectory">
+<h3>Mapping Gradients to K-space trajectory<a class="headerlink" href="#mapping-gradients-to-k-space-trajectory" title="Link to this heading">#</a></h3>
+<p>To determine the k-space trajectory, the integral or cumulative sum of the gradients after excitation is computed based on the formula above.  Once the trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, is known, this can be mapped onto k-space to show the k-space coverage of the chosen gradients.</p>
+<p>To determine the gradients for a given k-space trajectory, the derivative of the k-space trajectory can be used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Cartesian</span>
+<span class="n">N_PE</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">kPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">N_PE</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N_PE</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N_PE</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_PE</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">Tpe</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">kFE</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">Tfe</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">42.58</span>
+
+<span class="n">Tall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tpe</span> <span class="o">+</span> <span class="n">Tfe</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">imall</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">n_tpe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Tpe</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+<span class="n">n_tfe</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Tfe</span> <span class="o">/</span> <span class="n">dt</span><span class="p">))</span>
+
+<span class="c1"># Change this to view trajectory for different phase-encode lines</span>
+<span class="n">i_pe</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="n">GY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Tall</span><span class="p">)</span>
+<span class="n">GX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Tall</span><span class="p">)</span>
+
+<span class="n">GY</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">n_tpe</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">kPE</span><span class="p">[</span><span class="n">i_pe</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tpe</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">GX</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="n">n_tpe</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">kFE</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tpe</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">GX</span><span class="p">[</span><span class="n">n_tpe</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tall</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">kFE</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tfe</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="n">kX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">GX</span><span class="p">)</span>
+<span class="n">kY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">GY</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gridspec</span>
+
+<span class="c1"># create a 4x2 grid where the right column spans all 4 rows</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">gridspec</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">width_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="c1"># left column: 4 rows for Gx, Gy, kx, ky</span>
+<span class="n">ax_gx</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_gy</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_kx</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">ax_ky</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># right column: single plot spanning all rows for kx-ky trajectory</span>
+<span class="n">ax_kxy</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Plot signals vs time</span>
+<span class="n">ax_gx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tall</span><span class="p">,</span> <span class="n">GX</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax_gx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$G_X$&#39;</span><span class="p">)</span>
+<span class="n">ax_gx</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tall</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ax_gx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">])</span>
+<span class="n">ax_gx</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax_gy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tall</span><span class="p">,</span> <span class="n">GY</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax_gy</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$G_Y$&#39;</span><span class="p">)</span>
+<span class="n">ax_gy</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tall</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ax_gy</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">])</span>
+<span class="n">ax_gy</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax_kx</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tall</span><span class="p">,</span> <span class="n">kX</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax_kx</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$k_X$&#39;</span><span class="p">)</span>
+<span class="n">ax_kx</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tall</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ax_kx</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">])</span>
+<span class="n">ax_kx</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tall</span><span class="p">,</span> <span class="n">kY</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$k_Y$&#39;</span><span class="p">)</span>
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tall</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">])</span>
+<span class="n">ax_ky</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Plot k-space trajectory on the right</span>
+<span class="c1"># faint base line for context</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kX</span><span class="p">,</span> <span class="n">kY</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># color points by time to show evolution</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax_kxy</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kX</span><span class="p">,</span> <span class="n">kY</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">Tall</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># add directional arrows sampled along the trajectory</span>
+<span class="n">step</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">kX</span><span class="p">)</span><span class="o">//</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">kX</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">kX</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">kX</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">kY</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">kY</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">kX</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">kY</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.004</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># mark start and end points</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kX</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">kY</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kX</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">kY</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.55</span><span class="p">,</span> <span class="mf">.55</span><span class="p">])</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.55</span><span class="p">,</span> <span class="mf">.55</span><span class="p">])</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax_kxy</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_kxy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/17aaa692d147b7e434b2ff967256395c913d25c5af0f0a5deb51955bf8760e98.png" src="_images/17aaa692d147b7e434b2ff967256395c913d25c5af0f0a5deb51955bf8760e98.png" />
+</div>
+</div>
+</section>
+<section id="spin-echo-effect-on-k-space">
+<h3>Spin-echo Effect on K-space<a class="headerlink" href="#spin-echo-effect-on-k-space" title="Link to this heading">#</a></h3>
+<p>The refocusing 180-degree pulses use in creating a spin-echo invert the phase of the transverse magnetization.  This is essential for forming a spin-echo.  Since k-space is encoded in the phase of the transverse magnetization, this also inverts the location in k-space.</p>
+<p>If the k-space location prior to the 180° pulse is <span class="math notranslate nohighlight">\(\vec{k}^-(t_{180})\)</span>, then after the pulse it becomes</p>
+<div class="math notranslate nohighlight">
+\[\vec{k}^+(t_{180}) = -\vec{k}^-(t_{180})\]</div>
+</section>
+<section id="example-k-space-trajectories">
+<h3>Example K-space Trajectories<a class="headerlink" href="#example-k-space-trajectories" title="Link to this heading">#</a></h3>
+<p>The majority of MRI uses Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  This is the trajectory for frequency encoding and phase encoding sampling for FT imaging.
+K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.  The main requirement is that a sufficient region in k-space is measured.  The specific requirements for defining this region depend on the desired image resolution and field-of-view, and are also affected by any accelerated imaging method being used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -776,7 +902,9 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-mri-data-to-images">From MRI data to images</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-space-trajectories">K-space Trajectories</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">K-space trajectories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-gradients-to-k-space-trajectory">Mapping Gradients to K-space trajectory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spin-echo-effect-on-k-space">Spin-echo Effect on K-space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-k-space-trajectories">Example K-space Trajectories</a></li>
 </ul>
 </li>
 </ul>
