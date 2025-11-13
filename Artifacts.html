@@ -1,927 +1,530 @@
 
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="./" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Artifacts &#8212; Principles of MRI</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+    
+      
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Artifacts';</script>
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Key MRI Concepts and Equations" href="Key%20MRI%20Concepts.html" />
-    <link rel="prev" title="Point Spread Function Analysis" href="Point%20Spread%20Function%20Analysis.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <link rel="next" title="RF Pulses" href="RF%20Pulses.html" />
+    <link rel="prev" title="Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="Introduction.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
-    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="Introduction.html">
-                    Introduction to Principles of MRI
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Artifacts</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Signal%20Equation.html">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Artifacts
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
-</ul>
 
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</button></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FArtifacts.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
 </div>
 
 
+          
 
 
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/Artifacts.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Artifacts</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div>
-                <h2> Contents </h2>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Artifacts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FArtifacts.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/Artifacts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-characteristics-artifacts-aliasing-and-gibbs-ringing">Sampling Characteristics Artifacts - Aliasing and Gibbs Ringing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing-in-parallel-imaging">Aliasing in Parallel Imaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-ringing-truncation">Gibbs Ringing/Truncation</a></li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#artifact-comparison">
+   Artifact Comparison
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulations-of-artifacts">
+   Simulations of Artifacts
+  </a>
+ </li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-and-distortion-artifacts-due-to-changes-in-frequency">Displacement and Distortion Artifacts due to Changes in Frequency</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifts-in-the-image">Shifts in the Image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-chemical-shift-artifacts-displacement">Fat Chemical Shift Artifacts - Displacement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-artifacts-distortion">Off-resonance Artifacts - Distortion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifts-in-slice-selection">Shifts in Slice Selection</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t2">T2*</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pediodic-motion-ghosting">Pediodic Motion - Ghosting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incoherent-motion-diffuse-ghosting">Incoherent Motion - Diffuse Ghosting</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unwanted-signals-spike-noise-zipper">Unwanted signals - Spike noise, Zipper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spike-noise">Spike Noise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-interference-zipper">RF interference/Zipper</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-hardware-limitations-rf-shading-gradient-non-linearity">MRI hardware limitations - RF shading, gradient non-linearity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-shading">RF Shading</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-non-linearity">Gradient Non-Linearity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-volume-and-boundary-artifacts">Partial Volume and Boundary Artifacts</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
 </div>
-
-              
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
                 
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="artifacts">
-<h1>Artifacts<a class="headerlink" href="#artifacts" title="Link to this heading">#</a></h1>
-<p>This notebook includes a simulation of various MRI artifacts, as well as a high-level Artifact Comparison below.  The wikipedia entry <a class="reference external" href="https://en.wikipedia.org/wiki/MRI_artifact">https://en.wikipedia.org/wiki/MRI_artifact</a> is also very comprehensive.</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Identify artifacts and how to mitigate them</p></li>
-</ol>
-</section>
-<section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>Many of the artifacts that occur in MRI can be understood and analyzed using the k-space perspective.  In particular, they can be understood as the k-space data being modified by some function.  This is described mathematically in
-<a class="reference internal" href="MRI%20Signal%20Equation.html"><span class="std std-doc">MRI Signal Equation</span></a>, and expanded upon in the <a class="reference internal" href="Point%20Spread%20Function%20Analysis.html"><span class="std std-doc">Point Spread Function Analysis</span></a> section.</p>
-</section>
-<section id="artifact-comparison">
-<h2>Artifact Comparison<a class="headerlink" href="#artifact-comparison" title="Link to this heading">#</a></h2>
-<p>MRI artifacts can generally be categorized as originating from the sample, the sequence, or the system (Source in table below).  The table below provides a high-level comparison of these artifacts.</p>
-<div class="pst-scrollable-table-container"><table class="table">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="artifacts">
+<h1>Artifacts<a class="headerlink" href="#artifacts" title="Permalink to this headline">¶</a></h1>
+<p>This notebook includes a simulation of various MRI artifacts, as well as a high-level <a class="reference external" href="#Artifact-Comparison">Artifact Comparison</a> below.</p>
+<div class="section" id="artifact-comparison">
+<h2>Artifact Comparison<a class="headerlink" href="#artifact-comparison" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Artifact Name</p></th>
-<th class="head"><p>Source</p></th>
 <th class="head"><p>Appearance</p></th>
-<th class="head"><p>What to do?</p></th>
 <th class="head"><p>Frequency or Phase encoding</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Aliasing</p></td>
-<td><p>Sequence - FOV too small, or parallel imaging failed</p></td>
 <td><p>Signal folds across image</p></td>
-<td><p>Increase FOV, swap PE/FE, reacquire sensitivity maps or reduce acceleration factor (parallel imaging)</p></td>
 <td><p>Phase encoding</p></td>
 </tr>
-<tr class="row-odd"><td><p>Gibbs Ringing/Truncation</p></td>
-<td><p>Sequence - due to Fourier encoding of edges</p></td>
-<td><p>Ripples/ringing at sharp edges</p></td>
-<td><p>Filtering of data, decrease voxel size</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Boundary Artifacts/Partial Volume</p></td>
-<td><p>Sequence and Sample - opposing phase of <span class="math notranslate nohighlight">\(M_{XY}\)</span> within a voxel due to inversion or chemical shift</p></td>
-<td><p>Artificial dark lines at tissue boundaries</p></td>
-<td><p>fat suppresion, fat/water imaging, change inversion time</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Fat Displacement</p></td>
-<td><p>Sample - chemical shift (fat)</p></td>
-<td><p>Shifts of fat signals in image</p></td>
-<td><p>Increase bandwidths, fat suppression, fat/water imaging, swap PE/FE</p></td>
-<td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
-</tr>
-<tr class="row-even"><td><p>Off-resonance Distortion</p></td>
-<td><p>Sample - off-resonance (e.g. magnetic susceptibility differences)</p></td>
-<td><p>Stretch and Compression in image</p></td>
-<td><p>Increase bandwidths, shimming, swap PE/FE</p></td>
-<td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Slice Displacement</p></td>
-<td><p>Sample - chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
-<td><p>Slice location shifts</p></td>
-<td><p>Increase RF bandwidth, shimming, use 3D scanning</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>T2*</p></td>
-<td><p>Sample - magnetic suscpetibility differences (e.g. implants, air)</p></td>
-<td><p>Signal loss</p></td>
-<td><p>Use spin-echoes, shorten TE, shimming</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Motion/Flow</p></td>
-<td><p>Sample - signal modulated during spatial encoding</p></td>
-<td><p>Copies or “Ghosts” of image regions that are changing due to motion or flow</p></td>
-<td><p>Breath-hold, gating, triggering, flow compensation, spatial saturation, swap PE/FE</p></td>
-<td><p>Phase encoding</p></td>
-</tr>
-<tr class="row-even"><td><p>Spike Noise</p></td>
-<td><p>System - intermittent unwanted signal</p></td>
+<tr class="row-odd"><td><p>Spike Noise</p></td>
 <td><p>Specific spatial frequency on top of entire image</p></td>
-<td><p>check RF hardware (loose connections, broken components)</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Gibbs Ringing/Truncation</p></td>
+<td><p>Ripples/ringing at sharp edges</p></td>
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>RF interference/Zipper</p></td>
-<td><p>System - unwanted frequencies received in data</p></td>
 <td><p>Line of noisy signal on top of image</p></td>
-<td><p>RF shielding (e.g. close door), check RF hardware, check room lights</p></td>
 <td><p>At a specific frequency encoding location</p></td>
 </tr>
-<tr class="row-even"><td><p>Dielectric Shading</p></td>
-<td><p>System - RF propogates unevenly, creating B1 inhomogeneity</p></td>
-<td><p>Shading across entire image, particularly with large FOVs and higher B0</p></td>
-<td><p>B1-insensitive pulse sequences (e.g. adiabatic pulses), image bias field corrections</p></td>
+<tr class="row-even"><td><p>Motion/Flow</p></td>
+<td><p>Copies or “Ghosts” of image regions that are changing due to motion or flow</p></td>
+<td><p>Phase encoding</p></td>
+</tr>
+<tr class="row-odd"><td><p>Displacement</p></td>
+<td><p>Shifts in image due to chemical shift (fat) and off-resonance (e.g. magnetic susceptibility differences)</p></td>
+<td><p>Frequency encoding (2DFT), Phase encoding (EPI)</p></td>
+</tr>
+<tr class="row-even"><td><p>T2*</p></td>
+<td><p>Signal loss around magnetic suscpetibility differences (e.g. implants, air)</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Gradient non-linearity</p></td>
-<td><p>System - magnetic field gradients are not linear, especially away from isocenter</p></td>
+<tr class="row-odd"><td><p>Slice Misregistration</p></td>
+<td><p>Slice shifting due to chemical shift or off-resonance</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Dielectric Shading</p></td>
+<td><p>Shading across entire image, particularly large FOV, higher B0</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boundary Artifacts</p></td>
+<td><p>Artificial dark lines at tissue boundaries due to inversion or chemical shift</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Gradient non-linearity</p></td>
 <td><p>Distortion of subject, particularly near edges of large FOV</p></td>
-<td><p>Gradient warping correction</p></td>
 <td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<!-- Potentially add:
-Eddy currents and gradient delays
-Magic Angle
-Overflow/ADC overrange
-Time-of-flight (entry slice) -->
+<div class="section" id="simulations-of-artifacts">
+<h2>Simulations of Artifacts<a class="headerlink" href="#simulations-of-artifacts" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space dat for simulated artifacts </span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% load k-space data</span>
+<span class="n">dataname</span> <span class="p">=</span> <span class="s">&#39;se_t1_sag_data&#39;</span><span class="p">;</span>
+<span class="nb">load</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
+<span class="n">kdata</span> <span class="p">=</span> <span class="n">data</span><span class="p">;</span>
+<span class="n">S</span> <span class="p">=</span> <span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span>
+<span class="n">im_original</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">);</span>
 
-<span class="c1"># load k-space data</span>
-<span class="n">dataname</span> <span class="o">=</span> <span class="s1">&#39;../Data/se_t1_sag_data.mat&#39;</span>
-<span class="n">mat</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">dataname</span><span class="p">)</span>
-<span class="n">kdata</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">kdata</span><span class="o">.</span><span class="n">shape</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">ifft2c</span><span class="p">(</span><span class="n">kspace</span><span class="p">):</span>
-    <span class="c1"># Centered inverse 2D FFT</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">kspace</span><span class="p">)))</span>
-
-<span class="n">im_original</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space data (log scale)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Image&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1b53508b4e6269b7fe2ace641899d43bc58cb1ff47eb4791cb4f68859d91bd2.png" src="_images/c1b53508b4e6269b7fe2ace641899d43bc58cb1ff47eb4791cb4f68859d91bd2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>warning: load: &#39;C:\Users\PLarson\Documents\GitHub\MRI-education-resources\Data\se_t1_sag_data.mat&#39; found by searching load path
+</pre></div>
+</div>
+<img alt="_images/Artifacts_5_1.png" src="_images/Artifacts_5_1.png" />
 </div>
 </div>
-</section>
-<section id="sampling-characteristics-artifacts-aliasing-and-gibbs-ringing">
-<h2>Sampling Characteristics Artifacts - Aliasing and Gibbs Ringing<a class="headerlink" href="#sampling-characteristics-artifacts-aliasing-and-gibbs-ringing" title="Link to this heading">#</a></h2>
-<section id="aliasing">
-<h3>Aliasing<a class="headerlink" href="#aliasing" title="Link to this heading">#</a></h3>
-<p>Aliasing occurs when the FOV, determined by the sample spacing chosen in k-space, is too small.  (See “FOV and Resolution” section.)</p>
-<p>Note that in MRI, aliasing only occurs in the phase encoding direction.  This is because during frequency encoding a low-pass anti-aliasing filter can be applied to  the analog signal prior to digitization.  This truncates the bandwidth of the signal in the frequency encode direction, which is equivalent to truncating the image.</p>
-<figure class="align-default" id="fig-abdomen-aliasing">
-<img alt="_images/abdomen_aliasing.png" src="_images/abdomen_aliasing.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Axial abdomen image showing aliasing artifact in the phase encoding direction (left/right)</span><a class="headerlink" href="#fig-abdomen-aliasing" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="aliasing-in-parallel-imaging">
-<h3>Aliasing in Parallel Imaging<a class="headerlink" href="#aliasing-in-parallel-imaging" title="Link to this heading">#</a></h3>
-<p>In parallel imaging, k-space is purposefully undersampled, resulting in aliasing artifacts that are removed by using the coil sensitivities in the image reconstruction (See “Accelerated Imaging Methods” section).  However, failures can lead to residual aliasing artifacts.  These can be the result of  inconsistencies in the coil sensitivity maps, motion, or setting the acceleration factor too high.</p>
-<p><img alt="Axial abdomen image with unresolved aliasing with parallel imaging" src="_images/abdomen_aliasing_parallel-imaging.png" /></p>
-<p><em>Axial abdomen image showing an aliasing artifact (yellow arrows) due to a parallel imaging failure</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aliasing simulation</span>
-<span class="n">N_undersamp</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># &gt;= 1</span>
-<span class="n">data_undersamp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span>
-<span class="n">Iundersamp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">N_undersamp</span><span class="p">)</span>
-<span class="n">data_undersamp</span><span class="p">[</span><span class="n">Iundersamp</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">kdata</span><span class="p">[</span><span class="n">Iundersamp</span><span class="p">,</span> <span class="p">:]</span>
-<span class="n">im_undersamp</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% spike noise</span>
+<span class="n">spike_location</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">53</span><span class="p">];</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Undersampled k-space (log)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_undersamp</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Aliased Image&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">data_spike</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">data_spike</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">spike_location</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_spike</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">);</span>
+
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_spike</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/37884e3b2088d67b011d77ffe60a0ac044435baa18113f2aa1b60ac23e83d923.png" src="_images/37884e3b2088d67b011d77ffe60a0ac044435baa18113f2aa1b60ac23e83d923.png" />
+<img alt="_images/Artifacts_6_0.png" src="_images/Artifacts_6_0.png" />
 </div>
 </div>
-</section>
-<section id="gibbs-ringing-truncation">
-<h3>Gibbs Ringing/Truncation<a class="headerlink" href="#gibbs-ringing-truncation" title="Link to this heading">#</a></h3>
-<p>The so-called Gibbs ringing or truncation artifact is inherent when using Fourier encoding.  These occur at sharp edges, which have an infinite content in the k-space spatial frequency domain.  Since only a limited region in k-space can be acquired, i.e. k-space is truncated, the sharp edge becomes slightly blurred out and also has ripples or ringing that occur on either side of the edge.</p>
-<p>To alleviate this artifact, the k-space data can be weighted with a so-called windowing function, which applies a filter in image space.  These windows smoothly decay at the edge of k-space, and have the effects of reducing ringing, but also lead to a slight loss in spatial resolution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
-<span class="n">N_rect</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">kdata_rect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span> <span class="n">N_rect</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx</span> <span class="o">*</span> <span class="n">N_rect</span><span class="p">))</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% RF interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.6</span><span class="p">;</span>
 
-<span class="n">rect_ringing</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata_rect</span><span class="p">)</span>
+<span class="c">%single frequency, phase modulated</span>
+<span class="n">ph_int</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">*</span><span class="nb">rand</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span> <span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">repmat</span><span class="p">(</span><span class="n">rfint</span><span class="p">,</span> <span class="p">[</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">])</span> <span class="o">.*</span> <span class="nb">repmat</span><span class="p">(</span><span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">ph_int</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">S</span><span class="p">(</span><span class="mi">2</span><span class="p">)]);</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata_rect</span><span class="p">)</span><span class="o">+</span><span class="mf">1e-2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (rect)&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ringing&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">center</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">[</span><span class="n">center</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Horizontal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_ringing</span><span class="p">[:,</span> <span class="n">center</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vertical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Center Line Profiles&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="c1"># Apply a 2D Hanning window to k-space to reduce ringing</span>
-<span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hanning</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">hanning</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
-<span class="n">kdata_windowed</span> <span class="o">=</span> <span class="n">kdata_rect</span> <span class="o">*</span> <span class="n">window</span>
-<span class="n">rect_windowed</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata_windowed</span><span class="p">)</span><span class="o">+</span><span class="mf">1e-2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (windowed)&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Windowed&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">[</span><span class="n">center</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Horizontal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_windowed</span><span class="p">[:,</span> <span class="n">center</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vertical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Center Line Profiles&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Increase the resolution (N) to reduce ringing</span>
-<span class="n">N_high_res</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">kx_high_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N_high_res</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N_high_res</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_high_res</span>
-<span class="n">N_rect_high_res</span> <span class="o">=</span> <span class="n">N_high_res</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">kdata_high_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx_high_res</span> <span class="o">*</span> <span class="n">N_rect_high_res</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx_high_res</span> <span class="o">*</span> <span class="n">N_rect_high_res</span><span class="p">))</span>
-
-<span class="n">rect_high_res</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata_high_res</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata_high_res</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-2</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space (high res)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_high_res</span><span class="p">),</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_high_res</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;High Res Image&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_high_res</span><span class="p">[</span><span class="n">center</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Horizontal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rect_high_res</span><span class="p">[:,</span> <span class="n">center</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vertical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Center Line Profiles&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1edecf0a4b71984d0577b1f26221442be3a4c909dc3be20d93fdd171f9e13061.png" src="_images/1edecf0a4b71984d0577b1f26221442be3a4c909dc3be20d93fdd171f9e13061.png" />
-<img alt="_images/fe1c794cf72eba4e2fb247f61b9b994a29a47baa62fa5ee37c01b8e85d1e269e.png" src="_images/fe1c794cf72eba4e2fb247f61b9b994a29a47baa62fa5ee37c01b8e85d1e269e.png" />
-<img alt="_images/a626d782bc200fa3e01807c7ec35a414c35750c9e236d2786001dcb93d6fb4f8.png" src="_images/a626d782bc200fa3e01807c7ec35a414c35750c9e236d2786001dcb93d6fb4f8.png" />
+<img alt="_images/Artifacts_7_0.png" src="_images/Artifacts_7_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="displacement-and-distortion-artifacts-due-to-changes-in-frequency">
-<h2>Displacement and Distortion Artifacts due to Changes in Frequency<a class="headerlink" href="#displacement-and-distortion-artifacts-due-to-changes-in-frequency" title="Link to this heading">#</a></h2>
-<p>Since MRI relies on frequency to encode spatial information, unknown frequency shifts can lead to disortions of the image.  These frequency shifts are due to chemical shift (e.g. fat) and/or off-resonance (e.g. main field inhomogeneities, susceptibility differences).</p>
-<section id="shifts-in-the-image">
-<h3>Shifts in the Image<a class="headerlink" href="#shifts-in-the-image" title="Link to this heading">#</a></h3>
-<p>There will be a shift during frequency encoding of</p>
-<div class="math notranslate nohighlight">
-\[\Delta_{FE} = \frac{\Delta f}{RBW} FOV_{FE}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta f\)</span> is the frequency shift, <span class="math notranslate nohighlight">\(RBW\)</span> is the receiver bandwidth, and <span class="math notranslate nohighlight">\(FOV_{FE}\)</span> is the field of view in the frequency encoding direction.</p>
-<p>During EPI, there is typically a much larger shift in the phase encoding direction that depends on how much phase accumulates across k-space.  This depends on the echo spacing, <span class="math notranslate nohighlight">\(t_{esp}\)</span>, and well as how many k-space lines are covered in adjacent echoes, defined here as <span class="math notranslate nohighlight">\(N_{steps}\)</span>.  To characterize this, we can define a “phase encoding bandwidth”, <span class="math notranslate nohighlight">\(BW_{PE} = N_{steps}/t_{esp}\)</span>, and the displacement will be</p>
-<div class="math notranslate nohighlight">
-\[\Delta_{PE,EPI} = \frac{\Delta f}{BW_{PE}} FOV_{PE}\]</div>
-<p><span class="math notranslate nohighlight">\(N_{steps}\)</span> will depend on whether there is any interleaving, and whether parallel imaging is used to skip lines.  For example, EPI without acceleration in a single-shot is <span class="math notranslate nohighlight">\(N_{steps} = 1\)</span>, 2 interleaves would have <span class="math notranslate nohighlight">\(N_{steps} = 2\)</span>, while single-shot with <span class="math notranslate nohighlight">\(R=2\)</span> parallel imaging acceleration would have <span class="math notranslate nohighlight">\(N_{steps} = 2\)</span>, and 2 interleaves with <span class="math notranslate nohighlight">\(R=2\)</span> parallel imaging would have <span class="math notranslate nohighlight">\(N_{steps} = 4\)</span>.</p>
-</section>
-<section id="fat-chemical-shift-artifacts-displacement">
-<h3>Fat Chemical Shift Artifacts - Displacement<a class="headerlink" href="#fat-chemical-shift-artifacts-displacement" title="Link to this heading">#</a></h3>
-<p>There is a constant frequency difference between fat and water.  This leads to a <strong>constant displacement</strong> of the fat signal relative to the water signal.</p>
-<p><img alt="Axial brian EPI with fat displacement" src="_images/epi_fat_artifact.jpg" /></p>
-<p><em>Axial brain EPI image showing a fat displacement artifact (arrows) of the lipids in the skull</em></p>
-</section>
-<section id="off-resonance-artifacts-distortion">
-<h3>Off-resonance Artifacts - Distortion<a class="headerlink" href="#off-resonance-artifacts-distortion" title="Link to this heading">#</a></h3>
-<p>Off-resonance, which most significantly arises from differences in magnetic susceptibility, is smoothly varying and increases at the boundaries between materials with different susceptibilities.  This leads variable shifts in the image, which are the largest at these material boundaries.  This is typically referred to as a <strong>distortion</strong> artifact, and has characteristic stretching or compression (“pile-up”) of the image.</p>
-<p><img alt="Axial brian EPI with distortion" src="_images/epi_distortion_artifact_changes.jpg" /></p>
-<p><em>Axial brain EPI images showing distortion artifacts (arrows) near the frontal sinus where there are air-tissue interfaces.  The right image used an reduced echo spacing, leading to increased phase encoding bandwidth that reduces the severity of this artifact.</em></p>
-</section>
-<section id="shifts-in-slice-selection">
-<h3>Shifts in Slice Selection<a class="headerlink" href="#shifts-in-slice-selection" title="Link to this heading">#</a></h3>
-<p>Finally, there will also be a displacement of the slice selection, and this will be</p>
-<div class="math notranslate nohighlight">
-\[\Delta_{SS} = \frac{\Delta f}{BW_{rf}} \Delta z\]</div>
-<p>where <span class="math notranslate nohighlight">\(BW_{rf}\)</span> is the slice select pulse bandwidth.  This effect is not as obvious in images, but important to be aware of in pulse sequence design.</p>
-</section>
-</section>
-<section id="t2">
-<h2>T2*<a class="headerlink" href="#t2" title="Link to this heading">#</a></h2>
-<p>T2* can be a source of artifact and contrast.  Macroscopic, inter-voxel, effects, such as arise from boundaries between materials with different magnetic susceptibilities, lead to shorter T2* and is typically considered an artifact.  This can be removed by using spin-echo sequences.</p>
-<p><img alt="Axial brain image with T2* artifact" src="_images/epi_T2star_artifact.png" /></p>
-<p><em>Axial brain EPI image showing a T2* artifact (arrows) in the frontal lobe, which is due to magnetic susceptibility differences between the air in the frontal sinuses and the brain tissue.</em></p>
-</section>
-<section id="motion-and-flow-artifacts">
-<h2>Motion and Flow Artifacts<a class="headerlink" href="#motion-and-flow-artifacts" title="Link to this heading">#</a></h2>
-<p>Motion, including flow, can result in artifacts in MRI if it leads to inconsistency in the data.</p>
-<section id="pediodic-motion-ghosting">
-<h3>Pediodic Motion - Ghosting<a class="headerlink" href="#pediodic-motion-ghosting" title="Link to this heading">#</a></h3>
-<p>Periodic motion such as breathing, heart beating, and pulsatile flow will lead to distinct ghosting artifacts in the phase encoding direction.  The location of ghosting artifacts in sequential phase encoding without parallel imaging will be at predictable intervals in the phase encoding direction:</p>
-<div class="math notranslate nohighlight">
-\[\Delta_{PE} = \frac{TR}{T_{motion}} FOV_{PE}\]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{motion}\)</span> is the period of the motion (e.g. <span class="math notranslate nohighlight">\(T_{motion} = 1 s\)</span> for a heart rate of 60 beats per minute ).</p>
-<p><img alt="Axial abdomen image with motion" src="_images/abdomen_motion.png" /></p>
-<p><em>Axial abdomen image with artifacts from respiratory motion in the phase encoding direction.  There are multiple distinct ghosts of the anterior abomdinal wall, which is what is moving during breathing</em></p>
-</section>
-<section id="incoherent-motion-diffuse-ghosting">
-<h3>Incoherent Motion - Diffuse Ghosting<a class="headerlink" href="#incoherent-motion-diffuse-ghosting" title="Link to this heading">#</a></h3>
-<p>Incoherent or more random motion such as irregular breathing, arrhytthmias, coughing, bulk motion will lead to more diffuse ghosting artifacts.  These have an inconsistent pattern of k-space distortion in the phase encoding direction, leading to a more diffuse appearance of the ghosting artifacts.</p>
-<p><img alt="Coronal brain image with motion" src="_images/brain_coronal_eyes_artifact.jpg" /></p>
-<p><em>Coronal head image with motion artifacts (arrows) in the phase encoding direction that are the result of eye motion.</em></p>
-<p><img alt="Axial brain image with motion" src="_images/brain_motion_artifact.jpg" /></p>
-<p><em>Axial brain image with diffuse ghosting motion artifacts that are the result of the whole head moving.</em></p>
-</section>
-</section>
-<section id="unwanted-signals-spike-noise-zipper">
-<h2>Unwanted signals - Spike noise, Zipper<a class="headerlink" href="#unwanted-signals-spike-noise-zipper" title="Link to this heading">#</a></h2>
-<section id="spike-noise">
-<h3>Spike Noise<a class="headerlink" href="#spike-noise" title="Link to this heading">#</a></h3>
-<p>This artifact is due to intermittent unwanted signals that are received during the MRI acquisition.  These can be caused by loose connections, broken components, or other hardware issues.  The result is a spike or bright spot in the k-space data that appears as distinct spatial frequencies on top of the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Spike noise simulation</span>
-<span class="n">spike_location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">]</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate amplitude modulated interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="n">rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">rfint</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="n">data_spike</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span>
-<span class="n">data_spike</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">spike_location</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">round</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">spike_location</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">kdata</span><span class="p">)</span><span class="o">/</span><span class="mf">.5</span>
-<span class="n">im_spike</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_spike</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space with spike (log)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_spike</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Spike Noise Artifact&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/38041c1302edc1071cc9a68ff6edc05c1d91e0787fcfa648a78484246e0e6d66.png" src="_images/38041c1302edc1071cc9a68ff6edc05c1d91e0787fcfa648a78484246e0e6d66.png" />
+<img alt="_images/Artifacts_9_0.png" src="_images/Artifacts_9_0.png" />
 </div>
 </div>
-</section>
-<section id="rf-interference-zipper">
-<h3>RF interference/Zipper<a class="headerlink" href="#rf-interference-zipper" title="Link to this heading">#</a></h3>
-<p>This artifact is due to unwanted frequencies that are received during the MRI acquisition.  These can be caused by RF interference from other devices, such as lights or other electronics, or can originate from outside the MRI scan room especially if the door is not close.  Receiving specific frequencies in k-space leads to lines or “zippers” in the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RF interference - simulate amplitude modulated interference</span>
-<span class="n">relative_RF_frequency</span> <span class="o">=</span> <span class="mf">0.2</span>
-<span class="n">rfint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">relative_RF_frequency</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">))</span> <span class="o">/</span> <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">3</span>
-<span class="n">data_rfint</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">rfint</span>  <span class="c1"># amplitude modulation</span>
-<span class="n">im_rfint</span> <span class="o">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency modulated interference</span>
+<span class="n">relative_RF_frequency</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">f</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">relative_RF_frequency</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">data_rfint</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span> <span class="n">f</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">)</span> <span class="o">*</span>  <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:)))</span><span class="o">/</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
+<span class="n">im_rfint</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">);</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;k-space with RF int. (log)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">)))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;RF Interference Artifact&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span> <span class="o">+</span> <span class="n">data_rfint</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_rfint</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6de500f6aa3e56eb27561e084182de482f5481759d3be16796c225e8cd841ef9.png" src="_images/6de500f6aa3e56eb27561e084182de482f5481759d3be16796c225e8cd841ef9.png" />
+<img alt="_images/Artifacts_10_0.png" src="_images/Artifacts_10_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="mri-hardware-limitations-rf-shading-gradient-non-linearity">
-<h2>MRI hardware limitations - RF shading, gradient non-linearity<a class="headerlink" href="#mri-hardware-limitations-rf-shading-gradient-non-linearity" title="Link to this heading">#</a></h2>
-<section id="rf-shading">
-<h3>RF Shading<a class="headerlink" href="#rf-shading" title="Link to this heading">#</a></h3>
-<p>The progation of radiofrequency waves in tissue as well as inhomogeneous RF coils lead to variations in intensity or shading across the image.</p>
-<p>When transmitting RF pulses, there is some variation in the RF amplitude across the body.  This is partially due to inhomogeneous transmit coils, but also is fundamentally limited by the wavelength of MRI RF waves in tissue.  This wavelength is determined by the dielectric coefficient of tissue, so this is sometimes referred to as dielectric shading.  The variation in RF amplitude leads to variations in flip angle that, in turn, change the resulting image intensity.</p>
-<p>RF receive coil arrays are designed to provide high sensitivity and approximately uniform coverage.  However, they arrays have varying sensitivity across the body, leading to variations in image intensity.</p>
-<p>RF shading from these sources is typically corrected by applying a weighting to the originally reconstructed image to create more uniform image intensities.</p>
-</section>
-<section id="gradient-non-linearity">
-<h3>Gradient Non-Linearity<a class="headerlink" href="#gradient-non-linearity" title="Link to this heading">#</a></h3>
-<p>Gradient coils in MRI are designed to create linear changes in the magnetic field.  However, these are not perfect, particularly near the edges and closer to the open ends of the magnet bore.  In these regions, the gradients are non-linear.  Since MRI assumes linear gradient encoding, this non-linearity results in distortion of the images.</p>
-<p>This is corrected for by using measurements of the magnetic fields created by the gradient coils to undo the distortions of the image.</p>
-</section>
-</section>
-<section id="partial-volume-and-boundary-artifacts">
-<h2>Partial Volume and Boundary Artifacts<a class="headerlink" href="#partial-volume-and-boundary-artifacts" title="Link to this heading">#</a></h2>
-</section>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% aliasing</span>
+<span class="n">N_undersamp</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c">% &gt;= 1</span>
+<span class="n">data_undersamp</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">kdata</span><span class="p">));</span>
+<span class="n">Iundersamp</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_undersamp</span><span class="p">:</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">data_undersamp</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:)</span> <span class="p">=</span> <span class="n">kdata</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">Iundersamp</span><span class="p">),:);</span>
+<span class="n">im_undersamp</span> <span class="p">=</span> <span class="n">ifft2c</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">);</span>
+
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">data_undersamp</span><span class="p">)),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kdata</span><span class="p">(:))))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_undersamp</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">im_original</span><span class="p">(:)))])</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span> <span class="nb">axis</span> <span class="n">equal</span> <span class="n">tight</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Artifacts_11_0.png" src="_images/Artifacts_11_0.png" />
+</div>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -932,149 +535,67 @@ Time-of-flight (entry slice) -->
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "octave",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="Point%20Spread%20Function%20Analysis.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Point Spread Function Analysis</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Key%20MRI%20Concepts.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Key MRI Concepts and Equations</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-comparison">Artifact Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-characteristics-artifacts-aliasing-and-gibbs-ringing">Sampling Characteristics Artifacts - Aliasing and Gibbs Ringing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing-in-parallel-imaging">Aliasing in Parallel Imaging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gibbs-ringing-truncation">Gibbs Ringing/Truncation</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displacement-and-distortion-artifacts-due-to-changes-in-frequency">Displacement and Distortion Artifacts due to Changes in Frequency</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifts-in-the-image">Shifts in the Image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-chemical-shift-artifacts-displacement">Fat Chemical Shift Artifacts - Displacement</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-artifacts-distortion">Off-resonance Artifacts - Distortion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shifts-in-slice-selection">Shifts in Slice Selection</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t2">T2*</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motion-and-flow-artifacts">Motion and Flow Artifacts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pediodic-motion-ghosting">Pediodic Motion - Ghosting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incoherent-motion-diffuse-ghosting">Incoherent Motion - Diffuse Ghosting</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unwanted-signals-spike-noise-zipper">Unwanted signals - Spike noise, Zipper</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spike-noise">Spike Noise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-interference-zipper">RF interference/Zipper</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-hardware-limitations-rf-shading-gradient-non-linearity">MRI hardware limitations - RF shading, gradient non-linearity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-shading">RF Shading</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-non-linearity">Gradient Non-Linearity</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-volume-and-boundary-artifacts">Partial Volume and Boundary Artifacts</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Peder Larson
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2025.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-<div class="extra_footer">
-  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
-</div>
-  </div>
-  
-</div>
-          </footer>
         
+            
 
-      </main>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="Signal%20to%20Noise%20Ratio.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Signal to Noise Ratio (SNR)</p>
+            </div>
+        </a>
     </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+     <div id="next">
+        <a class="right-next" href="RF%20Pulses.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">RF Pulses</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
-  <footer class="bd-footer">
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
   </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>
