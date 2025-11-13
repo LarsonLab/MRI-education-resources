@@ -1,597 +1,654 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Spatial Encoding &#8212; Principles of MRI</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
-
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Spatial Encoding';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Signal to Noise Ratio (SNR)" href="Signal%20to%20Noise%20Ratio.html" />
-    <link rel="prev" title="Building Up the MRI Signal Equation" href="MRI%20Signal%20Equation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+    <link rel="next" title="K-space" href="K-space.html" />
+    <link rel="prev" title="RF Pulse Design" href="RF%20Pulse%20Design.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction.html">
-   Introduction to Principles of MRI
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Primers
- </span>
-</p>
+    
+    
+    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction to Principles of MRI
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Notation.html">
-   MRI Notation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Math%20Concepts.html">
-   MRI Math Concepts
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  MR Physics
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
-   Creating and Detecting Magnetic fields
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
-   MR Physics - Bloch Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Contrast.html">
-   MRI Contrast
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Image Formation
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="MRI%20Signal%20Equation.html">
-   Building Up the MRI Signal Equation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Spatial Encoding
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
-   Signal to Noise Ratio (SNR)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Artifacts.html">
-   Artifacts
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Spatial Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  RF Pulses
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="RF%20Pulses.html">
-   RF Pulses
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
-   Spectral-Spatial RF Pulses
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
-   Fun? RF Pulses?
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Spatial Encoding.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpatial Encoding.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
+<div class="article-header-buttons">
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/Spatial Encoding.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
-        </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradient-encoding">
-   Gradient Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequency-encoding">
-   Frequency Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phase-encoding">
-   Phase Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequency-and-phase-encoding">
-   Frequency and Phase Encoding
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#k-space">
-   K-space
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mr-signal-and-k-space">
-   MR Signal and k-space
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mr-acquisition-to-image">
-     MR acquisition to image
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#k-space-trajectories">
-     K-space trajectories
-    </a>
-   </li>
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpatial Encoding.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Spatial Encoding.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Spatial Encoding</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding-or-ft-imaging">Frequency and Phase encoding, or FT Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ft-imaging-pulse-sequence">2D FT Imaging Pulse Sequence</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="section" id="spatial-encoding">
-<h1>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="gradient-encoding">
-<h2>Gradient Encoding<a class="headerlink" href="#gradient-encoding" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="spatial-encoding">
+<h1>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Link to this heading">#</a></h1>
+<p>To create images of the net magnetization, magnetic field gradients are applied in order to modulate the resonance frequency as a function of position.  This section describes the effect of magnetic field gradients during data acquisition to create spatial encoding, and introduces the intuition behind frequency and phase encoding.</p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how images are formed</p>
+<ul class="simple">
+<li><p>Describe the effects of gradients on the signal</p></li>
+<li><p>Understand how frequency encoding works</p></li>
+<li><p>Understand how phase encoding works</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="effects-of-magnetic-field-gradients">
+<h2>Effects of Magnetic Field Gradients<a class="headerlink" href="#effects-of-magnetic-field-gradients" title="Link to this heading">#</a></h2>
 <p>Applied magnetic field gradients change the magnetic field linearly with position:</p>
 <div class="math notranslate nohighlight">
-\[\Delta B_z = \vec{G}\cdot\vec{x}\]</div>
+\[\Delta B_z = \vec{G}\cdot\vec{r}\]</div>
 <p>which leads to linear variation in the resonance frequency as a function of position:</p>
 <div class="math notranslate nohighlight">
-\[ \omega = \gamma \vec{G}\cdot\vec{x} \]</div>
-<p>This forms the basis for spatial encoding.</p>
-</div>
-<div class="section" id="frequency-encoding">
-<h2>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Permalink to this headline">¶</a></h2>
-<p>Typically 1 dimension of the object is encoded using “frequency encoding”.  This means that, after RF excitation, a magnetic field gradient is turned on and the signal is read out.  The frequencies present in the signal correspond to given spatial locations.  By convention, this is applied in the x-direction (but in practice can be rotated to any direction);</p>
+\[ f = \bar \gamma \ \vec{G}\cdot\vec{r} \]</div>
+<p>This forms the basis for spatial encoding, where fundamentally position is encoded in the frequency of the net magnetization.</p>
+<p>The received signal in MRI is an accumulation over space of all the net magnetizations, so without gradients there is no fine spatial encoding.  (The RF coil sizes can provide some spatial encoding, but on the order of cm.)</p>
+<p>Reconstructing images from MRI relies on the Fourier Transform in order to convert the spatial information encoded in frequency into space.  The specifics of this are described later.</p>
+</section>
+<section id="frequency-and-phase-encoding-or-ft-imaging">
+<h2>Frequency and Phase encoding, or FT Imaging<a class="headerlink" href="#frequency-and-phase-encoding-or-ft-imaging" title="Link to this heading">#</a></h2>
+<p>By far the most common way to perform spatial encoding is using so-called “frequency encoding” and “phase encoding”.
+This is also known FT imaging, since we reconstruct images with a 2D Fourier Transform.</p>
+<p>It consists of 2 types of encoding:</p>
+<ol class="arabic simple">
+<li><p>Frequency encoding - one dimension is encoded using a constant gradient applied during data acquisition</p></li>
+<li><p>Phase encoding - additional dimensions are encoded using gradient applied before data acquisition.  This gradient is incremented to provide complete spatial encoding.  Phase encoding is applied in 1 dimension for 2D imaging, and 2 dimensions for 3D imaging</p></li>
+</ol>
+<p>This approach is referred to as Cartesian k-space trajectory, which the name refers to the fact that data is sampled on a regularly spaced grid in k-space, which is introduced later.</p>
+<section id="frequency-encoding">
+<h3>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Link to this heading">#</a></h3>
+<p>In this approach, one dimension of the object is encoded using “frequency encoding”.  This means that, after RF excitation, a magnetic field gradient is turned on and the signal is read out.  The frequencies present in the signal correspond to given spatial locations.  By convention, this is applied in the x-direction (but in practice can be rotated to any direction);</p>
 <div class="math notranslate nohighlight">
-\[\omega = \gamma G_{xr} x\]</div>
+\[f = \bar \gamma G_{xr} x\]</div>
 <p>where <span class="math notranslate nohighlight">\(G_{xr}\)</span> is the readout gradient amplitude.  Therefore, the position is proportional to the frequency:</p>
 <div class="math notranslate nohighlight">
-\[ x = \frac{\omega}{\gamma G_{xr}}\]</div>
+\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
+<p>From frequency encoding data alone, a 1D image can be reconstructed with an inverse Fourier Transform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% simulate frequency encoding</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">Mxy</span><span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
-<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
-<span class="n">Splot</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
 
-<span class="n">kFE</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">Tfe</span> <span class="p">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="c1"># simulate frequency encoding</span>
+<span class="n">Mxy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
 
-<span class="n">GAMMA</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">Splot</span> <span class="o">=</span> <span class="mf">0.5</span>
 
+<span class="n">kFE</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">Tfe</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="k">for</span> <span class="n">tfe</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">*</span><span class="n">Tfe</span>
-    <span class="n">phase_x</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">kFE</span><span class="o">*</span><span class="n">x</span> <span class="o">*</span><span class="n">tfe</span><span class="o">/</span><span class="n">Tfe</span><span class="p">;</span>
-        
-    <span class="n">Mxy_FE</span> <span class="p">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_x</span><span class="p">);</span>
-        
-    <span class="nb">figure</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">),</span> <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tfe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span>  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kFE</span><span class="o">/</span><span class="p">(</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span> <span class="n">tfe</span><span class="o">*</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_X&#39;</span><span class="p">)</span>
-    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency Encoding&#39;</span><span class="p">)</span>
-    <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-    <span class="nb">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
-    <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
-    <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-    <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-    <span class="nb">drawnow</span>
-<span class="k">end</span>
+<span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">42.58</span>
+
+<span class="k">for</span> <span class="n">tfe</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">Tfe</span><span class="p">:</span>
+    <span class="n">phase_x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">kFE</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">tfe</span> <span class="o">/</span> <span class="n">Tfe</span>
+    <span class="n">Mxy_FE</span> <span class="o">=</span> <span class="n">Mxy</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phase_x</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tfe</span><span class="o">+</span><span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_axis</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_axis</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">kFE</span><span class="o">/</span><span class="p">(</span><span class="n">Tfe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">tfe</span><span class="p">,</span> <span class="n">tfe</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span> <span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;G_X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency Encoding&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+               <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_FE</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="o">/</span><span class="n">Splot</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_</span><span class="si">{XY}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>** Warning: Cannot interrupt Octave on Windows
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">End Of File (EOF).</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;pexpect.popen_spawn.PopenSpawn object at 0x0000027FCA95A608&gt;</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">searcher: searcher_re:</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">    0: re.compile(&#39;PEXPECT_PROMPT&gt;&#39;)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">    1: re.compile(&#39;\r\n&#39;)</span>
-
-</pre></div>
+<img alt="_images/64d85f12abdadbf288ca655e6f4e358d271474db823d826bbd879c751937c876.png" src="_images/64d85f12abdadbf288ca655e6f4e358d271474db823d826bbd879c751937c876.png" />
+<img alt="_images/f722c277a37c6c03dd1c299f8d073bf71e35a08c7c06bb316eab2a548b158a00.png" src="_images/f722c277a37c6c03dd1c299f8d073bf71e35a08c7c06bb316eab2a548b158a00.png" />
+<img alt="_images/03598725781becd274e7fcadc302c3e4503997b8d84c566f76246ae60dcf8d3e.png" src="_images/03598725781becd274e7fcadc302c3e4503997b8d84c566f76246ae60dcf8d3e.png" />
+<img alt="_images/5657acf73f91a25e6abde3f037b1d050cd8357d43397266d01848ccb9f8322f5.png" src="_images/5657acf73f91a25e6abde3f037b1d050cd8357d43397266d01848ccb9f8322f5.png" />
+<img alt="_images/06406235287ffd981ebff0556fc524389b8df5d7f94351ae4d514ff7ebb85ab9.png" src="_images/06406235287ffd981ebff0556fc524389b8df5d7f94351ae4d514ff7ebb85ab9.png" />
+<img alt="_images/fa6c4d9f2e6c2d6a91515c6fbc97ebc82b800370de52d1927561faac15158a01.png" src="_images/fa6c4d9f2e6c2d6a91515c6fbc97ebc82b800370de52d1927561faac15158a01.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="phase-encoding">
-<h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="phase-encoding">
+<h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Link to this heading">#</a></h2>
 <p>Typically the 2nd (and optionally 3rd) dimensions of the object are encoded using “phase encoding”.  This means that, after RF excitation but before the frequency encoding gradient, a pulsed gradient is applied such that the location is encoded in the phase of the next magnetization:</p>
 <div class="math notranslate nohighlight">
-\[ \Phi = \gamma G_{yp} y t_y\]</div>
-<p>These additional dimensions are fully encoded by repeating this pulsed gradient with different amplitudes.</p>
+\[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y \]</div>
+<p>This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span>.  <span class="math notranslate nohighlight">\(G_{yp}\)</span> is the maximum phase encoding gradient strength, <span class="math notranslate nohighlight">\(G_{yi}\)</span> is the phase encoding gradient amplitude increment, and <span class="math notranslate nohighlight">\(t_y\)</span> is the phase encoding gradient duration.  Note that <span class="math notranslate nohighlight">\(2 G_{yp} = (N_{PE} - 1) G_{yi}\)</span>.</p>
+<p><strong>This is equivalent to taking different samples of a frequency encoding gradient.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 2D object</span>
-<span class="c">% simulate frequencies + phase encoding</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D object: simulate frequencies + phase encoding</span>
 
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">Mxy</span><span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">kPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>  <span class="c1"># phase encoding steps</span>
+<span class="n">Tpe</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span>
-<span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
-<span class="n">Splot</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">Ipe</span><span class="p">,</span> <span class="n">kpe</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kPE</span><span class="p">):</span>
+    <span class="n">tpe</span> <span class="o">=</span> <span class="n">Tpe</span>  <span class="c1"># only using tpe = Tpe as in the original code</span>
+    <span class="n">phase_y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">kpe</span> <span class="o">*</span> <span class="n">y</span> <span class="o">*</span> <span class="n">tpe</span> <span class="o">/</span> <span class="n">Tpe</span>
+    <span class="n">Mxy_PE</span> <span class="o">=</span> <span class="n">Mxy</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phase_y</span><span class="p">)</span>
 
-<span class="n">kPE</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span> <span class="c">%</span>
-<span class="n">dt</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">Tpe</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Tpe</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="c1"># Gradient waveform: 0, plateau, 0</span>
+    <span class="n">grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_axis</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">kpe</span> <span class="o">/</span> <span class="p">(</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_axis</span><span class="p">,</span> <span class="n">grad</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;G_Y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Phase encoding, Step </span><span class="si">{</span><span class="n">Ipe</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="n">GAMMA</span> <span class="p">=</span> <span class="mf">42.58</span><span class="p">;</span>
-
-<span class="k">for</span> <span class="n">Ipe</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">kPE</span><span class="p">)</span>
-    
-    <span class="k">for</span> <span class="n">tpe</span> <span class="p">=</span> <span class="n">Tpe</span> <span class="c">%[0:dt:Tpe]</span>
-        <span class="n">phase_y</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">*</span><span class="n">y</span> <span class="o">*</span><span class="n">tpe</span><span class="o">/</span><span class="n">Tpe</span><span class="p">;</span>
-        
-        <span class="n">Mxy_PE</span> <span class="p">=</span> <span class="n">Mxy</span> <span class="o">.*</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">phase_y</span><span class="p">);</span>
-        
-        <span class="nb">figure</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span>
-        
-        <span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-        <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Tpe</span><span class="o">+</span><span class="n">dt</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">kPE</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Tpe</span><span class="o">/</span><span class="n">dt</span><span class="p">),</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.05</span> <span class="mf">0.05</span><span class="p">]),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_Y&#39;</span><span class="p">)</span> 
-        <span class="nb">title</span><span class="p">([</span><span class="s">&#39;Phase encoding, Step &#39;</span> <span class="n">int2str</span><span class="p">(</span><span class="n">Ipe</span><span class="p">)])</span>
-        <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-        <span class="nb">quiver</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">Splot</span><span class="p">)</span>
-        <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
-        <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-        <span class="nb">title</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-        <span class="nb">drawnow</span>
-    <span class="k">end</span>
-<span class="k">end</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">)</span><span class="o">*</span><span class="n">Splot</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+               <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">Mxy_PE</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="o">/</span><span class="n">Splot</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_</span><span class="si">{XY}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Spatial Encoding_5_0.png" src="_images/Spatial Encoding_5_0.png" />
-<img alt="_images/Spatial Encoding_5_1.png" src="_images/Spatial Encoding_5_1.png" />
-<img alt="_images/Spatial Encoding_5_2.png" src="_images/Spatial Encoding_5_2.png" />
-<img alt="_images/Spatial Encoding_5_3.png" src="_images/Spatial Encoding_5_3.png" />
-<img alt="_images/Spatial Encoding_5_4.png" src="_images/Spatial Encoding_5_4.png" />
-<img alt="_images/Spatial Encoding_5_5.png" src="_images/Spatial Encoding_5_5.png" />
-<img alt="_images/Spatial Encoding_5_6.png" src="_images/Spatial Encoding_5_6.png" />
-<img alt="_images/Spatial Encoding_5_7.png" src="_images/Spatial Encoding_5_7.png" />
-<img alt="_images/Spatial Encoding_5_8.png" src="_images/Spatial Encoding_5_8.png" />
+<img alt="_images/cab6d9f55e62b1e428334215d358943ee28c2769aeac83c45766993b95c64d3e.png" src="_images/cab6d9f55e62b1e428334215d358943ee28c2769aeac83c45766993b95c64d3e.png" />
+<img alt="_images/d28c80e2527aeb899555ba4e9e5237e39eefe15484f13babafbaa1976c14b3cc.png" src="_images/d28c80e2527aeb899555ba4e9e5237e39eefe15484f13babafbaa1976c14b3cc.png" />
+<img alt="_images/6200b3e5b6d47d8753682f7675d69b2eeb287ef6c71d3d774898bb7b6fd50733.png" src="_images/6200b3e5b6d47d8753682f7675d69b2eeb287ef6c71d3d774898bb7b6fd50733.png" />
+<img alt="_images/944e454f8d277c773ac692aaf7f62e1882b97a1b9c6010c2dfe2c8699630788e.png" src="_images/944e454f8d277c773ac692aaf7f62e1882b97a1b9c6010c2dfe2c8699630788e.png" />
+<img alt="_images/98fc95096121690aa23d695ce73eeea04c0c5a85543e21256ad33ebf80a2b7b3.png" src="_images/98fc95096121690aa23d695ce73eeea04c0c5a85543e21256ad33ebf80a2b7b3.png" />
+<img alt="_images/b2d4467c01b85c5a2a6dbc2497f5b8281dd64bfbdcaf019f5d2a21a16b40638c.png" src="_images/b2d4467c01b85c5a2a6dbc2497f5b8281dd64bfbdcaf019f5d2a21a16b40638c.png" />
+<img alt="_images/ba83b000bb6bce67a7cc6eeb4df46a13f0df7f6015b211d57de2fa0f7d3fdb13.png" src="_images/ba83b000bb6bce67a7cc6eeb4df46a13f0df7f6015b211d57de2fa0f7d3fdb13.png" />
+<img alt="_images/f2c303ae96c91cf1372fa4eb1b07568650fadd5c7aaadb031ef3cb0715fc9051.png" src="_images/f2c303ae96c91cf1372fa4eb1b07568650fadd5c7aaadb031ef3cb0715fc9051.png" />
+<img alt="_images/6f376ed76175c1a76616929fcf195397db209cde84310e10539c8cd98dea43c9.png" src="_images/6f376ed76175c1a76616929fcf195397db209cde84310e10539c8cd98dea43c9.png" />
 </div>
 </div>
-</div>
-<div class="section" id="frequency-and-phase-encoding">
-<h2>Frequency and Phase Encoding<a class="headerlink" href="#frequency-and-phase-encoding" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="frequency-and-phase-encoding">
+<h2>Frequency and Phase Encoding<a class="headerlink" href="#frequency-and-phase-encoding" title="Link to this heading">#</a></h2>
 <p>The following simulation of the net magnetizations shows how first the phase encoding gradient (<span class="math notranslate nohighlight">\(G_Y\)</span>) creates some phase variation in <span class="math notranslate nohighlight">\(y\)</span>, and then during the frequency encoding gradient (<span class="math notranslate nohighlight">\(G_X\)</span>) the net magnetizations rotate at varying frequencies depending on their <span class="math notranslate nohighlight">\(x\)</span> position:</p>
 <p><img alt="frequency_phase_encoding-simple-Mxy.gif" src="_images/frequency_phase_encoding-simple-Mxy.gif" /></p>
 <p>Instead of viewing the net magnetizations, we can also visualize this encoding as a map of the phase of the transverse magnetization:</p>
 <p><img alt="frequency_phase_encoding-simple-image_phase.gif" src="_images/frequency_phase_encoding-simple-image_phase.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
-</div>
-<div class="section" id="k-space">
-<h2>K-space<a class="headerlink" href="#k-space" title="Permalink to this headline">¶</a></h2>
-<p>A general method for capturing the effect of spatial encoding gradients is the concept of “k-space”:</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
-<p>K-space captures the accumulative effect (integration) of gradients on the net magnetization.  Note that you always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span>.</p>
-<p>The following simulation of the net magnetizations shows how rotations and k-space trajectory during a typical Cartesian (or 2D FT) gradient pulse sequence, which is differs from the simulation above in that an initial dephasing gradient in the frequency encoding direction is applied to sample both positive and negative spatial frequencies in k-space:</p>
-<p><img alt="frequency_phase_encoding-full-Mxy.gif" src="_images/frequency_phase_encoding-full-Mxy.gif" /></p>
-<p><img alt="frequency_phase_encoding-full-image_phase.gif" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
-</div>
-<div class="section" id="mr-signal-and-k-space">
-<h2>MR Signal and k-space<a class="headerlink" href="#mr-signal-and-k-space" title="Permalink to this headline">¶</a></h2>
-<p>The power of k-space is that it describe how MRI is sampling data in the Fourier Transform domain, or the spatial frequency domain, of the object net magnetization.  In other words, MRI signals are a measure of the spatial frequencies of our object.  This means that, to reconstruct an image we need to put our MRI signals into their k-space location, and then use an inverse Fourier Transform.</p>
-<p>To show this, first we can describe the transverse magnetization in terms of k-space</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp(-i2\pi \vec{k}(t) \cdot \vec{r})\]</div>
-<p>Then we assume that <span class="math notranslate nohighlight">\(T_2\)</span> decay is slow relative to the readout time, so the transverse magnetization becomes</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) \approx M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r})\]</div>
-<p>Our MR signal is the sum of all the transverse magnetizations over space</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \int_{\textrm{Volume}} M_{XY}(\vec{r},t) d\vec{r} = \int_{\textrm{Volume}} M_{XY}(\vec{r},0) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) d\vec{r}\]</div>
-<p>Where this now the form of a Fourier Transform, and our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, <span class="math notranslate nohighlight">\(\vec{k}\)</span>, that is determined by the k-space trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}(t)} \]</div>
-<p>(The Notebook ‘MRI Signal Equation’ shows how to incorporate other effects such as T2, off-resonance, and RF coil profilesnon-idealities</p>
-<div class="section" id="mr-acquisition-to-image">
-<h3>MR acquisition to image<a class="headerlink" href="#mr-acquisition-to-image" title="Permalink to this headline">¶</a></h3>
-<p>First we use the following notation for simplification</p>
-<div class="math notranslate nohighlight">
-\[m(\vec{r}) = M_{XY}(\vec{r},0)\]</div>
-<div class="math notranslate nohighlight">
-\[\mathcal{F}\{ m(\vec{r}) \} = M(\vec{k})\]</div>
-<p>The flow of the experiment and data is as follows:</p>
-<ol class="simple">
-<li><p>RF excitation to create <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},0)\)</span></p></li>
-<li><p>Gradients applied <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
-<li><p>k-space location, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span> is determined by the gradients</p></li>
-<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location:
-$<span class="math notranslate nohighlight">\( s(t) = M(\vec{k}(t))\)</span>$</p></li>
-<li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
-<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization
-$<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span>$</p></li>
-</ol>
-<p>Hurray, we have now used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an <strong>IMAGE</strong>!!</p>
-</div>
-<div class="section" id="k-space-trajectories">
-<h3>K-space trajectories<a class="headerlink" href="#k-space-trajectories" title="Permalink to this headline">¶</a></h3>
-<p>The k-space pattern during a MRI experiment is referred to as the k-space “trajectory”.  The most common are Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%  plot k-space trajectories</span>
-
-<span class="c">% Cartesian</span>
-<span class="n">N</span> <span class="p">=</span> <span class="mi">8</span><span class="p">;</span>
-
-<span class="n">k</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
-<span class="p">[</span><span class="n">ky</span><span class="p">,</span><span class="n">kx</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">k</span><span class="p">);</span>
-
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Cartesian trajectory&#39;</span><span class="p">)</span>
-
-<span class="c">% echo-planar</span>
-<span class="n">kx_ep</span> <span class="p">=</span> <span class="n">kx</span><span class="p">;</span> <span class="n">kx_ep</span><span class="p">(:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span> <span class="p">=</span> <span class="n">kx_ep</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">);</span>
-<span class="n">kx_ep</span> <span class="p">=</span> <span class="n">kx_ep</span><span class="p">(:);</span>
-
-<span class="n">ky_ep</span> <span class="p">=</span> <span class="n">ky</span><span class="p">(:);</span>
-
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">kx_ep</span><span class="p">,</span> <span class="n">ky_ep</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Echo-Planar trajectory&#39;</span><span class="p">)</span>
-
-<span class="c">% radial</span>
-
-<span class="n">k_theta</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">));</span>
-<span class="n">k_radial</span> <span class="p">=</span> <span class="n">k</span><span class="p">.</span><span class="o">&#39;</span> <span class="o">*</span> <span class="n">k_theta</span><span class="p">;</span>
-
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">k_radial</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Radial trajectory&#39;</span><span class="p">)</span>
-
-
-<span class="c">% spiral</span>
-<span class="n">n</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">201</span><span class="p">);</span>
-<span class="n">Nturns</span> <span class="p">=</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">k_spiral</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">.*</span><span class="nb">exp</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">Nturns</span><span class="o">*</span><span class="n">n</span><span class="p">);</span>
-
-<span class="nb">figure</span>
-<span class="nb">plot</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="nb">imag</span><span class="p">(</span><span class="n">k_spiral</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="nb">xlim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">]),</span> <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="p">.</span><span class="mi">6</span> <span class="p">.</span><span class="mi">6</span><span class="p">])</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_x&#39;</span><span class="p">),</span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_y&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spiral trajectory&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/Spatial Encoding_11_0.png" src="_images/Spatial Encoding_11_0.png" />
-<img alt="_images/Spatial Encoding_11_1.png" src="_images/Spatial Encoding_11_1.png" />
-<img alt="_images/Spatial Encoding_11_2.png" src="_images/Spatial Encoding_11_2.png" />
-<img alt="_images/Spatial Encoding_11_3.png" src="_images/Spatial Encoding_11_3.png" />
-</div>
-</div>
-<p>These movies illustrate the phase accumulation during non-Cartesian trajectories</p>
-<p><img alt="radial_encoding-full-Mxy.gif" src="_images/radial_encoding-full-Mxy.gif" /></p>
-<p><img alt="spiral_encoding-full-Mxy.gif" src="_images/spiral_encoding-full-Mxy.gif" /></p>
-<p>(See spatial_encoding_Mxy_illustration.m for code generating this movie)</p>
-</div>
-</div>
-</div>
+<p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
+</section>
+<section id="d-ft-imaging-pulse-sequence">
+<h2>2D FT Imaging Pulse Sequence<a class="headerlink" href="#d-ft-imaging-pulse-sequence" title="Link to this heading">#</a></h2>
+<p>The following pulse sequence diagram shows a Cartesian 2D FT sequence with frequency and phase encoding including relevant pulse amplitudes and durations.  A gradient-echo sequence is shown, and the principles can simply be extended to a spin-echo sequence.  Idealized rectangular gradients are shown for simplicity.</p>
+<p><img alt="Pulse Sequence Diagram" src="_images/pulse_sequence-diagram-Cartesian-parameters.png" /></p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -602,67 +659,125 @@ $<span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} =
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "octave",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="MRI%20Signal%20Equation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Building Up the MRI Signal Equation</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="Signal%20to%20Noise%20Ratio.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Signal to Noise Ratio (SNR)</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Peder Larson<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RF%20Pulse%20Design.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">RF Pulse Design</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+    </a>
+    <a class="right-next"
+       href="K-space.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">K-space</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effects-of-magnetic-field-gradients">Effects of Magnetic Field Gradients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding-or-ft-imaging">Frequency and Phase encoding, or FT Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-encoding">Frequency Encoding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-encoding">Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-and-phase-encoding">Frequency and Phase Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-ft-imaging-pulse-sequence">2D FT Imaging Pulse Sequence</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peder Larson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
