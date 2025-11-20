@@ -61,3 +61,4 @@ parts:
     - file: "Spectral-Spatial RF Pulses"
     - file: "Fun with RF Pulses"
     - file: "Advanced SNR"
+    - file: "Advanced Image Reconstruction"
