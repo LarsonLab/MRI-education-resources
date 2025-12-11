@@ -3,8 +3,12 @@
 ## Background Material
 
 [MRI Math Concepts](./MRI%20Math%20Concepts.ipynb)
+* Linear Algebra concepts
+* Complex numbers and representations
+* Fourier Transforms
 
 Signals and Systems
+* Point Spread Functions
 
 Electricity and Magnetism
 
@@ -44,6 +48,8 @@ $$M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})
     * receive RF coil - $B_1^-(\vec{r},t)$: detect signal with high sensitivity
 1. Magnetic field gradient coils - $\vec{G}(t)$
 
+Intuition from magnetic fields and sensitivity profiles of loop coils
+
 ## MRI Experiment
 
 1. Polarization
@@ -69,7 +75,7 @@ Ernst angle - flip angle for maximum SNR
 
 $$\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))$$
 
-Magnetization Preparation:
+Magnetization Preparation Methods:
 Inversion Recovery
 
 $$S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )$$
@@ -79,7 +85,7 @@ $$S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )$$
 Magnetic susceptibility effects 
 * magnetic susceptibility is inherent property of materials
 * differences in magnetic susceptibility lead to distortions of the magnetic field
-* in vivo sources include: iron, oxygenated versus deoxygenated blood
+* in vivo sources include: iron, oxygenated versus deoxygenated blood, air-tissue interfaces
 
 Chemical Shift
 * chemcial environment of an atom creates variations in local magnetic field
@@ -87,7 +93,7 @@ Chemical Shift
 
 ## In Vivo Contrasts
 
-Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in MR signal
+Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in $M_{XY}$ and the MR signal
 
 T2*
 * intra-voxel dephasing due to magnetic field inhomogeneity
@@ -107,7 +113,6 @@ Contrast Agents
 ## RF Pulses
 
 Pulse Characteristics
-* pulse profile - approximately proportional to the Fourier Transform of the pulse shape
 * flip angle
 
 $$\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau $$
@@ -119,6 +124,8 @@ $$ TBW = T_{rf} \cdot BW_{rf} $$
 * SAR
 
 $$ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau $$
+
+* pulse profile - describes the flip angle or net magnetization response across a range of frequency and/or position.  This is approximately proportional to the Fourier Transform of the pulse shape for small (less than 60-degree) flip angles
 
 Slice Selection
 * Slice thickness
@@ -162,7 +169,11 @@ $$ \delta = \frac{1}{2 k_{max}}$$
 
 Scan Time
 
-$$ T_{scan} = \frac{ TR \cdot N_{PE,total} \cdot NEX}{ETL \cdot R}$$
+$$ T_{scan} = TR \cdot N_{TR} \cdot NEX}$$
+
+where $N_{TR}$ is the total number of TR periods sampled.  Including fast sequences and acceleration methods:
+
+$$N_{TR} = \frac{N_{PE,total}}{ETL \cdot R}$$
 
 ## FT Imaging Sequence
 
@@ -176,11 +187,12 @@ Can convert between sequence parameters (e.g. timings, gradient amplitudes) and 
 
 Volumetric coverage
 * 2D multislice imaging - interleave multiple slices within a single TR
-* 3D imaging - cover 3D k-space
+* 3D imaging - cover 3D k-space with 2 phase-encoding dimensions
 
-EPI
+Echo-planar imaging (EPI)
 * k-space trajectory that covers multiple k-space lines per excitation
 * Echo spacing ($t_{esp}$), echo train length (ETL)
+* echo time, $TE = TE_{eff}$, defined when data closest to center of k-space is acquired
 
 Multiple Spin-echo imaging (FSE/TSE/RARE)
 * multiple spin-echoes per excitation used to acquire different k-space lines 
@@ -190,6 +202,7 @@ Multiple Spin-echo imaging (FSE/TSE/RARE)
 Gradient Echo methods
 * Contrast can be changed based on whether transverse magnetization is available or refocused in a subsequent TR
 * Variations based on whether RF and/or gradient spoiling are used
+* Magnetization Prepared gradient-echo imaging methods
 
 ## Accelerated Imaging Methods
 
@@ -197,14 +210,16 @@ Partial Fourier
 * Why does it work?  MRI approximately satisfies conjugate symmetry property of k-space data
 * How does it work?  Only sample slightly more than half of k-space 
 
-Parallel Imaging
+Parallel Imaging - k-space undersampling
 * Why does it work?  RF coil arrays with different elements provide spatial encoding
 * How does it work?  Skip k-space data in the direction(s) that have variation in RF coil element sensitivity profiles 
 * Key variations: May require measurement of coil sensitivity maps, also autocalibrated methods
+* SNR considerations: Geometry factor (g-factor, $g>1$) due noise amplification in parallel imaging reconstruction, $SNR \propto \frac{1}{g}$
 
-Simultaneous Multi-slice
+Parallel Imaging - Simultaneous Multi-slice
 * Why does it work?  RF coil arrays with different elements provide spatial encoding
 * How does it work?  Excite multiple slices simultaneously
+* SNR considerations: Geometry factor (g-factor, $g>1$) due noise amplification in parallel imaging reconstruction, $SNR \propto \frac{1}{g}$
 
 Compressed Sensing
 * Why does it work?  MRI data has typical patterns that can be predicted are represented by sparse coefficients
