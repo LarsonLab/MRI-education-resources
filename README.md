@@ -1,7 +1,7 @@
 # MRI Education Resources
 Resources for learning the principles of magnetic resonance imaging (MRI)
 
-Currently MATLAB based functions and demonstrations (Octave compatible too)
+Currently MATLAB based functions and demonstrations (Octave compatible too) in folders, and python-based examples in the Book
 
 Please cite as:  MRI-education-resources, [doi: 10.5281/zenodo.5547020](https://doi.org/10.5281/zenodo.5547020) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg)](https://doi.org/10.5281/zenodo.5547020)
 
@@ -24,6 +24,10 @@ All of the notebooks used to create interactive book can also be viewed and run 
 ## Spin Physics and Magnetic Resonance Simulators
 * http://drcmr.dk/BlochSimulator/
 * http://www.drcmr.dk/CompassMR/
+
+## Printable Materials
+
+If you are teaching MRI, also included in this repository are several posters and handouts that maybe useful, in the `Printable Materials/` folder.
 
 ## Recommended Educational Materials
 
