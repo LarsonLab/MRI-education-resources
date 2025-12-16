@@ -1,0 +1,1097 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MRI Questions &#8212; Principles of MRI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Questions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction to Principles of MRI
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FQuestions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Questions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MRI Questions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-physics">MR Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-coils">RF Coils</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-sequence">Pulse Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-reconstruction">Image Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics-fov-and-resolution">Image Characteristics (FOV and Resolution)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mri-questions">
+<h1>MRI Questions<a class="headerlink" href="#mri-questions" title="Link to this heading">#</a></h1>
+<p>Note that questions may have multiple possible answers.</p>
+<section id="mri-system">
+<h2>MRI System<a class="headerlink" href="#mri-system" title="Link to this heading">#</a></h2>
+<p>Clinical MRI systems (i.e. 3T and 1.5T) operate in the same frequency range as ..</p>
+<ul class="simple">
+<li><p>Xray</p></li>
+<li><p>Visible light</p></li>
+<li><p>FM</p></li>
+<li><p>AM</p></li>
+</ul>
+<p>The main magnetic field, <span class="math notranslate nohighlight">\(B_0\)</span>, is for …</p>
+<ul class="simple">
+<li><p>polarization</p></li>
+<li><p>excitation</p></li>
+<li><p>acquisition</p></li>
+</ul>
+<p>Which coil(s) generates a magnetic field(s) that are perpendicular to the main field <span class="math notranslate nohighlight">\(B_0\)</span>?</p>
+<ul class="simple">
+<li><p>RF coils</p></li>
+<li><p>gradient coils in the x direction</p></li>
+<li><p>gradient coils in the y direction</p></li>
+<li><p>gradient coils in the z direction</p></li>
+</ul>
+<p>(T/F) In MRI, the imaging plane is determined by proper assignment on the x, y, and z gradients</p>
+<p>Match the following components with the approximate amplitude of their magnetic field</p>
+<ul class="simple">
+<li><p>Components: <span class="math notranslate nohighlight">\(B_0\)</span>, RF transmit coil, RF receive coil, magnetic field gradients</p></li>
+<li><p>frequency of magnetic field: 0 Hz, 1 kHz, 100 MHz</p></li>
+<li><p>amplitude of magnetic field: 1 <span class="math notranslate nohighlight">\(\mu T\)</span> , 10 <span class="math notranslate nohighlight">\(\mu T\)</span>, 10 <span class="math notranslate nohighlight">\(m T\)</span>, 1 <span class="math notranslate nohighlight">\( T\)</span></p></li>
+</ul>
+<p>Which of the following steps are conducted in a calibration scan?</p>
+<ul class="simple">
+<li><p>Center frequency / B0 calibration</p></li>
+<li><p>RF power, transmit gain</p></li>
+<li><p>RF receiver gain</p></li>
+<li><p>Gradient calibration</p></li>
+</ul>
+<!-- 
+Which of the following parameter(s) change with the main magnetic field strength?
+* Resonance frequency
+* Magnetic field gradients
+* Equilibrium magnetization, $M_0$
+* Amount of displacement due to fat/water chemical shift
+* Magnetic field distortions due to magnetic susceptibility differences
+* Intensity of motion artifacts
+-->
+</section>
+<section id="mr-physics">
+<h2>MR Physics<a class="headerlink" href="#mr-physics" title="Link to this heading">#</a></h2>
+<p>Which of the following isotopes cannot
+be imaged with MRI?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(^1H\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(^{12}C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(^{13}C\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(^{19}F\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(^2H\)</span></p></li>
+</ul>
+<p>Human tissue is …</p>
+<ul class="simple">
+<li><p>diamagnetic</p></li>
+<li><p>paramagnetic</p></li>
+<li><p>ferromagnetic</p></li>
+</ul>
+<p>(T/F) When placed in a magnetic field, all the protons (<span class="math notranslate nohighlight">\(^1 H\)</span>) in the body will line up with the field.</p>
+<p>(T/F) When placed in a magnetic field, spins immediately are preferentially aligned with that field.</p>
+<p>(T/F) A spin’s precession frequency (Larmor frequency) is proportional to the magnetic field it’s in.</p>
+<p>(T/F) The net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, does not precess at equilibirum.</p>
+<p>To create signals in MRI, we need to apply an RF pulse that is …</p>
+<ul class="simple">
+<li><p>perpendicular to the main field <span class="math notranslate nohighlight">\(B_{0}\)</span>, oscillating at frequency <span class="math notranslate nohighlight">\(0\)</span> Hz (static)</p></li>
+<li><p>parallel to the main field <span class="math notranslate nohighlight">\(B_{0}\)</span>, oscillating at frequency <span class="math notranslate nohighlight">\(0\)</span> Hz (static)</p></li>
+<li><p>parallel to the main field <span class="math notranslate nohighlight">\(B_{0}\)</span>, oscillating at a frequency <span class="math notranslate nohighlight">\(\gamma B_0\)</span></p></li>
+<li><p>perpendicular to the main field <span class="math notranslate nohighlight">\(B_{0}\)</span>, oscillating at  a frequency <span class="math notranslate nohighlight">\(\gamma B_0\)</span></p></li>
+</ul>
+<p>(T/F) The z-axis is the same in lab and rotating frame.</p>
+</section>
+<section id="rf-coils">
+<h2>RF Coils<a class="headerlink" href="#rf-coils" title="Link to this heading">#</a></h2>
+<p>(T/F) The RF receive coils detect magnetic flux directly when collecting signals.</p>
+<p>What are the benefit(s) of using phased array receive coils?</p>
+<ul class="simple">
+<li><p>Increase FOV</p></li>
+<li><p>Increase SNR</p></li>
+<li><p>Enables parallel imaging acceleration</p></li>
+<li><p>Enables compressed sensing acceleration</p></li>
+</ul>
+</section>
+<section id="contrast">
+<h2>Contrast<a class="headerlink" href="#contrast" title="Link to this heading">#</a></h2>
+<p>(T/F) Proton density represents the density of all the protons in a given tissue.</p>
+<p>The recovery of longitudinal magnetization is proportional to …</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e^{t/T_1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1- e^{t/T_1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(e^{t/T_2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1-e^{t/T_2}\)</span></p></li>
+</ul>
+<p>The decay of the transverse magnetization is proportional to …</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(e^{t/T_1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1- e^{t/T_1}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(e^{t/T_2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1-e^{t/T_2}\)</span></p></li>
+</ul>
+<p>(T/F) The amplitude of the net magnetization doesn’t change during relaxation.</p>
+<p>Which of the following equations is correct?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T_2 \ge T_2^* \ge T_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T_2^* \ge T_2 \ge T_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T_1 \ge T_2 \ge T_2^*\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T_1 \ge T_2^* \ge T_2\)</span></p></li>
+</ul>
+<p>T2* relaxation depends on …</p>
+<ul class="simple">
+<li><p>magnetic field inhomogeneities</p></li>
+<li><p>spin-spin interactions</p></li>
+<li><p>spin-lattice interactions</p></li>
+<li><p>longitudinal relaxation</p></li>
+</ul>
+<p>(T/F) <span class="math notranslate nohighlight">\(M_Z\)</span> doesn’t contribute to the MR signal.</p>
+<p>Calculate the signal in a spin-echo sequence with a 90-degree flip angle <span class="math notranslate nohighlight">\(M_0(1-e^{-TR/T1})e^{-TE/T2}\)</span> when TR = ∞</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_0(1-e^{-TR/T1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_0 e^{-TE/T2}\)</span></p></li>
+</ul>
+<p>Calculate the signal in a spin-echo sequence with a 90-degree flip angle <span class="math notranslate nohighlight">\(M_0(1-e^{-TR/T1})e^{-TE/T2}\)</span> when TE = ∞</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_0(1-e^{-TR/T1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_0 e^{-TE/T2}\)</span></p></li>
+</ul>
+<p>A longer TR …</p>
+<ul class="simple">
+<li><p>increases T1 weighting</p></li>
+<li><p>reduces T1 weighting</p></li>
+<li><p>increases T2 weighting</p></li>
+<li><p>reduces T2 weighting</p></li>
+</ul>
+<p>A longer TE …</p>
+<ul class="simple">
+<li><p>increases T1 weighting</p></li>
+<li><p>reduces T1 weighting</p></li>
+<li><p>increases T2 weighting</p></li>
+<li><p>reduces T2 weighting</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>What flip angle gives the highest SNR for a spoiled gradient echo pulse sequence?</p>
+<ul class="simple">
+<li><p>45-degrees</p></li>
+<li><p>90-degrees</p></li>
+<li><p>180-degrees</p></li>
+<li><p><span class="math notranslate nohighlight">\(\cos^{-1} ( \exp(-TR/T_1) )\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p>The signal of an inversion recovery pulse sequence in the steady-state is proportional to …</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M_{0}\cdot(1-2e^{-TI/T1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_{0}\cdot(1-e^{-TR/T1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_{0}\cdot(1-e^{-TI/T1}+e^{-TR/T1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M_{0}\cdot(1-2e^{-TI/T1}+e^{-TR/T1})\)</span></p></li>
+</ul>
+<p>(T/F) In a spin-echo sequence, the dephasing of spins in the transverse plane is only eliminated at the spin-echo.</p>
+<p>Which of the following image contrasts can be generated by a spin-echo pulse sequence?</p>
+<ul class="simple">
+<li><p>PDw</p></li>
+<li><p>T1w</p></li>
+<li><p>T2w</p></li>
+<li><p>T2*w</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>What magnetic resonance property is used to perform fat/water (Dixon) imaging?</p>
+<ul class="simple">
+<li><p>Proton density</p></li>
+<li><p>T1</p></li>
+<li><p>T2</p></li>
+<li><p>T2*</p></li>
+<li><p>Chemical Shift</p></li>
+</ul>
+</li>
+<li><p>What are the minimum measurements required to create separate fat and water images?</p>
+<ul class="simple">
+<li><p>In-phase TE</p></li>
+<li><p>Out-of-phase TE</p></li>
+<li><p>In-phase TE &amp; Out-of-phase TE</p></li>
+</ul>
+</li>
+<li><p>What is “magnetization preparation” used for?</p>
+<ul class="simple">
+<li><p>polarization</p></li>
+<li><p>data acquisition</p></li>
+<li><p>create additoinal contrast</p></li>
+<li><p>tissue suppression</p></li>
+</ul>
+</li>
+<li><p>(T/F) Multiple readouts can be used following a magnetization preparation pulse to improve efficiency</p></li>
+</ol>
+</section>
+<section id="pulse-sequence">
+<h2>Pulse Sequence<a class="headerlink" href="#pulse-sequence" title="Link to this heading">#</a></h2>
+<p>Which of the following are typically components of a pulse sequence diagram?</p>
+<ul class="simple">
+<li><p>RF Pulses</p></li>
+<li><p>Main field (<span class="math notranslate nohighlight">\(B_0\)</span>)</p></li>
+<li><p>Magnetic field gradients (<span class="math notranslate nohighlight">\(G_X, G_Y, G_Z\)</span>)</p></li>
+<li><p>Data acquisition (DAQ)</p></li>
+</ul>
+<p>In a typical pulse sequence, identify the gradients that serve the following functions:</p>
+<ol class="arabic simple">
+<li><p>spoil transverse magnetization</p></li>
+<li><p>refocus Mxy phase across the slice</p></li>
+<li><p>move to the edge of k-space</p></li>
+</ol>
+<p><img alt="2D FT sequence" src="_images/pulse_sequence-diagram.png" /></p>
+<p>Which of the following statement is true for the slice select refocusing gradient?</p>
+<ul class="simple">
+<li><p>The slice select refocusing gradient must have the same gradient amplitude with the slice selective excitation pulse.</p></li>
+<li><p>The slice select refocusing gradient must have the same gradient area with the slice selective excitation pulse.</p></li>
+<li><p>The slice select refocusing gradient can overlap with the prewinder of the frequency encoding gradient.</p></li>
+<li><p>The slice select refocusing gradient can overlap with the gradient echo.</p></li>
+</ul>
+<p>(T/F) For 2D FT imaging, gradient spoiling is usually applied in the slice select direction because the voxel size is larger thus more dephasing can happen within a voxel in that direction.</p>
+<p>(T/F) For a GRE or SE with no phase encoding gradient, the k-space position at TE equals 0 (i.e, <span class="math notranslate nohighlight">\(\vec{k}(TE) = 0\)</span>).</p>
+</section>
+<section id="rf-pulses">
+<h2>RF Pulses<a class="headerlink" href="#rf-pulses" title="Link to this heading">#</a></h2>
+<p>What is the flip angle
+θ (in radians) of a constant amplitude (hard) RF pulse with an amplitude
+<span class="math notranslate nohighlight">\(B_{1,0}\)</span> and duration <span class="math notranslate nohighlight">\(\tau\)</span>?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\theta = \gamma B_{10} \tau\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = \gamma B_{0} \tau\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = B_{10} \tau\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta = \gamma \tau\)</span></p></li>
+</ul>
+<p>(T/F) When describing the RF excitation, we usually neglect the relaxation terms in the Bloch equations because the RF pulse duration is usually much shorter than the relaxation time constants.</p>
+<p>(T/F) A constant amplitude 180° pulse that is the same duration as a constant amplitude 90° pulse requires twice the power.</p>
+<p>In slice-selective excitation, thinner slices can be achieved by</p>
+<ul class="simple">
+<li><p>decreasing the RF pulse bandwidth, <span class="math notranslate nohighlight">\(BW_{RF}\)</span></p></li>
+<li><p>decreasing the receive BW</p></li>
+<li><p>decreasing the slice-select gradient strength</p></li>
+<li><p>increasing the slice-select gradient strength</p></li>
+</ul>
+</section>
+<section id="spatial-encoding">
+<h2>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Link to this heading">#</a></h2>
+<p>(T/F) During frequency encoding, the MRI signal is in the time domain, corresponding to the spatial frequency domain. The Fourier Transform of the signal is in the frequency domain, which corresponds to the image domain.</p>
+<p>When is slice selective gradient turned on?</p>
+<ul class="simple">
+<li><p>during the RF excitaiton pulse</p></li>
+<li><p>between the RF excitation and the readout</p></li>
+<li><p>during the echo (readout)</p></li>
+</ul>
+<p>When is the frequency encoding gradient turned on?</p>
+<ul class="simple">
+<li><p>during the RF excitaiton pulse</p></li>
+<li><p>between the RF excitation and the readout</p></li>
+<li><p>during the echo (readout)</p></li>
+</ul>
+<p>When is phase encoding gradient turned on?</p>
+<ul class="simple">
+<li><p>during the RF excitaiton pulse</p></li>
+<li><p>between the RF excitation and the readout</p></li>
+<li><p>during the echo (readout)</p></li>
+</ul>
+<p>When is DAQ turned on during a 2D FT sequence?</p>
+<ul class="simple">
+<li><p>When the slice selective gradient is on</p></li>
+<li><p>When the RF is on</p></li>
+<li><p>When the phase encoding gradient is on</p></li>
+<li><p>When the frequency encoding gradient is on</p></li>
+</ul>
+<p>According to the Nyquist theorem, to avoid aliasing:</p>
+<ul class="simple">
+<li><p>The sampling frequency must be at least half the highest frequency in the signal</p></li>
+<li><p>The sampling frequency must be at least twice the lowest frequency in the signal</p></li>
+<li><p>The sampling frequency must be at least twice the highest frequency in the signal</p></li>
+<li><p>The sampling frequency must be at least half the lowest frequency in the signal</p></li>
+</ul>
+<p>(T/F) Aliasing occurs because of oversampling.</p>
+<p>(T/F) During 2D multislice imaging, acquisition for one slice must be completed before the acquisition for the next slice can start.</p>
+<p>Which k-space line is acquired by the following magnetic field gradients?
+<img alt="k-space line sampling" src="_images/kspace_line_question.png" /></p>
+<p>In 3DFT imaging, the gradient added to the slice encoding axis (compared to a 2DFT) is a …</p>
+<ul class="simple">
+<li><p>frequency encoding gradient</p></li>
+<li><p>phase encoding gradient</p></li>
+<li><p>either frequency or phase encoding gradient</p></li>
+</ul>
+</section>
+<section id="image-reconstruction">
+<h2>Image Reconstruction<a class="headerlink" href="#image-reconstruction" title="Link to this heading">#</a></h2>
+<p>For a real-valued image <span class="math notranslate nohighlight">\(m(x,y)\)</span>, which of the following equation holds for its k-space data <span class="math notranslate nohighlight">\(M(k_x,k_y)\)</span>?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(M(k_x,k_y) = M(-k_x,-k_y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(M(k_x,k_y) = -M(-k_x,-k_y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{Real}\{M(k_x,k_y)\} = \mathcal{Real}\{ M(-k_x,-k_y) \}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{Imag}\{M(k_x,k_y) \} = \mathcal{Imag}\{M(-k_x,-k_y) \}\)</span></p></li>
+</ul>
+<p>(T/F) In MRI we only look at the magnitude images.</p>
+<p>(T/F) The center of k-space always contains the maximum signal.</p>
+</section>
+<section id="image-characteristics-fov-and-resolution">
+<h2>Image Characteristics (FOV and Resolution)<a class="headerlink" href="#image-characteristics-fov-and-resolution" title="Link to this heading">#</a></h2>
+<p>The field of view is inversely proportional to…</p>
+<ul class="simple">
+<li><p>receiver BW (RBW)</p></li>
+<li><p>readout gradient strength (Gxr)</p></li>
+<li><p>TR</p></li>
+<li><p>TE</p></li>
+</ul>
+<p>The field of view is directly proportional to…</p>
+<ul class="simple">
+<li><p>receiver BW (RBW)</p></li>
+<li><p>readout gradient strength (Gxr)</p></li>
+<li><p>TR</p></li>
+<li><p>TE</p></li>
+</ul>
+<p>(T/F) An anti-aliasing filter can be applied in the phase encoding direction.</p>
+<p>The resolution in frequency encoding direction ( <span class="math notranslate nohighlight">\(\delta_x\)</span> ) is equal to …</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( \frac{1}{W_{kx}} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \frac{1}{\frac{\gamma}{2\pi} G_{xr} t_{read}} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \frac{FOV_x}{N_{FE}} \)</span></p></li>
+<li><p>None of the above</p></li>
+</ul>
+</section>
+<section id="snr">
+<h2>SNR<a class="headerlink" href="#snr" title="Link to this heading">#</a></h2>
+<p>SNR can be increased by …</p>
+<ul class="simple">
+<li><p>decreasing voxel size</p></li>
+<li><p>increasing total time</p></li>
+<li><p>increasing NEX</p></li>
+</ul>
+</section>
+<section id="artifacts">
+<h2>Artifacts<a class="headerlink" href="#artifacts" title="Link to this heading">#</a></h2>
+<p>Chemical shift displacement artifact is characterized by …</p>
+<ul class="simple">
+<li><p>signal stretch and pile-up</p></li>
+<li><p>bright and dark bands</p></li>
+<li><p>Gibbs ringing</p></li>
+<li><p>ghosting</p></li>
+</ul>
+<p>Susceptibility displacement artifact is characterized by …</p>
+<ul class="simple">
+<li><p>signal stretch and pile-up</p></li>
+<li><p>bright and dark bands</p></li>
+<li><p>Gibbs ringing</p></li>
+<li><p>ghosting</p></li>
+</ul>
+<p>Truncation artifacts can be reduced by …</p>
+<ul class="simple">
+<li><p>improving resolution</p></li>
+<li><p>filtering in k-space</p></li>
+<li><p>increasing FOV</p></li>
+<li><p>increasing NEX</p></li>
+</ul>
+<p>(T/F) Motion artifacts occur only along the phase-encoding direction.</p>
+</section>
+<section id="fast-imaging-pulse-sequences">
+<h2>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Link to this heading">#</a></h2>
+<p>What does it mean to use a multiple spin echo pulse sequence?</p>
+<ul class="simple">
+<li><p>multiple spin echoes are created following a single excitation pulse</p></li>
+<li><p>multiple k-space lines acquired sequentially</p></li>
+<li><p>multiple gradient-echo repetitions after a magnetization preparation pulse</p></li>
+<li><p>fully refocused gradients and no spoiling in every TR</p></li>
+</ul>
+<p>What types of contrast can be created with a multiple spin echo pulse sequence?</p>
+<ul class="simple">
+<li><p>proton density weighted</p></li>
+<li><p>T1 weighted</p></li>
+<li><p>T2 weighted</p></li>
+<li><p>T2* weighted</p></li>
+</ul>
+<p>What are the limitations of multiple spin echo pulse sequences?</p>
+<ul class="simple">
+<li><p>Chemical shift and susceptibility displacement artifacts</p></li>
+<li><p>T2 blurring artifacts</p></li>
+<li><p>ghosting</p></li>
+<li><p>SAR</p></li>
+</ul>
+<p>What does it mean to use echo planar imaging (EPI)?</p>
+<ul class="simple">
+<li><p>multiple spin echoes are created following a single excitation pulse</p></li>
+<li><p>multiple k-space lines acquired sequentially</p></li>
+<li><p>multiple gradient-echo repetitions after a magnetization preparation pulse</p></li>
+<li><p>fully refocused gradients and no spoiling in every TR</p></li>
+</ul>
+<p>What are the advantages of EPI?</p>
+<ul class="simple">
+<li><p>Create additional T1, T2, and/or T2* contrast</p></li>
+<li><p>Rapidly acquire k-space</p></li>
+<li><p>Robust to motion</p></li>
+<li><p>Repeated refocusing of intravoxel dephasing</p></li>
+</ul>
+<p>What are the artifacts associated with EPI?</p>
+<ul class="simple">
+<li><p>Chemical shift displacement</p></li>
+<li><p>Distortion due to magnetic susceptibility differences</p></li>
+<li><p>T2* blurring</p></li>
+<li><p>ghosting</p></li>
+</ul>
+<p>What does it mean to use balanced steady-state free-precession (bSSFP)?</p>
+<ul class="simple">
+<li><p>multiple spin echoes are created following a single excitation pulse</p></li>
+<li><p>multiple k-space lines acquired sequentially</p></li>
+<li><p>multiple gradient-echo repetitions after a magnetization preparation pulse</p></li>
+<li><p>fully refocused gradients and no spoiling in every TR</p></li>
+</ul>
+</section>
+<section id="accelerated-imaging-methods">
+<h2>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Link to this heading">#</a></h2>
+<p>Match the acceleration methods</p>
+<ul class="simple">
+<li><p>Partial Fourier</p></li>
+<li><p>Parallel Imaging</p></li>
+<li><p>Compressed Sensing</p></li>
+<li><p>Deep Learning</p></li>
+</ul>
+<p>with the following concept they rely on:</p>
+<ul class="simple">
+<li><p>conjugate symmetry in k-space</p></li>
+<li><p>spatial encoding from receive coil arrays</p></li>
+<li><p>a sparse representation of the image</p></li>
+<li><p>training on prior images to learn expected patterns</p></li>
+</ul>
+<p>(T/R) Partial Fourier, parallel imaging, and compressed sensing or deep learning reconstructions can be used simultaneously.</p>
+<p>How is coil sensitivity information gathered for parallel imaging?</p>
+<ul class="simple">
+<li><p>It is stored in a database on the scanner</p></li>
+<li><p>A separate scan to measure coil sensitivity maps</p></li>
+<li><p>Using fully-sampled data from the center of k-space</p></li>
+<li><p>Using fully-sampled data from outer k-space</p></li>
+</ul>
+<p>What is the “g-factor” in parallel imaging?</p>
+<ul class="simple">
+<li><p>How much faster scan can be performed</p></li>
+<li><p>Describes noise amplification</p></li>
+<li><p>Describes SNR loss</p></li>
+<li><p>Describes magnetic field gradients</p></li>
+</ul>
+<p>Compared to the SNR a fully sampled acquistion (<span class="math notranslate nohighlight">\(SNR_{full}\)</span>), the SNR Of a parallel imaging acquisition (<span class="math notranslate nohighlight">\(SNR_{PI}\)</span>) with an acceleration factor, <span class="math notranslate nohighlight">\(R\)</span>, and <span class="math notranslate nohighlight">\(g\)</span>-factor is</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(SNR_{PI} = SNR_{full}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SNR_{PI} = SNR_{full} / \sqrt{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SNR_{PI} = SNR_{full} / g(\vec{r}) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(SNR_{PI} = SNR_{full} / (g(\vec{r}) \sqrt{R})\)</span></p></li>
+</ul>
+<p>(T/F) Parallel imaging undersampling can be performed in any direction, regardless of the RF coil configuration.</p>
+<p>Simultaneous multi-slice parallel imaging</p>
+<ul class="simple">
+<li><p>enables acceleration in the slice direction</p></li>
+<li><p>requires no modifications to the pulse sequence</p></li>
+<li><p>requires RF pulses that excite multiple slices</p></li>
+<li><p>requires coil sensitivity information</p></li>
+</ul>
+<p>What type of k-space sampling is required for compressed sensing?</p>
+<ul class="simple">
+<li><p>full sampling</p></li>
+<li><p>equally spaced undersampling</p></li>
+<li><p>equally spaced undersampling with fully-sampled center of k-space</p></li>
+<li><p>pseudo-random undersampling</p></li>
+</ul>
+<p>At least how many training datasets are typically required to develop deep learning MRI reconstruction methods?</p>
+<ul class="simple">
+<li><p>1</p></li>
+<li><p>10-100</p></li>
+<li><p>1000-10,000</p></li>
+<li><p>100,000-1,000,000</p></li>
+</ul>
+<p>Generalization problems can arise in deep learning MRI reconstruction methods when applied to situations that area different from the training data in which of the following ways:</p>
+<ul class="simple">
+<li><p>different anatomy</p></li>
+<li><p>different contrasts</p></li>
+<li><p>different sampling patterns</p></li>
+<li><p>different B0</p></li>
+</ul>
+<p>Which type of architecture is commonly used for physics-based deep learning MRI reconstruction networks?</p>
+<ul class="simple">
+<li><p>Encoder-decoder</p></li>
+<li><p>Unet</p></li>
+<li><p>Unrolled</p></li>
+<li><p>Recurrant</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-physics">MR Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-coils">RF Coils</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contrast">Contrast</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-sequence">Pulse Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-reconstruction">Image Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics-fov-and-resolution">Image Characteristics (FOV and Resolution)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr">SNR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peder Larson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

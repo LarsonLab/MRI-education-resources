@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Key MRI Concepts and Equations &#8212; Principles of MRI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Key MRI Concepts';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
+    <link rel="prev" title="Artifacts" href="Artifacts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction to Principles of MRI
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Key MRI Concepts and Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FKey MRI Concepts.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Key MRI Concepts.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Key MRI Concepts and Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-material">Background Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-spin-physics">MR Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In Vivo Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In Vivo Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics">Image Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="key-mri-concepts-and-equations">
+<h1>Key MRI Concepts and Equations<a class="headerlink" href="#key-mri-concepts-and-equations" title="Link to this heading">#</a></h1>
+<section id="background-material">
+<h2>Background Material<a class="headerlink" href="#background-material" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="MRI%20Math%20Concepts.html"><span class="std std-doc">MRI Math Concepts</span></a></p>
+<p>Signals and Systems</p>
+<p>Electricity and Magnetism</p>
+</section>
+<section id="mr-spin-physics">
+<h2>MR Spin Physics<a class="headerlink" href="#mr-spin-physics" title="Link to this heading">#</a></h2>
+<p>Resonance - nuclear spins in a magnetic field precess at a frequency proportional to the magnetic field strength</p>
+<div class="math notranslate nohighlight">
+\[f = \bar{\gamma} \|\vec{B}\|\]</div>
+<p>Polarization - equilibrium magnetization</p>
+<div class="math notranslate nohighlight">
+\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+<p>Net Magnetization at Equilibrium</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{M}(\vec{r},0) = 
+\begin{bmatrix}
+0 \\
+0 \\
+M_0(\vec{r})
+\end{bmatrix}\end{split}\]</div>
+<p>Excitation</p>
+<ul class="simple">
+<li><p>Apply magnetic field at resonant frequency to rotate net magnetization out of alignment with static magnetic field</p></li>
+</ul>
+<p>Relaxation</p>
+<div class="math notranslate nohighlight">
+\[M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) e^{-t/T_2(\vec{r})}\]</div>
+<div class="math notranslate nohighlight">
+\[M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})})\]</div>
+</section>
+<section id="mri-system">
+<h2>MRI System<a class="headerlink" href="#mri-system" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
+<li><p>Radiofrequency (RF) coils</p>
+<ul class="simple">
+<li><p>transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>: provide homogeneous excitation</p></li>
+<li><p>receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>: detect signal with high sensitivity</p></li>
+</ul>
+</li>
+<li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
+</ol>
+</section>
+<section id="mri-experiment">
+<h2>MRI Experiment<a class="headerlink" href="#mri-experiment" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Polarization</p></li>
+<li><p>Excitation</p></li>
+<li><p>Signal Acquisition</p></li>
+</ol>
+<ul class="simple">
+<li><p>Gradients during Excitation and Acquisition for spatial encoding</p></li>
+<li><p>Repeat Excitation and Acquisition as needed</p></li>
+</ul>
+<p>Experiment described by a “Pulse Sequence”</p>
+</section>
+<section id="mr-contrasts">
+<h2>MR Contrasts<a class="headerlink" href="#mr-contrasts" title="Link to this heading">#</a></h2>
+<p>Contrast weightings</p>
+<ul class="simple">
+<li><p>T1-weighted - short TE, short TR</p></li>
+<li><p>T2-weighted - long TE, long TR</p></li>
+<li><p>Proton Density (PD)-weighted - short TE, long TR</p></li>
+</ul>
+<p>spoiled GRE contrast</p>
+<div class="math notranslate nohighlight">
+\[S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
+<p>Ernst angle - flip angle for maximum SNR</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
+<p>Magnetization Preparation:
+Inversion Recovery</p>
+<div class="math notranslate nohighlight">
+\[S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\]</div>
+</section>
+<section id="in-vivo-spin-physics">
+<h2>In Vivo Spin Physics<a class="headerlink" href="#in-vivo-spin-physics" title="Link to this heading">#</a></h2>
+<p>Magnetic susceptibility effects</p>
+<ul class="simple">
+<li><p>magnetic susceptibility is inherent property of materials</p></li>
+<li><p>differences in magnetic susceptibility lead to distortions of the magnetic field</p></li>
+<li><p>in vivo sources include: iron, oxygenated versus deoxygenated blood</p></li>
+</ul>
+<p>Chemical Shift</p>
+<ul class="simple">
+<li><p>chemcial environment of an atom creates variations in local magnetic field</p></li>
+<li><p>in vivo consideration: “fat”, assumed to have a -3.5 ppm chemcial shift from water protons</p></li>
+</ul>
+</section>
+<section id="in-vivo-contrasts">
+<h2>In Vivo Contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Link to this heading">#</a></h2>
+<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in MR signal</p>
+<p>T2*</p>
+<ul class="simple">
+<li><p>intra-voxel dephasing due to magnetic field inhomogeneity</p></li>
+<li><p>largely driven by magnetic susceptibility</p></li>
+<li><p>eliminate with spin-echo</p></li>
+<li><p>create susceptibility contrast</p></li>
+</ul>
+<p>Fat</p>
+<ul class="simple">
+<li><p>fat/water imaging - separate fat and water images based on multiple echo times</p></li>
+<li><p>fat suppression - spectrally-selective RF pulses and/or inversion recovery</p></li>
+</ul>
+<p>Contrast Agents</p>
+<ul class="simple">
+<li><p>Gadolinium (Gd)-based contrast agents - most common, primarily shortens <span class="math notranslate nohighlight">\(T_1\)</span></p></li>
+<li><p>Iron-based contrast agents - less common, shortens <span class="math notranslate nohighlight">\(T_1\)</span> but also can shorten <span class="math notranslate nohighlight">\(T_2\)</span></p></li>
+</ul>
+</section>
+<section id="rf-pulses">
+<h2>RF Pulses<a class="headerlink" href="#rf-pulses" title="Link to this heading">#</a></h2>
+<p>Pulse Characteristics</p>
+<ul class="simple">
+<li><p>pulse profile - approximately proportional to the Fourier Transform of the pulse shape</p></li>
+<li><p>flip angle</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau \]</div>
+<ul class="simple">
+<li><p>Time-bandwidth product - constant for a given pulse shape</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ TBW = T_{rf} \cdot BW_{rf} \]</div>
+<ul class="simple">
+<li><p>SAR</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \]</div>
+<p>Slice Selection</p>
+<ul class="simple">
+<li><p>Slice thickness</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} \]</div>
+<ul class="simple">
+<li><p>Slice shifting</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} \]</div>
+</section>
+<section id="spatial-encoding">
+<h2>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Link to this heading">#</a></h2>
+<p>Frequency encoding - turn on gradient during data acquisition to map frequency to position</p>
+<div class="math notranslate nohighlight">
+\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
+<p>Phase encoding - perform step-wise frequency encoding, which appears in the phase versus position of the signals.   This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \Phi(n) = \gamma (-G_{y,PE} + (n-1) G_{yi} ) t_y y\]</div>
+<p>k-space - define spatial encoding based on the cumulative sum of the gradients (i.e. gradient areas) applied after excitation</p>
+<div class="math notranslate nohighlight">
+\[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
+<ul class="simple">
+<li><p>Formulates image reconstruction as an inverse Fourier Transform</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)} = M(\vec{k}(t))\]</div>
+<ul class="simple">
+<li><p>describes all MRI acquisitions including frequency and phase encoding</p></li>
+<li><p>effects of gradients can be refocused</p></li>
+<li><p>supports 2D and 3D imaging</p></li>
+</ul>
+</section>
+<section id="image-characteristics">
+<h2>Image Characteristics<a class="headerlink" href="#image-characteristics" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
+<div class="math notranslate nohighlight">
+\[ FOV = \frac{1}{\Delta k}\]</div>
+<div class="math notranslate nohighlight">
+\[ \delta = \frac{1}{2 k_{max}}\]</div>
+<p>Scan Time</p>
+<div class="math notranslate nohighlight">
+\[ T_{scan} = \frac{ TR \cdot N_{PE,total} \cdot NEX}{ETL \cdot R}\]</div>
+</section>
+<section id="ft-imaging-sequence">
+<h2>FT Imaging Sequence<a class="headerlink" href="#ft-imaging-sequence" title="Link to this heading">#</a></h2>
+<p>Typical acquisition uses frequency and phase encoding</p>
+<p>See <a class="reference internal" href="Pulse%20Sequence.html"><span class="std std-doc">Pulse Sequence</span></a> for a typical 2D gradient-echo sequence</p>
+<p>Can convert between sequence parameters (e.g. timings, gradient amplitudes) and the FOV, resolution and scan time, as well as predict relative SNR</p>
+</section>
+<section id="fast-imaging-pulse-sequences">
+<h2>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Link to this heading">#</a></h2>
+<p>Volumetric coverage</p>
+<ul class="simple">
+<li><p>2D multislice imaging - interleave multiple slices within a single TR</p></li>
+<li><p>3D imaging - cover 3D k-space</p></li>
+</ul>
+<p>EPI</p>
+<ul class="simple">
+<li><p>k-space trajectory that covers multiple k-space lines per excitation</p></li>
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
+</ul>
+<p>Multiple Spin-echo imaging (FSE/TSE/RARE)</p>
+<ul class="simple">
+<li><p>multiple spin-echoes per excitation used to acquire different k-space lines</p></li>
+<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
+<li><p>echo time, <span class="math notranslate nohighlight">\(TE = TE_{eff}\)</span>, defined when data closest to center of k-space is acquired.  Used to create different contrasts</p></li>
+</ul>
+<p>Gradient Echo methods</p>
+<ul class="simple">
+<li><p>Contrast can be changed based on whether transverse magnetization is available or refocused in a subsequent TR</p></li>
+<li><p>Variations based on whether RF and/or gradient spoiling are used</p></li>
+</ul>
+</section>
+<section id="accelerated-imaging-methods">
+<h2>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Link to this heading">#</a></h2>
+<p>Partial Fourier</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI approximately satisfies conjugate symmetry property of k-space data</p></li>
+<li><p>How does it work?  Only sample slightly more than half of k-space</p></li>
+</ul>
+<p>Parallel Imaging</p>
+<ul class="simple">
+<li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
+<li><p>How does it work?  Skip k-space data in the direction(s) that have variation in RF coil element sensitivity profiles</p></li>
+<li><p>Key variations: May require measurement of coil sensitivity maps, also autocalibrated methods</p></li>
+</ul>
+<p>Simultaneous Multi-slice</p>
+<ul class="simple">
+<li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
+<li><p>How does it work?  Excite multiple slices simultaneously</p></li>
+</ul>
+<p>Compressed Sensing</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI data has typical patterns that can be predicted are represented by sparse coefficients</p></li>
+<li><p>How does it work?  Skip k-space data with a pseudo-random pattern.  Define a sparsity domain</p></li>
+</ul>
+<p>Deep Learning Reconstruction</p>
+<ul class="simple">
+<li><p>Why does it work?  MRI data has typical patterns that can be learned</p></li>
+<li><p>How does it work?  Skip k-space data.  Train a neural network using a large MRI dataset.</p></li>
+</ul>
+</section>
+<section id="artifacts">
+<h2>Artifacts<a class="headerlink" href="#artifacts" title="Link to this heading">#</a></h2>
+<p>See <a class="reference internal" href="Artifacts.html"><span class="std std-doc">Artifacts</span></a> for high-level comparison</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Artifacts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Artifacts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="MRI%20Notation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MRI Notation and Terminology</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-material">Background Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-spin-physics">MR Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-system">MRI System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mri-experiment">MRI Experiment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mr-contrasts">MR Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-spin-physics">In Vivo Spin Physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-vivo-contrasts">In Vivo Contrasts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-pulses">RF Pulses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-encoding">Spatial Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-characteristics">Image Characteristics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ft-imaging-sequence">FT Imaging Sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-imaging-pulse-sequences">Fast Imaging Pulse Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accelerated-imaging-methods">Accelerated Imaging Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts">Artifacts</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peder Larson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

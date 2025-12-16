@@ -1,0 +1,1227 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic Contrast Mechanisms &#8212; Principles of MRI</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-51903906-1');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Basic Contrast Mechanisms';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="In Vivo Contrast Mechanisms" href="In%20Vivo%20Contrast%20Mechanisms.html" />
+    <link rel="prev" title="The MRI Signal Equation" href="MRI%20Signal%20Equation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction to Principles of MRI
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MRI%20Math%20Concepts.html">MRI Math Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FBasic Contrast Mechanisms.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Basic Contrast Mechanisms.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic Contrast Mechanisms</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-determines-t-1-and-t-2-values">What determines <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1"><span class="math notranslate nohighlight">\(T_1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2"><span class="math notranslate nohighlight">\(T_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-t-1-and-t-2-values">Typical <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#t">1.5 T</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3 T</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t-2-t-2">TE and <span class="math notranslate nohighlight">\(T_2/T_2^*\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t-1">TR and <span class="math notranslate nohighlight">\(T_1\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">&lt; 90-degree flip angles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-t-2-and-proton-density-weighting"><span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span> and Proton Density Weighting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-weighting-and-t-2-weighting"><span class="math notranslate nohighlight">\(T_2\)</span>-weighting and <span class="math notranslate nohighlight">\(T_2^*\)</span>-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-weighting"><span class="math notranslate nohighlight">\(T_1\)</span>-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pd-weighting">PD-weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-contrast-mechanisms">
+<h1>Basic Contrast Mechanisms<a class="headerlink" href="#basic-contrast-mechanisms" title="Link to this heading">#</a></h1>
+<p>MRI contrast is a rich dimension of information and the variety of contrasts achieveable is arguably the main advantage of MRI.  This section introduces the fundamental techniques of <span class="math notranslate nohighlight">\(T_1\)</span>, T2, and proton density weighted contrasts, and magnetization preparation (e.g. inversion recovery).</p>
+<p><img alt="MRI is a modality with a multiple Contrasts" src="_images/3DMagic.gif" /></p>
+<section id="learning-goals">
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Describe how various types of MRI contrast are created</p>
+<ul class="simple">
+<li><p>Describe how <span class="math notranslate nohighlight">\(T_1\)</span>, T2, and proton density weighted images are formed</p></li>
+<li><p>Describe how inversion recovery works</p></li>
+</ul>
+</li>
+<li><p>Manipulate MRI sequence parameters to improve performance</p>
+<ul class="simple">
+<li><p>Choose flip angle, TE, TR, and TI for desired contrast</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="what-determines-t-1-and-t-2-values">
+<h2>What determines <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values?<a class="headerlink" href="#what-determines-t-1-and-t-2-values" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> are intrinsic properties of materials that are determined by the molecular environment and structure, and provide a significant sources of tissue contrast.  While a precise understanding of what determines <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> requires quantum mechanics, typical patterns in these values can be described based on typical types of tissues found in the body.
+human tissues can be approximately be divided into 4 classes of tissues that have similar <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values:</p>
+<ol class="arabic simple">
+<li><p>Liquids/fluids</p></li>
+<li><p>Solids (e.g. Cortical bone, tendons, fibrosis)</p></li>
+<li><p>Fat</p></li>
+<li><p>Proteinaceous materials (e.g. internal organs)</p></li>
+</ol>
+<section id="t-1">
+<h3><span class="math notranslate nohighlight">\(T_1\)</span><a class="headerlink" href="#t-1" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(T_1\)</span> is also known as the spin-lattice relaxation time.  <span class="math notranslate nohighlight">\(T_1\)</span> is determined by the exchange of energy between spins and the surrounding “lattice” - the molecular structure around the spins.  The lattice is in constant motion, and will have characteristic motional frequencies.
+The most efficient transfer of energy occurs when the natural motional frequencies are near the Larmor frequency (<span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>), and natural motional frequencies depend on physical states of tissues:</p>
+<ol class="arabic simple">
+<li><p>Liquids/fluids: <strong>Longer <span class="math notranslate nohighlight">\(T_1\)</span></strong> due to higher natural motional frequencies of protons</p></li>
+<li><p>Solids (e.g. Cortical bone, tendons, fibrosis): <strong>Intermediate <span class="math notranslate nohighlight">\(T_1\)</span></strong> due to lower natural motional frequencies of protons</p></li>
+<li><p>Fat (lipids): <strong>Shorter <span class="math notranslate nohighlight">\(T_1\)</span></strong> since natural motion frequencies are similar to <span class="math notranslate nohighlight">\(f_0\)</span></p></li>
+<li><p>Proteinaceous materials (e.g. internal organs): <strong>Intermediate <span class="math notranslate nohighlight">\(T_1\)</span></strong> due to lower natural motional frequencies of protons</p></li>
+<li><p>Proteinaceous fluids (e.g. Edema): <strong>Shorter <span class="math notranslate nohighlight">\(T_1\)</span></strong> since water protons lose freedom of motion due to macromolecules, so natural motion frequencies are similar to  <span class="math notranslate nohighlight">\(f_0\)</span></p></li>
+</ol>
+</section>
+<section id="t-2">
+<h3><span class="math notranslate nohighlight">\(T_2\)</span><a class="headerlink" href="#t-2" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(T_2\)</span> is also known as the spin-spin relaxation time.  <span class="math notranslate nohighlight">\(T_2\)</span> is determined by coupling between adjacent spins.  This also includes the transfer of energy to the lattice that determines <span class="math notranslate nohighlight">\(T_1\)</span>, meaning that <span class="math notranslate nohighlight">\(T_2\)</span> is always shorter that <span class="math notranslate nohighlight">\(T_1\)</span>.
+Stronger coupling between spins leads to more microscopic dephasing and shorter <span class="math notranslate nohighlight">\(T_2\)</span> values.</p>
+<ol class="arabic simple">
+<li><p>Liquids/fluids: <strong>Longer <span class="math notranslate nohighlight">\(T_2\)</span></strong> due to sparsity between water molecules and limited interaction between protons within a water molecule</p></li>
+<li><p>Solids (e.g. Cortical bone, tendons, fibrosis): <strong>Shorter <span class="math notranslate nohighlight">\(T_2\)</span></strong> due to strong, fixed spin-spin coupling</p></li>
+<li><p>Fat (lipids): <strong>Intermediate <span class="math notranslate nohighlight">\(T_2\)</span></strong> due to intermediate coupling</p></li>
+<li><p>Proteinaceous materials (e.g. internal organs): <strong>Intermediate <span class="math notranslate nohighlight">\(T_2\)</span></strong> due to intermediate coupling</p></li>
+</ol>
+</section>
+<section id="typical-t-1-and-t-2-values">
+<h3>Typical <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values<a class="headerlink" href="#typical-t-1-and-t-2-values" title="Link to this heading">#</a></h3>
+<section id="t">
+<h4>1.5 T<a class="headerlink" href="#t" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tissue</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_1\)</span> (ms)</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_2\)</span> (ms)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Brain white matter</p></td>
+<td><p>790</p></td>
+<td><p>90</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brain gray matter</p></td>
+<td><p>920</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p>Cerebrospinal fluid (CSF)</p></td>
+<td><p>&gt;4000</p></td>
+<td><p>∼2000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blood (arterial)</p></td>
+<td><p>1200</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Liver parenchyma</p></td>
+<td><p>490</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lung</p></td>
+<td><p>830</p></td>
+<td><p>80</p></td>
+</tr>
+<tr class="row-even"><td><p>Myocardium</p></td>
+<td><p>870</p></td>
+<td><p>60</p></td>
+</tr>
+<tr class="row-odd"><td><p>Skeletal muscle</p></td>
+<td><p>870</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Lipids</p></td>
+<td><p>260</p></td>
+<td><p>80</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Source: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/B9780120928613500261#p961">Handbook of MRI Pulse Sequences</a></p>
+</section>
+<section id="id1">
+<h4>3 T<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tissue</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_1\)</span> [ms]</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_2\)</span> [ms]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>White Matter</p></td>
+<td><p>800</p></td>
+<td><p>110</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gray Matter</p></td>
+<td><p>1300</p></td>
+<td><p>80</p></td>
+</tr>
+<tr class="row-even"><td><p>CSF</p></td>
+<td><p>3700</p></td>
+<td><p>1700</p></td>
+</tr>
+<tr class="row-odd"><td><p>Muscle</p></td>
+<td><p>1000</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>Fat</p></td>
+<td><p>400</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liver</p></td>
+<td><p>800</p></td>
+<td><p>40</p></td>
+</tr>
+<tr class="row-even"><td><p>Cartilage</p></td>
+<td><p>1200</p></td>
+<td><p>40</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Sources: <a class="reference external" href="https://www.cambridge.org/9781107011088">MRI from Picture to Proton</a>, <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/B9780123744861000024">MRI: The Basics</a></p>
+</section>
+</section>
+</section>
+<section id="te-and-t-2-t-2">
+<h2>TE and <span class="math notranslate nohighlight">\(T_2/T_2^*\)</span><a class="headerlink" href="#te-and-t-2-t-2" title="Link to this heading">#</a></h2>
+<p>The transverse magnetization decays with <span class="math notranslate nohighlight">\(T_2\)</span> (spin-echoes) or <span class="math notranslate nohighlight">\(T_2^*\)</span> (gradient-echoes) once it is flipped by an RF pulse away from the z-axis.  Therefore, the <span class="math notranslate nohighlight">\(T_2/T_2^*\)</span> contrast can be controlled by choosing the echo time (TE), which is the time between the center of the RF excitation pulse and the center of the data acquisition (when the center of k-space is acquired).  The signal is then proportional to</p>
+<div class="math notranslate nohighlight">
+\[S_{GE} \propto M_0 \exp(-TE/T_2^*)\]</div>
+<div class="math notranslate nohighlight">
+\[S_{SE} \propto M_0 \exp(-TE/T_2)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># TE contrast</span>
+
+<span class="n">TE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># ms</span>
+<span class="n">T2v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span class="n">T2</span><span class="p">,</span> <span class="n">TE_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T2v</span><span class="p">,</span> <span class="n">TE</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span>
+
+<span class="n">S_TE</span> <span class="o">=</span> <span class="n">M0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TE_grid</span> <span class="o">/</span> <span class="n">T2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TE</span><span class="p">,</span> <span class="n">S_TE</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TE (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span> <span class="k">for</span> <span class="n">t2</span> <span class="ow">in</span> <span class="n">T2v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Signal versus TE for various T2 values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e9bb2e017e82f88c3cadbbc2b07cc9b22559fe3686a2b4134f2b927fef8da292.png" src="_images/e9bb2e017e82f88c3cadbbc2b07cc9b22559fe3686a2b4134f2b927fef8da292.png" />
+</div>
+</div>
+</section>
+<section id="tr-and-t-1">
+<h2>TR and <span class="math notranslate nohighlight">\(T_1\)</span><a class="headerlink" href="#tr-and-t-1" title="Link to this heading">#</a></h2>
+<p>The longitudinal magnetization recovers with <span class="math notranslate nohighlight">\(T_1\)</span> back to its equilibrium amplitude, <span class="math notranslate nohighlight">\(M_0\)</span>.  However, we do not directly measure the longitudinal magnetization.  In order to create <span class="math notranslate nohighlight">\(T_1\)</span> contrast in the MR signal, repeated RF pulses are applied with a given repetition time (TR), such that there is incomplete recovery of the longitudinal magnetization.  Then, after excitation, incomplete recovery appears in the transverse magnetization, creating <span class="math notranslate nohighlight">\(T_1\)</span> contrast.</p>
+<p>Note that the following signal equations assume perfect spoiling of transverse magnetization before the next RF pulse.  This means that <span class="math notranslate nohighlight">\(M_{XY} = 0\)</span> before each RF pulse.  In practice this is done using an extra gradient at the end of the TR (“gradient spoiling”) and/or modulating the phase of the RF excitation pulse (“RF spoiling”).  See <a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html#fast-gradient-echo-sequences"><span class="std std-ref">Fast gradient-echo sequences</span></a> for more details.</p>
+<section id="degree-flip-angles">
+<h3>90-degree flip angles<a class="headerlink" href="#degree-flip-angles" title="Link to this heading">#</a></h3>
+<p>The simplest case is using 90-degree flip angles every TR, in which case</p>
+<div class="math notranslate nohighlight">
+\[S \propto M_0 (1- \exp(-TR/T_1) )\]</div>
+<p>Illustrated in the first example below.  This shows that the magnetization reaches steady state in the 2nd TR.</p>
+</section>
+<section id="id2">
+<h3>&lt; 90-degree flip angles<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>For <span class="math notranslate nohighlight">\(T_1\)</span>-weighting, it is generally more efficient in terms of signal acqruied per time to use &lt; 90-degree flip angles every TR, in which case</p>
+<div class="math notranslate nohighlight">
+\[S \propto M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
+<p>Illustrated in this second example below.  This shows that the magnetization can take many TRs to reach steady state.  These acquisitions are commonly done to maximize signal for a typical <span class="math notranslate nohighlight">\(T_1\)</span> range.  This is done by choosing using the so-called “Ernst angle”, which is the flip angle that maximizes the signal for a given <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(TR\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Signal evolution between TRs with 90-degree pulses</span>
+
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># 4 tissue types</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+
+<span class="n">NTR</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">flip</span> <span class="o">=</span> <span class="mi">90</span>  <span class="c1"># degrees</span>
+<span class="n">TR</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># ms</span>
+<span class="n">Nt_per_TR</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">t_per_TR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Nt_per_TR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TR</span> <span class="o">/</span> <span class="n">Nt_per_TR</span>
+<span class="n">t_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TR</span>
+<span class="n">t_plus</span> <span class="o">=</span> <span class="n">t_minus</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># magnetization before each RF pulse</span>
+<span class="n">Mz_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># magnetization after each RF pulse</span>
+<span class="n">Mz_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># initial condition</span>
+<span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M0</span>
+<span class="n">Mz_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip</span><span class="p">))</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">]</span>
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+
+<span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NTR</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">t_per_TR</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">TR</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">It</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nt_per_TR</span><span class="p">):</span>
+        <span class="n">Mz_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+    <span class="c1"># apply RF pulse - assumes spoiling of the transverse magnetization</span>
+    <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip</span><span class="p">))</span>
+
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span><span class="n">Mz_all</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Mz_all</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;T1=</span><span class="si">{</span><span class="n">T1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_minus</span><span class="p">,</span> <span class="n">Mz_minus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_plus</span><span class="p">,</span> <span class="n">Mz_plus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_Z$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">flip</span><span class="si">}</span><span class="s1">-degree RF pulses applied every </span><span class="si">{</span><span class="n">TR</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dc7d50bc742ef2a58efd22a90d683b167e737f2e0ebfd5889c0fe5407365344f.png" src="_images/dc7d50bc742ef2a58efd22a90d683b167e737f2e0ebfd5889c0fe5407365344f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">TR_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>  <span class="c1"># ms</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">TR_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T1v</span><span class="p">,</span> <span class="n">TR_vals</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">S_TR</span> <span class="o">=</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR_grid</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TR_vals</span><span class="p">,</span> <span class="n">S_TR</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TR (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="k">for</span> <span class="n">t1</span> <span class="ow">in</span> <span class="n">T1v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal versus TR for various T1 values with </span><span class="si">{</span><span class="n">flip</span><span class="si">}</span><span class="s1">-degree flip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9103f04da1979e08aa22a82e6fb63bae26c7dd346ea5ad2efa67341bf44eec45.png" src="_images/9103f04da1979e08aa22a82e6fb63bae26c7dd346ea5ad2efa67341bf44eec45.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Signal evolution between TRs with &lt;90-degree pulses</span>
+
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="c1"># 4 tissue types</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+
+<span class="n">NTR</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">flip</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># degrees</span>
+<span class="n">TR</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># ms</span>
+<span class="n">Nt_per_TR</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">t_per_TR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Nt_per_TR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TR</span> <span class="o">/</span> <span class="n">Nt_per_TR</span>
+<span class="n">t_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TR</span>
+<span class="n">t_plus</span> <span class="o">=</span> <span class="n">t_minus</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># magnetization before each RF pulse</span>
+<span class="n">Mz_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1v</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># magnetization after each RF pulse</span>
+<span class="n">Mz_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1v</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># initial condition</span>
+<span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M0</span>
+<span class="n">Mz_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip</span><span class="p">))</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">]</span>
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mz_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+
+<span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NTR</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">t_per_TR</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">TR</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">It</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nt_per_TR</span><span class="p">):</span>
+        <span class="n">Mz_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1v</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1v</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1v</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1v</span><span class="p">))</span>
+    <span class="n">Mz_plus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip</span><span class="p">))</span>
+
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span><span class="n">Mz_all</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T1v</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Mz_all</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;T1=</span><span class="si">{</span><span class="n">T1v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_minus</span><span class="p">,</span> <span class="n">Mz_minus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_plus</span><span class="p">,</span> <span class="n">Mz_plus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_Z$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">flip</span><span class="si">}</span><span class="s1">-degree RF pulses applied every </span><span class="si">{</span><span class="n">TR</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/04d21bb547d20b18ba6691a9627f6b3b21c43ce6e018ede52721c5da0d86e03f.png" src="_images/04d21bb547d20b18ba6691a9627f6b3b21c43ce6e018ede52721c5da0d86e03f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">flip_angle</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># degrees</span>
+<span class="n">TR_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># ms, 50 points for smoothness</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+
+<span class="n">T1</span><span class="p">,</span> <span class="n">TR_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T1v</span><span class="p">,</span> <span class="n">TR_vals</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">S_TR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_angle</span><span class="p">))</span> <span class="o">*</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR_grid</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_angle</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR_grid</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TR_vals</span><span class="p">,</span> <span class="n">S_TR</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TR (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="k">for</span> <span class="n">t1</span> <span class="ow">in</span> <span class="n">T1v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal versus TR for various T1 values with </span><span class="si">{</span><span class="n">flip_angle</span><span class="si">}</span><span class="s1">-degree flip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6f0497660e195de0a286c1a7156f57ce10d7044ae79c8206171096ee408cb9e4.png" src="_images/6f0497660e195de0a286c1a7156f57ce10d7044ae79c8206171096ee408cb9e4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">TR</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># degrees</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">flip_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T1v</span><span class="p">,</span> <span class="n">flip</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">S_flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_grid</span><span class="p">))</span> <span class="o">*</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_grid</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">flip</span><span class="p">,</span> <span class="n">S_flip</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;flip angle (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="k">for</span> <span class="n">t1</span> <span class="ow">in</span> <span class="n">T1v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal versus flip angles for various T1 values with TR = </span><span class="si">{</span><span class="n">TR</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c446b8eeef9f887e8ed09ec611338ee5e1cb7fd184e5436fc5ff8d22ed32fd29.png" src="_images/c446b8eeef9f887e8ed09ec611338ee5e1cb7fd184e5436fc5ff8d22ed32fd29.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="t-1-t-2-and-proton-density-weighting">
+<h2><span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span> and Proton Density Weighting<a class="headerlink" href="#t-1-t-2-and-proton-density-weighting" title="Link to this heading">#</a></h2>
+<p>By choosing the TE, TR and flip angle values in our pulse sequences and the relationships described above, we can create images that “weighted” by the MR properties of <span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span>, and proton density.  This means that the resulting images will have contrast between tissues that have different <span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span> or proton density.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Short TE</p></th>
+<th class="head"><p>Long TE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Short TR</p></td>
+<td><p><span class="math notranslate nohighlight">\(T_1\)</span>-weighted</p></td>
+<td><p>Not used</p></td>
+</tr>
+<tr class="row-odd"><td><p>Long TR</p></td>
+<td><p>PD-weighted</p></td>
+<td><p><span class="math notranslate nohighlight">\(T_2\)</span>/<span class="math notranslate nohighlight">\(T_2^*\)</span>-weighted</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="t-2-weighting-and-t-2-weighting">
+<h3><span class="math notranslate nohighlight">\(T_2\)</span>-weighting and <span class="math notranslate nohighlight">\(T_2^*\)</span>-weighting<a class="headerlink" href="#t-2-weighting-and-t-2-weighting" title="Link to this heading">#</a></h3>
+<p>To create <span class="math notranslate nohighlight">\(T_2\)</span> weighting, the TE is chosen to be long enough such that the there are different amounts of transverse magnetization depending on the <span class="math notranslate nohighlight">\(T_2\)</span> value.  For example, at TE = 80 ms we can expect to see good contrast between white matter (<span class="math notranslate nohighlight">\(T_2 \approx 60\)</span> ms), gray matter (<span class="math notranslate nohighlight">\(T_2 \approx 80\)</span> ms), and cerebrospinal fluid (<span class="math notranslate nohighlight">\(T_2 \approx 1500\)</span> ms) in the brain (see simulations above).</p>
+<p>The TR is chosen to be long relative to <span class="math notranslate nohighlight">\(T_1\)</span> values.  This allows the net magnetization to fully recover each repetition, and thereby eliminating any <span class="math notranslate nohighlight">\(T_1\)</span>-weighting.</p>
+<p>In <span class="math notranslate nohighlight">\(T_2\)</span>/<span class="math notranslate nohighlight">\(T_2^*\)</span> weighting, longer <span class="math notranslate nohighlight">\(T_2\)</span>/<span class="math notranslate nohighlight">\(T_2^*\)</span> tissues have higher signal than shorter <span class="math notranslate nohighlight">\(T_2\)</span>/<span class="math notranslate nohighlight">\(T_2^*\)</span> tissues.</p>
+<p>The difference between <span class="math notranslate nohighlight">\(T_2\)</span> and <span class="math notranslate nohighlight">\(T_2^*\)</span> weighting depends on the choice of pulse sequence: <span class="math notranslate nohighlight">\(T_2\)</span>-weighting comes from spin-echoes while <span class="math notranslate nohighlight">\(T_2^*\)</span>-weighting comes from gradient-echoes.   These are discussed later.  The same principle applies of choosing a long enough TE, and a long TR.</p>
+</section>
+<section id="t-1-weighting">
+<h3><span class="math notranslate nohighlight">\(T_1\)</span>-weighting<a class="headerlink" href="#t-1-weighting" title="Link to this heading">#</a></h3>
+<p>To create <span class="math notranslate nohighlight">\(T_1\)</span> weighting, the TR is chosen to be short enough such that there is incomplete recovery of the net magnetization each repetition.  This means that the signal acquired will depend on <span class="math notranslate nohighlight">\(T_1\)</span>.  For example. choosing a TR = 500 ms with a 90-degree flip angle we can expect to see contrast between fat (<span class="math notranslate nohighlight">\(T_1 \approx 400\)</span> ms) and muscle (<span class="math notranslate nohighlight">\(T_1 \approx 1200\)</span> ms)  (see simulations above).</p>
+<p>For <span class="math notranslate nohighlight">\(T_1\)</span>-weighting, we also can use smaller flip angles and smaller TRs to boost the overall signal.  For example. choosing a TR = 200 ms with a 30-degree flip angle we can expect to see contrast between fat (<span class="math notranslate nohighlight">\(T_1 \approx 400\)</span> ms) and muscle (<span class="math notranslate nohighlight">\(T_1 \approx 1200\)</span> ms) but more overall signal (see simulations above).</p>
+<p>The TE is chosen to be short relative to <span class="math notranslate nohighlight">\(T_2\)</span> values.  This reduces <span class="math notranslate nohighlight">\(T_2\)</span>-weighting.</p>
+<p>In <span class="math notranslate nohighlight">\(T_1\)</span> weighting, shorter <span class="math notranslate nohighlight">\(T_1\)</span> tissues have higher signal than longer <span class="math notranslate nohighlight">\(T_1\)</span> tissues.</p>
+</section>
+<section id="pd-weighting">
+<h3>PD-weighting<a class="headerlink" href="#pd-weighting" title="Link to this heading">#</a></h3>
+<p>To create proton density (PD) weighting, we choose a short TE to reduce <span class="math notranslate nohighlight">\(T_2\)</span>-weighting and a long TR to reduce <span class="math notranslate nohighlight">\(T_1\)</span>-weighting.  This leaves the image contrast dependent on the proton density, which is captured in the equilibrium magnetization, <span class="math notranslate nohighlight">\(M_0\)</span>.</p>
+<p>In PD weighting, higher PD tissues have higher signal than lower PD tissues.</p>
+<p>Proton-density weighting can be achieved with short TRs when using very small flip angles.  This weighting applies up to a certain <span class="math notranslate nohighlight">\(TR/T_1\)</span> ratio.  This can be seen in the following by zooming in on the low flip angle area from the plots above and noting that there is no difference between the signal for different <span class="math notranslate nohighlight">\(T_1\)</span> values, meaning the <span class="math notranslate nohighlight">\(T_1\)</span>-weighting has been removed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TR</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># degrees, 100 points for smoothness</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">flip_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T1v</span><span class="p">,</span> <span class="n">flip</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">S_flip</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_grid</span><span class="p">))</span> <span class="o">*</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip_grid</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">flip</span><span class="p">,</span> <span class="n">S_flip</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;flip angle (degrees)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="k">for</span> <span class="n">t1</span> <span class="ow">in</span> <span class="n">T1v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal versus flip angles for various T1 values with TR = </span><span class="si">{</span><span class="n">TR</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3cac6eb71433e1995b1da1bf26105437bc2a2e74d3c3f530459d8786eb462c9d.png" src="_images/3cac6eb71433e1995b1da1bf26105437bc2a2e74d3c3f530459d8786eb462c9d.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="inversion-recovery">
+<h2>Inversion Recovery<a class="headerlink" href="#inversion-recovery" title="Link to this heading">#</a></h2>
+<p>Another way to create <span class="math notranslate nohighlight">\(T_1\)</span> contrast are “Inversion Recovery” techniques.  These use a 180-degree inversion pulse, following by an Inversion Time <span class="math notranslate nohighlight">\(TI\)</span> delay during which <span class="math notranslate nohighlight">\(T_1\)</span> contrast is created.  Then the magnetization is excited with a 90-degree pulse.</p>
+<p>This strategy is commonly used to null tissue types.  For example, so-called short-time inversion recovery (STIR) is used to null fat signals, while fluid attenuated inversion recovery (FLAIR) is used to null fluids.</p>
+<div class="math notranslate nohighlight">
+\[S_{IR} \propto M_0 (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\]</div>
+<p>The illustration below shows that the magnetization reaches steady state in the 2nd TR of inversion recovery.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Inversion Recovery</span>
+
+<span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">NTR</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">flip1</span> <span class="o">=</span> <span class="mi">180</span>  <span class="c1"># degrees</span>
+<span class="n">flip2</span> <span class="o">=</span> <span class="mi">90</span>   <span class="c1"># degrees</span>
+<span class="n">TR</span> <span class="o">=</span> <span class="mi">2000</span>    <span class="c1"># ms</span>
+<span class="n">TI</span> <span class="o">=</span> <span class="mi">750</span>     <span class="c1"># ms</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c1"># ms</span>
+<span class="n">t_per_TR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">TR</span> <span class="o">+</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+
+<span class="c1"># magnetization before each RF pulse</span>
+<span class="n">Mz1_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">Mz2_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span><span class="p">))</span>
+
+<span class="c1"># magnetization after each RF pulse</span>
+<span class="n">Mz1_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">Mz2_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">NTR</span><span class="p">))</span>
+
+<span class="c1"># time of RF pulses</span>
+<span class="n">t1_minus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">NTR</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TR</span>
+<span class="n">t1_plus</span> <span class="o">=</span> <span class="n">t1_minus</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">t2_minus</span> <span class="o">=</span> <span class="n">t1_minus</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">TI</span>
+<span class="n">t2_plus</span> <span class="o">=</span> <span class="n">t1_plus</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">TI</span>
+
+<span class="c1"># initial condition</span>
+<span class="n">Mz1_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M0</span>
+<span class="n">Mz1_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz1_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip1</span><span class="p">))</span>
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">Mz1_minus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">Mz1_plus</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NTR</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">t_per_TR</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">TR</span><span class="p">])</span>
+    <span class="c1"># evolve for TI period after 180-pulse</span>
+    <span class="k">for</span> <span class="n">It</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t_per_TR</span> <span class="o">&lt;</span> <span class="n">TI</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">Mz_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Mz1_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)))</span>
+    <span class="n">Mz2_minus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz1_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TI</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TI</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+    <span class="n">Mz2_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz2_minus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip2</span><span class="p">))</span>
+    <span class="c1"># evolve for the rest of TR after 90-pulse</span>
+    <span class="k">for</span> <span class="n">It</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t_per_TR</span> <span class="o">&gt;=</span> <span class="n">TI</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">Mz_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Mz2_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">-</span> <span class="n">TI</span><span class="p">)</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">t_per_TR</span><span class="p">[</span><span class="n">It</span><span class="p">]</span> <span class="o">-</span> <span class="n">TI</span><span class="p">)</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)))</span>
+    <span class="n">Mz1_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz2_plus</span><span class="p">[:,</span> <span class="n">I</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">TR</span> <span class="o">-</span> <span class="n">TI</span><span class="p">)</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">TR</span> <span class="o">-</span> <span class="n">TI</span><span class="p">)</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+    <span class="n">Mz1_plus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Mz1_minus</span><span class="p">[:,</span> <span class="n">I</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">flip1</span><span class="p">))</span>
+
+<span class="n">Mz_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span><span class="n">Mz_all</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">Mz_all</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;T1=</span><span class="si">{</span><span class="n">T1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1_minus</span><span class="p">,</span> <span class="n">Mz1_minus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t1_plus</span><span class="p">,</span> <span class="n">Mz1_plus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2_minus</span><span class="p">,</span> <span class="n">Mz2_minus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2_plus</span><span class="p">,</span> <span class="n">Mz2_plus</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M_Z$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/310337873e02091610e26644e11d34fcbc08a4aa8408324403a5e5d56a284fa1.png" src="_images/310337873e02091610e26644e11d34fcbc08a4aa8408324403a5e5d56a284fa1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">TR</span> <span class="o">=</span> <span class="mi">2000</span>  <span class="c1"># ms</span>
+<span class="n">TI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># ms, 200 points for smoothness</span>
+<span class="n">T1v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>  <span class="c1"># ms</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">TI_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">T1v</span><span class="p">,</span> <span class="n">TI</span><span class="p">)</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="n">S_TI</span> <span class="o">=</span> <span class="n">M0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TI_grid</span> <span class="o">/</span> <span class="n">T1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span> <span class="o">/</span> <span class="n">T1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TI</span><span class="p">,</span> <span class="n">S_TI</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TI (ms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="k">for</span> <span class="n">t1</span> <span class="ow">in</span> <span class="n">T1v</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Signal versus TI for various T1 values with TR = </span><span class="si">{</span><span class="n">TR</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ec2c0f8c5245c08521e86fae867f09f6c24e58ebb5294191e53f15034f0958ae.png" src="_images/ec2c0f8c5245c08521e86fae867f09f6c24e58ebb5294191e53f15034f0958ae.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="MRI%20Signal%20Equation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The MRI Signal Equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="In%20Vivo%20Contrast%20Mechanisms.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">In Vivo Contrast Mechanisms</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-determines-t-1-and-t-2-values">What determines <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1"><span class="math notranslate nohighlight">\(T_1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2"><span class="math notranslate nohighlight">\(T_2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-t-1-and-t-2-values">Typical <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span> values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#t">1.5 T</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3 T</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#te-and-t-2-t-2">TE and <span class="math notranslate nohighlight">\(T_2/T_2^*\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tr-and-t-1">TR and <span class="math notranslate nohighlight">\(T_1\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#degree-flip-angles">90-degree flip angles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">&lt; 90-degree flip angles</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-t-2-and-proton-density-weighting"><span class="math notranslate nohighlight">\(T_1\)</span>, <span class="math notranslate nohighlight">\(T_2\)</span> and Proton Density Weighting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-weighting-and-t-2-weighting"><span class="math notranslate nohighlight">\(T_2\)</span>-weighting and <span class="math notranslate nohighlight">\(T_2^*\)</span>-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-1-weighting"><span class="math notranslate nohighlight">\(T_1\)</span>-weighting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pd-weighting">PD-weighting</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inversion-recovery">Inversion Recovery</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peder Larson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
