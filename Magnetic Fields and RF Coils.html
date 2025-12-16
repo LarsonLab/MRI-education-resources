@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating and Detecting Magnetic fields &#8212; Principles of MRI</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MR Physics - Bloch Equation" href="MR%20Physics%20-%20Bloch%20Equation.html" />
+    <link rel="prev" title="MRI Math Concepts" href="MRI%20Math%20Concepts.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Math%20Concepts.html">
+   MRI Math Concepts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Signal%20Equation.html">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Artifacts.html">
+   Artifacts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Magnetic Fields and RF Coils.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMagnetic Fields and RF Coils.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/Magnetic Fields and RF Coils.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">
+   Loop currents and magnetic fields
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-radiofrequency-rf-waves">
+   Creating Radiofrequency (RF) waves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#receiving-magnetic-resonance-signal">
+   Receiving Magnetic Resonance Signal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rf-system">
+   RF System
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transmit-tx-system-for-excitation">
+     Transmit (Tx) system for excitation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#receive-rx-system-for-reception">
+     Receive (Rx) system for reception
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rf-coils">
+   RF Coils
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transmit-tx-rf-coils">
+     Transmit (Tx) RF coils
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#receive-rx-rf-coils">
+     Receive (Rx) RF coils
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rf-coil-profiles">
+   RF Coil Profiles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#receive-elements">
+     Receive elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sensitivity-simulation">
+     Sensitivity Simulation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="creating-and-detecting-magnetic-fields">
+<h1>Creating and Detecting Magnetic fields<a class="headerlink" href="#creating-and-detecting-magnetic-fields" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
+<span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
+<span class="n">startup</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
+loading signal
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="loop-currents-and-magnetic-fields">
+<h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Permalink to this headline">¶</a></h2>
+<p>Magnetic fields, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, can be created by current, <span class="math notranslate nohighlight">\(I\)</span>, through loop of wire, where the “left-hand rule” determines the direction of the magnetic field</p>
+<p><img alt="loop%20small%20current.png" src="_images/loop_small_current.png" /></p>
+<p>By increasing the current, the magnetic field is increased</p>
+<p><img alt="loop%20big%20current.png" src="_images/loop_big_current.png" /></p>
+<p>We can also link many loops together (a “solenoid”) to increase the extent of the magnetic field.</p>
+<p><img alt="solenoid%20small%20current.png" src="_images/solenoid_small_current.png" /></p>
+<p>A solenoid design is typically used to create the main magnetic field for MRI, <span class="math notranslate nohighlight">\(B_0\)</span>, to create a large region in space with a homogeneous magnetic field, as required for MRI across a volume.</p>
+</div>
+<div class="section" id="creating-radiofrequency-rf-waves">
+<h2>Creating Radiofrequency (RF) waves<a class="headerlink" href="#creating-radiofrequency-rf-waves" title="Permalink to this headline">¶</a></h2>
+<p>RF fields, used for excitation in MRI, can be created by oscillating currents at the desired radio-frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="p">=</span> <span class="p">.</span><span class="mi">1</span><span class="p">;</span> <span class="c">% coil radius [m]</span>
+<span class="n">I0</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="c">% current amplitude [amps]</span>
+<span class="n">mu0</span> <span class="p">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="mf">1e-7</span><span class="p">;</span> <span class="c">% T⋅m/A; </span>
+
+<span class="n">t</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="mi">401</span><span class="p">);</span>
+<span class="no">I</span> <span class="p">=</span> <span class="nb">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">I0</span><span class="p">;</span>
+
+
+<span class="n">BZ</span> <span class="p">=</span> <span class="n">mu0</span> <span class="o">*</span> <span class="no">I</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">R</span><span class="p">);</span>    <span class="c">% magnetic field at the center of a single loop</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="no">I</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;I (A)&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Current in a single loop coil of radius &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="s">&#39; [m]&#39;</span><span class="p">])</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">BZ</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;B_Z (T)&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Magnetic field at center of the coil&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Magnetic Fields and RF Coils_4_0.png" src="_images/Magnetic Fields and RF Coils_4_0.png" />
+</div>
+</div>
+<p>When this is performed at the Larmor frequency, this creates RF excitation.</p>
+</div>
+<div class="section" id="receiving-magnetic-resonance-signal">
+<h2>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Permalink to this headline">¶</a></h2>
+<p>Magnetic resonsance signal is received by the following sequence of events</p>
+<ol class="simple">
+<li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span></p></li>
+<li><p>This precession creates oscillating magnetic fields at this same (Larmor) frequency.</p></li>
+<li><p>Oscillating magnetic fields will create oscillating current in loops of wire, which can be detected by amplifying and digitizing this signal</p></li>
+</ol>
+<p><img alt="RF%20reception.gif" src="_images/RF_reception.gif" /></p>
+<p>This is the recipricol of creating RF waves as above.  To create RF waves, oscillating currents are generated in a coil to create an oscillating magnetic field.  To receive RF waves, an oscillating magnetic field creates oscillating currents generated in a coil that can be measured.</p>
+</div>
+<div class="section" id="rf-system">
+<h2>RF System<a class="headerlink" href="#rf-system" title="Permalink to this headline">¶</a></h2>
+<p>The purpose of the RF system is to</p>
+<ol class="simple">
+<li><p>Excitation – transmit RF at resonance frequency to perturb the net magnetization from equilibrium</p></li>
+<li><p>Reception – receive signals arising from net magnetization rotating at the resonance frequency</p></li>
+</ol>
+<p>It consists of two main systems for these two tasks.  All components are tuned to Larmor frequency, meaning they are most sensitive to transmitting or receiving signals at this frequency.  Reactive components (capacitors and inductors) are used for tuning to the correct frequency.</p>
+<div class="section" id="transmit-tx-system-for-excitation">
+<h3>Transmit (Tx) system for excitation<a class="headerlink" href="#transmit-tx-system-for-excitation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Transmit high power (10s of kW) RF signals</p></li>
+<li><p>Key requirement is homogeneity, i.e. same magnetic field that creates the same flip angle across imaging FOV</p></li>
+<li><p>Usually a single larger, coil surrounding entire FOV</p></li>
+</ul>
+</div>
+<div class="section" id="receive-rx-system-for-reception">
+<h3>Receive (Rx) system for reception<a class="headerlink" href="#receive-rx-system-for-reception" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Receive small signals (mV) arising from body</p></li>
+<li><p>Key requirement is high sensitivity to detect small signals with the least noise</p></li>
+<li><p>Usually an array of smaller coil elements (also known as channels), placed around the body</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rf-coils">
+<h2>RF Coils<a class="headerlink" href="#rf-coils" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transmit-tx-rf-coils">
+<h3>Transmit (Tx) RF coils<a class="headerlink" href="#transmit-tx-rf-coils" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Typically performed with “BODY” coil</p></li>
+<li><p>Birdcage design</p></li>
+<li><p>Provides homogeneous magnetic field amplitude</p></li>
+<li><p>Creates magnetic fields perpendicular to B0</p></li>
+</ul>
+<p>In MRI we denote transmitted magnetic fields from RF energy as</p>
+<div class="math notranslate nohighlight">
+\[B_1^+(\vec{r},t)\]</div>
+<p>This field is typically in units of millitesla (mT) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span></p>
+<p><img alt="BODY coil" src="_images/BODY_coil.png" /></p>
+</div>
+<div class="section" id="receive-rx-rf-coils">
+<h3>Receive (Rx) RF coils<a class="headerlink" href="#receive-rx-rf-coils" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Tailored to the anatomy of interest, e.g. knee coils, abdomen coils, head coils</p></li>
+<li><p>Configured in arrays (or “phased arrays”)</p></li>
+<li><p>Between 8 to 64 individual coil elements (also known as channels) in a array coil is common</p></li>
+<li><p>Elements should be relatively isolated and decoupled to not interfere with each other</p></li>
+<li><p>Tuned to the Larmor frequency when receiving signals</p></li>
+<li><p>Detuned (turned off) when transmit RF is active so they don’t interfere</p></li>
+<li><p><em>Goal is to provide high sensitivity to receive MR signals by placing them as close as possible to the body</em></p></li>
+</ul>
+<p>In MRI we denote senitivity profile to varying magnetic fields of the RF receiver coils as</p>
+<div class="math notranslate nohighlight">
+\[B_{1,n}^-(\vec{r},t)\]</div>
+<p>This sensitivity is typically in units of millitesla/Amp (mT/A) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span>, time, <span class="math notranslate nohighlight">\(t\)</span>, and coil element, <span class="math notranslate nohighlight">\(n\)</span>, in the array coil.</p>
+<p><img alt="Receive array" src="_images/TIM_receive_array.png" /></p>
+</div>
+</div>
+<div class="section" id="rf-coil-profiles">
+<h2>RF Coil Profiles<a class="headerlink" href="#rf-coil-profiles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="receive-elements">
+<h3>Receive elements<a class="headerlink" href="#receive-elements" title="Permalink to this headline">¶</a></h3>
+<p>Coil elements are most sensitive to signals originating near the element, and the so-called sensitivity off as we move away from the coil.  The following images show that each element is most sensitive, or has the brightest image, closest to that element:</p>
+<p><img alt="Spine Array" src="_images/SpineArray.png" /></p>
+</div>
+<div class="section" id="sensitivity-simulation">
+<h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Permalink to this headline">¶</a></h3>
+<p>The following simulates the sensitivity profile of a single loop RF coil varying over space.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="p">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c">% coil radius, cm</span>
+<span class="no">I</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c">% current in the coil</span>
+<span class="n">flag_2d</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% just plot 2D profile</span>
+
+<span class="p">[</span><span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="n">BZ</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">zp</span><span class="p">]</span> <span class="p">=</span> <span class="n">loop_coil_field</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="no">I</span><span class="p">,</span> <span class="n">flag_2d</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>** Warning: Cannot interrupt Octave on Windows
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">End Of File (EOF).</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">&lt;pexpect.popen_spawn.PopenSpawn object at 0x000002AECC0B1748&gt;</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">searcher: searcher_re:</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">    0: re.compile(&#39;PEXPECT_PROMPT&gt;&#39;)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">    1: re.compile(&#39;\r\n&#39;)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% plot the vector field</span>
+
+<span class="nb">quiver</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">yp</span><span class="p">,</span> <span class="n">BX</span><span class="p">,</span> <span class="n">BY</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+<span class="nb">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">18</span> <span class="mi">18</span> <span class="o">-</span><span class="mi">18</span> <span class="mi">18</span><span class="p">])</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x position (cm)&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y position (cm)&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Magnetic field as a vector field&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Magnetic Fields and RF Coils_11_0.png" src="_images/Magnetic Fields and RF Coils_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Bmag</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">BX</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BY</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">BZ</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">xhalf</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="nb">imagesc</span><span class="p">(</span><span class="n">yp</span><span class="p">,</span> <span class="n">xp</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">),</span> <span class="n">Bmag</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">xhalf</span><span class="p">,:))</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;position (cm)&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;position (cm)&#39;</span><span class="p">)</span>
+<span class="nb">axis</span> <span class="n">tight</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">gray</span><span class="p">),</span><span class="nb">colorbar</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;One-sided B_1 sensitivity profile (coil located at bottom of the image)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Magnetic Fields and RF Coils_12_0.png" src="_images/Magnetic Fields and RF Coils_12_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="MRI%20Math%20Concepts.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MRI Math Concepts</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="MR%20Physics%20-%20Bloch%20Equation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">MR Physics - Bloch Equation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

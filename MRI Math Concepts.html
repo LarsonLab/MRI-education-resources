@@ -1,496 +1,363 @@
 
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="./" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MRI Math Concepts &#8212; Principles of MRI</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+    
+      
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'MRI Math Concepts';</script>
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Software Resources" href="Software_Resources.html" />
-    <link rel="prev" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <link rel="next" title="Creating and Detecting Magnetic fields" href="Magnetic%20Fields%20and%20RF%20Coils.html" />
+    <link rel="prev" title="MRI Notation" href="MRI%20Notation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-    
-  
-
-<a class="navbar-brand logo" href="Introduction.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
-    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="Introduction.html">
-                    Introduction to Principles of MRI
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Magnetic Resonance Physics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spin%20Physics.html">Spin Physics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Bloch%20Equation.html">Bloch Equation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Spin%20Physics.html">In Vivo Spin Physics</a></li>
+      
+      <img src="_static/HPBrain-Anime.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Principles of MRI</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction to Principles of MRI
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI System</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20System.html">The MRI System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Magnetic%20Fields%20in%20MRI.html">Magnetic fields in MRI</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">MRI Experiment</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Pulse%20Sequence.html">The Pulse Sequence</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Signal%20Equation.html">The MRI Signal Equation</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contrast</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Basic%20Contrast%20Mechanisms.html">Basic Contrast Mechanisms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html">In Vivo Contrast Mechanisms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gradient%20and%20Spin%20Echoes.html">Gradient and Spin Echo Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Spatial%20Encoding.html">Spatial Encoding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="K-space.html">K-space</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Image%20Reconstruction.html">Image Reconstruction</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Characteristics</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="FOV%20and%20Resolution.html">Field of View (FOV) and Resolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">Scan Time and Signal to Noise Ratio (SNR)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Cartesian%20Image%20Characteristics.html">Cartesian Sampling Image Characteristics</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Fast Imaging Methods</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Volumetric%20Imaging.html">Volumetric Imaging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fast%20Imaging%20Pulse%20Sequences.html">Fast Imaging Pulse Sequences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Accelerated%20Imaging%20Methods.html">Accelerated Imaging Methods</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Imperfections and Artifacts</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Point%20Spread%20Function%20Analysis.html">Point Spread Function Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Artifacts.html">Artifacts</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
+<p class="caption">
+ <span class="caption-text">
+  Primers
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="MRI%20Notation.html">MRI Notation and Terminology</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">MRI Math Concepts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Notation.html">
+   MRI Notation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MRI Math Concepts
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
+<p class="caption">
+ <span class="caption-text">
+  MR Physics
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Magnetic%20Fields%20and%20RF%20Coils.html">
+   Creating and Detecting Magnetic fields
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MR%20Physics%20-%20Bloch%20Equation.html">
+   MR Physics - Bloch Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Contrast.html">
+   MRI Contrast
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Image Formation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="MRI%20Signal%20Equation.html">
+   Building Up the MRI Signal Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spatial%20Encoding.html">
+   Spatial Encoding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Signal%20to%20Noise%20Ratio.html">
+   Signal to Noise Ratio (SNR)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Artifacts.html">
+   Artifacts
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  RF Pulses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RF%20Pulses.html">
+   RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">
+   Spectral-Spatial RF Pulses
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fun%20with%20RF%20Pulses.html">
+   Fun? RF Pulses?
+  </a>
+ </li>
 </ul>
 
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
-      </div>
-      
-      <main id="main-content" class="bd-main" role="main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article d-print-none">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</button></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMRI Math Concepts.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
 </div>
 
 
+          
 
 
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/MRI Math Concepts.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>MRI Math Concepts</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div>
-                <h2> Contents </h2>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/MRI Math Concepts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/larsonlab/MRI-education-resources"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMRI Math Concepts.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/larsonlab/MRI-education-resources/jupyter-book?urlpath=tree/Notebooks/MRI Math Concepts.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-train-sampling-function">Impulse train sampling function</a></li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complex-numbers">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impulse-function">
+   Impulse Function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-functions">
+   Other Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution">
+   Convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-transforms">
+   Fourier Transforms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inverse-fourier-transform">
+     Inverse Fourier Transform:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-fourier-transform">
+     2-D Fourier Transform
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#n-d-fourier-transform">
+     N-D Fourier Transform
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duality">
+     Duality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separable">
+     Separable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fourier-transform-identities-and-pairs">
+   Fourier Transform Identities and Pairs
+  </a>
+ </li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-functions">Other Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution">Convolution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">Fourier Transforms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">Inverse Fourier Transform:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-fourier-transform">2-D Fourier Transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-d-fourier-transform">N-D Fourier Transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duality">Duality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separable">Separable</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-identities-and-pairs">Fourier Transform Identities and Pairs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-example-truncated-k-space-data">Fourier Transform Example - Truncated k-space data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function-psf-analysis">Point Spread function (PSF) Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">Discrete Fourier Transform</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
 </div>
-
-              
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
                 
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="mri-math-concepts">
-<h1>MRI Math Concepts<a class="headerlink" href="#mri-math-concepts" title="Link to this heading">#</a></h1>
-<section id="complex-numbers">
-<h2>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Link to this heading">#</a></h2>
+  <div class="section" id="mri-math-concepts">
+<h1>MRI Math Concepts<a class="headerlink" href="#mri-math-concepts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="complex-numbers">
+<h2>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[c = a + i b = A\exp(i \phi)\]</div>
 <div class="math notranslate nohighlight">
@@ -500,9 +367,9 @@ document.write(`
 \[ |c| = A = \sqrt{a^2+b^2}\]</div>
 <div class="math notranslate nohighlight">
 \[ \phi = \tan^{-1} (b/a)\]</div>
-</section>
-<section id="impulse-function">
-<h2>Impulse Function<a class="headerlink" href="#impulse-function" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="impulse-function">
+<h2>Impulse Function<a class="headerlink" href="#impulse-function" title="Permalink to this headline">¶</a></h2>
 <p>The impulse (or delta) funcion, <span class="math notranslate nohighlight">\(\delta(x)\)</span>, can be used to represent sampling of a continuous signal, and has the following properties:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\delta(x) = 0\)</span> for all <span class="math notranslate nohighlight">\(x \ne 0\)</span></p></li>
@@ -512,223 +379,165 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(f(x) \delta(x) = f(0) \delta(x)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(f(x) \ast \delta(x) = f(x)\)</span></p></li>
 </ul>
-<section id="impulse-train-sampling-function">
-<h3>Impulse train sampling function<a class="headerlink" href="#impulse-train-sampling-function" title="Link to this heading">#</a></h3>
-<p>To represent discrete sampling, a train of impulse functions is used.  This is known as Dirac Comb function, also the sha, impulse train, or sampling function:</p>
-<div class="math notranslate nohighlight">
-\[Ш(x) = \sum_{n = -\infty}^\infty \delta(x - n)\]</div>
-</section>
-</section>
-<section id="other-functions">
-<h2>Other Functions<a class="headerlink" href="#other-functions" title="Link to this heading">#</a></h2>
-<p>Rectangle function</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathrm{rect}(x) = \sqcap(x) = 
+</div>
+<div class="section" id="other-functions">
+<h2>Other Functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h2>
+<p>Rectangle function
+$<span class="math notranslate nohighlight">\(\mathrm{rect}(x) = \sqcap(x) = 
 \left\{ 
   \begin{array}{l l}
     1 &amp; \quad |x| &lt; 1/2 \\
     1/2 &amp; \quad |x| = 1/2 \\
     0 &amp; \quad |x| &gt; 1/2 \\
-  \end{array} \right. \end{split}\]</div>
+  \end{array} \right. \)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">rect</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">rect</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">rect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">rect</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">rect</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;rect(x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">rect</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;rect(x)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0a768ce22265dcaffc0d647fcbc1dd064f00146fb7e71bafe6c775dd97571cd1.png" src="_images/0a768ce22265dcaffc0d647fcbc1dd064f00146fb7e71bafe6c775dd97571cd1.png" />
+<img alt="_images/MRI Math Concepts_4_0.png" src="_images/MRI Math Concepts_4_0.png" />
 </div>
 </div>
-<p>Sinc (normalized)</p>
-<div class="math notranslate nohighlight">
-\[\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\]</div>
+<p>Sinc (normalized)
+$<span class="math notranslate nohighlight">\(\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;sinc(x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;sinc(x)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d0b285a751aa0fa3f3fec8405296c6300ea3ae5656f4482654699c54800d2065.png" src="_images/d0b285a751aa0fa3f3fec8405296c6300ea3ae5656f4482654699c54800d2065.png" />
+<img alt="_images/MRI Math Concepts_6_0.png" src="_images/MRI Math Concepts_6_0.png" />
 </div>
 </div>
-</section>
-<section id="convolution">
-<h2>Convolution<a class="headerlink" href="#convolution" title="Link to this heading">#</a></h2>
-<p>The convolution operation <span class="math notranslate nohighlight">\(\ast\)</span>, is defined as:</p>
+<p>Comb/Shah (Impulse Train)</p>
 <div class="math notranslate nohighlight">
-\[ g(x) \ast h(x) = \int_{-\infty}^\infty g(x-\tau) h(\tau) d\tau\]</div>
-<p>The intuition of convolution is that one of functions is reversed, slid in the convolution dimension relative to the other function, and the area of the functions multiplied at each location is the output, which is nicely illustrated in this example from <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">https://en.wikipedia.org/wiki/Convolution</a></p>
-<p><img alt="Convolution Illustration" src="_images/Convolution_of_box_signal_with_itself2.gif" /></p>
-</section>
-<section id="fourier-transforms">
-<h2>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Link to this heading">#</a></h2>
-<p>The Fourier transform allows for determination of the frequencies present in the original function.  The Fourier transform (FT) operation, <span class="math notranslate nohighlight">\( \mathcal{F} \{ \cdot \}\)</span>, of a complex-valued function, <span class="math notranslate nohighlight">\(f(x)\)</span>, is:</p>
+\[\mathrm{Comb}(x) = \sum_{n = -\infty}^\infty \delta(x - n)\]</div>
+</div>
+<div class="section" id="convolution">
+<h2>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h2>
+<p>The convolution operation <span class="math notranslate nohighlight">\(\ast\)</span>, is defined as:
+$<span class="math notranslate nohighlight">\( g(x) \ast h(x) = \int_{-\infty}^\infty g(x-\tau) h(\tau) d\tau\)</span>$</p>
+</div>
+<div class="section" id="fourier-transforms">
+<h2>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this headline">¶</a></h2>
+<p>The Fourier transform, <span class="math notranslate nohighlight">\( \mathcal{F} \{ \cdot \}\)</span> of a complex-valued function, <span class="math notranslate nohighlight">\(f(x)\)</span> is:</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{F} \{ f(x) \} = F(k_x) = \int_{-\infty}^\infty f(x) \exp(-i 2 \pi k_x x) dx\]</div>
 <p>(Unitary, ordinary frequency)</p>
-<p>Note that the pair of variables used - <span class="math notranslate nohighlight">\(x\)</span> used to represent space and <span class="math notranslate nohighlight">\(k_x\)</span> used to represent spatial frequency, can be swapped for other variables. Most commonly the other variables are <span class="math notranslate nohighlight">\(t\)</span> used to represent time and <span class="math notranslate nohighlight">\(f\)</span> used to represent frequency.</p>
-<section id="inverse-fourier-transform">
-<h3>Inverse Fourier Transform:<a class="headerlink" href="#inverse-fourier-transform" title="Link to this heading">#</a></h3>
+<div class="section" id="inverse-fourier-transform">
+<h3>Inverse Fourier Transform:<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[ \mathcal{F}^{-1} \{ F(k_x) \} = f(x) = \int_{-\infty}^\infty F(k_x) \exp(+i 2 \pi x k_x) dk_x\]</div>
-</section>
-<section id="d-fourier-transform">
-<h3>2-D Fourier Transform<a class="headerlink" href="#d-fourier-transform" title="Link to this heading">#</a></h3>
+</div>
+<div class="section" id="d-fourier-transform">
+<h3>2-D Fourier Transform<a class="headerlink" href="#d-fourier-transform" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[ F(k_x,k_y) = \int_{-\infty}^\infty \int_{-\infty}^\infty f(x,y) \exp(-i 2 \pi (k_x x + k_y y) ) dx dy\]</div>
-</section>
-<section id="n-d-fourier-transform">
-<h3>N-D Fourier Transform<a class="headerlink" href="#n-d-fourier-transform" title="Link to this heading">#</a></h3>
+</div>
+<div class="section" id="n-d-fourier-transform">
+<h3>N-D Fourier Transform<a class="headerlink" href="#n-d-fourier-transform" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[ F(\vec{k}) = \int_{-\infty}^\infty f(\vec{x}) \exp(-i 2 \pi \vec{k}\cdot \vec{x}) d\vec{x}\]</div>
-</section>
-<section id="duality">
-<h3>Duality<a class="headerlink" href="#duality" title="Link to this heading">#</a></h3>
+</div>
+<div class="section" id="duality">
+<h3>Duality<a class="headerlink" href="#duality" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{f(x)\} = F(k_x)\]</div>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{F(x)\} = f(-k_x)\]</div>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{F(-x)\} = f(k_x)\]</div>
-</section>
-<section id="separable">
-<h3>Separable<a class="headerlink" href="#separable" title="Link to this heading">#</a></h3>
+</div>
+<div class="section" id="separable">
+<h3>Separable<a class="headerlink" href="#separable" title="Permalink to this headline">¶</a></h3>
 <p>If <span class="math notranslate nohighlight">\(f(x,y) = f_x(x) f_y(y)\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{F}\{f(x,y)\} = \mathcal{F}\{f_x(x)\} \mathcal{F}\{f_y(y)\}\)</span></p>
-</section>
-</section>
-<section id="fourier-transform-identities-and-pairs">
-<h2>Fourier Transform Identities and Pairs<a class="headerlink" href="#fourier-transform-identities-and-pairs" title="Link to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="fourier-transform-identities-and-pairs">
+<h2>Fourier Transform Identities and Pairs<a class="headerlink" href="#fourier-transform-identities-and-pairs" title="Permalink to this headline">¶</a></h2>
 <p>For
 <span class="math notranslate nohighlight">\(\mathcal{F}\{f(x)\} = F(k_x), \mathcal{F}\{g(x)\} = G(k_x)\)</span>:</p>
-<div class="pst-scrollable-table-container"><table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-left"><p>              Function              </p></th>
+<tr class="row-odd"><th class="text-align:left head"><p>              Function              </p></th>
 <th class="head"><p>        Fourier    Transform          </p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\delta(x)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\delta(x)\)</span></p></td>
+<td><p>1</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p>1</p></td>
 <td><p><span class="math notranslate nohighlight">\(\delta(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(Ш(x)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(Ш(k_x)\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{rect}(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\mathrm{rect}(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\mathrm{sinc}(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(ax)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\frac{1}{|a|} F(\frac{k_x}{a})\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(f(ax)\)</span></p></td>
+<td><p>$\frac{1}{</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(a \cdot f(x) + b \cdot g(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(a \cdot f(x) + b \cdot g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(a \cdot F(k_x) + b \cdot G(k_x)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x-a)\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(f(x-a)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\exp(-i 2\pi a k_x) F(k_x)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) f(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) f(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x - a)\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\delta(x-a)\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\exp(-i 2\pi a k_x) \)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\exp(i 2\pi a x) \)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta(k_x - a)\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) \ast g(x)\)</span></p></td>
+<tr class="row-odd"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(f(x) \ast g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x) G(k_x)\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(f(x) g(x)\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(f(x) g(x)\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(F(k_x) \ast G(k_x)\)</span></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</section>
-<section id="fourier-transform-example-truncated-k-space-data">
-<h2>Fourier Transform Example - Truncated k-space data<a class="headerlink" href="#fourier-transform-example-truncated-k-space-data" title="Link to this heading">#</a></h2>
-<p>Based on the identities above, we can derive that the Fourier Transform of a sinc() function is a rect() function.  This is relevant for MRI as we can use a rect() function to represent finite sampling of the data:</p>
-<div class="math notranslate nohighlight">
-\[\mathcal{F}\{\mathrm{sinc(x)}\} = \mathrm{rect}(k_x)\]</div>
-<p>In MRI, we sample data in the spatial frequency domain, or k-space, in this case we are trying to measure <span class="math notranslate nohighlight">\(F(k_x)\)</span>.  However, we can only sample a limited amount of k-space data.  This can be modeled by multiplying our kspace data by a rect function with a width <span class="math notranslate nohighlight">\(W_{kx}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ \hat{F}(k_x) = F(k_x) \mathrm{rect(k_x/W_{kx})}\]</div>
-<p>According the Fourier theory, the resulting image will be convolved with a sinc function</p>
-<div class="math notranslate nohighlight">
-\[ \hat{f}(x) = \mathcal{F}^{-1}\{\hat{F}(k_x)\} = f(x) \ast W_{kx} \mathrm{sinc}(W_{kx} x) \]</div>
-<p>This convolution most notably leads to “ringing” artifacts near sharp edges.<br />
-The example below uses the Fourier Transform to illustrate the ringing artifacts from this necessary “truncation” of k-space data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">512</span>
-<span class="n">kxmax</span> <span class="o">=</span> <span class="mi">128</span>
-<span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">kxmax</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">kxmax</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Illustrate Fourier decomposition of a rect function (could illustrate ringing)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">kxmax_truncate_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">128</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">kxmax_truncate</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kxmax_truncate_list</span><span class="p">):</span>
-    <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span>
-    <span class="n">F</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">kxmax_truncate</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">N</span> <span class="p">=</span> <span class="mi">512</span><span class="p">;</span>
+<span class="n">kxmax</span> <span class="p">=</span> <span class="mi">128</span><span class="p">;</span>
+<span class="n">kx</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">kxmax</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
 
-    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftshift</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifftshift</span><span class="p">(</span><span class="n">F</span><span class="p">)))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">idx</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Real&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Imag&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Truncation of sinc at </span><span class="si">{</span><span class="n">kxmax_truncate</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">N</span> <span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">kxmax</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">kxmax_truncate</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span><span class="p">];</span>
+
+<span class="n">F</span> <span class="p">=</span> <span class="nb">sinc</span><span class="p">(</span><span class="n">kx</span><span class="p">);</span>
+<span class="n">F</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span><span class="o">&gt;</span><span class="n">kxmax_truncate</span><span class="p">))</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">f</span> <span class="p">=</span> <span class="nb">fftshift</span><span class="p">(</span><span class="nb">ifft</span><span class="p">(</span><span class="nb">ifftshift</span><span class="p">(</span><span class="n">F</span><span class="p">)));</span>
+<span class="nb">figure</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">real</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="nb">imag</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="nb">title</span><span class="p">([</span><span class="s">&#39;Truncation of sinc at &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">kxmax_truncate</span><span class="p">)])</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0ef73dc3e58e0c0be47514386fe7567fbbe8a59b55f65f48709ee47f29d9f5aa.png" src="_images/0ef73dc3e58e0c0be47514386fe7567fbbe8a59b55f65f48709ee47f29d9f5aa.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>** Warning: Cannot interrupt Octave on Windows
+</pre></div>
 </div>
 </div>
-</section>
-<section id="point-spread-function-psf-analysis">
-<h2>Point Spread function (PSF) Analysis<a class="headerlink" href="#point-spread-function-psf-analysis" title="Link to this heading">#</a></h2>
-<p>Point spread function (PSF) analysis is a powerful tool for characterizing linear systems, including MRI.  The basic process of PSF analysis is to input an ideal “point” object, represented by a delta function, into the system, here denoted by <span class="math notranslate nohighlight">\(\mathcal{H}()\)</span>, and observe the resulting output, which is the PSF.</p>
-<div class="math notranslate nohighlight">
-\[ psf(x) = \mathcal{H}(\delta(x)) \]</div>
-<p>In MRI, PSF analysis is often performed starting in the spatial frequency, or k-space, domain, since this is where data is sampled and this is where we typically need to characterize the MRI system.  Since the Fourier Transform of the input point object is <span class="math notranslate nohighlight">\(\mathcal{f}(\delta(x)) = 1\)</span>, then the Fourier Transform of the PSF is simply</p>
-<div class="math notranslate nohighlight">
-\[ PSF(k_x) = \mathcal{F}\{psf(x)\} \]</div>
-<p>Fourier Transform identities then show that, when imaging a real object, <span class="math notranslate nohighlight">\(f(x)\)</span>, it will be convolved by the point spread function in the actual image reconstructed, <span class="math notranslate nohighlight">\(\hat{f}(x)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ \hat{f}(x) = \mathcal{F}^{-1}\{\hat{F}(k_x)\} = \mathcal{F}^{-1}\{F(k_x) PSF(k_x)\} = f(x) \ast psf(x) \]</div>
-</section>
-<section id="discrete-fourier-transform">
-<h2>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Link to this heading">#</a></h2>
-<p>The discrete Fourier transform (DFT) is used to perform Fourier analysis of the frequencies present in a signal from discretely sampled data.  It transforms a discrete set of values, <span class="math notranslate nohighlight">\(f[x_n], x_n = 0, 1, 2, ... N-1 \)</span>, into their frequency coefficients, <span class="math notranslate nohighlight">\(F[k_n], k_n = 0, 1, 2, ... N-1 \)</span> with the following formula.</p>
-<div class="math notranslate nohighlight">
-\[F[k_n] = \sum_{x_n=0}^{N-1} f[x_n] \exp(-i 2 \pi k_n x_n/N)\]</div>
-<p>The formulation is extremely similar to the Fourier transform, and thus many of the Fourier transform identities and pairs still apply when using the DFT.  It is also extended similarly into multiple dimensions.</p>
-<p>Practically, the DFT is computed using the Fast Fourier Transform (FFT) algorithm.</p>
-<p>The DFT can be analyzed starting from the (continuous) FT by incorporating the effects of sampling using the impulse train function, <span class="math notranslate nohighlight">\(Ш(x)\)</span>.</p>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -739,135 +548,67 @@ The example below uses the Fourier Transform to illustrate the ringing artifacts
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "octave",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer d-print-none">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="MRI%20Notation.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">MRI Notation and Terminology</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Software_Resources.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Software Resources</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
-</div>
-                </footer>
-              
-            </div>
-            
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numbers">Complex Numbers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-function">Impulse Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-train-sampling-function">Impulse train sampling function</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-functions">Other Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution">Convolution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">Fourier Transforms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">Inverse Fourier Transform:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-fourier-transform">2-D Fourier Transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#n-d-fourier-transform">N-D Fourier Transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duality">Duality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separable">Separable</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-identities-and-pairs">Fourier Transform Identities and Pairs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-example-truncated-k-space-data">Fourier Transform Example - Truncated k-space data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#point-spread-function-psf-analysis">Point Spread function (PSF) Analysis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">Discrete Fourier Transform</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Peder Larson
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2025.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-<div class="extra_footer">
-  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
-</div>
-  </div>
-  
-</div>
-          </footer>
         
+            
 
-      </main>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="MRI%20Notation.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MRI Notation</p>
+            </div>
+        </a>
     </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+     <div id="next">
+        <a class="right-next" href="Magnetic%20Fields%20and%20RF%20Coils.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Creating and Detecting Magnetic fields</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
-  <footer class="bd-footer">
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Peder Larson<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
   </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>
