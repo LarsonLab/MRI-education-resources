@@ -170,7 +170,7 @@ $$ \delta = \frac{1}{2 k_{max}}$$
 
 Scan Time
 
-$$ T_{scan} = TR \cdot N_{TR} \cdot NEX}$$
+$$ T_{scan} = TR \cdot N_{TR} \cdot NEX$$
 
 where $N_{TR}$ is the total number of TR periods sampled.  Including fast sequences and acceleration methods:
 

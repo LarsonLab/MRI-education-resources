@@ -533,9 +533,10 @@ With this approximation, we can formulate the goal of the RF pulse design is to 
 <ul class="simple">
 <li><p>A spectral pulse filter, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, that should be applied in <span class="math notranslate nohighlight">\(k_f\)</span> direction to create a profile <span class="math notranslate nohighlight">\(h_f(f)\)</span></p></li>
 <li><p>A spatial pulse filter, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>, that should be applied in the <span class="math notranslate nohighlight">\(k_z\)</span> direction to create a profile of <span class="math notranslate nohighlight">\(h_z(z)\)</span>
-The resulting spectral-spatial profile is:
-$<span class="math notranslate nohighlight">\( h(f,z) = h_f(f) h_z(z)\)</span>$</p></li>
+The resulting spectral-spatial profile is:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[ h(f,z) = h_f(f) h_z(z)\]</div>
 <p>The pulse is created by repeating the spatial sub-pulse, which is modulated by the spectral pulse filter over time in the repeated sub-pulses to create a spectral-spatial profile.</p>
 <p>The major limitations when using these pulses are pulse duration required to traverse spectral-spatial k-space, small frequency FOVs that are limited by the subpulse switching rate, and gradient fidelity that can lead to distortions of the weighting in excitation k-space.</p>
 </section>
