@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Slice Selection &#8212; Principles of MRI</title>
+    <title>Advanced Image Reconstruction &#8212; Principles of MRI</title>
   
   
   
@@ -72,11 +72,10 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Slice Selection';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Advanced Image Reconstruction';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="RF Pulse Design" href="RF%20Pulse%20Design.html" />
-    <link rel="prev" title="RF Pulses" href="RF%20Pulses.html" />
+    <link rel="prev" title="Advanced SNR" href="Advanced%20SNR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -218,9 +217,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Image%20Contrast%20Examples.html">Image Contrast Examples</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Radiofrequency Pulses</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulses.html">RF Pulses</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Slice Selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Slice%20Selection.html">Slice Selection</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RF%20Pulse%20Design.html">RF Pulse Design</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Image Formation</span></p>
@@ -258,12 +257,12 @@
 <li class="toctree-l1"><a class="reference internal" href="Software_Resources.html">MRI Software Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced and Fun Topics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Excitation%20K-space.html">Excitation K-space and Multidimensional RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Advanced%20Image%20Reconstruction.html">Advanced Image Reconstruction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Advanced Image Reconstruction</a></li>
 </ul>
 
     </div>
@@ -335,7 +334,7 @@
       
       
       
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSlice Selection.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FAdvanced Image Reconstruction.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -365,7 +364,7 @@
       
       
       
-      <li><a href="_sources/Slice Selection.ipynb" target="_blank"
+      <li><a href="_sources/Advanced Image Reconstruction.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +448,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Slice Selection</h1>
+    <h1>Advanced Image Reconstruction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -459,13 +458,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-selectivity">Spatial Selectivity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-selective-rf-pulses">Slice Selective RF Pulses</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-design">Pulse Design</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-thickness">Slice Thickness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-shifting">Slice Shifting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refocusing-gradient">Refocusing Gradient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressed-sensing-methods">Compressed Sensing Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-reconstructions">Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-requirements">Deep Learning Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -479,52 +482,159 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="slice-selection">
-<h1>Slice Selection<a class="headerlink" href="#slice-selection" title="Link to this heading">#</a></h1>
-<p>An important tool in MRI for localization is to use slice selection.  This is done by applying a magnetic field gradient during an RF pulse, which can be designed in order to only excite a limited amount of space.</p>
-<section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-image-reconstruction">
+<h1>Advanced Image Reconstruction<a class="headerlink" href="#advanced-image-reconstruction" title="Link to this heading">#</a></h1>
+<p>This section introduces a more general formulation of image reconstruction in MRI.  This formulation can then be used to describe a variety of basic and advanced image reconstruction methods, several of which are described.</p>
+<section id="general-formulation-of-mri-reconstruction">
+<h2>General Formulation of MRI Reconstruction<a class="headerlink" href="#general-formulation-of-mri-reconstruction" title="Link to this heading">#</a></h2>
+<p>For advanced image reconstruction methods, it is helpful to reformulate the reconstruction problem as a linear system and using standard mathematical notation describing linear systems as:</p>
+<div class="math notranslate nohighlight">
+\[  y = \mathbf{E}x + n \]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(x\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(n\)</span> is noise.  In this formulation, the image is vectorized.</p>
+</section>
+<section id="fourier-transform-reconstruction">
+<h2>Fourier Transform Reconstruction<a class="headerlink" href="#fourier-transform-reconstruction" title="Link to this heading">#</a></h2>
+<p>The definition of <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is critical, and this can be derived from the MRI signal equation.  If we only consider the effects of magnetic field gradients, then</p>
+<div class="math notranslate nohighlight">
+\[s(t) =  \int m(\vec{r}) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}\]</div>
+<p>Our measurements, <span class="math notranslate nohighlight">\(y\)</span>, taken from <span class="math notranslate nohighlight">\(s(t)\)</span> at discrete time points.
+Discretizing this relationship for Cartesian sampled data:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} y = \left[ 
+    \begin{array}{c}
+s_1(t_1) \\
+s_1(t_2) \\
+\vdots \\
+s_1(t_{Nx}) \\
+s_2(t_1) \\
+\vdots \\
+s_{Ny}(t_{Nx})\\
+\end{array}
+\right]\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_m(t_n)\)</span> is the data from the repetition/TR <span class="math notranslate nohighlight">\(m\)</span> at sample <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>We want to reconstruct the following image on a grid:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} x = \left[ 
+    \begin{array}{c}
+m(x_1,y_1) \\
+m(x_2,y_1) \\
+\vdots \\
+m(x_{Nx},y_1) \\
+m(x_{1},y_2) \\
+\vdots \\
+m(x_{Nx},y_{Ny}) 
+\end{array}
+\right]\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> are equally spaced locations in image space.</p>
+<p>In this most simple case, the encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>, includes just a discrete Fourier Transform matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, describing the fact that our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations, as shown in the above signal equation.  For this matrix, the entries are defined by k-space location being sampled, <span class="math notranslate nohighlight">\(\vec{k}_i\)</span> and the spatial locations, <span class="math notranslate nohighlight">\(\vec{r}_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{f}_{i,j} = \exp(-i 2 \pi \vec{k}_i \cdot \vec{r}_j)\]</div>
+<p>In this case, the measurement is the discrete Fourier Transform of the image</p>
+<div class="math notranslate nohighlight">
+\[  y = \mathbf{F}x + n \]</div>
+<p>and image reconstruction is performed by inverse discrete Fourier Transform, which for fully sampled 2D FT imaging is well defined by matrix inversion:</p>
+<div class="math notranslate nohighlight">
+\[ \hat{x} = \mathbf{F^{H}} y \]</div>
+<p>This can equivalently be computed using the Fast Fourier Transform (FFT) algorithm when the data is fully sampled on a Cartesian grid.</p>
+</section>
+<section id="parallel-imaging">
+<h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Link to this heading">#</a></h2>
+<p>For parallel imaging (PI), we take advantage and include in our model the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span>, for each RF coil.  These are included in the encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>.  For performing undersampled reconstruction, a k-space sub-sampling operator, <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, is also added to the encoding matrix, acknowledging the fact we know the sampling criteria are not satisfied, and allowing <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{F^H}\)</span> to be computed with the FFT.  With these factors, the measurements from each RF coil, <span class="math notranslate nohighlight">\(\mathbf{y}_q\)</span> are:</p>
+<div class="math notranslate nohighlight">
+\[y_q = \mathbf{E}_q x + n_q = \mathbf{S} \mathbf{F} \mathbf{C_q} x + n_q\]</div>
+<p>The coil sensitivity profiles <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span> is a diagonal matrix with entries corresponding to the coil sensitivity profile at each location in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
+<p>The k-space sub-sampling operator <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, is a diagonal matrix with entries of 1 or 0, describing whether an expect grid location was sampled.</p>
+<p>Here we can return to our original formulation by creating augmented matrices, concatenating along the coil elements dimension for example as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{y} = [y_1 \ y_2 \ldots y_N]\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{E} = [\mathbf{E}_1 \ \mathbf{E}_2 \ldots \mathbf{E}_N]\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{n} = [n_1 \ n_2 \ldots n_N]\]</div>
+<p>resulting in:</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n}\]</div>
+<section id="model-based-methods">
+<h3>Model-based Methods<a class="headerlink" href="#model-based-methods" title="Link to this heading">#</a></h3>
+<p>Model-based parallel imaging methods use some simulation of the MRI system and include the methods of SENSE, ESPIRiT, and NLINV.  These reconstruct a single underlying image by solving an optimization problem.  The popular SENSE methods solves</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2\]</div>
+<p>This can be solved directly by a pseudo-inverse, but requires measurements of the coil sensitivity profiles to calculate <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{PI} = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y}\]</div>
+</section>
+<section id="linear-predictability-methods">
+<h3>Linear Predictability Methods<a class="headerlink" href="#linear-predictability-methods" title="Link to this heading">#</a></h3>
+<p>Linear predictability parallel imaging methods assume that each k-space sample is a linear combination of other k-space samples and inlcude the methods of AUTO-SMASH, GRAPPA, and SPIRiT.  These utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, and can be generally formulated as the following optimization problem</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning or regularization parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneously enforces data consistency (first term) as well as self-consistency of the calibration (second term).</p>
+<p>The calibration kernel, <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, can either be directly measured from the data as in GRAPPA, or iteratively estimated while solving the optimization, as in SPIRiT.</p>
+</section>
+</section>
+<section id="compressed-sensing-methods">
+<h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Link to this heading">#</a></h2>
+<p>Compressed Sensing is formulated as the following optimization problem, specifically using the <span class="math notranslate nohighlight">\(\ell_1\)</span>-norm (<span class="math notranslate nohighlight">\(\|x\|_1 = \sum_{i=1}^n |x_i|\)</span>) that promotes sparsity in the solution:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda_{CS} \| \mathbf{Wx} \|_1 \]</div>
+<p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse using the <span class="math notranslate nohighlight">\(\ell_1\)</span> norm in some domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.  There is a regularization factor, <span class="math notranslate nohighlight">\(\lambda_{CS}\)</span>, that must be chosen to balance the data consistency and sparsity terms.</p>
+<p>Popular sparsifying transforms, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, include total variation (TV), total generalized variation (TGV), and wavelets, where MRI data is typically sparse.</p>
+<p>This regularization term, <span class="math notranslate nohighlight">\(\| \mathbf{Wx} \|_1\)</span> can also be combined with iterative parallel imaging reconstruction methods as well, for example in the <span class="math notranslate nohighlight">\(\ell_1\)</span>-ESPIRiT method.</p>
+</section>
+<section id="deep-learning-reconstructions">
+<h2>Deep Learning Reconstructions<a class="headerlink" href="#deep-learning-reconstructions" title="Link to this heading">#</a></h2>
+<p>Deep learning (DL) methods can often be considered general solutions to a regularized least-squares objective</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{reg} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \mathcal{R}(\mathbf{x}) \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{R}(\cdot)\)</span> can be a parallel imaging or compressed sensing regularizer as above, but can also be implicitly implemented via deep learning techniques.  This means that the deep learning reconstruction is attempting to constrain or regularize the reconstruction.</p>
+<p>The most straightforward approach using deep learning is to train a CNN to invert the encoding operation in image space, e.g. after applying the inverse Fourier Transform to the data:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{x}}_{DL} = g_{DNN}(\mathbf{E^{H} y})\]</div>
+<p>The learned deep neural network, <span class="math notranslate nohighlight">\(g_{DNN}()\)</span>, includes many weights that must be trained prior to being able to perform the reconstruction.</p>
+<p>However, so-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and also are often more compact.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
+<p>Variational Networks (VarNets) for undersampled MRI reconstruction are formulated as the above regularlized least-squares objective, but models the architecture after a single gradient update in iterative gradient descent (used to solve optimization problems) and uses a CNN (e.g. UNet) within the iterations</p>
+<p>The Model-based Deep Learning (MoDL) method uses the formulation where the regularizer is a CNN that estimates the noise and aliasing patterns</p>
+<div class="math notranslate nohighlight">
+\[ \mathcal{R}_{MoDL}(\mathbf{x}) = \lambda \| \mathcal{N}_w(\mathbf{x}) \|^2\]</div>
+<p>and the estimate depends on a set of learned parameters, <span class="math notranslate nohighlight">\(w\)</span>, in the neural network, <span class="math notranslate nohighlight">\(\mathcal{N}_\mathbf{w}(\cdot)\)</span>.  It’s structure is overall similar to VarNets, as both are unrolled architectures, but with slightly different formulations.</p>
+<section id="deep-learning-requirements">
+<h3>Deep Learning Requirements<a class="headerlink" href="#deep-learning-requirements" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Describe how images are formed</p>
+<li><p>Data</p>
 <ul class="simple">
-<li><p>Describe slice selection using RF Pulses</p></li>
+<li><p>Generally a lot of data (<span class="math notranslate nohighlight">\(10^4\)</span> in many radiology applications, but also depends a lot on the question being answered and data quality)</p></li>
+<li><p>Fully sampled data typically required for supervised learning of undersampled MRI reconstruction</p></li>
+<li><p>Data augmentation – realistic modifications of existing data to increase training data size</p></li>
+<li><p>For reconstruction, fastMRI provides thousands of high quality training data: <a class="reference external" href="http://fastmri.med.nyu.edu">http://fastmri.med.nyu.edu</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.1811.08839">https://doi.org/10.48550/arXiv.1811.08839</a></p></li>
+</ul>
+</li>
+<li><p>Architecture</p>
+<ul class="simple">
+<li><p>U-net, ResNet popular for working in image-domain</p></li>
+<li><p>Un-rolled networks popular for image reconstruction.</p></li>
+<li><p>Generative models possible</p></li>
+<li><p>Transformers</p></li>
+</ul>
+</li>
+<li><p>Computation</p>
+<ul class="simple">
+<li><p>GPUs are essential for training of deep networks</p></li>
+</ul>
+</li>
+<li><p>Training</p>
+<ul class="simple">
+<li><p>Send input data forward through network, compare to the expected output (e.g. fully sampled image or data) update the network weights through back-propagation</p></li>
+<li><p>Choose loss function, such as l1 or l2</p></li>
+<li><p>Choose batch sizes, Learning rate, etc</p></li>
 </ul>
 </li>
 </ol>
 </section>
-<section id="spatial-selectivity">
-<h2>Spatial Selectivity<a class="headerlink" href="#spatial-selectivity" title="Link to this heading">#</a></h2>
-<p>As described in the previous section, RF pulses can be designed to excite a limited range of frequencies, characterized by its frequency response profile.  Magnetic field gradients create variations in the magnetic field across space, creating a mapping between frequency and space:</p>
-<div class="math notranslate nohighlight">
-\[f(\vec r,t) = \bar \gamma (\vec G(t) \cdot \vec r)\]</div>
-<p>So when a magnetic field gradient is turned on during a RF pulse, the frequency profile of the pulse is converted into a spatial profile.  This is illustrated in the following diagram:</p>
-<p><img alt="Illustration of how gradients convert a RF pulse frequency profile in the a spatial profile" src="_images/Slice_Selection-intuition.png" /></p>
-</section>
-<section id="slice-selective-rf-pulses">
-<h2>Slice Selective RF Pulses<a class="headerlink" href="#slice-selective-rf-pulses" title="Link to this heading">#</a></h2>
-<p>The goal in slice selection is to excite a limited region in space, commonly refered to as a slice or slab.  (The term “Slab selection” typically refers to exciting a larger slice in 3D imaging.)</p>
-<section id="pulse-design">
-<h3>Pulse Design<a class="headerlink" href="#pulse-design" title="Link to this heading">#</a></h3>
-<p><strong>RF Pulse shape</strong> - Since the goal is to excite only a limited range of frequencies, a sinc-like pulse shape is used to create a rect-like frequency profile.  See the previous section for details on the design.</p>
-<p><strong>Magnetic field gradient</strong> - A constant gradient is applied during the pulse.  The gradient direction chosen corresponds to the direction of the slice selection, and the amplitude of the gradient determines the thickness of the slice.  This is known as the slice-select gradient.</p>
-<p><img alt="Slice Selective RF pulse with parameters labeled" src="_images/Slice_Selection-Sample_Pulses.png" /></p>
-<p>Conventionally, pulse sequence diagrams typically put the slice selection along the Z gradient direction, and the imaging gradients are on X and Y.  In practice, the gradient directions used can be any combination of X, Y, and Z to create slice selection in any arbitrary direction.</p>
-</section>
-<section id="slice-thickness">
-<h3>Slice Thickness<a class="headerlink" href="#slice-thickness" title="Link to this heading">#</a></h3>
-<p>The gradient amplitude, <span class="math notranslate nohighlight">\(G_{Z,SS}\)</span>, and RF pulse bandwidth determine the slice thickness:</p>
-<div class="math notranslate nohighlight">
-\[ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} \]</div>
-</section>
-<section id="slice-shifting">
-<h3>Slice Shifting<a class="headerlink" href="#slice-shifting" title="Link to this heading">#</a></h3>
-<p>The slice location can be shifted by a distance <span class="math notranslate nohighlight">\(z_{off}\)</span> through shifting the frequency of the RF pulse by <span class="math notranslate nohighlight">\(f_{off}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} \]</div>
-</section>
-<section id="refocusing-gradient">
-<h3>Refocusing Gradient<a class="headerlink" href="#refocusing-gradient" title="Link to this heading">#</a></h3>
-<p>At the end of the RF pulse in a slice-selective RF pulse there is unrefocused phase across the slice.  This means that the transverse magnetization is pointing in various directions across the slice.  If imaging occurs at this point, the transverse magnetization pointing in different directions can cancel out, leading to signal loss.  Therefore, a refocusing gradient must be applied prior to imaging.  This gradient has an area of half of the slice select gradient on during the RF pulse.</p>
+<section id="reference">
+<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h3>
+<p>For a recent, comprehensive reference on these methods I reccommend:</p>
+<p>Hammernik K, Küstner T, Yaman B, Huang Z, Rueckert D, Knoll F, Akçakaya M. Physics-Driven Deep Learning for Computational Magnetic Resonance Imaging: Combining physics and machine learning for improved medical imaging. IEEE Signal Process Mag. 2023 Jan;40(1):98-114. doi: 10.1109/msp.2022.3215288. Epub 2023 Jan 2. PMID: 37304755; PMCID: PMC10249732.</p>
+<p><a class="reference external" href="https://arxiv.org/pdf/2203.12215.pdf">https://arxiv.org/pdf/2203.12215.pdf</a></p>
 </section>
 </section>
 </section>
@@ -560,22 +670,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="RF%20Pulses.html"
+       href="Advanced%20SNR.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">RF Pulses</p>
+        <p class="prev-next-title">Advanced SNR</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="RF%20Pulse%20Design.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">RF Pulse Design</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -593,13 +694,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-selectivity">Spatial Selectivity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-selective-rf-pulses">Slice Selective RF Pulses</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-design">Pulse Design</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-thickness">Slice Thickness</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-shifting">Slice Shifting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refocusing-gradient">Refocusing Gradient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compressed-sensing-methods">Compressed Sensing Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-reconstructions">Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-requirements">Deep Learning Requirements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>

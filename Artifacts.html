@@ -249,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">MRI Questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +263,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20Image%20Reconstruction.html">Advanced Image Reconstruction</a></li>
 </ul>
 
     </div>
@@ -920,6 +922,10 @@ Time-of-flight (entry slice) -->
 </section>
 <section id="partial-volume-and-boundary-artifacts">
 <h2>Partial Volume and Boundary Artifacts<a class="headerlink" href="#partial-volume-and-boundary-artifacts" title="Link to this heading">#</a></h2>
+<p>The concept of partial volume effects refers to when an imaging voxel contains a mixture of materials, such as different tissues, fat, fluids, or air.  This occurs typically and the boundaries of organs or structures.</p>
+<p>The strongest manifestation of this type of artifact is when then phase of the transverse magnetization, <span class="math notranslate nohighlight">\(M_{XY}\)</span>, varies between these materials and leads to signal loss within a voxel.</p>
+<p>The can occur at boundaries between fat and other tissues, when the TE creates out-of-phase behavior due to the chemical shift difference of fat.  This is the same principle used for <a class="reference internal" href="In%20Vivo%20Contrast%20Mechanisms.html#fat-water-imaging"><span class="std std-ref">Fat/Water Imaging</span></a>.  To avoid this, in-phase TEs should be chosen.</p>
+<p>This can also occur in Inversion Recovery sequences, where the inversion time results in the longitudinal magnetization, <span class="math notranslate nohighlight">\(M_{Z}\)</span>, being positive for some materials and negative for others.</p>
 </section>
 </section>
 

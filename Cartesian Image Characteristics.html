@@ -249,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">MRI Questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +263,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20Image%20Reconstruction.html">Advanced Image Reconstruction</a></li>
 </ul>
 
     </div>
@@ -510,6 +512,9 @@ document.write(`
 \[k_{y,max} = \bar \gamma G_{yp} t_{y}\]</div>
 <div class="math notranslate nohighlight">
 \[ \delta_y = \frac{1}{2 k_{y,max}} = \frac{1}{ \bar \gamma 2 G_{yp} t_{y}}\]</div>
+<p>In the slice select dimension, the spatial resolution is determined by the slice thickness:</p>
+<div class="math notranslate nohighlight">
+\[ \delta_z = \Delta z = \frac{TBW_{rf} / T_{rf}}{\bar{\gamma} G_{Z,SS}}\]</div>
 </section>
 <section id="field-of-view-fov">
 <h2>Field-of-View (FOV)<a class="headerlink" href="#field-of-view-fov" title="Link to this heading">#</a></h2>

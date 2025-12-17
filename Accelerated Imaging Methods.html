@@ -249,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Key%20MRI%20Concepts.html">Key MRI Concepts and Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">MRI Questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +263,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20Image%20Reconstruction.html">Advanced Image Reconstruction</a></li>
 </ul>
 
     </div>
@@ -458,14 +460,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-principles">General Principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-inventory-and-comparison">Methods Inventory and Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undersampled-k-space-methods">Undersampled k-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaenous-multi-slice-sms-methods">Simultaenous Multi-Slice (SMS) Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
@@ -476,10 +476,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-reconstructions">Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-requirements">Deep Learning Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-dl-reconstructions">SNR in DL Reconstructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-dl-reconstructions">Artifacts with DL Reconstructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -522,131 +520,221 @@ document.write(`
 </li>
 </ol>
 </section>
-<section id="general-formulation-of-mri-reconstruction">
-<h2>General Formulation of MRI Reconstruction<a class="headerlink" href="#general-formulation-of-mri-reconstruction" title="Link to this heading">#</a></h2>
-<p>For advanced image reconstruction methods, it is helpful to reformulate the reconstruction problem as a linear system and using standard mathematical notation describing linear systems as:</p>
-<div class="math notranslate nohighlight">
-\[  y = \mathbf{E}x + n \]</div>
-<p>where <span class="math notranslate nohighlight">\(y\)</span> is the acquired data, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is the encoding matrix, <span class="math notranslate nohighlight">\(x\)</span> is the spatial distribution of the transverse magnetization (e.g. image), and <span class="math notranslate nohighlight">\(n\)</span> is noise.  In this formulation, the image is vectorized.</p>
-<section id="fourier-transform-reconstruction">
-<h3>Fourier Transform Reconstruction<a class="headerlink" href="#fourier-transform-reconstruction" title="Link to this heading">#</a></h3>
-<p>The definition of <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> is critical, and this can be derived from the MRI signal equation.  If we only consider the effects of magnetic field gradients, then</p>
-<div class="math notranslate nohighlight">
-\[s(t) =  \int m(\vec{r}) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}\]</div>
-<p>Our measurements, <span class="math notranslate nohighlight">\(y\)</span>, taken from <span class="math notranslate nohighlight">\(s(t)\)</span> at discrete time points.
-Discretizing this relationship for Cartesian sampled data:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} y = \left[ 
-    \begin{array}{c}
-s_1(t_1) \\
-s_1(t_2) \\
-\vdots \\
-s_1(t_{Nx}) \\
-s_2(t_1) \\
-\vdots \\
-s_{Ny}(t_{Nx})\\
-\end{array}
-\right]\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(s_m(t_n)\)</span> is the data from the  TR <span class="math notranslate nohighlight">\(m\)</span> at sample <span class="math notranslate nohighlight">\(n\)</span>.</p>
-<p>We want to reconstruct the following image on a grid:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} x = \left[ 
-    \begin{array}{c}
-m(x_1,y_1) \\
-m(x_2,y_1) \\
-\vdots \\
-m(x_{Nx},y_1) \\
-m(x_{1},y_2) \\
-\vdots \\
-m(x_{Nx},y_{Ny}) 
-\end{array}
-\right]\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> are equally spaced locations in image space.</p>
-<p>The encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>, at a minimum includes a discrete Fourier Transform matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, representing our data is the Fourier Transform of the transverse magnetization, evaluated at k-space locations, as shown in the above signal equation.  For this matrix, the entries are defined by k-space location being sampled, <span class="math notranslate nohighlight">\(\vec{k}_i\)</span> and the spatial locations, <span class="math notranslate nohighlight">\(\vec{r}_j\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ \mathbf{f}_{i,j} = \exp(-i 2 \pi \vec{k}_i \cdot \vec{r}_j)\]</div>
-<p>In this case, the measurement is the discrete Fourier Transform of the image</p>
-<div class="math notranslate nohighlight">
-\[  y = \mathbf{F}x + n \]</div>
-<p>and image reconstruction is performed by inverse discrete Fourier Transform, which for fully sampled 2D FT imaging is well defined by matrix inversion:</p>
-<div class="math notranslate nohighlight">
-\[ \hat{x} = \mathbf{F^{H}} y \]</div>
+<section id="general-principles">
+<h2>General Principles<a class="headerlink" href="#general-principles" title="Link to this heading">#</a></h2>
+<p>Accelerated Imaging in MRI are methods that reduce the number of k-space samples required.
+Since this violates our sampling criteria (Nyquist) this is often referred to as “undersampling.”
+This allows for shorter scan times, which can be used to incease throughput, reduce artifacts, acquire more contrasts, and/or improve spatial resolution.</p>
+<p>All of these methods require additional steps in image reconstruction beyond using a Fourier Transform.  These steps are based on the assumptions and a model for the accelerated imaging method being used.</p>
 </section>
+<section id="methods-inventory-and-comparison">
+<h2>Methods Inventory and Comparison<a class="headerlink" href="#methods-inventory-and-comparison" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Assumptions</p></th>
+<th class="head"><p>Methods</p></th>
+<th class="head"><p>Pros</p></th>
+<th class="head"><p>Cons</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Partial Fourier</p></td>
+<td><p>Transverse magnetization phase is slowly varying across the image</p></td>
+<td><p>Skip almost one side of k-space; Estimate phase with center of k-space</p></td>
+<td><p>Can be used in many circumstances; Reduce phase encodes or frequency encoding readout length</p></td>
+<td><p>Should not be used when phase contrast is important</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallel Imaging</p></td>
+<td><p>RF receive coil arrays provide spatial encoding information</p></td>
+<td><p>Skip phase encoding lines and/or simultaneous multi-slice excitation; Measure or model RF coil sensitivities and incorporate in reconstruction</p></td>
+<td><p>Can be used with all pulse sequences</p></td>
+<td><p>Geometry “g-factor” SNR losses</p></td>
+</tr>
+<tr class="row-even"><td><p>Compressed Sensing</p></td>
+<td><p>Data is compressible and has a sparse representation</p></td>
+<td><p>Pseudo-random skip of phase encoding lines; Solve optimization problem in reconstruction</p></td>
+<td><p>Can be used with all pulse sequences</p></td>
+<td><p>Non-linear reconstruction artifacts</p></td>
+</tr>
+<tr class="row-odd"><td><p>Deep Learning Methods</p></td>
+<td><p>Typical patterns in data can be learned</p></td>
+<td><p>Skip phase encoding lines; Train a model based on existing data</p></td>
+<td><p>Can be used with all pulse sequences</p></td>
+<td><p>Overfitting reconstruction artifacts that are not visible</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="partial-fourier-imaging">
 <h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Link to this heading">#</a></h2>
 <p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, <span class="math notranslate nohighlight">\(m(\vec{r})\)</span>, is real-valued, then the k-space data satisfies</p>
 <div class="math notranslate nohighlight">
 \[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
-<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)\)</span>, this would mean all transverse magnetization is along <span class="math notranslate nohighlight">\(M_X\)</span>, but in practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
+<p>Where <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}))\)</span> is the imaginary part.
+Note that this can also be used if a constant phase offset is present, and this can be estimated and removed such that <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}) e^{i \phi}) = 0\)</span>.</p>
+<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)\)</span>, this would mean all transverse magnetization is along <span class="math notranslate nohighlight">\(M_X\)</span>.  In practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
 <p>In this case, only half of k-space is required, and the other half can be filled in by this property.  This means 2 times faster scanning!</p>
 <p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
 <p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span>, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for Partial Fourier Imaging</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Cartesian</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">ky</span><span class="p">,</span> <span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Full Sampling</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx</span><span class="p">,</span> <span class="n">ky</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Full Sampling&#39;</span><span class="p">)</span>
+
+<span class="c1"># Ideal Partial Fourier Half k-space sampling</span>
+<span class="c1"># Reshape to have one dimension of size N (here N+1 points exist, reshape accordingly)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">ky</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+<span class="n">kx_half</span> <span class="o">=</span> <span class="n">kx</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ky_half</span> <span class="o">=</span> <span class="n">ky</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx_half</span><span class="p">,</span> <span class="n">ky_half</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ideal Partial Fourier Half k-space sampling&#39;</span><span class="p">)</span>
+
+<span class="c1"># Practical Partial Fourier Sampling with over-sampling the center of k-space</span>
+<span class="n">pf_factor</span> <span class="o">=</span> <span class="mf">0.75</span> 
+
+<span class="n">mask_pf</span> <span class="o">=</span> <span class="n">ky</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="p">(</span><span class="n">pf_factor</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">kx_pf</span> <span class="o">=</span> <span class="n">kx</span><span class="p">[</span><span class="n">mask_pf</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ky_pf</span> <span class="o">=</span> <span class="n">ky</span><span class="p">[</span><span class="n">mask_pf</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx_pf</span><span class="p">,</span> <span class="n">ky_pf</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Practical Partial Fourier Sampling&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5491a796a470b2ffdfaa9b263563477e1e88922f8f140e02d72c119c6f74b1a3.png" src="_images/5491a796a470b2ffdfaa9b263563477e1e88922f8f140e02d72c119c6f74b1a3.png" />
+</div>
+</div>
 </section>
 <section id="parallel-imaging">
 <h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Link to this heading">#</a></h2>
-<p>For parallel imaging (PI), we need to consider the coil sensitivity profiles, <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span>, for each RF coil into encoding matrix along with a Fourier Transform encoding matrix, <span class="math notranslate nohighlight">\(\mathbf{F}\)</span>, as well as a k-space sub-sampling operator, <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, for the measurements from each RF coil, <span class="math notranslate nohighlight">\(\mathbf{y}_q\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[y_q = \mathbf{E}_q x + n_q = \mathbf{S} \mathbf{F} \mathbf{C_q} x + n_q\]</div>
-<p>The coil sensitivity profiles <span class="math notranslate nohighlight">\(\mathbf{C}_q\)</span> is a diagonal matrix with entries corresponding to the coil sensitivity profile at each location in <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
-<p>The k-space sub-sampling operator <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, is a diagnoal matrix with entries of 1 or 0, describing whether an expect grid location was sampled.  It is convenient to use when describing image reconstruction as filling in points in k-space.</p>
-<p>Here we can return to our original formulation by creating augmented matrices, concatenating along the coil elements dimension for example as:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{y} = [y_1 \ y_2 \ldots y_N]\]</div>
-<div class="math notranslate nohighlight">
-\[\mathbf{E} = [\mathbf{E}_1 \ \mathbf{E}_2 \ldots \mathbf{E}_N]\]</div>
-<div class="math notranslate nohighlight">
-\[\mathbf{n} = [n_1 \ n_2 \ldots n_N]\]</div>
-<p>resulting in:</p>
-<div class="math notranslate nohighlight">
-\[ \mathbf{y} = \mathbf{Ex} + \mathbf{n}\]</div>
-<section id="model-based-methods">
-<h3>Model-based Methods<a class="headerlink" href="#model-based-methods" title="Link to this heading">#</a></h3>
-<p>Model-based parallel imaging methods use some simulation of the MRI system and include the methods of SENSE, ESPIRiT, and NLINV.  These reconstruct a single underlying image by solving an optimization problem.  The popular SENSE methods solves</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2\]</div>
-<p>This can be solved directly by a pseudo-inverse, but requires measurements of the coil sensitivity profiles to calculate <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{PI} = (\mathbf{E}^H\mathbf{E})^{-1} \mathbf{E}^H \mathbf{y}\]</div>
-<p>The k-space sampling patterns used for these methods typically use regular undersampling, meaning there is a consistent pattern of acquired and skipped k-space lines.</p>
+<p>Parallel Imaging uses the spatial information provided by individual RF receive coil elements to accelerate image acquisition.  With multiple RF receive coil elements, they can provide additional coarse scale localization information.  The primary parallel imaging approach is to undersample k-space by skipping phase encoding lines.  Another approach is to simultaneously excite and acquire multiple slices, known as simultaneous multi-slice (SMS) imaging.</p>
+<section id="undersampled-k-space-methods">
+<h3>Undersampled k-space Methods<a class="headerlink" href="#undersampled-k-space-methods" title="Link to this heading">#</a></h3>
+<p>In these approaches, phase encoding lines are skipped in k-sapce.  With direct Fourier Transform reconstruction, this results in aliasing artifacts due to violation of the sampling requirements.  Parallel imaging reconstruction methods use the spatial information from the multiple RF receive coil elements to resolve this aliasing.</p>
+<p>All of these methods require incorporation of the coil sensitivity profiles, either through measurement, estimation, or incorporation into a model.  Coil sensitivity profiles can be measured with a coarse resolution (i.e. fast) pre-scan, and signal from the relatively uniform Body RF coil can be used as a reference to estimate the local receive coil element sensitivities.  This is incoporated into the popular “SENSE” method.  This approach will suffer from residual aliasing artifacts if there are mismatches between the measured coil sensitivities and the actual coil sensitivities during the accelerated scan, for example due to motion.</p>
+<p>Methods that estimate or incorporate into the model the coil sensitivies typically require a fully sampled calibration region in the center of k-space.  This increases the scan time, but are more robust since they estimate the coil sensitivities directly from the data being reconstructed.  This includes the popular “GRAPPA” method.</p>
 </section>
-<section id="linear-predictability-methods">
-<h3>Linear Predictability Methods<a class="headerlink" href="#linear-predictability-methods" title="Link to this heading">#</a></h3>
-<p>Linear predictability parallel imaging methods assume that each k-space sample is a linear combination of other k-space samples and inlcude the methods of AUTO-SMASH, GRAPPA, and SPIRiT.  These utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, and can be generally formulated as the following optimization problem</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2\]</div>
-<p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning or regularization parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneous enforces data consistency (first term) as well as self-consistency of the calibration (sescond term).</p>
-<p>The calibration kernel, <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, can either be directly measured from the data as in GRAPPA, or iteratively estimated while solving the optimization, as in SPIRiT.</p>
-<p>The k-space sampling patterns used for these methods typically use regular undersampling, meaning there is a consistent pattern of acquired and skipped k-space lines, combined with full sampling in the center of k-space.</p>
+<section id="simultaenous-multi-slice-sms-methods">
+<h3>Simultaenous Multi-Slice (SMS) Methods<a class="headerlink" href="#simultaenous-multi-slice-sms-methods" title="Link to this heading">#</a></h3>
+<p>Simultaneous Multi-Slice (SMS) methods, also known as multi-band imaging, excite and acquire multiple slices simultaneously, then using the coil sensitivity profiles in the reconstruction to separate the signal from each slice.  The RF excitation pulses must excite multiple slice locations, which naively is done by summing multiple frequency-shifted RF pulses, each corresponding to a different slice location.  In practice, more complex designs are used to mitigate peak power and improve robustness.  The resulting k-space data contains the superposition of the signals from the multiple slices.</p>
+<p><img alt="Simultaneous Multi-Slice Illustration" src="_images/parallel_imaging-simultaneous_multislice.png" /></p>
+<p>These methods also often use specialized RF phase modulation schemes, such as CAIPIRINHA, to improve the conditioning of the reconstruction problem by shifting the simultaneously excited slices in the phase encoding direction.</p>
 </section>
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Link to this heading">#</a></h3>
 <p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
-<p>This is characterized by the “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
+<p>This is characterized by the geometry factor, or “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
 <div class="math notranslate nohighlight">
 \[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
 </section>
 <section id="artifacts-with-parallel-imaging">
 <h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Link to this heading">#</a></h3>
 <p>Parallel Imaging artifacts typically appear as aliasing.  The undersampled data will have aliasing when not using a parallel imaging reconstruction method, and sometimes the aliasing is not completely removed.  There are also aliasing like artifacts when there is a mismatch between the data and measured coil sensitivity profiles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for parallel imaging and compressed sensing</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Cartesian</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">ky</span><span class="p">,</span> <span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Regular undersampling pattern</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Acceleration factor</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">R</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>  <span class="c1"># undersample only along ky (row) dimension</span>
+<span class="n">kx_regular</span> <span class="o">=</span> <span class="n">kx</span><span class="p">[:,</span><span class="n">mask</span><span class="p">]</span>            <span class="c1"># keep all kx samples for selected ky lines</span>
+<span class="n">ky_regular</span> <span class="o">=</span> <span class="n">ky</span><span class="p">[:,</span><span class="n">mask</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx_regular</span><span class="p">,</span> <span class="n">ky_regular</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;k-space sampling (R=2)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Regular undersampling, with autocalibration region</span>
+<span class="n">acs_size</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># Size of autocalibration region</span>
+<span class="n">mask_acs</span> <span class="o">=</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">R</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ky</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">acs_size</span> <span class="o">/</span> <span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">kx_acs</span> <span class="o">=</span> <span class="n">kx</span><span class="p">[</span><span class="n">mask_acs</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ky_acs</span> <span class="o">=</span> <span class="n">ky</span><span class="p">[</span><span class="n">mask_acs</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx_acs</span><span class="p">,</span> <span class="n">ky_acs</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Regular Undersampling with Auto-calibration Region&#39;</span><span class="p">)</span>
+
+<span class="c1"># Pseudo-random undersampling</span>
+<span class="n">mask_random</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">kx_random</span> <span class="o">=</span> <span class="n">kx</span><span class="p">[:,</span><span class="n">mask_random</span><span class="p">]</span>
+<span class="n">ky_random</span> <span class="o">=</span> <span class="n">ky</span><span class="p">[:,</span><span class="n">mask_random</span><span class="p">]</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kx_random</span><span class="p">,</span> <span class="n">ky_random</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.6</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$k_x$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$k_y$&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Pseudo-random Undersampling&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cad8c5549f6584cf6a4607b438e52a8d3f814c70f8e564b7bc12ea5008741e48.png" src="_images/cad8c5549f6584cf6a4607b438e52a8d3f814c70f8e564b7bc12ea5008741e48.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="compressed-sensing-methods">
 <h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Link to this heading">#</a></h2>
-<p>Compressed Sensing (CS) theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  In other words, we can further accelerate our data acquisition.</p>
-<p>Compressed Sensing is formulated as the following optimization problem, specifically using the <span class="math notranslate nohighlight">\(\ell_1\)</span>-norm (<span class="math notranslate nohighlight">\(\|x\|_1 = \sum_{i=1}^n |x_i|\)</span>) that promotes sparsity in the solution:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{CS} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda_{CS} \| \mathbf{Wx} \|_1 \]</div>
-<p>which includes a data consistency term where the data multiplied by the encoding matrix must match the reconstructed image, and a regularization term that enforces that the image is sparse using the <span class="math notranslate nohighlight">\(\ell_1\)</span> norm in some domain through the sparsifying transform, <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>.  There is a regularization factor, <span class="math notranslate nohighlight">\(\lambda_{CS}\)</span>, that must be chosen to balance the data consistency and sparsity terms.</p>
-<p>These methods specifically require k-space sampling patterns with pseudo-random undersampling, which is illustratic by the diagram below of the undersampled reconstruction procedure:</p>
+<p>Compressed Sensing (CS) theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  MRI images are in fact compressible, so we can further accelerate our data acquisition with CS.</p>
+<p>Compressed Sensing for MRI is achieved by using k-space sampling patterns with pseudo-random undersampling, which is illustratid by the diagram below of the undersampled reconstruction procedure.  This results in incoherent artifacts that appear noise-like, which can then be removed by constraining the reconstruction to a sparse solution in some transform domain.</p>
 <p><img alt="Compressed Sensing Illustration" src="_images/compressed_sensing_concept.gif" /></p>
 <p><strong>Caption</strong> (Figure from <a class="reference external" href="https://doi.org/10.1109/MSP.2007.914728">https://doi.org/10.1109/MSP.2007.914728</a> ):
 Heuristic procedure for reconstruction from undersampled data. A sparse signal (a) is 8-fold undersampled in its 1-D k -space domain (b). Equispaced undersampling results in signal aliasing (d) preventing recovery. Pseudo-random undersampling results in incoherent interference (c). Some strong signal components stick above the interference level, are detected and recovered by thresholding (e) and (f). The interference of these components is computed (g) and subtracted (h), thus lowering the total interference level and enabling recovery of weaker components.</p>
-<p>Popular sparsifying transforms include total variation (TV), total generalized variation (TGV), and wavelets, where MRI data is typically more sparse.  The pseudo-random undersampling typically uses a variable density that preferentially has more samples near the center of k-space.</p>
-<p>This regularization term, <span class="math notranslate nohighlight">\(\| \mathbf{Wx} \|_1\)</span> can also be combined with iterative parallel imaging reconstruction methods as well, for example in the <span class="math notranslate nohighlight">\(\ell_1\)</span>-ESPIRiT method.</p>
+<p>Popular sparsifying transforms include total variation (TV), total generalized variation (TGV), and wavelets, where MRI images are typically sparse.  The pseudo-random undersampling typically uses a variable density that preferentially has more samples near the center of k-space.</p>
 <section id="snr-in-compressed-sensing">
 <h3>SNR in Compressed Sensing<a class="headerlink" href="#snr-in-compressed-sensing" title="Link to this heading">#</a></h3>
-<p>It is difficult to define SNR when using compressed sensing reconstruction methods, as they inherently perform some denoising when constraining the reconstruction based on sparsity.  The apparent SNR can also vary significantly depending on the choice of the regularization factor, <span class="math notranslate nohighlight">\(\lambda_{CS}\)</span>.</p>
+<p>It is difficult to define SNR when using compressed sensing reconstruction methods, as they inherently perform some denoising when constraining the reconstruction based on sparsity.  The apparent SNR can also vary significantly depending on the choice of the regularization factor.</p>
 </section>
 <section id="artifacts-with-compressed-sensing">
 <h3>Artifacts with Compressed Sensing<a class="headerlink" href="#artifacts-with-compressed-sensing" title="Link to this heading">#</a></h3>
@@ -655,57 +743,12 @@ Heuristic procedure for reconstruction from undersampled data. A sparse signal (
 </section>
 <section id="deep-learning-reconstructions">
 <h2>Deep Learning Reconstructions<a class="headerlink" href="#deep-learning-reconstructions" title="Link to this heading">#</a></h2>
-<p>Deep learning (DL) can be used to reconstructed undersampled k-space into image data from a subset of data samples as well.  Conceptually, these methods can be trained to learn how to incorporate coil sensitivity information like parallel imaging and typical image sparsity patterns like compressed sensing.  Since they learn from real-world data, they can learn information that is the most relevant to MRI data and thus have been shown to support higher acceleration factors.  For example, they can learn what patterns within the image and/or k-space domain and most relevant and most common in MRI.</p>
-<p>These methods can often be considered general solutions to a regularized least-squares objective</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{reg} = \arg \min_\mathbf{x} \frac{1}{2} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \mathcal{R}(\mathbf{x}) \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathcal{R}(\cdot)\)</span> can be a parallel imaging or compressed sensing regularizer as above, but can also be implicitly implemented via machine learning techniques.  This means that the machine learning reconstruction is attempting to constrain or regularize the reconstruction.</p>
-<p>The most straightforward approach using deep learning is to train a CNN to invert the encoding operation in image space, e.g. after applying the inverse Fourier Transform to the data:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{\hat{x}}_{DL} = g_{DNN}(\mathbf{E^{H} y})\]</div>
-<p>The learned deep neural network, <span class="math notranslate nohighlight">\(g_{DNN}()\)</span>, includes many weights that must be trained prior to being able to perform the reconstruction.</p>
-<p>However, so-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and also are often more compact.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
-<p>Variational Networks (VarNets) for undersampled MRI reconstruction are formulated as the above regularlized least-squares objective, but models the architecture after a single gradient update in iterative gradient descent (used to solve optimization problems) and uses a CNN (e.g. UNet) within the iterations</p>
+<p>Deep learning (DL) based methods can be used to reconstructed undersampled k-space into image data from a subset of data samples as well.  Conceptually, these methods can learn how to incorporate coil sensitivity information like parallel imaging and typical image sparsity patterns like compressed sensing.  Since they learn from real-world data, they can learn information that is the most relevant to MRI data and thus have been shown to support higher acceleration factors.  For example, they can learn what patterns within the image and/or k-space domain and most relevant and most common in MRI.</p>
+<p>These methods require learning from large amounts (e.g. thousands or more) of training data samples, including fully-sampled MRI data as the ground truth. Fortunately, efforts such as the <a class="reference external" href="http://fastmri.med.nyu.edu">fastMRI project</a> have provided large, high-quality datasets for training and evaluating these methods.</p>
+<p>So-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and learning common patterns in the data.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
 <p><img alt="Variational Network for MRI Reconstruction" src="_images/end-to-end_varnet.jpg" /></p>
 <p>Caption (from <a class="reference external" href="https://arxiv.org/abs/2004.06688">https://arxiv.org/abs/2004.06688</a>):
 The E2E-VN model takes under-sampled k-space as input and applies several cascades, followed by IFT and RSS. Bottom: The DC module brings intermediate k-space closer to measured values, the Refinement module maps multi-coil k-space to one image, applies a U-Net and maps back to k-space, and the SME estimates sensitivity maps used in the refinement step.</p>
-<p>The Model-based Deep Learning (MoDL) method uses the formulation where the regularizer is a CNN that estimates the noise and aliasing patterns</p>
-<div class="math notranslate nohighlight">
-\[ \mathcal{R}_{MoDL}(\mathbf{x}) = \lambda \| \mathcal{N}_w(\mathbf{x}) \|^2\]</div>
-<p>and the estimate depends on a set of learned parameters, <span class="math notranslate nohighlight">\(w\)</span>, in the neural network, <span class="math notranslate nohighlight">\(\mathcal{N}_\mathbf{w}(\cdot)\)</span>.  It’s structure is overall similar to VarNets, as both are unrolled architectures, but with slightly different formulations.</p>
-<section id="deep-learning-requirements">
-<h3>Deep Learning Requirements<a class="headerlink" href="#deep-learning-requirements" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Data</p>
-<ul class="simple">
-<li><p>Generally a lot of data (<span class="math notranslate nohighlight">\(10^4\)</span> in many radiology applications, but also depends a lot on the question being answered and data quality)</p></li>
-<li><p>Fully sampled data typically required for supervised learning of undersampled MRI reconstruction</p></li>
-<li><p>Data augmentation – realistic modifications of existing data to increase training data size</p></li>
-<li><p>For reconstruction, fastMRI provides thousands of high quality training data: <a class="reference external" href="http://fastmri.med.nyu.edu">http://fastmri.med.nyu.edu</a>, <a class="reference external" href="https://doi.org/10.48550/arXiv.1811.08839">https://doi.org/10.48550/arXiv.1811.08839</a></p></li>
-</ul>
-</li>
-<li><p>Architecture</p>
-<ul class="simple">
-<li><p>U-net, ResNet popular for working in image-domain</p></li>
-<li><p>Un-rolled networks popular for image reconstruction.</p></li>
-<li><p>Generative models possible</p></li>
-<li><p>Transformers</p></li>
-</ul>
-</li>
-<li><p>Computation</p>
-<ul class="simple">
-<li><p>GPUs are essential for training of deep networks</p></li>
-</ul>
-</li>
-<li><p>Training</p>
-<ul class="simple">
-<li><p>Send input data forward through network, compare to the expected output (e.g. fully sampled image or data) update the network weights through back-propagation</p></li>
-<li><p>Choose loss function, such as l1 or l2</p></li>
-<li><p>Choose batch sizes, Learning rate, etc</p></li>
-</ul>
-</li>
-</ol>
-</section>
 <section id="snr-in-dl-reconstructions">
 <h3>SNR in DL Reconstructions<a class="headerlink" href="#snr-in-dl-reconstructions" title="Link to this heading">#</a></h3>
 <p>It is difficult to define SNR when using machine learning reconstruction methods, as they inherently perform some denoising when constraining the reconstruction.</p>
@@ -713,12 +756,6 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
 <section id="artifacts-with-dl-reconstructions">
 <h3>Artifacts with DL Reconstructions<a class="headerlink" href="#artifacts-with-dl-reconstructions" title="Link to this heading">#</a></h3>
 <p>A challenge with machine learning reconstructions is that artifacts can be difficult to identify.  They can result in an over-smoothed appearance, but often a well-trained network will retain realistic texture and noise appearance features.  These methods can also overfit to the learned anatomy and data, meaning features might be erased or hallucinated, although using physics-based techniques provide some assurances of data-consistency.</p>
-</section>
-<section id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h3>
-<p>For a recent, comprehensive reference on thes methods I reccommend:</p>
-<p>Hammernik K, Küstner T, Yaman B, Huang Z, Rueckert D, Knoll F, Akçakaya M. Physics-Driven Deep Learning for Computational Magnetic Resonance Imaging: Combining physics and machine learning for improved medical imaging. IEEE Signal Process Mag. 2023 Jan;40(1):98-114. doi: 10.1109/msp.2022.3215288. Epub 2023 Jan 2. PMID: 37304755; PMCID: PMC10249732.</p>
-<p><a class="reference external" href="https://arxiv.org/pdf/2203.12215.pdf">https://arxiv.org/pdf/2203.12215.pdf</a></p>
 </section>
 </section>
 </section>
@@ -732,16 +769,16 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            name: "octave",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -788,14 +825,12 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-formulation-of-mri-reconstruction">General Formulation of MRI Reconstruction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-reconstruction">Fourier Transform Reconstruction</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-principles">General Principles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-inventory-and-comparison">Methods Inventory and Comparison</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-methods">Model-based Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-predictability-methods">Linear Predictability Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undersampled-k-space-methods">Undersampled k-space Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaenous-multi-slice-sms-methods">Simultaenous Multi-Slice (SMS) Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
@@ -806,10 +841,8 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-reconstructions">Deep Learning Reconstructions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-learning-requirements">Deep Learning Requirements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-dl-reconstructions">SNR in DL Reconstructions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-dl-reconstructions">Artifacts with DL Reconstructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>

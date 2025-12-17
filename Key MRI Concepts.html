@@ -75,7 +75,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Key MRI Concepts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="MRI Notation and Terminology" href="MRI%20Notation.html" />
+    <link rel="next" title="MRI Questions" href="Questions.html" />
     <link rel="prev" title="Artifacts" href="Artifacts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -249,6 +249,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Key MRI Concepts and Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Questions.html">MRI Questions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference Material</span></p>
 <ul class="nav bd-sidenav">
@@ -262,6 +263,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Spectral-Spatial%20RF%20Pulses.html">Spectral-Spatial RF Pulses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Fun%20with%20RF%20Pulses.html">Fun with RF Pulses?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Advanced%20SNR.html">Advanced SNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced%20Image%20Reconstruction.html">Advanced Image Reconstruction</a></li>
 </ul>
 
     </div>
@@ -487,8 +489,19 @@ document.write(`
 <section id="background-material">
 <h2>Background Material<a class="headerlink" href="#background-material" title="Link to this heading">#</a></h2>
 <p><a class="reference internal" href="MRI%20Math%20Concepts.html"><span class="std std-doc">MRI Math Concepts</span></a></p>
+<ul class="simple">
+<li><p>Linear Algebra concepts</p></li>
+<li><p>Complex numbers and representations</p></li>
+<li><p>Fourier Transforms</p></li>
+</ul>
 <p>Signals and Systems</p>
+<ul class="simple">
+<li><p>Point Spread Functions</p></li>
+</ul>
 <p>Electricity and Magnetism</p>
+<ul class="simple">
+<li><p>Magnetic fields</p></li>
+</ul>
 </section>
 <section id="mr-spin-physics">
 <h2>MR Spin Physics<a class="headerlink" href="#mr-spin-physics" title="Link to this heading">#</a></h2>
@@ -528,6 +541,7 @@ M_0(\vec{r})
 </li>
 <li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
 </ol>
+<p>Intuition from magnetic fields and sensitivity profiles of loop coils</p>
 </section>
 <section id="mri-experiment">
 <h2>MRI Experiment<a class="headerlink" href="#mri-experiment" title="Link to this heading">#</a></h2>
@@ -556,7 +570,7 @@ M_0(\vec{r})
 <p>Ernst angle - flip angle for maximum SNR</p>
 <div class="math notranslate nohighlight">
 \[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
-<p>Magnetization Preparation:
+<p>Magnetization Preparation Methods:
 Inversion Recovery</p>
 <div class="math notranslate nohighlight">
 \[S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\]</div>
@@ -567,7 +581,7 @@ Inversion Recovery</p>
 <ul class="simple">
 <li><p>magnetic susceptibility is inherent property of materials</p></li>
 <li><p>differences in magnetic susceptibility lead to distortions of the magnetic field</p></li>
-<li><p>in vivo sources include: iron, oxygenated versus deoxygenated blood</p></li>
+<li><p>in vivo sources include: iron, oxygenated versus deoxygenated blood, air-tissue interfaces</p></li>
 </ul>
 <p>Chemical Shift</p>
 <ul class="simple">
@@ -577,7 +591,7 @@ Inversion Recovery</p>
 </section>
 <section id="in-vivo-contrasts">
 <h2>In Vivo Contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Link to this heading">#</a></h2>
-<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in MR signal</p>
+<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in <span class="math notranslate nohighlight">\(M_{XY}\)</span> and the MR signal</p>
 <p>T2*</p>
 <ul class="simple">
 <li><p>intra-voxel dephasing due to magnetic field inhomogeneity</p></li>
@@ -600,7 +614,6 @@ Inversion Recovery</p>
 <h2>RF Pulses<a class="headerlink" href="#rf-pulses" title="Link to this heading">#</a></h2>
 <p>Pulse Characteristics</p>
 <ul class="simple">
-<li><p>pulse profile - approximately proportional to the Fourier Transform of the pulse shape</p></li>
 <li><p>flip angle</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -615,6 +628,9 @@ Inversion Recovery</p>
 </ul>
 <div class="math notranslate nohighlight">
 \[ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \]</div>
+<ul class="simple">
+<li><p>pulse profile - describes the flip angle or net magnetization response across a range of frequency and/or position.  This is approximately proportional to the Fourier Transform of the pulse shape for small (less than 60-degree) flip angles</p></li>
+</ul>
 <p>Slice Selection</p>
 <ul class="simple">
 <li><p>Slice thickness</p></li>
@@ -659,7 +675,10 @@ Inversion Recovery</p>
 \[ \delta = \frac{1}{2 k_{max}}\]</div>
 <p>Scan Time</p>
 <div class="math notranslate nohighlight">
-\[ T_{scan} = \frac{ TR \cdot N_{PE,total} \cdot NEX}{ETL \cdot R}\]</div>
+\[ T_{scan} = TR \cdot N_{TR} \cdot NEX}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N_{TR}\)</span> is the total number of TR periods sampled.  Including fast sequences and acceleration methods:</p>
+<div class="math notranslate nohighlight">
+\[N_{TR} = \frac{N_{PE,total}}{ETL \cdot R}\]</div>
 </section>
 <section id="ft-imaging-sequence">
 <h2>FT Imaging Sequence<a class="headerlink" href="#ft-imaging-sequence" title="Link to this heading">#</a></h2>
@@ -672,12 +691,13 @@ Inversion Recovery</p>
 <p>Volumetric coverage</p>
 <ul class="simple">
 <li><p>2D multislice imaging - interleave multiple slices within a single TR</p></li>
-<li><p>3D imaging - cover 3D k-space</p></li>
+<li><p>3D imaging - cover 3D k-space with 2 phase-encoding dimensions</p></li>
 </ul>
-<p>EPI</p>
+<p>Echo-planar imaging (EPI)</p>
 <ul class="simple">
 <li><p>k-space trajectory that covers multiple k-space lines per excitation</p></li>
 <li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
+<li><p>echo time, <span class="math notranslate nohighlight">\(TE = TE_{eff}\)</span>, defined when data closest to center of k-space is acquired</p></li>
 </ul>
 <p>Multiple Spin-echo imaging (FSE/TSE/RARE)</p>
 <ul class="simple">
@@ -689,6 +709,7 @@ Inversion Recovery</p>
 <ul class="simple">
 <li><p>Contrast can be changed based on whether transverse magnetization is available or refocused in a subsequent TR</p></li>
 <li><p>Variations based on whether RF and/or gradient spoiling are used</p></li>
+<li><p>Magnetization Prepared gradient-echo imaging methods</p></li>
 </ul>
 </section>
 <section id="accelerated-imaging-methods">
@@ -698,16 +719,18 @@ Inversion Recovery</p>
 <li><p>Why does it work?  MRI approximately satisfies conjugate symmetry property of k-space data</p></li>
 <li><p>How does it work?  Only sample slightly more than half of k-space</p></li>
 </ul>
-<p>Parallel Imaging</p>
+<p>Parallel Imaging - k-space undersampling</p>
 <ul class="simple">
 <li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
 <li><p>How does it work?  Skip k-space data in the direction(s) that have variation in RF coil element sensitivity profiles</p></li>
 <li><p>Key variations: May require measurement of coil sensitivity maps, also autocalibrated methods</p></li>
+<li><p>SNR considerations: Geometry factor (g-factor, <span class="math notranslate nohighlight">\(g&gt;1\)</span>) due noise amplification in parallel imaging reconstruction, <span class="math notranslate nohighlight">\(SNR \propto \frac{1}{g}\)</span></p></li>
 </ul>
-<p>Simultaneous Multi-slice</p>
+<p>Parallel Imaging - Simultaneous Multi-slice</p>
 <ul class="simple">
 <li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
 <li><p>How does it work?  Excite multiple slices simultaneously</p></li>
+<li><p>SNR considerations: Geometry factor (g-factor, <span class="math notranslate nohighlight">\(g&gt;1\)</span>) due noise amplification in parallel imaging reconstruction, <span class="math notranslate nohighlight">\(SNR \propto \frac{1}{g}\)</span></p></li>
 </ul>
 <p>Compressed Sensing</p>
 <ul class="simple">
@@ -766,11 +789,11 @@ Inversion Recovery</p>
       </div>
     </a>
     <a class="right-next"
-       href="MRI%20Notation.html"
+       href="Questions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">MRI Notation and Terminology</p>
+        <p class="prev-next-title">MRI Questions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
