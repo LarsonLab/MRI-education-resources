@@ -11,6 +11,7 @@ Signals and Systems
 * Point Spread Functions
 
 Electricity and Magnetism
+* Magnetic fields
 
 ## MR Spin Physics
 

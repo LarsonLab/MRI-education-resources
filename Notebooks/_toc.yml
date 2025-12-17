@@ -50,6 +50,7 @@ parts:
   - caption: Summary
     chapters:
     - file: "Key MRI Concepts"
+    - file: "Questions"
   - caption: Reference Material
     chapters:
     - file: "MRI Notation"
