@@ -6,7 +6,7 @@ This repository hosts an online textbook as well as some MATLAB and python based
 Please cite this book as:  
 
 ```
-Larson, Peder E. Z. (2025). Introduction to Principles of MRI.
+Larson, Peder E. Z. (2025). Principles of MRI.
 Retrieved from https://larsonlab.github.io/MRI-education-resources.
 https://doi.org/10.5281/zenodo.5547020
 ```
