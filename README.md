@@ -1,35 +1,44 @@
 # MRI Education Resources
 Resources for learning the principles of magnetic resonance imaging (MRI)
 
-Currently MATLAB based functions and demonstrations (Octave compatible too) in folders, and python-based examples in the Book
+This repository hosts an online textbook as well as some MATLAB and python based functions and demonstrations (Octave compatible too)
 
-Please cite as:  MRI-education-resources, [doi: 10.5281/zenodo.5547020](https://doi.org/10.5281/zenodo.5547020) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg)](https://doi.org/10.5281/zenodo.5547020)
+Please cite this book as:  
 
-## Interactive Book
+```
+Larson, Peder E. Z. (2025). Introduction to Principles of MRI.
+Retrieved from https://larsonlab.github.io/MRI-education-resources.
+https://doi.org/10.5281/zenodo.5547020
+```
+
+<!--
+MRI-education-resources, [doi: 10.5281/zenodo.5547020](https://doi.org/10.5281/zenodo.5547020) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg)](https://doi.org/10.5281/zenodo.5547020)
+-->
+
+## Interactive Online Textbook
+
+![Principles of MRI book](Notebooks/images/MRI_logo-retro.png)]
 
 Included in this repository are the contents of an interactive book that uses many of the functions contained.  The content of the book is saved in `Notebooks/`, and can be viewed at 
 
-<!-- 
-[![Principles of MRI book](Notebooks/images/HPBrain-Anime.png)](https://larsonlab.github.io/MRI-education-resources)
--->
-
 > [**Principles of MRI**](https://larsonlab.github.io/MRI-education-resources) 
 >
-> [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
+> [![Jupyter Book Badge](https://raw.githubusercontent.com/jupyter-book/jupyter-book/next/docs/media/images/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
 
 All of the notebooks used to create interactive book can also be viewed and run online, thanks to the Binder project:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LarsonLab/MRI-education-resources/main?filepath=Notebooks)
 
-## Spin Physics and Magnetic Resonance Simulators
-* http://drcmr.dk/BlochSimulator/
-* http://www.drcmr.dk/CompassMR/
-
 ## Printable Materials
 
 If you are teaching MRI, also included in this repository are several posters and handouts that maybe useful, in the `Printable Materials/` folder.
 
-## Recommended Educational Materials
+## Spin Physics and Magnetic Resonance Simulators
+* http://drcmr.dk/BlochSimulator/
+* http://www.drcmr.dk/CompassMR/
+
+
+## Other Recommended Educational Materials
 
 ### Websites
 * “Questions and Answers in MRI”. http://www.mriquestions.com/index.html Great online resource for **all** MRI questions.
