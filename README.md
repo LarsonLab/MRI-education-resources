@@ -25,6 +25,8 @@ Included in this repository are the contents of an interactive book that uses ma
 >
 > [![Jupyter Book Badge](https://raw.githubusercontent.com/jupyter-book/jupyter-book/next/docs/media/images/badge.svg)](https://larsonlab.github.io/MRI-education-resources)
 
+For offline reading, download the [complete book as a PDF](https://larsonlab.github.io/MRI-education-resources/MRI-education-book.pdf).
+
 All of the notebooks used to create interactive book can also be viewed and run online, thanks to the Binder project:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LarsonLab/MRI-education-resources/main?filepath=Notebooks)

@@ -30,6 +30,7 @@ html:
   use_repository_button: true
   extra_navbar              : >-  # Will be displayed underneath the left navbar.
     <a href="https://larsonlab.github.io">Larson Advanced Imaging Research Group</a>
+    <a href="MRI-education-book.pdf">Download the complete book (PDF)</a>
     Powered by <a href="https://jupyterbook.org">Jupyter Book</a> 
   extra_footer              : Citation - Larson, Peder E. Z. (2025) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
   google_analytics_id       : "UA-51903906-1"  # A GA id that can be used to track book views.
