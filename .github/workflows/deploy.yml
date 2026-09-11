@@ -36,6 +36,13 @@ jobs:
         jupyter-book clean Notebooks/
         jupyter-book build Notebooks/
 
+    # Build and publish a single-file version for offline reading.
+    - name: Build the PDF
+      run: |
+        jupyter-book build Notebooks/ --builder pdflatex
+        test -s Notebooks/_build/latex/MRI-education-book.pdf
+        cp Notebooks/_build/latex/MRI-education-book.pdf Notebooks/_build/html/MRI-education-book.pdf
+
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
