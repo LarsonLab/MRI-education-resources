@@ -5,6 +5,7 @@ octave-signal
 octave-miscellaneous
 octave-dev
 ghostscript
+imagemagick
 latexmk
 texlive-fonts-recommended
 texlive-fonts-extra
