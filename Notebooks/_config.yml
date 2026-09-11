@@ -17,6 +17,10 @@ latex:
   latex_documents:
     targetname: MRI-education-book.tex
 
+sphinx:
+  extra_extensions:
+    - sphinx.ext.imgconverter
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/larsonlab/MRI-education-resources  # Online location of your book
