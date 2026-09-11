@@ -7,5 +7,6 @@ octave-dev
 ghostscript
 latexmk
 texlive-fonts-recommended
+texlive-fonts-extra
 texlive-latex-extra
 texlive-xetex
