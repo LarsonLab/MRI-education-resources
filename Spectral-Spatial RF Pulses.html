@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -53,13 +53,19 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
@@ -69,6 +75,12 @@
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
@@ -76,6 +88,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Spectral-Spatial RF Pulses';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Fun with RF Pulses?" href="Fun%20with%20RF%20Pulses.html" />
@@ -83,20 +96,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -122,7 +141,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -444,7 +507,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-spatial-rf-pulse-design">Spectral-Spatial RF Pulse Design</a></li>
 </ul>
@@ -545,13 +608,13 @@ error: called from
 <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'G_z'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Time'</span><span class="p">)</span>
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="nb">cumsum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_f = t&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_z&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;k-space trajectory&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'k_f = t'</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">'k_z'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'k-space trajectory'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -612,17 +675,17 @@ error: called from
 
 <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">DT</span><span class="o">*</span><span class="mf">1e3</span><span class="p">;</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">),</span> <span class="s">&#39;-x&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral Pulse Design&#39;</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">),</span> <span class="s">'-x'</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'RF'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spectral Pulse Design'</span><span class="p">)</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)))</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_f&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'G_f'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Time (ms)'</span><span class="p">)</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mxy_f</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency (Hz)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral Profile&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Frequency (Hz)'</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">'M_{XY}'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spectral Profile'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -639,12 +702,12 @@ error: called from
 <span class="c">% gradients (including ramp sampling)</span>
 <span class="n">gamp</span> <span class="p">=</span> <span class="p">(</span><span class="n">SBW</span><span class="o">/</span><span class="n">DT</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dz</span><span class="p">);</span> <span class="c">% gradient for spatial resolution</span>
 
-<span class="c">% Uses a slew rate that can&#39;t be violated</span>
+<span class="c">% Uses a slew rate that can't be violated</span>
 <span class="n">Nramp</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span> <span class="nb">ceil</span><span class="p">(</span><span class="n">gmax</span><span class="o">/</span><span class="n">slewmax</span> <span class="o">/</span> <span class="n">dt</span><span class="p">),</span> <span class="nb">floor</span><span class="p">(</span><span class="n">Nlobe</span><span class="o">/</span><span class="mi">2</span><span class="p">));</span>
 <span class="n">ramp</span> <span class="p">=</span> <span class="p">[.</span><span class="mi">5</span><span class="p">:</span><span class="n">Nramp</span><span class="o">-</span><span class="p">.</span><span class="mi">5</span><span class="p">]</span><span class="o">/</span><span class="n">Nramp</span><span class="p">;</span>
 <span class="n">g1</span> <span class="p">=</span> <span class="p">[</span><span class="n">ramp</span><span class="p">,</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Nlobe</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">Nramp</span><span class="p">),</span> <span class="n">ramp</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)];</span> 
 <span class="c">% apply VERSE algorithm for time-varying gradient</span>
-<span class="n">rfspatv</span> <span class="p">=</span> <span class="n">verse</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="p">[</span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">Nwait</span><span class="p">)),</span> <span class="n">rfspat</span><span class="p">(:).</span><span class="o">&#39;</span><span class="p">,</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">ceil</span><span class="p">(</span><span class="n">Nwait</span><span class="p">))]).</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">rfspatv</span> <span class="p">=</span> <span class="n">verse</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="p">[</span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">floor</span><span class="p">(</span><span class="n">Nwait</span><span class="p">)),</span> <span class="n">rfspat</span><span class="p">(:).</span><span class="o">'</span><span class="p">,</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">ceil</span><span class="p">(</span><span class="n">Nwait</span><span class="p">))]).</span><span class="o">'</span><span class="p">;</span>
 <span class="n">rfspatv</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="n">rfspatv</span><span class="p">)))</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="n">g1z</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="n">gamp</span><span class="o">*</span> <span class="n">g1</span><span class="p">;</span>
@@ -653,18 +716,18 @@ error: called from
 <span class="n">t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">g1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">;</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspatv</span><span class="p">))</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spatial Pulse Design&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'RF'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spatial Pulse Design'</span><span class="p">)</span>
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">gamp</span><span class="o">*</span><span class="n">g1</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'G_z'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Time (ms)'</span><span class="p">)</span>
 
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mxy_z</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Position (cm)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;M_{XY}&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spatial Profile&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Position (cm)'</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">'M_{XY}'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spatial Profile'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -697,19 +760,19 @@ error: called from
 <span class="nb">figure</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">),</span> <span class="p">...</span>
-    <span class="p">[</span><span class="mf">0.5</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]</span><span class="o">*</span><span class="n">DT</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">))</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">)),</span> <span class="s">&#39;--&#39;</span><span class="p">)</span>
-    <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;RF pulse&#39;</span><span class="p">,</span> <span class="s">&#39;Spectral pulse envelope&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;RF&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral-Spatial RF Pulse&#39;</span><span class="p">)</span>
+    <span class="p">[</span><span class="mf">0.5</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]</span><span class="o">*</span><span class="n">DT</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">)</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rfspec</span><span class="p">))</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">)),</span> <span class="s">'--'</span><span class="p">)</span>
+    <span class="nb">legend</span><span class="p">(</span><span class="s">'RF pulse'</span><span class="p">,</span> <span class="s">'Spectral pulse envelope'</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'RF'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spectral-Spatial RF Pulse'</span><span class="p">)</span>
 <span class="nb">subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
 <span class="nb">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;G_z&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (ms)&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">'G_z'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Time (ms)'</span><span class="p">)</span>
 
 <span class="nb">figure</span>
 <span class="n">plot3</span><span class="p">([</span><span class="o">-</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="nb">cumsum</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span><span class="n">g</span><span class="p">)),</span> <span class="nb">real</span><span class="p">(</span><span class="n">rf</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;k_f = t&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;k_z&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;B_1(k)&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'k_f = t'</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">'k_z'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'B_1(k)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -729,8 +792,8 @@ error: called from
 
 <span class="nb">figure</span>
 <span class="nb">imagesc</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">mxy_2d</span><span class="p">))</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency (Hz)&#39;</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Position (cm)&#39;</span><span class="p">)</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Spectral-spatial Profile (M_XY)&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">'Frequency (Hz)'</span><span class="p">),</span> <span class="nb">ylabel</span><span class="p">(</span><span class="s">'Position (cm)'</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Spectral-spatial Profile (M_XY)'</span><span class="p">)</span>
 <span class="c">%colormap(gray)</span>
 <span class="nb">colorbar</span>
 </pre></div>
@@ -810,7 +873,7 @@ error: called from
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-spatial-rf-pulse-design">Spectral-Spatial RF Pulse Design</a></li>
 </ul>
@@ -827,7 +890,7 @@ error: called from
   <div class="footer-item">
     
 <p class="component-author">
-By Peder Larson
+By Peder E. Z. Larson
 </p>
 
   </div>
@@ -851,7 +914,7 @@ By Peder Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation - DOI <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a>
+  Citation - Larson, Peder E. Z. (2025) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
 </div>
   </div>
   
@@ -864,8 +927,8 @@ By Peder Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
