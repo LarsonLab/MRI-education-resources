@@ -41,7 +41,7 @@ jobs:
       run: |
         jupyter-book build Notebooks/ --builder pdflatex
         test -s Notebooks/_build/latex/MRI-education-book.pdf
-        cp Notebooks/_build/latex/MRI-education-book.pdf Notebooks/_build/html/MRI-education-book.pdf
+        cp Notebooks/_build/latex/MRI-education-book.pdf Notebooks/_build/html/Larson_Principles-of-MRI.pdf
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action

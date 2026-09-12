@@ -5,7 +5,7 @@ title: Principles of MRI
 author: Peder E. Z. Larson
 email: peder.larson@ucsf.edu
 logo: images/MRI_logo-retro.png
-copyright: "2025"
+copyright: "2026"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -32,12 +32,22 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  extra_navbar              : >-  # Will be displayed underneath the left navbar.
-    <a href="https://larsonlab.github.io">Larson Advanced Imaging Research Group</a>
-    <a href="MRI-education-book.pdf">Download the complete book (PDF)</a>
-    Powered by <a href="https://jupyterbook.org">Jupyter Book</a> 
+  use_edit_page_button: true
+html:
+  extra_navbar: |
+    <div class="download-link" style="padding: 10px 0;">
+      <a href="Larson_Principles-of-MRI.pdf" download>
+        <i class="fas fa-file-pdf"></i> Download Full Book PDF
+      </a>
+    </div>
+    <div style="margin-top: 10px;">
+      <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+        Larson Advanced Imaging Research Group
+      </a>
+    </div>
   extra_footer              : >-
-    Citation - Larson, Peder E. Z. (2025) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
+    Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
   google_analytics_id       : "UA-51903906-1"  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
 
