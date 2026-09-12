@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Gradient and Spin Echoes';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Gradient and Spin Echoes.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FGradient and Spin Echoes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -479,7 +541,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="gradient-and-spin-echo-pulse-sequences">
+  <section id="gradient-and-spin-echo-pulse-sequences">
 <h1>Gradient and Spin Echo Pulse Sequences<a class="headerlink" href="#gradient-and-spin-echo-pulse-sequences" title="Link to this heading">#</a></h1>
 <p>There are two broad classes of pulse sequences used: gradient-echo and spin-echo methods.  Gradient-echo sequences use a simpler pulse and acquire acquisition, while spin-echo sequences use an additional RF refocusing pulse that eliminates the effects of off-resonance that are often undesirable.</p>
 <section id="learning-goals">
@@ -497,7 +559,7 @@
 </li>
 <li><p>Identify artifacts and how to mitigate them</p>
 <ul class="simple">
-<li><p>Understand the effects of off-resonance and <span class="math notranslate nohighlight">\(T_2^*\)</span> on contrast</p></li>
+<li><p>Understand the effects of off-resonance and $T_2^*$ on contrast</p></li>
 </ul>
 </li>
 </ol>
@@ -506,29 +568,28 @@
 <h2>Gradient Echo Pulse Sequence (GE or GRE)<a class="headerlink" href="#gradient-echo-pulse-sequence-ge-or-gre" title="Link to this heading">#</a></h2>
 <p>The building block of a gradient-echo (GE) pulse sequence includes an RF excitation pulse followed by imaging gradients.  A complete 2D imaging sequence is</p>
 <p><img alt="Gradient echo pulse sequence" src="_images/pulse_sequence-diagram-all.png" /></p>
-<p>It is called a “gradient-echo (GE)” since the frequency encoding imaging gradients, shown on <span class="math notranslate nohighlight">\(G_X\)</span>, are refocused or canceled out at the echo time (more in Spatial Encoding section).  Another name for these sequences is a “gradient-recalled echo (GRE)”.</p>
+<p>It is called a “gradient-echo (GE)” since the frequency encoding imaging gradients, shown on $G_X$, are refocused or canceled out at the echo time (more in Spatial Encoding section).  Another name for these sequences is a “gradient-recalled echo (GRE)”.</p>
 <p>And using a simplified diagram for the gradient echo sequence:</p>
 <p><img alt="Simplified Gradient echo pulse sequence" src="_images/pulse_sequence-diagram-simple.png" /></p>
-<p>The gradient-echo pulse sequence exhibits <span class="math notranslate nohighlight">\(T_2^*\)</span> contrast.</p>
-<div class="math notranslate nohighlight">
-\[S_{GE} \propto M_0 \exp(-TE/T_2^*)\]</div>
+<p>The gradient-echo pulse sequence exhibits $T_2^*$ contrast.</p>
+<p>$$S_{GE} \propto M_0 \exp(-TE/T_2^*)$$</p>
 </section>
 <section id="refocusing-off-resonance-with-a-spin-echo">
 <h2>Refocusing off-resonance with a spin-echo<a class="headerlink" href="#refocusing-off-resonance-with-a-spin-echo" title="Link to this heading">#</a></h2>
-<p>Gradient-echo sequences are sensitive to off-resonance effects and exhibit <span class="math notranslate nohighlight">\(T_2^*\)</span> contrast.  However, the effects of off-resonance can be reversed by applying a 180-degree flip angle “refocusing” RF pulse some time after the initial excitation RF pulse.  This has the effect of inverting the phase accumulation of off-resonance net magnetizations, after which the off-resonance phase begins to cancel out.  This is most easily illustrated in the voxel decay illustrations below:</p>
+<p>Gradient-echo sequences are sensitive to off-resonance effects and exhibit $T_2^*$ contrast.  However, the effects of off-resonance can be reversed by applying a 180-degree flip angle “refocusing” RF pulse some time after the initial excitation RF pulse.  This has the effect of inverting the phase accumulation of off-resonance net magnetizations, after which the off-resonance phase begins to cancel out.  This is most easily illustrated in the voxel decay illustrations below:</p>
 <p><img alt="Voxel signal decay, no off-resonance" src="_images/t2star-spinecho_no_off-resonance.gif" /></p>
-<p><strong>Spin-echo with No off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><strong>Spin-echo with No off-resonance, $T_2 = 80$ ms</strong></p>
 <p><img alt="Voxel signal decay, mild off-resonance" src="_images/t2star-spinecho_mild_off-resonance.gif" /></p>
-<p><strong>Spin-echo with Mild off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><strong>Spin-echo with Mild off-resonance, $T_2 = 80$ ms</strong></p>
 <p><img alt="Voxel signal decay, severe off-resonance" src="_images/t2star-spinecho_severe_off-resonance.gif" /></p>
-<p><strong>Spin-echo with Severe off-resonance <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><strong>Spin-echo with Severe off-resonance $T_2 = 80$ ms</strong></p>
 <p>The spin-echo does not make any difference when there is no off-resonance.<br />
-Can you identify when the 180-degree refocusing pulse was applied?  This is when the <span class="math notranslate nohighlight">\(M_{XY}\)</span> reverts its phase.</p>
+Can you identify when the 180-degree refocusing pulse was applied?  This is when the $M_{XY}$ reverts its phase.</p>
 <section id="simulation-for-visualization-of-refocusing-off-resonance">
 <h3>Simulation for Visualization of refocusing off-resonance<a class="headerlink" href="#simulation-for-visualization-of-refocusing-off-resonance" title="Link to this heading">#</a></h3>
 <p>To simulate and visualize off-resonance, including various refocusing pulse flip angles, try</p>
 <ul class="simple">
-<li><p>Visit <a class="reference external" href="http://drcmr.dk/BlochSimulator/">http://drcmr.dk/BlochSimulator/</a></p></li>
+<li><p>Visit http://drcmr.dk/BlochSimulator/</p></li>
 <li><p>Scene: Inhomogeneity</p></li>
 <li><p>Apply 90x hard, then 180y hard - what happens to the dephasing spins?</p></li>
 <li><p>Apply 90x hard, then 180x hard - this applies the 180-degree pulse at a different angle.  Is there still a spin-echo?</p></li>
@@ -538,14 +599,13 @@ Can you identify when the 180-degree refocusing pulse was applied?  This is when
 </section>
 <section id="spin-echo-pulse-sequence-se">
 <h2>Spin Echo Pulse Sequence (SE)<a class="headerlink" href="#spin-echo-pulse-sequence-se" title="Link to this heading">#</a></h2>
-<p>The building block of a spin-echo (SE) pulse sequence has an additional 180-degree refocusing pulse between the excitation and data acquisition in order to refocus the effects of off-resonance and create pure <span class="math notranslate nohighlight">\(T_2\)</span>-weighting:</p>
+<p>The building block of a spin-echo (SE) pulse sequence has an additional 180-degree refocusing pulse between the excitation and data acquisition in order to refocus the effects of off-resonance and create pure $T_2$-weighting:</p>
 <p><img alt="Spin echo pulse sequence" src="_images/pulse_sequence-diagram-spinecho-all.png" /></p>
 <p>It is called a “gradient-echo (GE)” since the spins are all refocused at the echo time, TE.</p>
 <p>This is a simplified diagram for the spin echo sequence:</p>
 <p><img alt="Simplified Spin echo pulse sequence" src="_images/pulse_sequence-diagram-spinecho-simple.png" /></p>
-<p>Because of the refocusing, a spin-echo sequence gives pure <span class="math notranslate nohighlight">\(T_2\)</span> contrast:</p>
-<div class="math notranslate nohighlight">
-\[S_{SE} \propto M_0 \exp(-TE/T_2)\]</div>
+<p>Because of the refocusing, a spin-echo sequence gives pure $T_2$ contrast:</p>
+<p>$$S_{SE} \propto M_0 \exp(-TE/T_2)$$</p>
 </section>
 </section>
 
@@ -660,7 +720,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

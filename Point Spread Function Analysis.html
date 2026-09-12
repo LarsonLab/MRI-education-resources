@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Point Spread Function Analysis';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Point Spread Function Analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FPoint Spread Function Analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -486,7 +548,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="point-spread-function-analysis">
+  <section id="point-spread-function-analysis">
 <h1>Point Spread Function Analysis<a class="headerlink" href="#point-spread-function-analysis" title="Link to this heading">#</a></h1>
 <p>In this section, we will show how to use point spread function analysis and the MRI signal equation along to understand the effects of phenomena such as relaxation and off-resonance/chemical shift on the resulting images, including resulting artifacts created.</p>
 <section id="learning-goals">
@@ -517,59 +579,45 @@
 <section id="mri-signal-equation">
 <h2>MRI Signal Equation<a class="headerlink" href="#mri-signal-equation" title="Link to this heading">#</a></h2>
 <p>To assess the effects of imperfections on resulting images, we start with a comprehensive version of the MRI signal equation, including relaxation, coil sensitivity, off-resonance and chemical shift, and gradients.
-The signal from an individual RF coil element <span class="math notranslate nohighlight">\(n\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}\]</div>
+The signal from an individual RF coil element $n$ is</p>
+<p>$$s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \  d\vec{r}$$</p>
 <p>which is typically simplified for understanding image formation using k-space:</p>
-<div class="math notranslate nohighlight">
-\[s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
+<p>$$s_n(t) = \int m(\vec{r})\ C_n(\vec{r})\ e^{-t/T_2^*(\vec{r})}\ e^{-i 2 \pi \Delta f_{cs} t} e^{-i 2 \pi \Delta f_r(\vec{r}) t} \  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$</p>
 <p>Note that this describes the signal behavior between RF pulses.  Incorporating RF pulses can be done either through rotation matrices or some solution of the Bloch equation such as numerical solvers or phase graphs.</p>
 </section>
 <section id="k-space-data-weighting">
 <h2>K-space Data Weighting<a class="headerlink" href="#k-space-data-weighting" title="Link to this heading">#</a></h2>
 <p>A powerful framework for characterizing the effects of imperfections is to define a k-space weighting that determines the signal modulation.  Expressing this generally, we define a weighting function
-<span class="math notranslate nohighlight">\(W(\vec{k})\)</span> that can be complex-valued and capture amplitude and phase modulations.  Then,</p>
-<div class="math notranslate nohighlight">
-\[\hat{M}(\vec{k}) = M(\vec{k}) W(\vec{k}) \]</div>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} \{ W(\vec{k}) \} = m(\vec{r}) * w(\vec{r})\]</div>
-<p>Where <span class="math notranslate nohighlight">\(w(\vec{r})\)</span> is the inverse Fourier Transform of the weighting function and <span class="math notranslate nohighlight">\(*\)</span> is the convolution operation.  <span class="math notranslate nohighlight">\(w(\vec{r})\)</span> is also known as a point spread function (PSF) or impulse response function.  Thus the effects can be boiled down to a convolution operation in the resulting reconstructed image.</p>
-<p>When the frequency shift and relaxation rates vary across space, it is helpful to decompose the image into components, <span class="math notranslate nohighlight">\(m_i\)</span> that experience the same weighting (e.g. same frequency shift, or same <span class="math notranslate nohighlight">\(T_2^*\)</span>) <span class="math notranslate nohighlight">\(W_i\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[ m(\vec{r}) = \sum_i m_i(\vec{r}) \]</div>
+$W(\vec{k})$ that can be complex-valued and capture amplitude and phase modulations.  Then,</p>
+<p>$$\hat{M}(\vec{k}) = M(\vec{k}) W(\vec{k}) $$</p>
+<p>$$\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} { W(\vec{k}) } = m(\vec{r}) * w(\vec{r})$$</p>
+<p>Where $w(\vec{r})$ is the inverse Fourier Transform of the weighting function and $*$ is the convolution operation.  $w(\vec{r})$ is also known as a point spread function (PSF) or impulse response function.  Thus the effects can be boiled down to a convolution operation in the resulting reconstructed image.</p>
+<p>When the frequency shift and relaxation rates vary across space, it is helpful to decompose the image into components, $m_i$ that experience the same weighting (e.g. same frequency shift, or same $T_2^*$) $W_i$.</p>
+<p>$$ m(\vec{r}) = \sum_i m_i(\vec{r}) $$</p>
 <p>Since the Fourier Transform is linear,</p>
-<div class="math notranslate nohighlight">
-\[\hat{M}(\vec{k}) = \sum_i M_i(\vec{k}) W_i(\vec{k}) \]</div>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) =\sum_i m_i(\vec{r}) * w_i(\vec{r})\]</div>
-<p>So each component is convolved with its own convolution kernel.  For example, to analyze chemical shift we can divide our image up into water, <span class="math notranslate nohighlight">\(m_1(\vec{r})\)</span>, and fat, <span class="math notranslate nohighlight">\(m_2(\vec{r})\)</span>, components, then <span class="math notranslate nohighlight">\(W_1(\vec{k}) = 1\)</span>, <span class="math notranslate nohighlight">\(W_2(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_{fat}}\)</span>, and the resulting image will be</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) = m_1(\vec{r}) + m_2(\vec{r}) * w_2(\vec{r})\]</div>
+<p>$$\hat{M}(\vec{k}) = \sum_i M_i(\vec{k}) W_i(\vec{k}) $$</p>
+<p>$$\hat{m}(\vec{r}) =\sum_i m_i(\vec{r}) * w_i(\vec{r})$$</p>
+<p>So each component is convolved with its own convolution kernel.  For example, to analyze chemical shift we can divide our image up into water, $m_1(\vec{r})$, and fat, $m_2(\vec{r})$, components, then $W_1(\vec{k}) = 1$, $W_2(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_{fat}}$, and the resulting image will be</p>
+<p>$$\hat{m}(\vec{r}) = m_1(\vec{r}) + m_2(\vec{r}) * w_2(\vec{r})$$</p>
 <p>providing an accurate image of the water component but some corrupted fat image (typically shifted in space for Cartesian trajectories).</p>
-<p>The k-space data weighting concept is very powerful.  It can include frequency shifts. It can include weighting from all types of relaxation (<span class="math notranslate nohighlight">\(T_1, T_2, T_2^*\)</span>) from more complex acquisition strategies such as SSFP and fast spin-echos.  It can include diffusion-weighting, flow effects, and more.</p>
+<p>The k-space data weighting concept is very powerful.  It can include frequency shifts. It can include weighting from all types of relaxation ($T_1, T_2, T_2^*$) from more complex acquisition strategies such as SSFP and fast spin-echos.  It can include diffusion-weighting, flow effects, and more.</p>
 </section>
 <section id="relaxation-during-signal-acquisition">
 <h2>Relaxation during signal acquisition<a class="headerlink" href="#relaxation-during-signal-acquisition" title="Link to this heading">#</a></h2>
 <p>To examine the effects of relaxation, we will neglect coil sensitivity, off-resonance, and chemical shift.  Relaxation modulates the receieved signal over time.  This will create some type of weighting in k-space, which leads to image filtering (often blurring).  This weighting is spatially varying, depending on relaxation of different tissues.</p>
 <!-- $$s(t) = \int m(\vec{r}) \ e^{-t/T_2^*(\vec{r})}\  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}$$ -->
-<div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
-<p>To interpret the effect of relaxation, consider a single value of <span class="math notranslate nohighlight">\(T_2^*(\vec{r}) = T_2^*\)</span>, in which case this can be removed from the integral and</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}s(t) = e^{-t/T_2^*} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \\
- = M(\vec{k}(t))\  e^{-t/T_2^*} \end{split}\]</div>
-<p>From this, we can see that relaxation leads to signal amplitude modulation as we acquire data across k-space.  To see the effect on image formation, we determine the function <span class="math notranslate nohighlight">\(\upsilon (\vec{k})\)</span> which captures across k-space trajectory in time and across all TRs to characterize this modulation:</p>
-<div class="math notranslate nohighlight">
-\[\hat{M}(\vec{k}) = M(\vec{k}) e^{- \upsilon(\vec{k}) / T_2^*}\]</div>
-<p>Examples of <span class="math notranslate nohighlight">\(\upsilon(\vec{k})\)</span> are shown below.  In the PSF framework, the k-space weighting function is</p>
-<div class="math notranslate nohighlight">
-\[W(\vec{k}) = e^{- \upsilon(\vec{k}) / T_2^*}\]</div>
-<p>Thus the reconstructed image will corrupted by a convolution (denoted by <span class="math notranslate nohighlight">\(*\)</span>) based on the k-space amplitude weighting</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) = \mathcal{F}^{-1} \{ \hat{M}(\vec{k})\} = m(\vec{r}) * \mathcal{F}^{-1} \{ e^{-\upsilon(\vec{k})/  T_2^*} \}\]</div>
+<p>$$s(t) = \int m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$</p>
+<p>To interpret the effect of relaxation, consider a single value of $T_2^<em>(\vec{r}) = T_2^</em>$, in which case this can be removed from the integral and</p>
+<p>$$s(t) = e^{-t/T_2^<em>} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \
+= M(\vec{k}(t))\  e^{-t/T_2^</em>} $$</p>
+<p>From this, we can see that relaxation leads to signal amplitude modulation as we acquire data across k-space.  To see the effect on image formation, we determine the function $\upsilon (\vec{k})$ which captures across k-space trajectory in time and across all TRs to characterize this modulation:</p>
+<p>$$\hat{M}(\vec{k}) = M(\vec{k}) e^{- \upsilon(\vec{k}) / T_2^*}$$</p>
+<p>Examples of $\upsilon(\vec{k})$ are shown below.  In the PSF framework, the k-space weighting function is</p>
+<p>$$W(\vec{k}) = e^{- \upsilon(\vec{k}) / T_2^*}$$</p>
+<p>Thus the reconstructed image will corrupted by a convolution (denoted by $*$) based on the k-space amplitude weighting</p>
+<p>$$\hat{m}(\vec{r}) = \mathcal{F}^{-1} { \hat{M}(\vec{k})} = m(\vec{r}) * \mathcal{F}^{-1} { e^{-\upsilon(\vec{k})/  T_2^*} }$$</p>
 <p>And in the framework introduced above,</p>
-<div class="math notranslate nohighlight">
-\[w(\vec{r}) = \mathcal{F}^{-1} \{ e^{-\upsilon(\vec{k})/  T_2^*} \}\]</div>
+<p>$$w(\vec{r}) = \mathcal{F}^{-1} { e^{-\upsilon(\vec{k})/  T_2^*} }$$</p>
 <p>This convolution can result in blurring (low-pass filtering) for center-out type trajectories, or high-pass filtering (e.g. edge enhancement but overall SNR loss) when starting at the edge of k-space.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -711,56 +759,42 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 <img alt="_images/d7cd06d6c79dfa7fb15e08f07c435dd33cf4bfbf455f462d9982d3c68c06022f.png" src="_images/d7cd06d6c79dfa7fb15e08f07c435dd33cf4bfbf455f462d9982d3c68c06022f.png" />
 </div>
 </div>
-<p>In the above plots, the height of the main peak in the center represents the expected SNR, including losses due to blurring, while the signal amplitude outside of the main peak represents blurring that will occur.   These show that the blurring and signal loss from <span class="math notranslate nohighlight">\(T_2^*\)</span> gets worse as the relaxation time is shorter, the blurring it is much worse for EPI (in phase encoding direction) versus Cartesian trajectories.</p>
+<p>In the above plots, the height of the main peak in the center represents the expected SNR, including losses due to blurring, while the signal amplitude outside of the main peak represents blurring that will occur.   These show that the blurring and signal loss from $T_2^*$ gets worse as the relaxation time is shorter, the blurring it is much worse for EPI (in phase encoding direction) versus Cartesian trajectories.</p>
 </section>
 <section id="off-resonance-and-chemical-shift">
 <h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Link to this heading">#</a></h2>
 <p>Off-resonance and chemical shift lead to changes in the precession frequency of the magnetization.<br />
-For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
-<p>Solving for the effect of frequency shifts then requires specific knowledge of the k-space trajectory, and the interaction of a spatially varying field further complicates this effect.  However, some intuition can be gained by assuming a single frequency shift, <span class="math notranslate nohighlight">\(\Delta f(\vec{r}) = \Delta f_0\)</span>, which can then be removed from the integral as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}s(t) = e^{-i 2 \pi \Delta f_0 t} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \\
- = M(\vec{k}(t))\  e^{-i 2 \pi \Delta f_0 t} \end{split}\]</div>
-<p>From this, we can see that the frequency shift leads to a phase accumulation as we acquire data across k-space.  To see the effect on image formation, we use the function <span class="math notranslate nohighlight">\(\upsilon (\vec{k})\)</span> which captures across k-space trajectory in time (also used in relaxation effects above) and across all TRs to characterize this phase accumulation:</p>
-<div class="math notranslate nohighlight">
-\[\hat{M}(\vec{k}) = M(\vec{k}) e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0}\]</div>
-<div class="math notranslate nohighlight">
-\[W(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0}\]</div>
+For simplicity, combine all off-resonance and/or chemical shift into a single frequnecy shift term, $\Delta f(\vec{r}) = \Delta f_{cs} + \Delta f_r(\vec{r})$ as</p>
+<p>$$s(t) = \int m(\vec{r})\ e^{-i 2 \pi \Delta f(\vec{r}) t} e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}$$</p>
+<p>Solving for the effect of frequency shifts then requires specific knowledge of the k-space trajectory, and the interaction of a spatially varying field further complicates this effect.  However, some intuition can be gained by assuming a single frequency shift, $\Delta f(\vec{r}) = \Delta f_0$, which can then be removed from the integral as</p>
+<p>$$s(t) = e^{-i 2 \pi \Delta f_0 t} \int m(\vec{r})\ e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r} \
+= M(\vec{k}(t))\  e^{-i 2 \pi \Delta f_0 t} $$</p>
+<p>From this, we can see that the frequency shift leads to a phase accumulation as we acquire data across k-space.  To see the effect on image formation, we use the function $\upsilon (\vec{k})$ which captures across k-space trajectory in time (also used in relaxation effects above) and across all TRs to characterize this phase accumulation:</p>
+<p>$$\hat{M}(\vec{k}) = M(\vec{k}) e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0}$$</p>
+<p>$$W(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0}$$</p>
 <p>Thus the reconstructed image will corrupted by a convolution based on the k-space phase accumulation</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0} \}\]</div>
-<div class="math notranslate nohighlight">
-\[w(\vec{r}) = \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0} \}\]</div>
+<p>$$\hat{m}(\vec{r}) = m(\vec{r}) * \mathcal{F}^{-1} { e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0} }$$</p>
+<p>$$w(\vec{r}) = \mathcal{F}^{-1} { e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_0} }$$</p>
 <section id="displacement-artifacts">
 <h3>Displacement Artifacts<a class="headerlink" href="#displacement-artifacts" title="Link to this heading">#</a></h3>
 <p>The result of the above convolution results in a shift or displacement for Cartesian and echo-planar sampling, which is illustrated below.  This is a result of a linear phase accumulation across k-space, which leads to a shift in image space.</p>
 <section id="cartesian-sampling">
 <h4>Cartesian Sampling<a class="headerlink" href="#cartesian-sampling" title="Link to this heading">#</a></h4>
-<p>In Cartesian sampling, the phase accumulation occurs during the readout, which is by convention defined as <span class="math notranslate nohighlight">\(k_x\)</span>.  For 2D imaging, we use the relationship that <span class="math notranslate nohighlight">\(k_x(t) = \bar\gamma G_{xr} t = \frac{RBW}{FOV_x} t\)</span> (neglecting an constant offset that leads to a constant phase offset), then</p>
-<div class="math notranslate nohighlight">
-\[\upsilon(k_x,k_y) = t = \frac{FOV_x}{RBW} k_x\]</div>
-<div class="math notranslate nohighlight">
-\[W(k_x,k_y) = e^{-i 2 \pi\ k_x \frac{FOV_x}{RBW} \Delta f_0}\]</div>
-<div class="math notranslate nohighlight">
-\[w(k_x, k_y) = \delta(k_x - \frac{\Delta f_0}{RBW} FOV_x,k_y)\]</div>
-<p>Convolution with a delta function is equivalent to a shift in the image in <span class="math notranslate nohighlight">\(k_x\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(x,y) = m(x,y) * \delta(k_x - \frac{\Delta f_0}{RBW} FOV_x,k_y) = m(k_x- \frac{\Delta f_0}{RBW} FOV_x, k_y)\]</div>
+<p>In Cartesian sampling, the phase accumulation occurs during the readout, which is by convention defined as $k_x$.  For 2D imaging, we use the relationship that $k_x(t) = \bar\gamma G_{xr} t = \frac{RBW}{FOV_x} t$ (neglecting an constant offset that leads to a constant phase offset), then</p>
+<p>$$\upsilon(k_x,k_y) = t = \frac{FOV_x}{RBW} k_x$$</p>
+<p>$$W(k_x,k_y) = e^{-i 2 \pi\ k_x \frac{FOV_x}{RBW} \Delta f_0}$$</p>
+<p>$$w(k_x, k_y) = \delta(k_x - \frac{\Delta f_0}{RBW} FOV_x,k_y)$$</p>
+<p>Convolution with a delta function is equivalent to a shift in the image in $k_x$:</p>
+<p>$$\hat{m}(x,y) = m(x,y) * \delta(k_x - \frac{\Delta f_0}{RBW} FOV_x,k_y) = m(k_x- \frac{\Delta f_0}{RBW} FOV_x, k_y)$$</p>
 </section>
 <section id="epi-sampling">
 <h4>EPI Sampling<a class="headerlink" href="#epi-sampling" title="Link to this heading">#</a></h4>
-<p>In EPI sampling, the phase accumulation occurs primarily during phase encoding, which is by convention defined as <span class="math notranslate nohighlight">\(k_y\)</span>.  Assume that the phase during frequency encoding is negligible, and use the relationship that <span class="math notranslate nohighlight">\(k_y(t) = \Delta k_y t / t_{esp} = \frac{BW_{PE}}{FOV_y} t\)</span> (again, neglecting an constant offset that leads to a constant phase offset).  Here, a phase encoding bandwidth is now defined as the inverse of the echo spcaing <span class="math notranslate nohighlight">\(BW_{PE} = 1 / t_{esp}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\upsilon(k_x,k_y) = \frac{FOV_y}{BW_{PE}} k_y\]</div>
-<div class="math notranslate nohighlight">
-\[W(k_x,k_y) = e^{-i 2 \pi\ k_y \frac{FOV_y}{BW_{PE}} \Delta f_0}\]</div>
-<div class="math notranslate nohighlight">
-\[w(k_x, k_y) = \delta(k_x,k_y - \frac{\Delta f_0}{BW_{PE}} FOV_y)\]</div>
-<p>Convolution with a delta function is equivalent to a shift in the image in <span class="math notranslate nohighlight">\(k_y\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(x,y) =  m(k_x, k_y- \frac{\Delta f_0}{BW_{PE}} FOV_y)\]</div>
+<p>In EPI sampling, the phase accumulation occurs primarily during phase encoding, which is by convention defined as $k_y$.  Assume that the phase during frequency encoding is negligible, and use the relationship that $k_y(t) = \Delta k_y t / t_{esp} = \frac{BW_{PE}}{FOV_y} t$ (again, neglecting an constant offset that leads to a constant phase offset).  Here, a phase encoding bandwidth is now defined as the inverse of the echo spcaing $BW_{PE} = 1 / t_{esp}$.</p>
+<p>$$\upsilon(k_x,k_y) = \frac{FOV_y}{BW_{PE}} k_y$$</p>
+<p>$$W(k_x,k_y) = e^{-i 2 \pi\ k_y \frac{FOV_y}{BW_{PE}} \Delta f_0}$$</p>
+<p>$$w(k_x, k_y) = \delta(k_x,k_y - \frac{\Delta f_0}{BW_{PE}} FOV_y)$$</p>
+<p>Convolution with a delta function is equivalent to a shift in the image in $k_y$:</p>
+<p>$$\hat{m}(x,y) =  m(k_x, k_y- \frac{\Delta f_0}{BW_{PE}} FOV_y)$$</p>
 <p>Since the overall readout time is typically much longer in EPI than Cartesian sampling, this leads to typically larger phase accumulations and larger shifts in the image.  Equivalently, the phase encoding bandwidths are typically lower than the readout bandwidths.</p>
 </section>
 <section id="other-trajectories">
@@ -775,14 +809,11 @@ $$\hat{m}(\vec{r}_0) = m(\vec{r}_0) * \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(
 </section>
 <section id="chemical-shift-displacement-artifact">
 <h3>Chemical Shift Displacement Artifact<a class="headerlink" href="#chemical-shift-displacement-artifact" title="Link to this heading">#</a></h3>
-<p>For the specific case of fat and water, we use the decomposition above to separate the two components, <span class="math notranslate nohighlight">\(m_1(\vec{r}) = m_{water}(\vec{r})\)</span> for water and <span class="math notranslate nohighlight">\(m_2(\vec{r}) =  m_{fat}(\vec{r})\)</span> for fat, with their own frequency shifts, <span class="math notranslate nohighlight">\(\Delta f_{water} = 0\)</span> and <span class="math notranslate nohighlight">\(\Delta f_{fat}\)</span>, respectively.  This leads The weighting functions are then</p>
-<div class="math notranslate nohighlight">
-\[W_{water}(\vec{k}) = 1\]</div>
-<div class="math notranslate nohighlight">
-\[W_{fat}(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_{fat}}\]</div>
+<p>For the specific case of fat and water, we use the decomposition above to separate the two components, $m_1(\vec{r}) = m_{water}(\vec{r})$ for water and $m_2(\vec{r}) =  m_{fat}(\vec{r})$ for fat, with their own frequency shifts, $\Delta f_{water} = 0$ and $\Delta f_{fat}$, respectively.  This leads The weighting functions are then</p>
+<p>$$W_{water}(\vec{k}) = 1$$</p>
+<p>$$W_{fat}(\vec{k}) = e^{-i 2 \pi\ \upsilon(\vec{k}) \Delta f_{fat}}$$</p>
 <p>And the resulting image will be</p>
-<div class="math notranslate nohighlight">
-\[\hat{m}(\vec{r}) = m_{water}(\vec{r}) + m_{fat}(\vec{r}) * w_{fat}(\vec{r})\]</div>
+<p>$$\hat{m}(\vec{r}) = m_{water}(\vec{r}) + m_{fat}(\vec{r}) * w_{fat}(\vec{r})$$</p>
 <p>In the case of Cartsian or echo-planar sampling, the water component will be accurately represented, while the fat component will be shifted in space.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -968,7 +999,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

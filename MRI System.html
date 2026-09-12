@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MRI System';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/MRI System.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FMRI System.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -463,9 +525,9 @@
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-a-mri-scanner">Components of a MRI Scanner</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main magnet - $B_0$</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - $\vec{G}(t)$</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
@@ -485,7 +547,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-mri-system">
+  <section id="the-mri-system">
 <h1>The MRI System<a class="headerlink" href="#the-mri-system" title="Link to this heading">#</a></h1>
 <p>Every MRI system consists of several major components, required to create measureable magnetic resonance phenoma and to perform spatial localization.  This section will deconstruct a MRI scanner and see what is inside.  This will give insight into the fundamentals of a MRI experiment and what is hardware is required.</p>
 <section id="learning-goals">
@@ -512,29 +574,29 @@
 <p><img alt="MRI System Diagram - http://www.magnet.fsu.edu/education/tutorials/magnetacademy/mri/" src="_images/MRI_system_diagram.png" /></p>
 <p>The scanner consists of 3 hardware components that are required for all MRI scans</p>
 <ol class="arabic simple">
-<li><p>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
-<li><p>Radiofrequency (RF) coils, including a transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span> - and a receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></li>
-<li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
+<li><p>Main magnet - $B_0$</p></li>
+<li><p>Radiofrequency (RF) coils, including a transmit RF coil - $B_1^+(\vec{r},t)$ - and a receive RF coil - $B_1^-(\vec{r},t)$</p></li>
+<li><p>Magnetic field gradient coils - $\vec{G}(t)$</p></li>
 </ol>
 <section id="main-magnet-b-0">
-<h3>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span><a class="headerlink" href="#main-magnet-b-0" title="Link to this heading">#</a></h3>
+<h3>Main magnet - $B_0$<a class="headerlink" href="#main-magnet-b-0" title="Link to this heading">#</a></h3>
 <p>The purpose of the main magnetic field is “Polarization”.  This refers to the preferential alignment of nuclear spins with a magnetic field.
 The more alignment there is of spins, the greater the MRI signal.
 The stronger the magnetic field, the more alignment and therefore the stronger signal that will be received.</p>
 <p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is designed to be homogeneous.  To achieve this large of a mangetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium, and this type of magnet is always on.</p>
-<p>Due to <span class="math notranslate nohighlight">\(B_0\)</span>, there is a large magnetic field inside and around the MRI scanner, making it very dagerous to bring certain materials near the scanner.  These materials, typically metals that are ferromagnetic like iron, can be sucked into the scanner by the powerful magnetic field.</p>
+<p>Due to $B_0$, there is a large magnetic field inside and around the MRI scanner, making it very dagerous to bring certain materials near the scanner.  These materials, typically metals that are ferromagnetic like iron, can be sucked into the scanner by the powerful magnetic field.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
-<h3>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Link to this heading">#</a></h3>
+<h3>Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$<a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Link to this heading">#</a></h3>
 <p>The purpose of the RF coils is “Excitation” and “Acquisition”.  RF coils are antennas designed to detect changes in electromagnetic fields in the radiofrequency range.  These coils and associated components must be <em>tuned</em> to the resonance frequency for the MRI system in order effectively transmit and receive signals at the resonance frequency.</p>
-<p>Excitation refers to depositing energy at a specific frequency that perturbs the spins, causing them to resonate and release energy that is captured as the MRI signal.  This is performed using a transmit RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>.
+<p>Excitation refers to depositing energy at a specific frequency that perturbs the spins, causing them to resonate and release energy that is captured as the MRI signal.  This is performed using a transmit RF coil, described by the magnetic field $B_1^+(\vec{r},t)$.
 This energy is deposited in the radio-frequency (RF) range, typically in the 100 MHz range for MRI, which is the resonance frequency.</p>
-<p>After Excitaiton, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is measured in Acquisition where the signal is detected by the receive RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>.</p>
+<p>After Excitaiton, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is measured in Acquisition where the signal is detected by the receive RF coil, described by the magnetic field $B_1^-(\vec{r},t)$.</p>
 <p>The RF coils are typically separated into separate transmit and receive coils because of different requirements: the transmit coils for excitation are designed to be homogeneous in depositing energy across the field-of-view (FOV), while receive coils are designed for maximum maximum sensitivity to the relatively small signals detectable from the spins.</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
-<h3>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Link to this heading">#</a></h3>
-<p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly refered to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
+<h3>Magnetic field gradient coils - $\vec{G}(t)$<a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Link to this heading">#</a></h3>
+<p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly refered to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency ($f = \bar{\gamma} |\vec{B}|$), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
 <p>The noises during a MRI scan are due to the rapid switching of electric currents in the gradient coils.  The change in electric currents and resulting change in magnetic field interacts with the main magnetic field and exerts a force (known as Lorentz force) on the gradient coil.  Thus the gradient coils will vibrate as they are switched on and off, creating loud noises.</p>
 </section>
 </section>
@@ -543,22 +605,22 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
 <ol class="arabic simple">
 <li><p>Polarization: Place subject in a large magnetic fiel</p>
 <ul class="simple">
-<li><p>Components required: main magnet, <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
+<li><p>Components required: main magnet, $B_0$</p></li>
 </ul>
 </li>
 <li><p>Excitation: Perturb the spins from equilibrium by applying RF energy</p>
 <ul class="simple">
-<li><p>Components required: transmit RF coil, <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></p></li>
+<li><p>Components required: transmit RF coil, $B_1^+(\vec{r},t)$</p></li>
 </ul>
 </li>
 <li><p>Acquisition: Detect the changing magnetic field RF energy from excited spins</p>
 <ul class="simple">
-<li><p>Components required: receive RF coil, <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></li>
+<li><p>Components required: receive RF coil, $B_1^-(\vec{r},t)$</p></li>
 </ul>
 </li>
 <li><p>Spatial Encoding: Create spatial variations in the magnetic field to distinguish spins at different locations.  This can occur during excitation and acquisition.</p>
 <ul class="simple">
-<li><p>Components required: Magnetic field gradient coils, <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
+<li><p>Components required: Magnetic field gradient coils, $\vec{G}(t)$</p></li>
 </ul>
 </li>
 <li><p>Repeat Excitation, acquisition, and encoding as needed to acquire enough data to form an image</p></li>
@@ -581,7 +643,7 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
 <p>Different people and different places in the body will create differences in both the main magnetic field as well as the RF fields due to loading and magnetic susceptibility, thus requiring calibrations to be performed for each scan.  This is sometimes referred to as “prescan”.</p>
 <ol class="arabic simple">
 <li><p>Main magnetic field: Measurements of the resonance frequency across the imaging field-of-view are used to perform shimming and choosing the correct RF frequency (“center frequency”)</p></li>
-<li><p>RF systems:  The transmit RF field created, <span class="math notranslate nohighlight">\(B_1^{+}\)</span>, is calibrated by modifying the RF transmit power, implemented via amplifier gains.  Often, the RF receive coil profiles, <span class="math notranslate nohighlight">\(B_1^{-}\)</span>, are also measured for intensity correction and accelerated imaging methods.</p></li>
+<li><p>RF systems:  The transmit RF field created, $B_1^{+}$, is calibrated by modifying the RF transmit power, implemented via amplifier gains.  Often, the RF receive coil profiles, $B_1^{-}$, are also measured for intensity correction and accelerated imaging methods.</p></li>
 </ol>
 </section>
 </section>
@@ -655,9 +717,9 @@ This energy is deposited in the radio-frequency (RF) range, typically in the 100
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-a-mri-scanner">Components of a MRI Scanner</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main magnet - $B_0$</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - $\vec{G}(t)$</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-mri-experiment-procedure">Fundamental MRI Experiment Procedure</a></li>
@@ -704,7 +766,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

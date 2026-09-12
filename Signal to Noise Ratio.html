@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Signal to Noise Ratio';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Signal to Noise Ratio.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSignal to Noise Ratio.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -490,7 +552,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="scan-time-and-signal-to-noise-ratio-snr">
+  <section id="scan-time-and-signal-to-noise-ratio-snr">
 <h1>Scan Time and Signal to Noise Ratio (SNR)<a class="headerlink" href="#scan-time-and-signal-to-noise-ratio-snr" title="Link to this heading">#</a></h1>
 <p>The scan time and signal to noise ratio (SNR) are critical characteristics that impacts image quality and what is practical in MRI.  For MRI, there is a strong theoretical foundation for the SNR dependency based on the MRI physics and pulse sequence characteristics.</p>
 <section id="learning-goals">
@@ -511,11 +573,10 @@
 </section>
 <section id="scan-time">
 <h2>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h2>
-<p>The total scan time, <span class="math notranslate nohighlight">\(T_{scan}\)</span>, depends on the length of each component in the pulse sequence as well as how many times these components are repeated.</p>
-<p>For sequences with a single component of length <span class="math notranslate nohighlight">\(TR\)</span>, this can be expressed as</p>
-<div class="math notranslate nohighlight">
-\[T_{scan} = TR \ N_{TR}\]</div>
-<p>where <span class="math notranslate nohighlight">\(N_{TR}\)</span> is the total number of TRs which can depend on the number of phase encodes, preparation or dummy cycles to get into the steady-state, acceleration factor, and number of averages.</p>
+<p>The total scan time, $T_{scan}$, depends on the length of each component in the pulse sequence as well as how many times these components are repeated.</p>
+<p>For sequences with a single component of length $TR$, this can be expressed as</p>
+<p>$$T_{scan} = TR \ N_{TR}$$</p>
+<p>where $N_{TR}$ is the total number of TRs which can depend on the number of phase encodes, preparation or dummy cycles to get into the steady-state, acceleration factor, and number of averages.</p>
 </section>
 <section id="snr-dependencies">
 <h2>SNR Dependencies<a class="headerlink" href="#snr-dependencies" title="Link to this heading">#</a></h2>
@@ -529,55 +590,44 @@
 <section id="voxel-volume">
 <h3>Voxel Volume<a class="headerlink" href="#voxel-volume" title="Link to this heading">#</a></h3>
 <p>The MRI signal is an integral over a volume of the transverse magnetization.  Therefore there is a linear dependency on the MRI signal and the volume of magnetization being examined.  So we have</p>
-<div class="math notranslate nohighlight">
-\[SNR \propto \mathrm{Voxel\ Volume} = \delta_x\ \delta_y\ \delta_z\]</div>
-<p>where <span class="math notranslate nohighlight">\(\delta_x, \delta_y, \delta_z\)</span> are the voxel dimensions in x, y, and z.</p>
+<p>$$SNR \propto \mathrm{Voxel\ Volume} = \delta_x\ \delta_y\ \delta_z$$</p>
+<p>where $\delta_x, \delta_y, \delta_z$ are the voxel dimensions in x, y, and z.</p>
 </section>
 <section id="data-acquisition-time">
 <h3>Data Acquisition Time<a class="headerlink" href="#data-acquisition-time" title="Link to this heading">#</a></h3>
 <p>Every additional measurement allows for signal averaging since the noise varies at each measurement.  Note that MRI noise is zero-mean with a Gaussian distribution.  Additional data acquisition time increases signal linearly, while the total noise increases as the square root.  So</p>
-<div class="math notranslate nohighlight">
-\[SNR \propto \frac{S}{\sigma} = \frac{T_{meas}}{\sqrt{T_{meas}}} = \sqrt{T_{meas}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(T_{meas}\)</span> is the <em>total data acquisition/measurement time</em> including all TRs and signal averaging, but not including the sequence downtime.  This can be defined in terms of the readout duration per TR, <span class="math notranslate nohighlight">\(T_{read}\)</span>, and the total number of TRs, <span class="math notranslate nohighlight">\(N_{TR}\)</span>, which for example includes number of ,phase encoding steps and signal averages, as:</p>
-<div class="math notranslate nohighlight">
-\[T_{meas} = N_{TR} T_{read}\]</div>
+<p>$$SNR \propto \frac{S}{\sigma} = \frac{T_{meas}}{\sqrt{T_{meas}}} = \sqrt{T_{meas}}$$</p>
+<p>where $T_{meas}$ is the <em>total data acquisition/measurement time</em> including all TRs and signal averaging, but not including the sequence downtime.  This can be defined in terms of the readout duration per TR, $T_{read}$, and the total number of TRs, $N_{TR}$, which for example includes number of ,phase encoding steps and signal averages, as:</p>
+<p>$$T_{meas} = N_{TR} T_{read}$$</p>
 </section>
 <section id="transverse-magnetization">
 <h3>Transverse Magnetization<a class="headerlink" href="#transverse-magnetization" title="Link to this heading">#</a></h3>
 <p>The MRI signal is also proportional to the transverse magnetization, including modulation that occurs due to pulse sequence parameters such as TE, TR, flip angle, spin-echo versus gradient-echo, etc.  This is then also varying depending on the MR properties such as proton density, relaxation rates, diffusion coefficients, etc.  Since this varies widely by pulse sequence, we summarize this as</p>
-<div class="math notranslate nohighlight">
-\[SNR \propto f_{seq}\]</div>
+<p>$$SNR \propto f_{seq}$$</p>
 <p>For example, in a simple spoiled gradient-echo pulse sequence,</p>
-<div class="math notranslate nohighlight">
-\[f_{seq,GRE} = M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
+<p>$$f_{seq,GRE} = M_0 \sin(\theta) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}$$</p>
 </section>
 </section>
 <section id="snr-equations">
 <h2>SNR Equations<a class="headerlink" href="#snr-equations" title="Link to this heading">#</a></h2>
 <p>Putting it all together,</p>
-<div class="math notranslate nohighlight">
-\[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
+<p>$$SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}$$</p>
 <p><strong>This simple equation describes the majority of SNR effects in MRI, and is extremely powerful when designing and improving MRI scans!</strong></p>
 <section id="alternative-formulations-of-snr">
 <h3>Alternative formulations of SNR<a class="headerlink" href="#alternative-formulations-of-snr" title="Link to this heading">#</a></h3>
 <p>MRI scanner interfaces often do not provide direct control of the resolutions or measurement times, but instead parameters such as matrix sizes, field-of-views (FOVs) and readout bandwidths are used.  The following relationships can generally be used to convert these parameters into the SNR equation above.</p>
-<div class="math notranslate nohighlight">
-\[ FOV = \delta \ N_{matrix} \]</div>
-<div class="math notranslate nohighlight">
-\[ T_{read} = \frac{N_{readout}}{BW} = \frac{N_{readout}}{2 BW_{one-sided}} \]</div>
+<p>$$ FOV = \delta \ N_{matrix} $$</p>
+<p>$$ T_{read} = \frac{N_{readout}}{BW} = \frac{N_{readout}}{2 BW_{one-sided}} $$</p>
 <p>If acceleration methods such as partial Fourier, parallel imaging, or compressed sensing are NOT used, the following relationships also apply</p>
-<div class="math notranslate nohighlight">
-\[ T_{read} = \frac{N_{FE}}{BW} = \frac{1}{BW/pixel} \]</div>
-<div class="math notranslate nohighlight">
-\[ N_{TR} = N_{FE} \ N_{PE} \ N_{averages} \]</div>
+<p>$$ T_{read} = \frac{N_{FE}}{BW} = \frac{1}{BW/pixel} $$</p>
+<p>$$ N_{TR} = N_{FE} \ N_{PE} \ N_{averages} $$</p>
 <p>However, partial Fourier methods can potentially be used to reduce the readout time or number of encoding steps, and parallel imaging/compressed sensing can be used to reduce the number of encoding steps.</p>
 </section>
 </section>
 <section id="snr-efficiency">
 <h2>SNR Efficiency<a class="headerlink" href="#snr-efficiency" title="Link to this heading">#</a></h2>
-<p>The SNR efficiency for MRI provides a measure of overall efficiency within a MRI scan, which is the SNR normalized by the <em>total scan time</em>, <span class="math notranslate nohighlight">\(T_{scan}\)</span></p>
-<div class="math notranslate nohighlight">
-\[SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{meas} }{T_{scan}}}\]</div>
+<p>The SNR efficiency for MRI provides a measure of overall efficiency within a MRI scan, which is the SNR normalized by the <em>total scan time</em>, $T_{scan}$</p>
+<p>$$SNR_{efficiency} = \frac{SNR}{\sqrt{T_{scan}}} \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{\frac{T_{meas} }{T_{scan}}}$$</p>
 </section>
 <section id="resolution-and-snr-in-post-processing">
 <h2>Resolution and SNR in Post-Processing<a class="headerlink" href="#resolution-and-snr-in-post-processing" title="Link to this heading">#</a></h2>
@@ -716,7 +766,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Pulse Sequence';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Pulse Sequence.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FPulse Sequence.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -464,7 +526,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-a-pulse-sequence">Components of a Pulse Sequence</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation-pulse-rf">RF Excitation pulse (RF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z">Magnetic field gradients for localization (<span class="math notranslate nohighlight">\(G_X, G_Y, G_Z\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z">Magnetic field gradients for localization ($G_X, G_Y, G_Z$)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-window-daq">Data acquisition window (DAQ)</a></li>
 </ul>
 </li>
@@ -486,7 +548,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="the-pulse-sequence">
+  <section id="the-pulse-sequence">
 <h1>The Pulse Sequence<a class="headerlink" href="#the-pulse-sequence" title="Link to this heading">#</a></h1>
 <p>Magnetic resonance experiments are described by a “Pulse Sequence”, which is a timing diagram that shows how the different magnetic fields are manipulated.  This chapter introduces the pulse sequence diagram and the sequence parameters of TE and TR.</p>
 <section id="learning-goals">
@@ -519,14 +581,14 @@
 <p><img alt="Idealized RF Pulse" src="_images/pulse_sequence-RF_ideal.png" /></p>
 </section>
 <section id="magnetic-field-gradients-for-localization-g-x-g-y-g-z">
-<h3>Magnetic field gradients for localization (<span class="math notranslate nohighlight">\(G_X, G_Y, G_Z\)</span>)<a class="headerlink" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z" title="Link to this heading">#</a></h3>
+<h3>Magnetic field gradients for localization ($G_X, G_Y, G_Z$)<a class="headerlink" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z" title="Link to this heading">#</a></h3>
 <p>The magnetic field gradients are also used in a pulsed fashion, where they are switched on and off during the pulse sequence.  This is done primarily for spatial localization, including RF pulse slice selection and spatial encoding, which are both described in later chapters.  It is important to note here that multiple measurements with slightly different gradient pulses must typically be used to get enough data to form an image.</p>
 <p><img alt="Gradient" src="_images/pulse_sequence-gradients.png" /></p>
 </section>
 <section id="data-acquisition-window-daq">
 <h3>Data acquisition window (DAQ)<a class="headerlink" href="#data-acquisition-window-daq" title="Link to this heading">#</a></h3>
 <p>The data acquisition window indicates when signals are being measured and recorded off of the RF receive coils.  This must be done after excitation, and is done in conjunction with magnetic field gradients to perform spatial encoding.
-It is important to remeber when looking at the data acquisition window that it is the <strong>transverse</strong> magnetization (<span class="math notranslate nohighlight">\(M_{XY}\)</span>) that is measured.</p>
+It is important to remeber when looking at the data acquisition window that it is the <strong>transverse</strong> magnetization ($M_{XY}$) that is measured.</p>
 <p><img alt="DAQ" src="_images/pulse_sequence-DAQ.png" /></p>
 </section>
 </section>
@@ -555,12 +617,12 @@ It is important to remeber when looking at the data acquisition window that it i
 <h2>Key Parameters<a class="headerlink" href="#key-parameters" title="Link to this heading">#</a></h2>
 <p>The following key parameters are typically defined on a pulse sequence diagram:</p>
 <ul class="simple">
-<li><p>Flip Angle (<span class="math notranslate nohighlight">\(\theta\)</span>) - how much a RF pulse flips (i.e. rotates or tips) the net magnetization</p></li>
+<li><p>Flip Angle ($\theta$) - how much a RF pulse flips (i.e. rotates or tips) the net magnetization</p></li>
 <li><p>Echo Time (TE) - the time between excitation and data acquisition, typically measured between the center of the RF excitation pulse and the data acquisition window</p></li>
 <li><p>Repetition Time (TR) - the time between repetitions of the main pulse sequence block</p></li>
-<li><p>Number of Repetitions (<span class="math notranslate nohighlight">\(\mathrm{N}_\mathrm{TR}\)</span>) - how many times the pulse sequence block must be repeated</p></li>
-<li><p>Readout time (<span class="math notranslate nohighlight">\(T_{read}\)</span>) - the time the data acquisition window is open within a single repetition</p></li>
-<li><p>Active time (<span class="math notranslate nohighlight">\(T_{active}\)</span>) - the time required for all RF pulses and gradients to be applied within a single repetition.  This determines the minimum TR.</p></li>
+<li><p>Number of Repetitions ($\mathrm{N}_\mathrm{TR}$) - how many times the pulse sequence block must be repeated</p></li>
+<li><p>Readout time ($T_{read}$) - the time the data acquisition window is open within a single repetition</p></li>
+<li><p>Active time ($T_{active}$) - the time required for all RF pulses and gradients to be applied within a single repetition.  This determines the minimum TR.</p></li>
 </ul>
 <p><img alt="Pulse Sequence Diagram" src="_images/pulse_sequence-diagram-all.png" /></p>
 </section>
@@ -635,7 +697,7 @@ It is important to remeber when looking at the data acquisition window that it i
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-a-pulse-sequence">Components of a Pulse Sequence</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rf-excitation-pulse-rf">RF Excitation pulse (RF)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z">Magnetic field gradients for localization (<span class="math notranslate nohighlight">\(G_X, G_Y, G_Z\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradients-for-localization-g-x-g-y-g-z">Magnetic field gradients for localization ($G_X, G_Y, G_Z$)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition-window-daq">Data acquisition window (DAQ)</a></li>
 </ul>
 </li>
@@ -684,7 +746,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

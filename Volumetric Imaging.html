@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Volumetric Imaging';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Volumetric Imaging.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FVolumetric Imaging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -486,7 +548,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="volumetric-imaging">
+  <section id="volumetric-imaging">
 <h1>Volumetric Imaging<a class="headerlink" href="#volumetric-imaging" title="Link to this heading">#</a></h1>
 <p>Volumetric imaging refers to the ability to acquire images across a volume.  So far we have discussed methods for a single slice.  This chapter will cover the techniques of 2D multi-slice imaging and 3D imaging.</p>
 <section id="learning-goals">
@@ -538,28 +600,23 @@
 <section id="contrast">
 <h3>Contrast<a class="headerlink" href="#contrast" title="Link to this heading">#</a></h3>
 <p>2D multi-slice imaging methods with interleaving can efficiently support longer TRs for PD and T2-weighted imaging, as any extra time in the TR can be used to acquire other slices.</p>
-<p>3D imaging methods require a larger <span class="math notranslate nohighlight">\(N_{TR}\)</span> to complete two dimensions of phase encoding.  For this reason, they are much better suited for T1-weighted imaging which can use shorter TRs.</p>
+<p>3D imaging methods require a larger $N_{TR}$ to complete two dimensions of phase encoding.  For this reason, they are much better suited for T1-weighted imaging which can use shorter TRs.</p>
 </section>
 <section id="scan-time">
 <h3>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h3>
 <p>In 2D multi-slice imaging, the scan time tradeoff depends on the number of slices that can be interleaved in a single TR.  The maximum number of slices is determined by the active time:</p>
-<div class="math notranslate nohighlight">
-\[N_{slices,max} = \frac{TR}{T_{active}}\]</div>
+<p>$$N_{slices,max} = \frac{TR}{T_{active}}$$</p>
 <p>Provided the number of slices is limited by this maximum, the scan time for fully sampled Cartesian encoding is:</p>
-<div class="math notranslate nohighlight">
-\[T_{scan, 2D} = TR \ N_{PE} \ N_{avg}\]</div>
+<p>$$T_{scan, 2D} = TR \ N_{PE} \ N_{avg}$$</p>
 <p>In 3D imaging, the scan time depends on the size of both phase encoding dimensions:</p>
-<div class="math notranslate nohighlight">
-\[T_{scan, 3D} = TR \ N_{PE,1} \ N_{PE,2} \ N_{avg}\]</div>
+<p>$$T_{scan, 3D} = TR \ N_{PE,1} \ N_{PE,2} \ N_{avg}$$</p>
 </section>
 <section id="snr">
 <h3>SNR<a class="headerlink" href="#snr" title="Link to this heading">#</a></h3>
 <p>Here are relationships if fully-sampled Cartesian encoding is used:</p>
-<div class="math notranslate nohighlight">
-\[SNR_{2D} \propto f_{seq,2D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE} N_{avg}}\]</div>
-<div class="math notranslate nohighlight">
-\[SNR_{3D} \propto f_{seq,3D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE,1} N_{PE,2} N_{avg}}\]</div>
-<p>3D imaging has a measurement time advantage over 2D multi-slice imaging, since each acquisition acquires signal from the entire volume.  However, some of this advantage is mitigated by greater T1 recovery in 2D multi-slice imaging, which is captured by <span class="math notranslate nohighlight">\(f_{seq}\)</span>.</p>
+<p>$$SNR_{2D} \propto f_{seq,2D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE} N_{avg}}$$</p>
+<p>$$SNR_{3D} \propto f_{seq,3D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE,1} N_{PE,2} N_{avg}}$$</p>
+<p>3D imaging has a measurement time advantage over 2D multi-slice imaging, since each acquisition acquires signal from the entire volume.  However, some of this advantage is mitigated by greater T1 recovery in 2D multi-slice imaging, which is captured by $f_{seq}$.</p>
 </section>
 </section>
 </section>
@@ -682,7 +739,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

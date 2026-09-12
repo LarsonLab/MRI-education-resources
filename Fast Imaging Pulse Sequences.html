@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Fast Imaging Pulse Sequences';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Fast Imaging Pulse Sequences.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FFast Imaging Pulse Sequences.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -492,7 +554,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="fast-imaging-pulse-sequences">
+  <section id="fast-imaging-pulse-sequences">
 <h1>Fast Imaging Pulse Sequences<a class="headerlink" href="#fast-imaging-pulse-sequences" title="Link to this heading">#</a></h1>
 <p>Modern MRI scanning relies heavily fast imaging pulse sequences, primarily echo-planar imaging (EPI) and multiple Spin-echo (RARE/FSE/TSE) methods.  These allow for multiple k-space lines to be acquired within a single TR.</p>
 <section id="learning-goals">
@@ -539,9 +601,9 @@
 <section id="sequence-parameters">
 <h3>Sequence parameters<a class="headerlink" href="#sequence-parameters" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>) - time between each spin-echo</p></li>
+<li><p>Echo spacing ($t_{esp}$) - time between each spin-echo</p></li>
 <li><p>Echo train length (ETL) - number of spin-echoes with a repetition</p></li>
-<li><p>Effective TE (<span class="math notranslate nohighlight">\(TE_{eff}\)</span>) - the echo time when the data closest to the center of k-space is acquired.</p></li>
+<li><p>Effective TE ($TE_{eff}$) - the echo time when the data closest to the center of k-space is acquired.</p></li>
 </ul>
 </section>
 <section id="tradeoffs">
@@ -550,7 +612,7 @@
 <ul class="simple">
 <li><p>Fast</p></li>
 <li><p>SNR efficient</p></li>
-<li><p>Supports multiple contrasts by manipulating <span class="math notranslate nohighlight">\(TE_{eff}\)</span></p></li>
+<li><p>Supports multiple contrasts by manipulating $TE_{eff}$</p></li>
 </ul>
 <p>Cons</p>
 <ul class="simple">
@@ -569,7 +631,7 @@
 <section id="id1">
 <h3>Sequence parameters<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>) - time between each readout and gradient-echo</p></li>
+<li><p>Echo spacing ($t_{esp}$) - time between each readout and gradient-echo</p></li>
 <li><p>Echo train length (ETL) - number of readouts or k-space lines acquired within a repetition</p></li>
 <li><p>TE - the time when the data closest to the center of k-space is acquired.</p></li>
 </ul>
@@ -607,8 +669,7 @@
 <li><p>Both gradient and RF spoiling are used</p></li>
 <li><p>Pure T1 weighted contrast</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[S_{SPGR} \propto M_0 \sin \theta \frac{1 - \exp(-TR/T_1)}{1 - \cos \theta \exp(-TR/T_1)}\]</div>
+<p>$$S_{SPGR} \propto M_0 \sin \theta \frac{1 - \exp(-TR/T_1)}{1 - \cos \theta \exp(-TR/T_1)}$$</p>
 <p>Gradient-recalled acquisition in the steady state (GRASS)/fast imaging with steady-state precession (FISP)</p>
 <ul class="simple">
 <li><p>Allows for residual transverse magnetization to be used in the next TR</p></li>
@@ -630,15 +691,14 @@
 <li><p>High SNR efficiency</p></li>
 </ul>
 <p><img alt="bSSFP Pulse Sequence" src="_images/pulse_sequence-diagram-bSSFP.png" /></p>
-<div class="math notranslate nohighlight">
-\[S_{bSSFP} \propto \frac{M_0}{2} \sqrt{\frac{T_2}{T_1}}\]</div>
+<p>$$S_{bSSFP} \propto \frac{M_0}{2} \sqrt{\frac{T_2}{T_1}}$$</p>
 </section>
 <section id="magnetization-prepared-fast-gradient-echo-sequences">
 <h3>Magnetization Prepared Fast Gradient-echo Sequences<a class="headerlink" href="#magnetization-prepared-fast-gradient-echo-sequences" title="Link to this heading">#</a></h3>
 <p>Magnetization preparation schemes, such as inversion recovery, T2-preparation, and magnetization transfer, encode contrast in the longitudinal magnetization.  This contrast can be efficiently imaged with multiple gradient-echo readouts after a single magnetization preparation module.</p>
 <p>The most common of this type of sequence is the Magnetization Prepared Rapid Gradient Echo (MPRAGE) sequence for brain imaging, which specifically uses inversion recovery magnetization preparation to create T1-weighted contrast, followed by multiple spoiled gradient-echo readouts to retain only T1-weighted contrast.</p>
 <p><img alt="Magnetization Prepared Fast Gradient-echo Pulse Sequence" src="_images/pulse_sequence-diagram-mprage.png" /></p>
-<p>This sequence includes several additional parameters, including the recovery time, <span class="math notranslate nohighlight">\(T_{recovery}\)</span>, and number of readouts per preparation, <span class="math notranslate nohighlight">\(N_{segments}\)</span>, as well as the specific paramters of the magnetization preparation.</p>
+<p>This sequence includes several additional parameters, including the recovery time, $T_{recovery}$, and number of readouts per preparation, $N_{segments}$, as well as the specific paramters of the magnetization preparation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate MPRAGE MRI Pulse Sequence, which typically uses inversion preparation</span>
@@ -854,7 +914,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

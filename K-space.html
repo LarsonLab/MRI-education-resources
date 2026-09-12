@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'K-space';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/K-space.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FK-space.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -485,7 +547,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="k-space">
+  <section id="k-space">
 <h1>K-space<a class="headerlink" href="#k-space" title="Link to this heading">#</a></h1>
 <p>MRI is a so-called Fourier imaging technique, where data is acquired in the Fourier Transform domain.  The Fourier Transform domain is referred to as “k-space”.  This section describes the how to characterize MRI spatial encoding using k-space and introduces the concept of k-space trajectories for sampling data.</p>
 <section id="learning-goals">
@@ -503,44 +565,35 @@
 <section id="generalized-spatial-encoding">
 <h2>Generalized Spatial Encoding<a class="headerlink" href="#generalized-spatial-encoding" title="Link to this heading">#</a></h2>
 <p>In general, the application of magnetic field gradients will change the phase of the transverse magnetization with dependence on the gradient waveforms used and position:</p>
-<div class="math notranslate nohighlight">
-\[ M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) \]</div>
-<p>Using the notation <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r}, t=0)\)</span>, this can be written as</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) = m(\vec{r}) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)\]</div>
+<p>$$ M_{XY}(\vec{r}, t) = M_{XY}(\vec{r}, 0) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right) $$</p>
+<p>Using the notation $m(\vec{r}) = M_{XY}(\vec{r}, t=0)$, this can be written as</p>
+<p>$$M_{XY}(\vec{r}, t) = m(\vec{r}) \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} \ d\tau \right)$$</p>
 <p>A key fact here is that the phase accumulation depends on the cumulative gradient area, or the integral of the gradient.  This means we can turn the gradients on and off to start and stop the phase accumulation, and also reverse the gradient polarity to undo any prior phase accumulation.</p>
 <section id="definition-of-k-space">
 <h3>Definition of k-space<a class="headerlink" href="#definition-of-k-space" title="Link to this heading">#</a></h3>
 <p>Here, we introduce the concept of k-space, which is a simplified representation of the phase accumulation due to magnetic field gradients.  It is defined as</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \ d\tau\]</div>
+<p>$$\vec{k}(t) = [k_X(t), k_Y(t), k_Z(t)]^T = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) \ d\tau$$</p>
 <p>The effect of gradients on the transverse magnetization then becomes</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r}, t) =  m(\vec{r}) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }\]</div>
+<p>$$M_{XY}(\vec{r}, t) =  m(\vec{r}) e^{ -i 2 \pi \vec{k}(t) \cdot \vec{r} }$$</p>
 <p>The specific motivation for k-space will become apparent soon, when we formulate the signal equation and see that there is a Fourier Transform.</p>
 </section>
 <section id="mri-signal-in-the-fourier-domain">
 <h3>MRI signal in the Fourier domain<a class="headerlink" href="#mri-signal-in-the-fourier-domain" title="Link to this heading">#</a></h3>
 <p>The MRI signal comes from the precession of the transverse magnetization, and thus is proportional to the transverse magnetization.  The MRI signal also comes from any precessing magnetization within the sensitive volume of the RF receive coils.  In other words, it is also not localized to a single location, but rather is summed over a volume:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-s(t) &amp; = \int M_{XY}(\vec{r},t) \ d\vec{r} \\
- &amp; =  \int m(\vec{r}) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}
- \end{aligned}\end{split}\]</div>
+<p>$$\begin{aligned}
+s(t) &amp; = \int M_{XY}(\vec{r},t) \ d\vec{r} \
+&amp; =  \int m(\vec{r}) \exp(-i2\pi \vec{k}(t) \cdot \vec{r}) \ d\vec{r}
+\end{aligned}$$</p>
 <p>The amazing result here is that this describes our MRI signal in the form of a Fourier Transform:</p>
-<div class="math notranslate nohighlight">
-\[\mathcal{F} \{ f(\vec{r}) \} = F(\vec{k}) = \int_{-\infty}^\infty f(\vec{r}) \exp(-i 2 \pi \vec{k} \cdot  \vec{r}) \ d\vec{r}\]</div>
+<p>$$\mathcal{F} { f(\vec{r}) } = F(\vec{k}) = \int_{-\infty}^\infty f(\vec{r}) \exp(-i 2 \pi \vec{k} \cdot  \vec{r}) \ d\vec{r}$$</p>
 <p>This is the power of the k-space representation, that it describes how MRI is sampling data in the Fourier Transform domain, or the spatial frequency domain, of the object net magnetization.  In other words, MRI signals are a measure of the spatial frequencies of our object.</p>
 <p>This result means that, to reconstruct an image we need to put our MRI signals into their k-space location based on the applied gradients, and then use an inverse Fourier Transform.
-Our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, <span class="math notranslate nohighlight">\(\vec{k}\)</span>, that is determined by the k-space trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = \mathcal{F} \{ M_{XY}(\vec{r},0) \} |_{\vec{k} = \vec{k}(t)} \]</div>
+Our signal is the Fourier Transform of the initial transverse magnetization, evaluated at a spatial frequnecy, $\vec{k}$, that is determined by the k-space trajectory, $\vec{k}(t)$:</p>
+<p>$$ s(t) = \mathcal{F} { M_{XY}(\vec{r},0) } |_{\vec{k} = \vec{k}(t)} $$</p>
 <p>Defining</p>
-<div class="math notranslate nohighlight">
-\[\mathcal{F}\{ m(\vec{r}) \} = M(\vec{k})\]</div>
+<p>$$\mathcal{F}{ m(\vec{r}) } = M(\vec{k})$$</p>
 <p>then we get</p>
-<div class="math notranslate nohighlight">
-\[ s(t) = M(\vec{k}(t)) \]</div>
+<p>$$ s(t) = M(\vec{k}(t)) $$</p>
 <p>This key result says that the received signal is proportional to the Fourier Transform of the transverse magnetization, evaluated at the k-space location determined by the k-space trajectory.</p>
 </section>
 </section>
@@ -548,28 +601,27 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <h2>From MRI data to images<a class="headerlink" href="#from-mri-data-to-images" title="Link to this heading">#</a></h2>
 <p>The flow of the experiment and data is as follows:</p>
 <ol class="arabic simple">
-<li><p>RF excitation to create transverse magnetization, <span class="math notranslate nohighlight">\(M_{XY}(\vec{r},0)\)</span></p></li>
-<li><p>Gradients applied as <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span> and data is acquired</p></li>
-<li><p>k-space locations, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, are determined based on the applied gradients</p></li>
-<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location: <span class="math notranslate nohighlight">\( s(t) = M(\vec{k}(t))\)</span></p></li>
-<li><p>MR signal over time is stored in a data matrix with known k-space locations to create <span class="math notranslate nohighlight">\(M(\vec{k})\)</span></p></li>
-<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization <span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\{ M(\vec{k} )\} = m(\vec{r})\)</span></p></li>
+<li><p>RF excitation to create transverse magnetization, $M_{XY}(\vec{r},0)$</p></li>
+<li><p>Gradients applied as $\vec{G}(t)$ and data is acquired</p></li>
+<li><p>k-space locations, $\vec{k}(t)$, are determined based on the applied gradients</p></li>
+<li><p>MR signal acquired represents the Fourier Transform of the transverse magnetization at the k-space location: $ s(t) = M(\vec{k}(t))$</p></li>
+<li><p>MR signal over time is stored in a data matrix with known k-space locations to create $M(\vec{k})$</p></li>
+<li><p>Inverse Fourier Transform is applied to reconstruct an image of the transverse magnetization $\mathcal{F}^{-1}{ M(\vec{k} )} = m(\vec{r})$</p></li>
 </ol>
 <p><em><strong>Key Result</strong></em>: <em>We have now have the incredible result that we used magnetic field gradients, the k-space framework, and appropriate acquisition and ordering of the MR signal to create an</em> <strong>IMAGE</strong>!!</p>
 </section>
 <section id="k-space-trajectories">
 <h2>K-space Trajectories<a class="headerlink" href="#k-space-trajectories" title="Link to this heading">#</a></h2>
 <p>K-space is a very general method for capturing the effect of spatial encoding gradients, and the “k-space trajectory” is defined as the pattern created over time by the gradients:</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
-<p>Note that k-space trajectories always start at the center of k-space, <span class="math notranslate nohighlight">\(\vec{k}(0) = 0\)</span> and are only defined once there is transverse magnetization (e.g. after an RF pulse).</p>
+<p>$$\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau$$</p>
+<p>Note that k-space trajectories always start at the center of k-space, $\vec{k}(0) = 0$ and are only defined once there is transverse magnetization (e.g. after an RF pulse).</p>
 <p>The following simulation of the net magnetizations shows how rotations and k-space trajectory during a typical Cartesian (or 2D FT) gradient pulse sequence, which is differs from the simulation above in that an initial dephasing gradient in the frequency encoding direction is applied to sample both positive and negative spatial frequencies in k-space:</p>
 <p><img alt="frequency_phase_encoding-full-Mxy.gif" src="_images/frequency_phase_encoding-full-Mxy.gif" /></p>
 <p><img alt="frequency_phase_encoding-full-image_phase.gif" src="_images/frequency_phase_encoding-full-image_phase.gif" /></p>
 <p>(See <code class="docutils literal notranslate"><span class="pre">spatial_encoding_Mxy_illustration.m</span></code> for code generating this movie)</p>
 <section id="mapping-gradients-to-k-space-trajectory">
 <h3>Mapping Gradients to K-space trajectory<a class="headerlink" href="#mapping-gradients-to-k-space-trajectory" title="Link to this heading">#</a></h3>
-<p>To determine the k-space trajectory, the integral or cumulative sum of the gradients after excitation is computed based on the formula above.  Once the trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, is known, this can be mapped onto k-space to show the k-space coverage of the chosen gradients.</p>
+<p>To determine the k-space trajectory, the integral or cumulative sum of the gradients after excitation is computed based on the formula above.  Once the trajectory, $\vec{k}(t)$, is known, this can be mapped onto k-space to show the k-space coverage of the chosen gradients.</p>
 <p>To determine the gradients for a given k-space trajectory, the derivative of the k-space trajectory can be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -687,9 +739,8 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <section id="spin-echo-effect-on-k-space">
 <h3>Spin-echo Effect on K-space<a class="headerlink" href="#spin-echo-effect-on-k-space" title="Link to this heading">#</a></h3>
 <p>The refocusing 180-degree pulses use in creating a spin-echo invert the phase of the transverse magnetization.  This is essential for forming a spin-echo.  Since k-space is encoded in the phase of the transverse magnetization, this also inverts the location in k-space.</p>
-<p>If the k-space location prior to the 180° pulse is <span class="math notranslate nohighlight">\(\vec{k}^-(t_{180})\)</span>, then after the pulse it becomes</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}^+(t_{180}) = -\vec{k}^-(t_{180})\]</div>
+<p>If the k-space location prior to the 180° pulse is $\vec{k}^-(t_{180})$, then after the pulse it becomes</p>
+<p>$$\vec{k}^+(t_{180}) = -\vec{k}^-(t_{180})$$</p>
 </section>
 <section id="example-k-space-trajectories">
 <h3>Example K-space Trajectories<a class="headerlink" href="#example-k-space-trajectories" title="Link to this heading">#</a></h3>
@@ -951,7 +1002,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'RF Pulses';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/RF Pulses.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FRF Pulses.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -493,7 +555,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="rf-pulses">
+  <section id="rf-pulses">
 <h1>RF Pulses<a class="headerlink" href="#rf-pulses" title="Link to this heading">#</a></h1>
 <p>The purpose of appling RF magnetic fields is to excite the spins.  Equivalently, this RF energy aims to flip the net magnetization.
 This RF energy is referred to as an RF pulse, since the RF energy is applied for a short period of time and then switched off.</p>
@@ -534,22 +596,22 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <tbody>
 <tr class="row-even"><td><p>Excitation</p></td>
 <td><p>Create signal</p></td>
-<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to <span class="math notranslate nohighlight">\(M_{XY}\)</span></p></td>
+<td><p>$M_Z$ to $M_{XY}$</p></td>
 <td><p>up to 90-degrees</p></td>
 </tr>
 <tr class="row-odd"><td><p>Inversion</p></td>
 <td><p>Enhance contrast</p></td>
-<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to -<span class="math notranslate nohighlight">\(M_Z\)</span></p></td>
+<td><p>$M_Z$ to -$M_Z$</p></td>
 <td><p>180-degrees</p></td>
 </tr>
 <tr class="row-even"><td><p>Refocusing</p></td>
 <td><p>Create spin-echoes</p></td>
-<td><p><span class="math notranslate nohighlight">\(M_{XY}\)</span> to <span class="math notranslate nohighlight">\(M_{XY}\)</span></p></td>
+<td><p>$M_{XY}$ to $M_{XY}$</p></td>
 <td><p>180-degrees</p></td>
 </tr>
 <tr class="row-odd"><td><p>Saturation</p></td>
 <td><p>Suppress magnetization</p></td>
-<td><p><span class="math notranslate nohighlight">\(M_Z\)</span> to 0</p></td>
+<td><p>$M_Z$ to 0</p></td>
 <td><p>90-degrees</p></td>
 </tr>
 </tbody>
@@ -562,23 +624,20 @@ This RF energy is referred to as an RF pulse, since the RF energy is applied for
 <p><img alt="RF Pulse Parameters" src="_images/RF_Pulses-pulse_parameters.png" /></p>
 <section id="flip-angle">
 <h3>Flip Angle<a class="headerlink" href="#flip-angle" title="Link to this heading">#</a></h3>
-<p>The flip angle (on-resonance) is equal to the integral of the RF pulse shape, <span class="math notranslate nohighlight">\(b_1(t)\)</span> (in units of magnetic field)):</p>
-<div class="math notranslate nohighlight">
-\[\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau \]</div>
+<p>The flip angle (on-resonance) is equal to the integral of the RF pulse shape, $b_1(t)$ (in units of magnetic field)):</p>
+<p>$$\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau $$</p>
 </section>
 <section id="time-bandwidth-product">
 <h3>Time-bandwidth Product<a class="headerlink" href="#time-bandwidth-product" title="Link to this heading">#</a></h3>
-<p>The time-bandwidth product (TBW) characterizes the relationship between pulse duration, <span class="math notranslate nohighlight">\(T_{rf}\)</span>, and bandwidth, <span class="math notranslate nohighlight">\(BW_{rf}\)</span> and is a fixed value for a given pulse shape. It is defined as</p>
-<div class="math notranslate nohighlight">
-\[ TBW_{rf} = T_{rf} \cdot BW_{rf} \]</div>
+<p>The time-bandwidth product (TBW) characterizes the relationship between pulse duration, $T_{rf}$, and bandwidth, $BW_{rf}$ and is a fixed value for a given pulse shape. It is defined as</p>
+<p>$$ TBW_{rf} = T_{rf} \cdot BW_{rf} $$</p>
 <p>For a sinc or sinc-like pulse, the TBW product is equal to the number of zero-crossings in the pulse shape.</p>
 </section>
 <section id="specific-absorption-rate">
 <h3>Specific Absorption Rate<a class="headerlink" href="#specific-absorption-rate" title="Link to this heading">#</a></h3>
 <p>The Specific Absorption Rate (SAR) measures the amount of energy absorbed by the body from a RF pulse.  Since this absorption can cause tissue heating there are safety limits on SAR.  It is proportional to the integrated total RF pulse power:</p>
-<div class="math notranslate nohighlight">
-\[ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \]</div>
-<p><span class="math notranslate nohighlight">\(T_{rf}\)</span> is the duration of the RF pulse.
+<p>$$ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau $$</p>
+<p>$T_{rf}$ is the duration of the RF pulse.
 For for MRI, SAR can cause tissue heating and thus there are SAR safety limits to minimize this heating.</p>
 </section>
 </section>
@@ -610,7 +669,7 @@ For for MRI, SAR can cause tissue heating and thus there are SAR safety limits t
 <h2>RF Pulse Profile<a class="headerlink" href="#rf-pulse-profile" title="Link to this heading">#</a></h2>
 <p>To precisely characterize the behavior of an RF pulse, a pulse profile can be computed.</p>
 <p>In this section, we will characterize the behavior of RF pulses as a function of off-resonance, or frequency.  In the next section, gradients will be added to perform slice selection and the profile will be computed as a function of space.</p>
-<p>The RF pulse profile can plot several parameters, including the flip angle, the resulting transverse magnetization <span class="math notranslate nohighlight">\(M_{XY}\)</span>, and the resulting longitudinal magnetization <span class="math notranslate nohighlight">\(M_Z\)</span>.</p>
+<p>The RF pulse profile can plot several parameters, including the flip angle, the resulting transverse magnetization $M_{XY}$, and the resulting longitudinal magnetization $M_Z$.</p>
 <p>The following simulations compute the magnetization profiles after hard and shaped RF pulses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,9 +771,8 @@ This “sum of frequencies” illustration of RF pulses is shown in the followin
 <h3>Fourier Transform Approximation<a class="headerlink" href="#fourier-transform-approximation" title="Link to this heading">#</a></h3>
 <p>Based on the above illustration, we can see that the profile of an RF pulse is similar to a Fourier Transform - an operation that determines the frequency content of a signal.<br />
 In practice, the RF pulse profile is only approximately proportional to the Fourier Transform of the RF pulse shape, but this approximation is useful for understanding the frequency content of RF pulses.</p>
-<div class="math notranslate nohighlight">
-\[\theta(f) \approx \gamma \mathcal{F}\{b_1(t)\}\]</div>
-<p>where <span class="math notranslate nohighlight">\(b_1(t)\)</span> is the RF pulse shape, and <span class="math notranslate nohighlight">\(\theta(f)\)</span> is the flip angle at frequency <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>$$\theta(f) \approx \gamma \mathcal{F}{b_1(t)}$$</p>
+<p>where $b_1(t)$ is the RF pulse shape, and $\theta(f)$ is the flip angle at frequency $f$.</p>
 <p>For this reason, our typical RF pulse shapes are sinc-like, which have a Fourier Transform that are rect-like.
 In practice, this approximation is only valid for small flip angles, typically up to 60 degrees.  There are tools such as the SLR transform that can be used to design RF pulses with larger flip angles, which are described later.</p>
 <p><img alt="RF pulse profiles is small and large flip angles, computed with Bloch equation and Fourier Transform approximation" src="_images/RF_Pulses-small_large_tip_example.png" /></p>
@@ -722,9 +780,9 @@ In practice, this approximation is only valid for small flip angles, typically u
 </section>
 <section id="frequency-selective-pulses-for-fat-suppression">
 <h2>Frequency-Selective Pulses for Fat Suppression<a class="headerlink" href="#frequency-selective-pulses-for-fat-suppression" title="Link to this heading">#</a></h2>
-<p>Fat is often a nuisance signal in MRI.  We can use frequency-selective RF pulses for fat suppression by applying a saturation pulse that tips fat 90-degrees but tips water 0-degrees.  This can be done based on the chemical shift between fat and water, and by using a frequency-selective RF pulse as described above.   At this point, <span class="math notranslate nohighlight">\(M_{Z,fat} = 0\)</span> but <span class="math notranslate nohighlight">\(M_{Z,water}\)</span> is unaffected.
-This pulse is followed by a spoiler gradient which will dephase the transverse magnetization of fat, resulting in no signal from fat, <span class="math notranslate nohighlight">\(m_{fat} = 0\)</span>.</p>
-<p>Frequency-selective inversion pulses can also be used for fat suppression along with inversion recovery.  The inversion pulse tips fat 190-degrees but tips water 0-degrees, and is followed by an inversion time to null fat based on its <span class="math notranslate nohighlight">\(T_1\)</span>.</p>
+<p>Fat is often a nuisance signal in MRI.  We can use frequency-selective RF pulses for fat suppression by applying a saturation pulse that tips fat 90-degrees but tips water 0-degrees.  This can be done based on the chemical shift between fat and water, and by using a frequency-selective RF pulse as described above.   At this point, $M_{Z,fat} = 0$ but $M_{Z,water}$ is unaffected.
+This pulse is followed by a spoiler gradient which will dephase the transverse magnetization of fat, resulting in no signal from fat, $m_{fat} = 0$.</p>
+<p>Frequency-selective inversion pulses can also be used for fat suppression along with inversion recovery.  The inversion pulse tips fat 190-degrees but tips water 0-degrees, and is followed by an inversion time to null fat based on its $T_1$.</p>
 </section>
 </section>
 
@@ -853,7 +911,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

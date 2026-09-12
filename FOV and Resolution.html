@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'FOV and Resolution';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/FOV and Resolution.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FFOV and Resolution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -475,7 +537,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="field-of-view-fov-and-resolution">
+  <section id="field-of-view-fov-and-resolution">
 <h1>Field of View (FOV) and Resolution<a class="headerlink" href="#field-of-view-fov-and-resolution" title="Link to this heading">#</a></h1>
 <p>The image we create is fundamentally defined by the field-of-view (FOV) and spatial resolution captured.  These are determined by our k-space sampling pattern.</p>
 <section id="learning-goals">
@@ -495,10 +557,9 @@
 </section>
 <section id="field-of-view-fov">
 <h2>Field-of-View (FOV)<a class="headerlink" href="#field-of-view-fov" title="Link to this heading">#</a></h2>
-<p>The FOV is determined by the sample spacing in k-space, with the simple relationship based on the sample spacing, <span class="math notranslate nohighlight">\(\Delta k\)</span> as:</p>
-<div class="math notranslate nohighlight">
-\[ FOV = \frac{1}{\Delta k}\]</div>
-<p>For example, <span class="math notranslate nohighlight">\(FOV_{x} = \frac{1}{\Delta k_x}\)</span></p>
+<p>The FOV is determined by the sample spacing in k-space, with the simple relationship based on the sample spacing, $\Delta k$ as:</p>
+<p>$$ FOV = \frac{1}{\Delta k}$$</p>
+<p>For example, $FOV_{x} = \frac{1}{\Delta k_x}$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -579,13 +640,11 @@
 </section>
 <section id="spatial-resolution">
 <h2>Spatial Resolution<a class="headerlink" href="#spatial-resolution" title="Link to this heading">#</a></h2>
-<p>The spatial resolution is determined by the maximum sample extent in k-space, with the simple relationship based on the maximum k-space sample locations, <span class="math notranslate nohighlight">\(k_{max}\)</span> as:</p>
-<div class="math notranslate nohighlight">
-\[ \delta = \frac{1}{2 k_{max}}\]</div>
-<p>For example, <span class="math notranslate nohighlight">\(\delta_x = \frac{1}{2 k_{x,max}}\)</span>.</p>
-<p>For symmetric sampling in k-space, this can also be defined based on the width of the k-space sampling, <span class="math notranslate nohighlight">\(W_k = 2 k_{max}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[ \delta = \frac{1}{W_k}\]</div>
+<p>The spatial resolution is determined by the maximum sample extent in k-space, with the simple relationship based on the maximum k-space sample locations, $k_{max}$ as:</p>
+<p>$$ \delta = \frac{1}{2 k_{max}}$$</p>
+<p>For example, $\delta_x = \frac{1}{2 k_{x,max}}$.</p>
+<p>For symmetric sampling in k-space, this can also be defined based on the width of the k-space sampling, $W_k = 2 k_{max}$:</p>
+<p>$$ \delta = \frac{1}{W_k}$$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rectangular object to demonstrate resolution</span>
@@ -777,7 +836,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

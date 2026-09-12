@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Cartesian Image Characteristics';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Cartesian Image Characteristics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FCartesian Image Characteristics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -478,7 +540,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="cartesian-sampling-image-characteristics">
+  <section id="cartesian-sampling-image-characteristics">
 <h1>Cartesian Sampling Image Characteristics<a class="headerlink" href="#cartesian-sampling-image-characteristics" title="Link to this heading">#</a></h1>
 <p>The most common type of pulse sequence uses Cartesian sampling on a k-space grid using frequency and phase encoding.  Here we explicitly define the image characteristics of FOV, resolution, scan time, and SNR for this sequence.</p>
 <section id="learning-goals">
@@ -507,40 +569,30 @@
 <section id="spatial-resolution">
 <h2>Spatial Resolution<a class="headerlink" href="#spatial-resolution" title="Link to this heading">#</a></h2>
 <p>The spatial resolution is determined by the maximum sample extent in k-space.  In the frequency encoding, this can be calculated from the total gradient area during the readout:</p>
-<div class="math notranslate nohighlight">
-\[ \delta_x = \frac{1}{\bar \gamma G_{xr} T_{read}}\]</div>
+<p>$$ \delta_x = \frac{1}{\bar \gamma G_{xr} T_{read}}$$</p>
 <p>In the phase encoding, we can calculate the maximum k-space extent bassed on the largest phase encoding gradient area:</p>
-<div class="math notranslate nohighlight">
-\[k_{y,max} = \bar \gamma G_{yp} t_{y}\]</div>
-<div class="math notranslate nohighlight">
-\[ \delta_y = \frac{1}{2 k_{y,max}} = \frac{1}{ \bar \gamma 2 G_{yp} t_{y}}\]</div>
+<p>$$k_{y,max} = \bar \gamma G_{yp} t_{y}$$</p>
+<p>$$ \delta_y = \frac{1}{2 k_{y,max}} = \frac{1}{ \bar \gamma 2 G_{yp} t_{y}}$$</p>
 <p>In the slice select dimension, the spatial resolution is determined by the slice thickness:</p>
-<div class="math notranslate nohighlight">
-\[ \delta_z = \Delta z = \frac{TBW_{rf} / T_{rf}}{\bar{\gamma} G_{Z,SS}}\]</div>
+<p>$$ \delta_z = \Delta z = \frac{TBW_{rf} / T_{rf}}{\bar{\gamma} G_{Z,SS}}$$</p>
 </section>
 <section id="field-of-view-fov">
 <h2>Field-of-View (FOV)<a class="headerlink" href="#field-of-view-fov" title="Link to this heading">#</a></h2>
-<p>The FOV is determined by the sample spacing in k-space. In the frequency encoding, this is determined by the sampling rate or the readout bandwidth, <span class="math notranslate nohighlight">\(\Delta T_s = 1/RBW\)</span> and the gradient area during that time:</p>
-<div class="math notranslate nohighlight">
-\[ FOV_x = \frac{1}{\bar \gamma G_{xr} \Delta T_s}\]</div>
+<p>The FOV is determined by the sample spacing in k-space. In the frequency encoding, this is determined by the sampling rate or the readout bandwidth, $\Delta T_s = 1/RBW$ and the gradient area during that time:</p>
+<p>$$ FOV_x = \frac{1}{\bar \gamma G_{xr} \Delta T_s}$$</p>
 <p>In the phase encoding, this is determined by the difference in gradient area between adjacent phase encoding steps:</p>
-<div class="math notranslate nohighlight">
-\[ FOV_y = \frac{1}{\bar \gamma G_{yi} \Delta t_y}\]</div>
+<p>$$ FOV_y = \frac{1}{\bar \gamma G_{yi} \Delta t_y}$$</p>
 <p>All of these relationships can also be rewritten using the relationship between FOV, resolution, and number of voxels.</p>
-<div class="math notranslate nohighlight">
-\[ FOV_x = N_{FE} \ \delta_x\]</div>
-<div class="math notranslate nohighlight">
-\[ FOV_y = N_{PE} \ \delta_y\]</div>
-<p>where <span class="math notranslate nohighlight">\(N_{FE}\)</span> is the number of samples in the frequency encoding direction and <span class="math notranslate nohighlight">\(N_{PE}\)</span> is the number of samples in the phase encoding direction.</p>
+<p>$$ FOV_x = N_{FE} \ \delta_x$$</p>
+<p>$$ FOV_y = N_{PE} \ \delta_y$$</p>
+<p>where $N_{FE}$ is the number of samples in the frequency encoding direction and $N_{PE}$ is the number of samples in the phase encoding direction.</p>
 </section>
 <section id="scan-time">
 <h2>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h2>
-<p>For this sequence, the total scan time is determined by the TR and the number of TRs, <span class="math notranslate nohighlight">\(N_{TR}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[T_{scan} = N_{TR} \ TR\]</div>
-<p>Assuming no acceleration, the number of TRs is equal to the number of phase encoding steps, <span class="math notranslate nohighlight">\(N_{PE}\)</span>, times the number of averages, <span class="math notranslate nohighlight">\(N_{avg}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[T_{scan} = N_{PE} \ N_{avg} \ TR\]</div>
+<p>For this sequence, the total scan time is determined by the TR and the number of TRs, $N_{TR}$:</p>
+<p>$$T_{scan} = N_{TR} \ TR$$</p>
+<p>Assuming no acceleration, the number of TRs is equal to the number of phase encoding steps, $N_{PE}$, times the number of averages, $N_{avg}$:</p>
+<p>$$T_{scan} = N_{PE} \ N_{avg} \ TR$$</p>
 </section>
 <section id="snr">
 <h2>SNR<a class="headerlink" href="#snr" title="Link to this heading">#</a></h2>
@@ -658,7 +710,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

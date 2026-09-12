@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Accelerated Imaging Methods';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Accelerated Imaging Methods.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FAccelerated Imaging Methods.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -493,7 +555,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="accelerated-imaging-methods">
+  <section id="accelerated-imaging-methods">
 <h1>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Link to this heading">#</a></h1>
 <p>MRI scans can be accelerated by applying methods that reduce the number of k-space samples required, also known as undersampling.  These require a corresponding advanced image reconstruction method to allow for the reduced sampling.  The techniques covered here include partial Fourier reconstruction, parallel imaging, compressed sensing, and deep learning methods.</p>
 <section id="learning-goals">
@@ -571,15 +633,14 @@ This allows for shorter scan times, which can be used to incease throughput, red
 </section>
 <section id="partial-fourier-imaging">
 <h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Link to this heading">#</a></h2>
-<p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, <span class="math notranslate nohighlight">\(m(\vec{r})\)</span>, is real-valued, then the k-space data satisfies</p>
-<div class="math notranslate nohighlight">
-\[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
-<p>Where <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}))\)</span> is the imaginary part.
-Note that this can also be used if a constant phase offset is present, and this can be estimated and removed such that <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}) e^{i \phi}) = 0\)</span>.</p>
-<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)\)</span>, this would mean all transverse magnetization is along <span class="math notranslate nohighlight">\(M_X\)</span>.  In practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
+<p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, $m(\vec{r})$, is real-valued, then the k-space data satisfies</p>
+<p>$$M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0$$</p>
+<p>Where $\mathcal{Im}(m(\vec{r}))$ is the imaginary part.
+Note that this can also be used if a constant phase offset is present, and this can be estimated and removed such that $\mathcal{Im}(m(\vec{r}) e^{i \phi}) = 0$.</p>
+<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of $m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)$, this would mean all transverse magnetization is along $M_X$.  In practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
 <p>In this case, only half of k-space is required, and the other half can be filled in by this property.  This means 2 times faster scanning!</p>
-<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
-<p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span>, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
+<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along $M_Y$), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
+<p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, $\Delta B_0(\vec r)$, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for Partial Fourier Imaging</span>
@@ -656,9 +717,8 @@ Note that this can also be used if a constant phase offset is present, and this 
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Link to this heading">#</a></h3>
 <p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
-<p>This is characterized by the geometry factor, or “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
-<div class="math notranslate nohighlight">
-\[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
+<p>This is characterized by the geometry factor, or “g-factor”, where $g(\vec{r}) \geq 1$ characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of $R$, the total readout time reduces the SNR by $\sqrt{R}$ as well, leading to the SNR relationship:</p>
+<p>$$SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}$$</p>
 </section>
 <section id="artifacts-with-parallel-imaging">
 <h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Link to this heading">#</a></h3>
@@ -731,7 +791,7 @@ Note that this can also be used if a constant phase offset is present, and this 
 <p>Compressed Sensing (CS) theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  MRI images are in fact compressible, so we can further accelerate our data acquisition with CS.</p>
 <p>Compressed Sensing for MRI is achieved by using k-space sampling patterns with pseudo-random undersampling, which is illustratid by the diagram below of the undersampled reconstruction procedure.  This results in incoherent artifacts that appear noise-like, which can then be removed by constraining the reconstruction to a sparse solution in some transform domain.</p>
 <p><img alt="Compressed Sensing Illustration" src="_images/compressed_sensing_concept.gif" /></p>
-<p><strong>Caption</strong> (Figure from <a class="reference external" href="https://doi.org/10.1109/MSP.2007.914728">https://doi.org/10.1109/MSP.2007.914728</a> ):
+<p><strong>Caption</strong> (Figure from https://doi.org/10.1109/MSP.2007.914728 ):
 Heuristic procedure for reconstruction from undersampled data. A sparse signal (a) is 8-fold undersampled in its 1-D k -space domain (b). Equispaced undersampling results in signal aliasing (d) preventing recovery. Pseudo-random undersampling results in incoherent interference (c). Some strong signal components stick above the interference level, are detected and recovered by thresholding (e) and (f). The interference of these components is computed (g) and subtracted (h), thus lowering the total interference level and enabling recovery of weaker components.</p>
 <p>Popular sparsifying transforms include total variation (TV), total generalized variation (TGV), and wavelets, where MRI images are typically sparse.  The pseudo-random undersampling typically uses a variable density that preferentially has more samples near the center of k-space.</p>
 <section id="snr-in-compressed-sensing">
@@ -749,7 +809,7 @@ Heuristic procedure for reconstruction from undersampled data. A sparse signal (
 <p>These methods require learning from large amounts (e.g. thousands or more) of training data samples, including fully-sampled MRI data as the ground truth. Fortunately, efforts such as the <a class="reference external" href="http://fastmri.med.nyu.edu">fastMRI project</a> have provided large, high-quality datasets for training and evaluating these methods.</p>
 <p>So-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and learning common patterns in the data.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
 <p><img alt="Variational Network for MRI Reconstruction" src="_images/end-to-end_varnet.jpg" /></p>
-<p>Caption (from <a class="reference external" href="https://arxiv.org/abs/2004.06688">https://arxiv.org/abs/2004.06688</a>):
+<p>Caption (from https://arxiv.org/abs/2004.06688):
 The E2E-VN model takes under-sampled k-space as input and applies several cascades, followed by IFT and RSS. Bottom: The DC module brings intermediate k-space closer to measured values, the Refinement module maps multi-coil k-space to one image, applies a U-Net and maps back to k-space, and the SME estimates sensitivity maps used in the refinement step.</p>
 <section id="snr-in-dl-reconstructions">
 <h3>SNR in DL Reconstructions<a class="headerlink" href="#snr-in-dl-reconstructions" title="Link to this heading">#</a></h3>
@@ -887,7 +947,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

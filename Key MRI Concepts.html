@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Key MRI Concepts';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Key MRI Concepts.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FKey MRI Concepts.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -486,7 +548,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="key-mri-concepts-and-equations">
+  <section id="key-mri-concepts-and-equations">
 <h1>Key MRI Concepts and Equations<a class="headerlink" href="#key-mri-concepts-and-equations" title="Link to this heading">#</a></h1>
 <section id="background-material">
 <h2>Background Material<a class="headerlink" href="#background-material" title="Link to this heading">#</a></h2>
@@ -508,40 +570,35 @@
 <section id="mr-spin-physics">
 <h2>MR Spin Physics<a class="headerlink" href="#mr-spin-physics" title="Link to this heading">#</a></h2>
 <p>Resonance - nuclear spins in a magnetic field precess at a frequency proportional to the magnetic field strength</p>
-<div class="math notranslate nohighlight">
-\[f = \bar{\gamma} \|\vec{B}\|\]</div>
+<p>$$f = \bar{\gamma} |\vec{B}|$$</p>
 <p>Polarization - equilibrium magnetization</p>
-<div class="math notranslate nohighlight">
-\[M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}\]</div>
+<p>$$M_0(\vec{r}) = \frac{N(\vec{r}) \bar{\gamma}^2 h^2 I_Z (I_Z +1) B_0}{3 k T}$$</p>
 <p>Net Magnetization at Equilibrium</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\vec{M}(\vec{r},0) = 
+<p>$$\vec{M}(\vec{r},0) =
 \begin{bmatrix}
-0 \\
-0 \\
+0 \
+0 \
 M_0(\vec{r})
-\end{bmatrix}\end{split}\]</div>
+\end{bmatrix}$$</p>
 <p>Excitation</p>
 <ul class="simple">
 <li><p>Apply magnetic field at resonant frequency to rotate net magnetization out of alignment with static magnetic field</p></li>
 </ul>
 <p>Relaxation</p>
-<div class="math notranslate nohighlight">
-\[M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) e^{-t/T_2(\vec{r})}\]</div>
-<div class="math notranslate nohighlight">
-\[M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})})\]</div>
+<p>$$M_{XY}(\vec{r},t) = M_{XY}(\vec{r},0) e^{-t/T_2(\vec{r})}$$</p>
+<p>$$M_Z(\vec{r},t) = M_Z(\vec{r},0)e^{-t/T_1} + M_0(\vec{r})(1- e^{-t/T_1(\vec{r})})$$</p>
 </section>
 <section id="mri-system">
 <h2>MRI System<a class="headerlink" href="#mri-system" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Main magnet - <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
+<li><p>Main magnet - $B_0$</p></li>
 <li><p>Radiofrequency (RF) coils</p>
 <ul class="simple">
-<li><p>transmit RF coil - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>: provide homogeneous excitation</p></li>
-<li><p>receive RF coil - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>: detect signal with high sensitivity</p></li>
+<li><p>transmit RF coil - $B_1^+(\vec{r},t)$: provide homogeneous excitation</p></li>
+<li><p>receive RF coil - $B_1^-(\vec{r},t)$: detect signal with high sensitivity</p></li>
 </ul>
 </li>
-<li><p>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></p></li>
+<li><p>Magnetic field gradient coils - $\vec{G}(t)$</p></li>
 </ol>
 <p>Intuition from magnetic fields and sensitivity profiles of loop coils</p>
 </section>
@@ -567,15 +624,12 @@ M_0(\vec{r})
 <li><p>Proton Density (PD)-weighted - short TE, long TR</p></li>
 </ul>
 <p>spoiled GRE contrast</p>
-<div class="math notranslate nohighlight">
-\[S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}\]</div>
+<p>$$S \propto M_0 \sin(\theta) \exp(-TE/T_2) \frac{1- \exp(-TR/T_1)}{1- \cos(\theta) \exp(-TR/T_1)}$$</p>
 <p>Ernst angle - flip angle for maximum SNR</p>
-<div class="math notranslate nohighlight">
-\[\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))\]</div>
+<p>$$\theta_{optimal} = \cos^{-1}(\exp(-TR/T_1))$$</p>
 <p>Magnetization Preparation Methods:
 Inversion Recovery</p>
-<div class="math notranslate nohighlight">
-\[S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )\]</div>
+<p>$$S_{IR} \propto M_0  \exp(-TE/T_2) (1 - 2\exp(-TI/T_1) + \exp(-TR/T_1) )$$</p>
 </section>
 <section id="in-vivo-spin-physics">
 <h2>In Vivo Spin Physics<a class="headerlink" href="#in-vivo-spin-physics" title="Link to this heading">#</a></h2>
@@ -593,7 +647,7 @@ Inversion Recovery</p>
 </section>
 <section id="in-vivo-contrasts">
 <h2>In Vivo Contrasts<a class="headerlink" href="#in-vivo-contrasts" title="Link to this heading">#</a></h2>
-<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in <span class="math notranslate nohighlight">\(M_{XY}\)</span> and the MR signal</p>
+<p>Phase - chemical shift and off-resonance (e.g. magnetic susceptibility effects) create phase differences in $M_{XY}$ and the MR signal</p>
 <p>T2*</p>
 <ul class="simple">
 <li><p>intra-voxel dephasing due to magnetic field inhomogeneity</p></li>
@@ -608,8 +662,8 @@ Inversion Recovery</p>
 </ul>
 <p>Contrast Agents</p>
 <ul class="simple">
-<li><p>Gadolinium (Gd)-based contrast agents - most common, primarily shortens <span class="math notranslate nohighlight">\(T_1\)</span></p></li>
-<li><p>Iron-based contrast agents - less common, shortens <span class="math notranslate nohighlight">\(T_1\)</span> but also can shorten <span class="math notranslate nohighlight">\(T_2\)</span></p></li>
+<li><p>Gadolinium (Gd)-based contrast agents - most common, primarily shortens $T_1$</p></li>
+<li><p>Iron-based contrast agents - less common, shortens $T_1$ but also can shorten $T_2$</p></li>
 </ul>
 </section>
 <section id="rf-pulses">
@@ -618,18 +672,15 @@ Inversion Recovery</p>
 <ul class="simple">
 <li><p>flip angle</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau \]</div>
+<p>$$\theta = \gamma \int_0^{T_{rf}} b_1(\tau) d\tau $$</p>
 <ul class="simple">
 <li><p>Time-bandwidth product - constant for a given pulse shape</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ TBW = T_{rf} \cdot BW_{rf} \]</div>
+<p>$$ TBW = T_{rf} \cdot BW_{rf} $$</p>
 <ul class="simple">
 <li><p>SAR</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau \]</div>
+<p>$$ SAR \propto \int_0^{T_{rf}} |b_1(\tau)|^2 d\tau $$</p>
 <ul class="simple">
 <li><p>pulse profile - describes the flip angle or net magnetization response across a range of frequency and/or position.  This is approximately proportional to the Fourier Transform of the pulse shape for small (less than 60-degree) flip angles</p></li>
 </ul>
@@ -637,30 +688,24 @@ Inversion Recovery</p>
 <ul class="simple">
 <li><p>Slice thickness</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} \]</div>
+<p>$$ \Delta z = \frac{BW_{rf}}{\bar{\gamma} G_{Z,SS}} $$</p>
 <ul class="simple">
 <li><p>Slice shifting</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} \]</div>
+<p>$$ f_{off} = \bar{\gamma} G_{Z,SS} \  z_{off} $$</p>
 </section>
 <section id="spatial-encoding">
 <h2>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Link to this heading">#</a></h2>
 <p>Frequency encoding - turn on gradient during data acquisition to map frequency to position</p>
-<div class="math notranslate nohighlight">
-\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
-<p>Phase encoding - perform step-wise frequency encoding, which appears in the phase versus position of the signals.   This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span></p>
-<div class="math notranslate nohighlight">
-\[ \Phi(n) = \gamma (-G_{y,PE} + (n-1) G_{yi} ) t_y y\]</div>
+<p>$$ x = \frac{f}{\bar \gamma G_{xr}}$$</p>
+<p>Phase encoding - perform step-wise frequency encoding, which appears in the phase versus position of the signals.   This measurement is repeated for $n = 1, \ldots, N_{PE}$</p>
+<p>$$ \Phi(n) = \gamma (-G_{y,PE} + (n-1) G_{yi} ) t_y y$$</p>
 <p>k-space - define spatial encoding based on the cumulative sum of the gradients (i.e. gradient areas) applied after excitation</p>
-<div class="math notranslate nohighlight">
-\[\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau\]</div>
+<p>$$\vec{k}(t) = \frac{\gamma}{2\pi} \int_0^t \vec{G}(\tau) d\tau$$</p>
 <ul class="simple">
 <li><p>Formulates image reconstruction as an inverse Fourier Transform</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[s(t) = \mathcal{F}\{m(\vec{r}) \} |_{\vec{k} = \vec{k}(t)} = M(\vec{k}(t))\]</div>
+<p>$$s(t) = \mathcal{F}{m(\vec{r}) } |_{\vec{k} = \vec{k}(t)} = M(\vec{k}(t))$$</p>
 <ul class="simple">
 <li><p>describes all MRI acquisitions including frequency and phase encoding</p></li>
 <li><p>effects of gradients can be refocused</p></li>
@@ -669,18 +714,13 @@ Inversion Recovery</p>
 </section>
 <section id="image-characteristics">
 <h2>Image Characteristics<a class="headerlink" href="#image-characteristics" title="Link to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}\]</div>
-<div class="math notranslate nohighlight">
-\[ FOV = \frac{1}{\Delta k}\]</div>
-<div class="math notranslate nohighlight">
-\[ \delta = \frac{1}{2 k_{max}}\]</div>
+<p>$$SNR \propto f_{seq}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{meas}}$$</p>
+<p>$$ FOV = \frac{1}{\Delta k}$$</p>
+<p>$$ \delta = \frac{1}{2 k_{max}}$$</p>
 <p>Scan Time</p>
-<div class="math notranslate nohighlight">
-\[ T_{scan} = TR \cdot N_{TR} \cdot NEX\]</div>
-<p>where <span class="math notranslate nohighlight">\(N_{TR}\)</span> is the total number of TR periods sampled.  Including fast sequences and acceleration methods:</p>
-<div class="math notranslate nohighlight">
-\[N_{TR} = \frac{N_{PE,total}}{ETL \cdot R}\]</div>
+<p>$$ T_{scan} = TR \cdot N_{TR} \cdot NEX$$</p>
+<p>where $N_{TR}$ is the total number of TR periods sampled.  Including fast sequences and acceleration methods:</p>
+<p>$$N_{TR} = \frac{N_{PE,total}}{ETL \cdot R}$$</p>
 </section>
 <section id="ft-imaging-sequence">
 <h2>FT Imaging Sequence<a class="headerlink" href="#ft-imaging-sequence" title="Link to this heading">#</a></h2>
@@ -698,14 +738,14 @@ Inversion Recovery</p>
 <p>Echo-planar imaging (EPI)</p>
 <ul class="simple">
 <li><p>k-space trajectory that covers multiple k-space lines per excitation</p></li>
-<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
-<li><p>echo time, <span class="math notranslate nohighlight">\(TE = TE_{eff}\)</span>, defined when data closest to center of k-space is acquired</p></li>
+<li><p>Echo spacing ($t_{esp}$), echo train length (ETL)</p></li>
+<li><p>echo time, $TE = TE_{eff}$, defined when data closest to center of k-space is acquired</p></li>
 </ul>
 <p>Multiple Spin-echo imaging (FSE/TSE/RARE)</p>
 <ul class="simple">
 <li><p>multiple spin-echoes per excitation used to acquire different k-space lines</p></li>
-<li><p>Echo spacing (<span class="math notranslate nohighlight">\(t_{esp}\)</span>), echo train length (ETL)</p></li>
-<li><p>echo time, <span class="math notranslate nohighlight">\(TE = TE_{eff}\)</span>, defined when data closest to center of k-space is acquired.  Used to create different contrasts</p></li>
+<li><p>Echo spacing ($t_{esp}$), echo train length (ETL)</p></li>
+<li><p>echo time, $TE = TE_{eff}$, defined when data closest to center of k-space is acquired.  Used to create different contrasts</p></li>
 </ul>
 <p>Gradient Echo methods</p>
 <ul class="simple">
@@ -726,13 +766,13 @@ Inversion Recovery</p>
 <li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
 <li><p>How does it work?  Skip k-space data in the direction(s) that have variation in RF coil element sensitivity profiles</p></li>
 <li><p>Key variations: May require measurement of coil sensitivity maps, also autocalibrated methods</p></li>
-<li><p>SNR considerations: Geometry factor (g-factor, <span class="math notranslate nohighlight">\(g&gt;1\)</span>) due noise amplification in parallel imaging reconstruction, <span class="math notranslate nohighlight">\(SNR \propto \frac{1}{g}\)</span></p></li>
+<li><p>SNR considerations: Geometry factor (g-factor, $g&gt;1$) due noise amplification in parallel imaging reconstruction, $SNR \propto \frac{1}{g}$</p></li>
 </ul>
 <p>Parallel Imaging - Simultaneous Multi-slice</p>
 <ul class="simple">
 <li><p>Why does it work?  RF coil arrays with different elements provide spatial encoding</p></li>
 <li><p>How does it work?  Excite multiple slices simultaneously</p></li>
-<li><p>SNR considerations: Geometry factor (g-factor, <span class="math notranslate nohighlight">\(g&gt;1\)</span>) due noise amplification in parallel imaging reconstruction, <span class="math notranslate nohighlight">\(SNR \propto \frac{1}{g}\)</span></p></li>
+<li><p>SNR considerations: Geometry factor (g-factor, $g&gt;1$) due noise amplification in parallel imaging reconstruction, $SNR \propto \frac{1}{g}$</p></li>
 </ul>
 <p>Compressed Sensing</p>
 <ul class="simple">
@@ -869,7 +909,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   

@@ -85,8 +85,6 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Spatial Encoding';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -367,6 +365,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/edit/main/Notebooks/Spatial Encoding.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FSpatial Encoding.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -481,7 +543,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="spatial-encoding">
+  <section id="spatial-encoding">
 <h1>Spatial Encoding<a class="headerlink" href="#spatial-encoding" title="Link to this heading">#</a></h1>
 <p>To create images of the net magnetization, magnetic field gradients are applied in order to modulate the resonance frequency as a function of position.  This section describes the effect of magnetic field gradients during data acquisition to create spatial encoding, and introduces the intuition behind frequency and phase encoding.</p>
 <section id="learning-goals">
@@ -499,11 +561,9 @@
 <section id="effects-of-magnetic-field-gradients">
 <h2>Effects of Magnetic Field Gradients<a class="headerlink" href="#effects-of-magnetic-field-gradients" title="Link to this heading">#</a></h2>
 <p>Applied magnetic field gradients change the magnetic field linearly with position:</p>
-<div class="math notranslate nohighlight">
-\[\Delta B_z = \vec{G}\cdot\vec{r}\]</div>
+<p>$$\Delta B_z = \vec{G}\cdot\vec{r}$$</p>
 <p>which leads to linear variation in the resonance frequency as a function of position:</p>
-<div class="math notranslate nohighlight">
-\[ f = \bar \gamma \ \vec{G}\cdot\vec{r} \]</div>
+<p>$$ f = \bar \gamma \ \vec{G}\cdot\vec{r} $$</p>
 <p>This forms the basis for spatial encoding, where fundamentally position is encoded in the frequency of the net magnetization.</p>
 <p>The received signal in MRI is an accumulation over space of all the net magnetizations, so without gradients there is no fine spatial encoding.  (The RF coil sizes can provide some spatial encoding, but on the order of cm.)</p>
 <p>Reconstructing images from MRI relies on the Fourier Transform in order to convert the spatial information encoded in frequency into space.  The specifics of this are described later.</p>
@@ -521,11 +581,9 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <section id="frequency-encoding">
 <h3>Frequency Encoding<a class="headerlink" href="#frequency-encoding" title="Link to this heading">#</a></h3>
 <p>In this approach, one dimension of the object is encoded using “frequency encoding”.  This means that, after RF excitation, a magnetic field gradient is turned on and the signal is read out.  The frequencies present in the signal correspond to given spatial locations.  By convention, this is applied in the x-direction (but in practice can be rotated to any direction);</p>
-<div class="math notranslate nohighlight">
-\[f = \bar \gamma G_{xr} x\]</div>
-<p>where <span class="math notranslate nohighlight">\(G_{xr}\)</span> is the readout gradient amplitude.  Therefore, the position is proportional to the frequency:</p>
-<div class="math notranslate nohighlight">
-\[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
+<p>$$f = \bar \gamma G_{xr} x$$
+where $G_{xr}$ is the readout gradient amplitude.  Therefore, the position is proportional to the frequency:</p>
+<p>$$ x = \frac{f}{\bar \gamma G_{xr}}$$</p>
 <p>From frequency encoding data alone, a 1D image can be reconstructed with an inverse Fourier Transform.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,9 +645,8 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <section id="phase-encoding">
 <h2>Phase Encoding<a class="headerlink" href="#phase-encoding" title="Link to this heading">#</a></h2>
 <p>Typically the 2nd (and optionally 3rd) dimensions of the object are encoded using “phase encoding”.  This means that, after RF excitation but before the frequency encoding gradient, a pulsed gradient is applied such that the location is encoded in the phase of the next magnetization:</p>
-<div class="math notranslate nohighlight">
-\[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y \]</div>
-<p>This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span>.  <span class="math notranslate nohighlight">\(G_{yp}\)</span> is the maximum phase encoding gradient strength, <span class="math notranslate nohighlight">\(G_{yi}\)</span> is the phase encoding gradient amplitude increment, and <span class="math notranslate nohighlight">\(t_y\)</span> is the phase encoding gradient duration.  Note that <span class="math notranslate nohighlight">\(2 G_{yp} = (N_{PE} - 1) G_{yi}\)</span>.</p>
+<p>$$ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y $$</p>
+<p>This measurement is repeated for $n = 1, \ldots, N_{PE}$.  $G_{yp}$ is the maximum phase encoding gradient strength, $G_{yi}$ is the phase encoding gradient amplitude increment, and $t_y$ is the phase encoding gradient duration.  Note that $2 G_{yp} = (N_{PE} - 1) G_{yi}$.</p>
 <p><strong>This is equivalent to taking different samples of a frequency encoding gradient.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -641,7 +698,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 </section>
 <section id="frequency-and-phase-encoding">
 <h2>Frequency and Phase Encoding<a class="headerlink" href="#frequency-and-phase-encoding" title="Link to this heading">#</a></h2>
-<p>The following simulation of the net magnetizations shows how first the phase encoding gradient (<span class="math notranslate nohighlight">\(G_Y\)</span>) creates some phase variation in <span class="math notranslate nohighlight">\(y\)</span>, and then during the frequency encoding gradient (<span class="math notranslate nohighlight">\(G_X\)</span>) the net magnetizations rotate at varying frequencies depending on their <span class="math notranslate nohighlight">\(x\)</span> position:</p>
+<p>The following simulation of the net magnetizations shows how first the phase encoding gradient ($G_Y$) creates some phase variation in $y$, and then during the frequency encoding gradient ($G_X$) the net magnetizations rotate at varying frequencies depending on their $x$ position:</p>
 <p><img alt="frequency_phase_encoding-simple-Mxy.gif" src="_images/frequency_phase_encoding-simple-Mxy.gif" /></p>
 <p>Instead of viewing the net magnetizations, we can also visualize this encoding as a map of the phase of the transverse magnetization:</p>
 <p><img alt="frequency_phase_encoding-simple-image_phase.gif" src="_images/frequency_phase_encoding-simple-image_phase.gif" /></p>
@@ -767,7 +824,18 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  <div class="download-link" style="padding: 10px 0;">
+  <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
+    <i class="fas fa-file-pdf"></i> Download Full Book PDF
+  </a>
+</div>
+<div style="margin-top: 10px;">
+  <a href="https://larsonlab.github.io/" target="_blank" rel="noopener noreferrer">
+    <img src="https://larsonlab.github.io/assets/images/logo.png" alt="LarsonLab Logo" style="height: 24px; width: auto; vertical-align: middle; margin-right: 8px;">
+    Larson Advanced Imaging Research Group
+  </a>
+</div>
+
 </div>
   </div>
   
