@@ -12,6 +12,10 @@ copyright: "2026"
 execute:
   execute_notebooks: "auto"  # default is "auto", or "off"
 
+parse:
+  myst_enable_extensions:
+    - html_image
+
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
@@ -33,10 +37,11 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
-html:
-  extra_navbar: |
+  extra_footer              : >-
+    Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
+  extra_footer: |
     <div class="download-link" style="padding: 10px 0;">
-      <a href="Larson_Principles-of-MRI.pdf" download>
+      <a href="/MRI-education-resources/Larson_Principles-of-MRI.pdf" download>
         <i class="fas fa-file-pdf"></i> Download Full Book PDF
       </a>
     </div>
@@ -46,8 +51,6 @@ html:
         Larson Advanced Imaging Research Group
       </a>
     </div>
-  extra_footer              : >-
-    Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
   google_analytics_id       : "UA-51903906-1"  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
 
