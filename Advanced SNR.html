@@ -367,53 +367,6 @@
 
 
 
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/larsonlab/MRI-education-resources/issues/new?title=Issue%20on%20page%20%2FAdvanced SNR.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -524,66 +477,63 @@
   <section class="tex2jax_ignore mathjax_ignore" id="advanced-snr">
 <h1>Advanced SNR<a class="headerlink" href="#advanced-snr" title="Link to this heading">#</a></h1>
 <p>Simulations of SNR efficiency, challenges to the fundamental assumptions of SNR (e.g. T2* decay during the readout)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">setup</span> <span class="n">MRI</span><span class="o">-</span><span class="n">education</span><span class="o">-</span><span class="n">resources</span> <span class="n">path</span> <span class="ow">and</span> <span class="n">requirements</span>
-<span class="n">cd</span> <span class="o">../</span>
-<span class="n">startup</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="n">cd</span> <span class="o">../</span>
-        <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
-</div>
-</div>
 <section id="snr-and-t-2-decay">
 <h2>SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay<a class="headerlink" href="#snr-and-t-2-decay" title="Link to this heading">#</a></h2>
 <p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the <span class="math notranslate nohighlight">\(T_2^*\)</span> decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for <span class="math notranslate nohighlight">\(T_2^*\)</span>, which will offset signal gains from extending the readout</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }\]</div>
 <p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
-<p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:
-$<span class="math notranslate nohighlight">\(SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\)</span>$</p>
+<p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:</p>
+<div class="math notranslate nohighlight">
+\[SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tread</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="n">T2s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">SNR_T2s_onesided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="n">T2s</span><span class="p">))</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
-<span class="p">[</span><span class="o">~</span><span class="p">,</span> <span class="n">Imax_onesided</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">SNR_T2s_onesided</span><span class="p">);</span>
+<span class="n">Tread</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">T2s</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">SNR_T2s_twosided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span><span class="o">/</span><span class="mi">2</span> <span class="o">/</span> <span class="n">T2s</span><span class="p">))</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">);</span>
-<span class="p">[</span><span class="o">~</span><span class="p">,</span> <span class="n">Imax_twosided</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">SNR_T2s_twosided</span><span class="p">);</span>
+<span class="n">SNR_T2s_onesided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span> <span class="o">/</span> <span class="n">T2s</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">)</span>
+<span class="n">Imax_onesided</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">SNR_T2s_onesided</span><span class="p">)</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_onesided</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">'T_</span><span class="si">{read}</span><span class="s1"> / T_2^*'</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">'Relative SNR'</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">'One-sided T_2^* decay (gradient-echo)'</span><span class="p">);</span>
+<span class="n">SNR_T2s_twosided</span> <span class="o">=</span> <span class="n">T2s</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Tread</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">T2s</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Tread</span><span class="p">)</span>
+<span class="n">Imax_twosided</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">SNR_T2s_twosided</span><span class="p">)</span>
 
-<span class="n">disp</span><span class="p">([</span><span class="s1">'Maximum for one-sided decay: T_</span><span class="si">{read}</span><span class="s1"> / T_2^* ='</span> <span class="n">num2str</span><span class="p">(</span><span class="n">Tread</span><span class="p">(</span><span class="n">Imax_onesided</span><span class="p">))])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_onesided</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$T_</span><span class="si">{read}</span><span class="s1"> / T_2^*$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Relative SNR'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">'One-sided $T_2^*$ decay (gradient-echo)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">figure</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_twosided</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">'T_</span><span class="si">{read}</span><span class="s1"> / T_2^*'</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">'Relative SNR'</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">'Two-sided T_2^* decay (spin-echo)'</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">'Maximum for one-sided decay: '</span>
+    <span class="sa">f</span><span class="s1">'T_read / T_2* = </span><span class="si">{</span><span class="n">Tread</span><span class="p">[</span><span class="n">Imax_onesided</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span>
+<span class="p">)</span>
 
-<span class="n">disp</span><span class="p">([</span><span class="s1">'Maximum for two-sided decay: T_</span><span class="si">{read}</span><span class="s1"> / T_2^* ='</span> <span class="n">num2str</span><span class="p">(</span><span class="n">Tread</span><span class="p">(</span><span class="n">Imax_twosided</span><span class="p">))])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tread</span><span class="p">,</span> <span class="n">SNR_T2s_twosided</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$T_</span><span class="si">{read}</span><span class="s1"> / T_2^*$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Relative SNR'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">'Two-sided $T_2^*$ decay (spin-echo)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">'Maximum for two-sided decay: '</span>
+    <span class="sa">f</span><span class="s1">'T_read / T_2* = </span><span class="si">{</span><span class="n">Tread</span><span class="p">[</span><span class="n">Imax_twosided</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum for one-sided decay: T_{read} / T_2^* =1.2806
-Maximum for two-sided decay: T_{read} / T_2^* =2.4907
+<img alt="_images/19126f8a39ee3d12ae3302d0bcf0171c4806ab9a9cbd449357486ddc2494e946.png" src="_images/19126f8a39ee3d12ae3302d0bcf0171c4806ab9a9cbd449357486ddc2494e946.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum for one-sided decay: T_read / T_2* = 1.23
 </pre></div>
 </div>
-<img alt="_images/55bed0bbdb3e1d4c96d9c050e494d7777d73bf32ae86daaf389422f497d6d893.png" src="_images/55bed0bbdb3e1d4c96d9c050e494d7777d73bf32ae86daaf389422f497d6d893.png" />
-<img alt="_images/373cde533ed48a3b125ff56db7007f4cea8b3db2228e932e7f2e70b11e1742eb.png" src="_images/373cde533ed48a3b125ff56db7007f4cea8b3db2228e932e7f2e70b11e1742eb.png" />
+<img alt="_images/d38b4993c50605398a9ec4a14851d0096c0aa686b30d6ea08925394e987ef61d.png" src="_images/d38b4993c50605398a9ec4a14851d0096c0aa686b30d6ea08925394e987ef61d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum for two-sided decay: T_read / T_2* = 2.45
+</pre></div>
+</div>
 </div>
 </div>
 <p>From this result, we can see that the optimal choice of <span class="math notranslate nohighlight">\(T_{read}\)</span> from a SNR point of view is approximately <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 1.3\)</span> (one-sided) and <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 2.5\)</span> (two-sided).</p>
@@ -598,43 +548,60 @@ Maximum for two-sided decay: T_{read} / T_2^* =2.4907
 <p>Under this condition, we see the following intriguing result.  Once the optimal flip angle begins to approach 90-degrees, the SNR efficiency begins to drop.  But for the shorter TRs, the SNR efficiency is relatively stable for different TRs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SNR</span> <span class="n">efficiency</span> <span class="k">for</span> <span class="n">spoiled</span> <span class="n">gradient</span> <span class="n">echo</span> <span class="n">pulse</span> <span class="n">sequences</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">TRdT1</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mf">.01</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
-<span class="n">T1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">400</span> <span class="mi">800</span> <span class="mi">1600</span><span class="p">];</span>
+<span class="c1"># SNR efficiency for spoiled gradient-echo pulse sequences</span>
+<span class="n">TRdT1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1600</span><span class="p">])</span>
 
-<span class="o">%</span> <span class="n">To</span> <span class="n">remove</span> <span class="n">TE</span> <span class="ow">or</span> <span class="n">T2</span> <span class="n">effect</span>
-<span class="n">TE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">T2</span> <span class="o">=</span> <span class="n">Inf</span><span class="p">;</span>
-<span class="n">M0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1"># To remove TE or T2 effects</span>
+<span class="n">TE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">T2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span class="n">M0</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">theta_optimal</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">TR</span><span class="p">));</span>
-<span class="n">SNR_efficiency</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">TR</span><span class="p">));</span>
+<span class="n">theta_optimal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">TRdT1</span><span class="p">)))</span>
+<span class="n">SNR_efficiency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">T1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">TRdT1</span><span class="p">)))</span>
 
-<span class="k">for</span> <span class="n">IT1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">IT1</span><span class="p">,</span> <span class="n">T1_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T1</span><span class="p">):</span>
+    <span class="n">theta_optimal</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TRdT1</span><span class="p">))</span>
 
-<span class="n">theta_optimal</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TR</span><span class="o">/</span><span class="n">T1</span><span class="p">(</span><span class="n">IT1</span><span class="p">)));</span>
+    <span class="c1"># Spoiled gradient-echo signal divided by sqrt(TR)</span>
+    <span class="n">signal</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">M0</span>
+        <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_optimal</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TRdT1</span><span class="p">))</span>
+        <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">TRdT1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_optimal</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:]))</span>
+    <span class="p">)</span>
+    <span class="n">SNR_efficiency</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">TRdT1</span> <span class="o">*</span> <span class="n">T1_value</span><span class="p">)</span>
 
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">IT1</span><span class="p">,</span> <span class="n">T1_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">TRdT1</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_optimal</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:]),</span>
+        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">T1_value</span><span class="si">}</span><span class="s1"> ms'</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'TR / T1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Flip angle [degrees]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Optimal (Ernst) Angle for different T1 values'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 
-<span class="n">SNR_efficiency</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:)</span> <span class="o">=</span> <span class="n">MRsignal_spoiled_gradient_echo</span><span class="p">(</span><span class="n">theta_optimal</span><span class="p">(</span><span class="n">IT1</span><span class="p">,:),</span> <span class="n">TE</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">M0</span><span class="p">,</span> <span class="n">T1</span><span class="p">(</span><span class="n">IT1</span><span class="p">),</span> <span class="n">T2</span><span class="p">)</span> <span class="o">./</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">TR</span><span class="p">);</span>
-<span class="n">end</span>
-<span class="o">%</span><span class="k">subplot</span>(121)
-<span class="n">plot</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">theta_optimal</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">'TR [ms]'</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">'Flip angle [degrees]'</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">'Optimal (Ernst) Angle for different T_1 values'</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">int2str</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="s1">'))</span>
-<span class="o">%</span><span class="k">subplot</span>(122)
-<span class="n">figure</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">TR</span><span class="p">,</span> <span class="n">SNR_efficiency</span><span class="p">)</span>
-<span class="n">ylim</span><span class="p">([</span><span class="mi">0</span> <span class="mf">1.1</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">SNR_efficiency</span><span class="p">(:))])</span>
-<span class="n">legend</span><span class="p">(</span><span class="n">int2str</span><span class="p">(</span><span class="n">T1</span><span class="o">.</span><span class="s1">'))</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">'TR [ms]'</span><span class="p">),</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">'SNR efficiency'</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">'Spoiled gradient echo SNR efficiency for different T_1 values'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">IT1</span><span class="p">,</span> <span class="n">T1_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T1</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">TRdT1</span><span class="p">,</span> <span class="n">SNR_efficiency</span><span class="p">[</span><span class="n">IT1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">T1_value</span><span class="si">}</span><span class="s1"> ms'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">SNR_efficiency</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'TR / T1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'SNR efficiency'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Spoiled gradient-echo SNR efficiency for different T1 values'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1e791d75008c0b4354de49bee8260b76cc3af0b7c98c117e0b382a3770ba6792.png" src="_images/1e791d75008c0b4354de49bee8260b76cc3af0b7c98c117e0b382a3770ba6792.png" />
-<img alt="_images/fdd4d710d438c7bea932cc6fbbcd3ae409969ef2708cf8c4303f1fd249408f65.png" src="_images/fdd4d710d438c7bea932cc6fbbcd3ae409969ef2708cf8c4303f1fd249408f65.png" />
+<img alt="_images/7208458da8e92e923b818789556c6a35447f83647a779cab0ed808c5089f3ce9.png" src="_images/7208458da8e92e923b818789556c6a35447f83647a779cab0ed808c5089f3ce9.png" />
+<img alt="_images/d4731f54b858953025a1ba45df39c76e46bf1555ebe43d7fdcd2a69167c14171.png" src="_images/d4731f54b858953025a1ba45df39c76e46bf1555ebe43d7fdcd2a69167c14171.png" />
 </div>
 </div>
 </section>
@@ -732,7 +699,7 @@ By Peder E. Z. Larson
 
   <p class="copyright">
     
-      © Copyright 2025.
+      © Copyright 2026.
       <br/>
     
   </p>
@@ -746,7 +713,7 @@ By Peder E. Z. Larson
   <div class="footer-item">
     
 <div class="extra_footer">
-  Citation - Larson, Peder E. Z. (2025) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> # <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>  # Will be displayed underneath the footer.
+  Citation: Larson, Peder E. Z. (2026) Principles of MRI. Retrieved from https://larsonlab.github.io/MRI-education-resources.  doi: <a href="https://doi.org/10.5281/zenodo.5547020">10.5281/zenodo.5547020</a> <a href="https://doi.org/10.5281/zenodo.5547020"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5547020.svg" alt="DOI"></a>
 </div>
   </div>
   
