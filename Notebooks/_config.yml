@@ -14,6 +14,7 @@ execute:
 
 parse:
   myst_enable_extensions:
+    - dollarmath
     - html_image
 
 # Define the name of the latex output file for PDF builds
