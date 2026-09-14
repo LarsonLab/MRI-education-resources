@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'In Vivo Contrast Mechanisms';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -531,8 +533,8 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility-induced-contrasts">Susceptibility Induced Contrasts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-contrast">Phase Contrast</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2">$T_2^*$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-contrast">$T_2^*$ contrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2"><span class="math notranslate nohighlight">\(T_2^*\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-contrast"><span class="math notranslate nohighlight">\(T_2^*\)</span> contrast</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-water-imaging">Fat/Water Imaging</a></li>
@@ -548,7 +550,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="in-vivo-contrast-mechanisms">
+  <section class="tex2jax_ignore mathjax_ignore" id="in-vivo-contrast-mechanisms">
 <h1>In Vivo Contrast Mechanisms<a class="headerlink" href="#in-vivo-contrast-mechanisms" title="Link to this heading">#</a></h1>
 <p>In addition to the basic contrast mechanisms based on T1, T2 and proton density, in vivo tissues and interactions create additional sources of contrast.  These include T2*, susceptibility, fat versus water, and admisistration of contrast agents.  Additional important sources of contrast in vivo include flow and magnetization transfer, but these are not covered here.</p>
 <section id="learning-goals">
@@ -569,31 +571,34 @@
 <section id="off-resonance">
 <h3>Off-resonance<a class="headerlink" href="#off-resonance" title="Link to this heading">#</a></h3>
 <p>Ideally, the magnetic field is uniform in the absense of any applied gradients.  However, in practice there are unavoidable variations in the magnetic field that lead to changes in resonance frequency.  These magnetic field variations are referred to as “off-resonance”, and can be represented as</p>
-<p>$$\Delta f_r(\vec{r}) = \bar \gamma \Delta B_0(\vec{r}) $$</p>
-<p>These are due imperfections in the main $B_0$ magnet as well as subject-specific changes in the magnetic field that are largely due to magnetic susceptibility effects.</p>
+<div class="math notranslate nohighlight">
+\[\Delta f_r(\vec{r}) = \bar \gamma \Delta B_0(\vec{r}) \]</div>
+<p>These are due imperfections in the main <span class="math notranslate nohighlight">\(B_0\)</span> magnet as well as subject-specific changes in the magnetic field that are largely due to magnetic susceptibility effects.</p>
 </section>
 <section id="chemical-shift">
 <h3>Chemical Shift<a class="headerlink" href="#chemical-shift" title="Link to this heading">#</a></h3>
 <p>The resonance frequency can also change due the chemical environment of the nuclei.  This is referred to as chemical shift, and is represented as</p>
-<p>$$\Delta f_{cs} = \delta_{cs} \bar \gamma B_0$$</p>
-<p>where $\delta_{cs}$ is the chemical shift in parts per million (ppm) and $\Delta f_{cs}$ is the frequency shift.</p>
+<div class="math notranslate nohighlight">
+\[\Delta f_{cs} = \delta_{cs} \bar \gamma B_0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta_{cs}\)</span> is the chemical shift in parts per million (ppm) and <span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> is the frequency shift.</p>
 </section>
 </section>
 <section id="susceptibility-induced-contrasts">
 <h2>Susceptibility Induced Contrasts<a class="headerlink" href="#susceptibility-induced-contrasts" title="Link to this heading">#</a></h2>
-<p>Differences in magnetic susceptibility between materials and tissues create differences in the local magnetic field.  This leads to differences in the resonance frequency of the spins, which can be used to create contrast in MRI images.  Local changes in resonance frequency can also lead to changes in measured transverse relaxation time, and this phenomenon is referred to as $T_2^*$ relaxation.</p>
+<p>Differences in magnetic susceptibility between materials and tissues create differences in the local magnetic field.  This leads to differences in the resonance frequency of the spins, which can be used to create contrast in MRI images.  Local changes in resonance frequency can also lead to changes in measured transverse relaxation time, and this phenomenon is referred to as <span class="math notranslate nohighlight">\(T_2^*\)</span> relaxation.</p>
 <section id="phase-contrast">
 <h3>Phase Contrast<a class="headerlink" href="#phase-contrast" title="Link to this heading">#</a></h3>
 <p>The off-resonance causes the transverse magnetization to precess at a different rate.  When imaging is performed, the transverse magnetization will have a different phase depending on this off-resonance.  This difference in phase can be detected, and leads to phase differences in the resulting images.  When trying to create susceptibility contrast, other sources of phase differences must be removed.  These other sources of phase differences include imperfections in the main magnetic field, chemical shift effects, and RF coil induced phase.</p>
 </section>
 <section id="t-2">
-<h3>$T_2^*$<a class="headerlink" href="#t-2" title="Link to this heading">#</a></h3>
-<p>Ideally, the MRI signal decays with a time constant of $T_2$, the transverse decay rate.  However, in practice every imaging voxel contains off-resonance that leads to changes in the signal decay.  We characterize this change in signal decay with $T_2^*$.</p>
-<p>The smallest size we can measure with MRI is an imaging voxel, so our image measurements are a sum of the transverse magnetizations across the voxel, including both $T_2$ and off-resonance:</p>
-<p>$$\begin{aligned}
-s_{\mathrm{voxel}}(t) &amp; = \int_{\mathrm{voxel}} M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r}))  \  d\vec{r} \
+<h3><span class="math notranslate nohighlight">\(T_2^*\)</span><a class="headerlink" href="#t-2" title="Link to this heading">#</a></h3>
+<p>Ideally, the MRI signal decays with a time constant of <span class="math notranslate nohighlight">\(T_2\)</span>, the transverse decay rate.  However, in practice every imaging voxel contains off-resonance that leads to changes in the signal decay.  We characterize this change in signal decay with <span class="math notranslate nohighlight">\(T_2^*\)</span>.</p>
+<p>The smallest size we can measure with MRI is an imaging voxel, so our image measurements are a sum of the transverse magnetizations across the voxel, including both <span class="math notranslate nohighlight">\(T_2\)</span> and off-resonance:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+s_{\mathrm{voxel}}(t) &amp; = \int_{\mathrm{voxel}} M_{XY}(\vec{r},0) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r}))  \  d\vec{r} \\
 &amp; \approx M_{XY}(\vec{r},0) \exp(-t/T_2^*(\vec{r}))
-\end{aligned}$$</p>
+\end{aligned}\end{split}\]</div>
 <!-- 
 $$\begin{aligned}
 s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r}))  \  d\vec{r} \\
@@ -603,47 +608,56 @@ s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r})
 <p>(Note that any effects of applied gradients are removed during the image reconstruction process.)</p>
 <p>The mechanism of this decay is that, across an imaging voxel, the transverse magnetizations across the voxel precess at slightly different rates.  This is called “de-phasing”, and means that when the transverse magnetization is averaged across the voxel it’s overall magnitude is reduced.  This is illustrated in the examples below (generated by <code class="docutils literal notranslate"><span class="pre">t2star_spinecho_illustration.m</span></code>)</p>
 <p><img alt="Voxel signal decay, no off-resonance" src="_images/t2star_no_off-resonance.gif" /></p>
-<p><strong>No off-resonance, $T_2 = 80$ ms</strong></p>
+<p><strong>No off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
 <p><img alt="Voxel signal decay, mild off-resonance" src="_images/t2star_mild_off-resonance.gif" /></p>
-<p><strong>Mild off-resonance, $T_2 = 80$ ms</strong></p>
+<p><strong>Mild off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
 <p><img alt="Voxel signal decay, severe off-resonance" src="_images/t2star_severe_off-resonance.gif" /></p>
-<p><strong>Severe off-resonance, $T_2 = 80$ ms</strong></p>
-<p>$T_2^*$ is an approximation of these dephasing effects, and depends on the voxel size and location.  It is often broken up as follows to separate out the additional dephasing rate, $1/T_2’$:</p>
-<p>$$ \frac{1}{T_2^*} = \frac{1}{T_2}+\frac{1}{T_2’}$$</p>
-<p>$$ T_2^* \leq T_2$$</p>
+<p><strong>Severe off-resonance, <span class="math notranslate nohighlight">\(T_2 = 80\)</span> ms</strong></p>
+<p><span class="math notranslate nohighlight">\(T_2^*\)</span> is an approximation of these dephasing effects, and depends on the voxel size and location.  It is often broken up as follows to separate out the additional dephasing rate, <span class="math notranslate nohighlight">\(1/T_2'\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{1}{T_2^*} = \frac{1}{T_2}+\frac{1}{T_2'}\]</div>
+<div class="math notranslate nohighlight">
+\[ T_2^* \leq T_2\]</div>
 </section>
 <section id="t-2-contrast">
-<h3>$T_2^*$ contrast<a class="headerlink" href="#t-2-contrast" title="Link to this heading">#</a></h3>
-<p>$T_2^*$ includes $T_2$ as well as additional macroscopic dephasing due to local magnetic field inhomogeneities.  The microscopic dephasing ($T_2$) cannot be refocused, but the macroscopic dephasing effects can be refocused by using a spin echo sequence.  The macroscopic dephasing is caused by differences in magnetic susceptibility between materials and tissues.</p>
-<p>While often the macroscopic dephasing effects creating $T_2^<em>$ are often undesirable and considered artifacts, $T_2^</em>$ is also an important source of contrast to reflect differences in magnetic susceptibility:</p>
+<h3><span class="math notranslate nohighlight">\(T_2^*\)</span> contrast<a class="headerlink" href="#t-2-contrast" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(T_2^*\)</span> includes <span class="math notranslate nohighlight">\(T_2\)</span> as well as additional macroscopic dephasing due to local magnetic field inhomogeneities.  The microscopic dephasing (<span class="math notranslate nohighlight">\(T_2\)</span>) cannot be refocused, but the macroscopic dephasing effects can be refocused by using a spin echo sequence.  The macroscopic dephasing is caused by differences in magnetic susceptibility between materials and tissues.</p>
+<p>While often the macroscopic dephasing effects creating <span class="math notranslate nohighlight">\(T_2^*\)</span> are often undesirable and considered artifacts, <span class="math notranslate nohighlight">\(T_2^*\)</span> is also an important source of contrast to reflect differences in magnetic susceptibility:</p>
 <ol class="arabic simple">
-<li><p>Iron deposition: The presence of iron in a tissue will create shorter $T_2^*$ due to the strong magnetic susceptibility of iron.</p></li>
-<li><p>Calcifications: The presence of calcium in a tissue will create shorter $T_2^*$ due to the strong magnetic susceptibility of calcium.</p></li>
-<li><p>Oxygenated vs deoxygenated blood: Deoxygenated blood will have shorter $T_2^*$ than oxygenated blood due to the magnetic susceptibility of deoxygenated hemoglobin.  This can be used for selectively imaging veins, and is also the basis of blood oxygen level dependent (BOLD) functional MRI.</p></li>
+<li><p>Iron deposition: The presence of iron in a tissue will create shorter <span class="math notranslate nohighlight">\(T_2^*\)</span> due to the strong magnetic susceptibility of iron.</p></li>
+<li><p>Calcifications: The presence of calcium in a tissue will create shorter <span class="math notranslate nohighlight">\(T_2^*\)</span> due to the strong magnetic susceptibility of calcium.</p></li>
+<li><p>Oxygenated vs deoxygenated blood: Deoxygenated blood will have shorter <span class="math notranslate nohighlight">\(T_2^*\)</span> than oxygenated blood due to the magnetic susceptibility of deoxygenated hemoglobin.  This can be used for selectively imaging veins, and is also the basis of blood oxygen level dependent (BOLD) functional MRI.</p></li>
 </ol>
 </section>
 </section>
 <section id="fat-water-imaging">
 <h2>Fat/Water Imaging<a class="headerlink" href="#fat-water-imaging" title="Link to this heading">#</a></h2>
 <p>The major sources of signal in MRI are hydrogen atoms in water molecules and hydrogen atoms in lipids.  In lipids, the protons experience a different chemical shift, meaning they have a different resonance frequence from water protons.  This can be exploited to create images that isolate fat and water signals.</p>
-<p>While lipids have a relatively complex set of chemical shifts, in MRI a general “fat” signal is typically modeled as a single peak that has a -3.5 parts per million (ppm) shift from water.  This leads to a resonance frequency shift $\Delta f_{cs}$ of approximately 220 Hz at 1.5 T and 440 Hz at 3 T.</p>
+<p>While lipids have a relatively complex set of chemical shifts, in MRI a general “fat” signal is typically modeled as a single peak that has a -3.5 parts per million (ppm) shift from water.  This leads to a resonance frequency shift <span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> of approximately 220 Hz at 1.5 T and 440 Hz at 3 T.</p>
 <p>Separate fat and water images are created by so-called “Dixon” methods, which acquire images at multiple echo times and then use the phase differences that result from the different resonance frequencies to separate them.  Ideally, the signal in these images can be represented as</p>
-<p>$$s(TE) = m_{water}(\vec r) + m_{fat}(\vec r) \exp(-i 2 \pi \Delta f_{cs} TE)$$</p>
-<p>Then fat and water images can be created from in-phase TE, $TE_{in-phase} = n / \Delta f_{cs}$ and out-of-phase TE, $TE_{out-of-phase} = (n+ 1/2) / \Delta f_{cs}$, images:</p>
-<p>$$ s(TE_{in-phase}) = m_{water}(\vec r) + m_{fat}(\vec r)$$</p>
-<p>$$ s(TE_{out-of-phase}) = m_{water}(\vec r) - m_{fat}(\vec r)$$</p>
-<p>$$ \hat m_{water}(\vec r) = s(TE_{in-phase}) + s(TE_{out-of-phase})$$</p>
-<p>$$ \hat m_{fat}(\vec r) = s(TE_{in-phase}) - s(TE_{out-of-phase})$$</p>
-<p>In practice, additional corrections are required to account for off-resonance, $\Delta f_r(\vec r)$, and more advanced methods also use a multi-peak model accounting for the various chemical shifts in fatty tissue.</p>
+<div class="math notranslate nohighlight">
+\[s(TE) = m_{water}(\vec r) + m_{fat}(\vec r) \exp(-i 2 \pi \Delta f_{cs} TE)\]</div>
+<p>Then fat and water images can be created from in-phase TE, <span class="math notranslate nohighlight">\(TE_{in-phase} = n / \Delta f_{cs}\)</span> and out-of-phase TE, <span class="math notranslate nohighlight">\(TE_{out-of-phase} = (n+ 1/2) / \Delta f_{cs}\)</span>, images:</p>
+<div class="math notranslate nohighlight">
+\[ s(TE_{in-phase}) = m_{water}(\vec r) + m_{fat}(\vec r)\]</div>
+<div class="math notranslate nohighlight">
+\[ s(TE_{out-of-phase}) = m_{water}(\vec r) - m_{fat}(\vec r)\]</div>
+<div class="math notranslate nohighlight">
+\[ \hat m_{water}(\vec r) = s(TE_{in-phase}) + s(TE_{out-of-phase})\]</div>
+<div class="math notranslate nohighlight">
+\[ \hat m_{fat}(\vec r) = s(TE_{in-phase}) - s(TE_{out-of-phase})\]</div>
+<p>In practice, additional corrections are required to account for off-resonance, <span class="math notranslate nohighlight">\(\Delta f_r(\vec r)\)</span>, and more advanced methods also use a multi-peak model accounting for the various chemical shifts in fatty tissue.</p>
 <p><img alt="Fat/water imaging illustration" src="_images/fat-water-imaging_illustration.png" /></p>
 </section>
 <section id="contrast-agents">
 <h2>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Link to this heading">#</a></h2>
 <p>Contrast agents used in MRI, such as gadolinium chelates and superparamagnetic iron oxides, shorten the relaxation rates wherever they are present.
-This is quantified by their relaxivities, $r_1, r_2$, typically in units of [L / (mmol s)]:</p>
-<p>$$\frac{1}{\hat{T}_1} = \frac{1}{T_1} + r_1 \cdot [CM]$$
-$$\frac{1}{\hat{T}_2} = \frac{1}{T_2} + r_2 \cdot [CM]$$</p>
-<p>Where $\hat{T}_1, \hat{T}_2$ are the relaxation time constants with the agent present, and $[CM]$ is the contrast agent concentration, typically in units of [mM = mmol/L].</p>
+This is quantified by their relaxivities, <span class="math notranslate nohighlight">\(r_1, r_2\)</span>, typically in units of [L / (mmol s)]:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\hat{T}_1} = \frac{1}{T_1} + r_1 \cdot [CM]\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\hat{T}_2} = \frac{1}{T_2} + r_2 \cdot [CM]\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\hat{T}_1, \hat{T}_2\)</span> are the relaxation time constants with the agent present, and <span class="math notranslate nohighlight">\([CM]\)</span> is the contrast agent concentration, typically in units of [mM = mmol/L].</p>
 </section>
 </section>
 
@@ -721,8 +735,8 @@ $$\frac{1}{\hat{T}_2} = \frac{1}{T_2} + r_2 \cdot [CM]$$</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#susceptibility-induced-contrasts">Susceptibility Induced Contrasts</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-contrast">Phase Contrast</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2">$T_2^*$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-contrast">$T_2^*$ contrast</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2"><span class="math notranslate nohighlight">\(T_2^*\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-2-contrast"><span class="math notranslate nohighlight">\(T_2^*\)</span> contrast</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fat-water-imaging">Fat/Water Imaging</a></li>

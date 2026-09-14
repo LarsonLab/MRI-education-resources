@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MRI Notation';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -542,7 +544,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="mri-notation-and-terminology">
+  <section class="tex2jax_ignore mathjax_ignore" id="mri-notation-and-terminology">
 <h1>MRI Notation and Terminology<a class="headerlink" href="#mri-notation-and-terminology" title="Link to this heading">#</a></h1>
 <p>The following is the standardized notation used in this book:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -553,47 +555,47 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>$\vec{r} = [x, y, z]^T$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vec{r} = [x, y, z]^T\)</span></p></td>
 <td><p>position in space</p></td>
 <td><p>[m]</p></td>
 </tr>
-<tr class="row-odd"><td><p>$\vec{B}(\vec{r},t)$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vec{B}(\vec{r},t)\)</span></p></td>
 <td><p>Magnetic field</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-even"><td><p>$\bar{\gamma}$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\bar{\gamma}\)</span></p></td>
 <td><p>gyromagnetic ratio</p></td>
 <td><p>[Hz/T]</p></td>
 </tr>
-<tr class="row-odd"><td><p>$B_0$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(B_0\)</span></p></td>
 <td><p>Main magnetic field</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-even"><td><p>$B_1^+(\vec{r},t)$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></p></td>
 <td><p>RF transmit magnetic field</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-odd"><td><p>$B_1^-(\vec{r},t)$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></td>
 <td><p>RF receive magnetic field</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-even"><td><p>$\vec{G}(t) = [G_X(t), G_Y(t), G_Z(t)]^T $</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\vec{G}(t) = [G_X(t), G_Y(t), G_Z(t)]^T \)</span></p></td>
 <td><p>magnetic field gradients</p></td>
 <td><p>[T/m]</p></td>
 </tr>
-<tr class="row-odd"><td><p>$\vec{M}(\vec{r},t)$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span></p></td>
 <td><p>Net Magnetization</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-even"><td><p>$M_{XY}(\vec{r}, t) = M_X(\vec{r}, t) + i M_Y(\vec{r}, t)$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(M_{XY}(\vec{r}, t) = M_X(\vec{r}, t) + i M_Y(\vec{r}, t)\)</span></p></td>
 <td><p>transverse magnetization</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-odd"><td><p>$M_0(\vec{r})$</p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(M_0(\vec{r})\)</span></p></td>
 <td><p>Equilibrium magnetization</p></td>
 <td><p>[T]</p></td>
 </tr>
-<tr class="row-even"><td><p>$T_1(\vec{r}), T_2(\vec{r}), T_2^*(\vec{r})$</p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T_1(\vec{r}), T_2(\vec{r}), T_2^*(\vec{r})\)</span></p></td>
 <td><p>relaxation rates</p></td>
 <td><p>[s]</p></td>
 </tr>
@@ -614,46 +616,52 @@
 <h2>Definitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h2>
 <section id="position-in-space">
 <h3>Position in space<a class="headerlink" href="#position-in-space" title="Link to this heading">#</a></h3>
-<p>$$\vec{r} =
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{r} = 
 \begin{bmatrix}
-x\
-y \
-z
-\end{bmatrix}$$</p>
+x\\
+y \\
+z 
+\end{bmatrix}\end{split}\]</div>
 </section>
 <section id="net-magnetization">
 <h3>Net magnetization<a class="headerlink" href="#net-magnetization" title="Link to this heading">#</a></h3>
-<p>$$\vec{M} =
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{M} = 
 \begin{bmatrix}
-M_X \
-M_Y \
-M_Z
-\end{bmatrix}$$</p>
-<p>It can vary over space, $\vec{r} = [x,y,z]^T$ and time, $t$:</p>
-<p>$$\vec{M}(\vec{r},t) =
+M_X \\
+M_Y \\
+M_Z 
+\end{bmatrix}\end{split}\]</div>
+<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r} = [x,y,z]^T\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{M}(\vec{r},t) = 
 \begin{bmatrix}
-M_X(\vec{r},t) \
-M_Y(\vec{r},t) \
-M_Z(\vec{r},t)
-\end{bmatrix}$$</p>
+M_X(\vec{r},t) \\
+M_Y(\vec{r},t) \\
+M_Z(\vec{r},t) 
+\end{bmatrix}\end{split}\]</div>
 <p>Shorthand for transverse magnetization using complex numbers</p>
-<p>$$M_{XY}(\vec{r},t) = M_X(\vec{r},t) + i M_Y(\vec{r},t)$$</p>
+<div class="math notranslate nohighlight">
+\[M_{XY}(\vec{r},t) = M_X(\vec{r},t) + i M_Y(\vec{r},t)\]</div>
 </section>
 <section id="magnetic-field">
 <h3>Magnetic field<a class="headerlink" href="#magnetic-field" title="Link to this heading">#</a></h3>
-<p>$$\vec{B} =
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B} = 
 \begin{bmatrix}
-B_X \
-B_Y \
-B_Z
-\end{bmatrix}$$</p>
-<p>It can vary over space, $\vec{r}$ and time, $t$:</p>
-<p>$$\vec{B}(\vec{r},t) =
+B_X \\
+B_Y \\
+B_Z 
+\end{bmatrix}\end{split}\]</div>
+<p>It can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-B_X(\vec{r},t) \
-B_Y(\vec{r},t) \
-B_Z(\vec{r},t)
-\end{bmatrix}$$</p>
+B_X(\vec{r},t) \\
+B_Y(\vec{r},t) \\
+B_Z(\vec{r},t) 
+\end{bmatrix}\end{split}\]</div>
 </section>
 </section>
 <section id="acronyms">

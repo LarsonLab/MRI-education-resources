@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'RF Pulse Design';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -538,7 +540,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="rf-pulse-design">
+  <section class="tex2jax_ignore mathjax_ignore" id="rf-pulse-design">
 <h1>RF Pulse Design<a class="headerlink" href="#rf-pulse-design" title="Link to this heading">#</a></h1>
 <p>RF pulse design in the small-tip regime (&lt; 60-degrees) can utilize the Fourier Transform, while larger flip angle designs such as 90 and 180-degree pulses benefit from advanced techniques like the Shinnar-Le Roux (SLR) algorithm.</p>
 <section id="learning-goals">
@@ -638,7 +640,8 @@
 <section id="time-bandwidth-product-and-pulse-selectivity">
 <h2>Time-bandwidth Product and Pulse Selectivity<a class="headerlink" href="#time-bandwidth-product-and-pulse-selectivity" title="Link to this heading">#</a></h2>
 <p>Arguably the most important RF pulse design parameter is the “time-bandwidth” product.  As the name implies, this is the pulse duration (time) times the pulse bandwidth</p>
-<p>$$ TBW = T_{rf} \times BW_{rf} $$</p>
+<div class="math notranslate nohighlight">
+\[ TBW = T_{rf} \times BW_{rf} \]</div>
 <p>A given RF pulse shape has an associated TBW, and this shape can be stretched or shrunk in time to modulate the resulting bandwidth.</p>
 <p>The key feature of the TBW is that it controls the <em>pulse selectivity</em>, that is how sharp the pulse profile is, or, in other words, how quickly the profile goes from the desired flip angle to zero flip angle.</p>
 <div class="cell docutils container">
@@ -832,7 +835,7 @@
 <img alt="_images/3dd3d6148237e982c452ecd2214f7dfd0819889b8f7974644f8513afd99b9d77.png" src="_images/3dd3d6148237e982c452ecd2214f7dfd0819889b8f7974644f8513afd99b9d77.png" />
 </div>
 </div>
-<p>Note that now the ripples in the $M_{XY}$ profile are now removed!  (There is some increased ripple in $M_Z$, but this isn’t an issue for excitation pulses).  The RF pulses themselves are only subtly different.</p>
+<p>Note that now the ripples in the <span class="math notranslate nohighlight">\(M_{XY}\)</span> profile are now removed!  (There is some increased ripple in <span class="math notranslate nohighlight">\(M_Z\)</span>, but this isn’t an issue for excitation pulses).  The RF pulses themselves are only subtly different.</p>
 <p>The degradation of the slice (frequency) profile of sinc-pulses becomes substantial with a 180-degree flip angle inversion pulse:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,7 +926,7 @@
 <img alt="_images/fea81e3219b3ae86f85c2d9dbd0dbd6ea3b8758a8023526c48db65bab0bdd530.png" src="_images/fea81e3219b3ae86f85c2d9dbd0dbd6ea3b8758a8023526c48db65bab0bdd530.png" />
 </div>
 </div>
-<p>Note that the inversion profile $M_Z$ is much more selective, in other words more like a rectangular function, with the SLR pulse design.    The SLR RF pulse is now noticeably different from a windowed sinc.</p>
+<p>Note that the inversion profile <span class="math notranslate nohighlight">\(M_Z\)</span> is much more selective, in other words more like a rectangular function, with the SLR pulse design.    The SLR RF pulse is now noticeably different from a windowed sinc.</p>
 </section>
 </section>
 

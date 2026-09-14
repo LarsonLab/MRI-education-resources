@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Accelerated Imaging Methods';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -555,7 +557,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="accelerated-imaging-methods">
+  <section class="tex2jax_ignore mathjax_ignore" id="accelerated-imaging-methods">
 <h1>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Link to this heading">#</a></h1>
 <p>MRI scans can be accelerated by applying methods that reduce the number of k-space samples required, also known as undersampling.  These require a corresponding advanced image reconstruction method to allow for the reduced sampling.  The techniques covered here include partial Fourier reconstruction, parallel imaging, compressed sensing, and deep learning methods.</p>
 <section id="learning-goals">
@@ -633,14 +635,15 @@ This allows for shorter scan times, which can be used to incease throughput, red
 </section>
 <section id="partial-fourier-imaging">
 <h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Link to this heading">#</a></h2>
-<p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, $m(\vec{r})$, is real-valued, then the k-space data satisfies</p>
-<p>$$M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0$$</p>
-<p>Where $\mathcal{Im}(m(\vec{r}))$ is the imaginary part.
-Note that this can also be used if a constant phase offset is present, and this can be estimated and removed such that $\mathcal{Im}(m(\vec{r}) e^{i \phi}) = 0$.</p>
-<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of $m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)$, this would mean all transverse magnetization is along $M_X$.  In practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
+<p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, <span class="math notranslate nohighlight">\(m(\vec{r})\)</span>, is real-valued, then the k-space data satisfies</p>
+<div class="math notranslate nohighlight">
+\[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}))\)</span> is the imaginary part.
+Note that this can also be used if a constant phase offset is present, and this can be estimated and removed such that <span class="math notranslate nohighlight">\(\mathcal{Im}(m(\vec{r}) e^{i \phi}) = 0\)</span>.</p>
+<p>Our object is the transverse magnetization, so this conidition is satisfied if our transverse magnetization is aligned across the entire image.  With a strict definition of <span class="math notranslate nohighlight">\(m(\vec{r}) = M_{XY}(\vec{r},0) = M_{X}(\vec{r},0) + i M_{Y}(\vec{r},0)\)</span>, this would mean all transverse magnetization is along <span class="math notranslate nohighlight">\(M_X\)</span>.  In practice a global phase offset can be estimated so this relationship holds as long as the transverse magnetizations are all aligned.</p>
 <p>In this case, only half of k-space is required, and the other half can be filled in by this property.  This means 2 times faster scanning!</p>
-<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along $M_Y$), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
-<p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, $\Delta B_0(\vec r)$, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
+<p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
+<p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span>, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for Partial Fourier Imaging</span>
@@ -717,8 +720,9 @@ Note that this can also be used if a constant phase offset is present, and this 
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Link to this heading">#</a></h3>
 <p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
-<p>This is characterized by the geometry factor, or “g-factor”, where $g(\vec{r}) \geq 1$ characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of $R$, the total readout time reduces the SNR by $\sqrt{R}$ as well, leading to the SNR relationship:</p>
-<p>$$SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}$$</p>
+<p>This is characterized by the geometry factor, or “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
+<div class="math notranslate nohighlight">
+\[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
 </section>
 <section id="artifacts-with-parallel-imaging">
 <h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Link to this heading">#</a></h3>

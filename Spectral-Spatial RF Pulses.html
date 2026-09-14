@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Spectral-Spatial RF Pulses';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -536,7 +538,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="spectral-spatial-rf-pulses">
+  <section class="tex2jax_ignore mathjax_ignore" id="spectral-spatial-rf-pulses">
 <h1>Spectral-Spatial RF Pulses<a class="headerlink" href="#spectral-spatial-rf-pulses" title="Link to this heading">#</a></h1>
 <p>Spectral-spatial RF pulses aim to provide both</p>
 <ul class="simple">
@@ -630,12 +632,14 @@ error: called from
 </div>
 </div>
 <p>To design the RF pulse, we can approximate the pulse and profile shape as separable function in frequency and space:</p>
-<p>$$ h(f,z) = h_f(f) h_z(z)$$
-$$ \mathcal{F}{ h(f,z) } = H(k_f, k_z) = H_f(k_f) H_z(k_z)$$</p>
+<div class="math notranslate nohighlight">
+\[ h(f,z) = h_f(f) h_z(z)\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathcal{F}\{ h(f,z) \} = H(k_f, k_z) = H_f(k_f) H_z(k_z)\]</div>
 <p>With this approximation, we can formulate the goal of the RF pulse design is to create and combine two pulses:</p>
 <ul class="simple">
-<li><p>A spectral pulse filter, $H_f(k_f)$, that should be applied in $k_f$ direction</p></li>
-<li><p>A spatial pulse filter, $H_z(k_z)$, that should be applied in the $k_z$ direction</p></li>
+<li><p>A spectral pulse filter, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, that should be applied in <span class="math notranslate nohighlight">\(k_f\)</span> direction</p></li>
+<li><p>A spatial pulse filter, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>, that should be applied in the <span class="math notranslate nohighlight">\(k_z\)</span> direction</p></li>
 </ul>
 <p>Then design typically consists of 3 main steps</p>
 <ol class="arabic simple">
@@ -786,7 +790,7 @@ $$ \mathcal{F}{ h(f,z) } = H(k_f, k_z) = H_f(k_f) H_z(k_z)$$</p>
 <img alt="_images/89ea0408e4318413236f0ac21f4a9512629f9c2a2076adbd7975cdee41b1e2a6.png" src="_images/89ea0408e4318413236f0ac21f4a9512629f9c2a2076adbd7975cdee41b1e2a6.png" />
 </div>
 </div>
-<p>The spectral pulse, $H_f(k_f)$, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, $H_z(k_z)$.  This creates the excitation k-space profile, $B_1(k_f, k_z)$ shown above, which results in the spectral-spatial profile shown below:</p>
+<p>The spectral pulse, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>.  This creates the excitation k-space profile, <span class="math notranslate nohighlight">\(B_1(k_f, k_z)\)</span> shown above, which results in the spectral-spatial profile shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="n">g</span><span class="p">;</span>

@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Magnetic Fields in MRI';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -526,11 +528,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-magnetic-fields">Summary of Magnetic Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - $B_0$</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - $\vec{G}(t)$</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - $B_1^+(\vec{r},t)$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - $B_1^-(\vec{r},t)$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-transmit-rf-fields">Creating Transmit RF fields</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-magnetic-resonance-signal">Receiving Magnetic Resonance Signal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocity">Reciprocity</a></li>
@@ -557,7 +559,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="magnetic-fields-in-mri">
+  <section class="tex2jax_ignore mathjax_ignore" id="magnetic-fields-in-mri">
 <h1>Magnetic fields in MRI<a class="headerlink" href="#magnetic-fields-in-mri" title="Link to this heading">#</a></h1>
 <p>The magnetic fields created and manipulated during a MRI experiment critically determine the entire MRI experiment.  We will provide some background on creating and detecting magnetic fields, and then describe the magnetic fields present in MRI systems.</p>
 <section id="learning-goals">
@@ -591,110 +593,111 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Main Field</p></td>
-<td><p>$B_0$</p></td>
-<td><p>$z$</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
 <td><p>0 Hz</p></td>
-<td><p>$\approx 1$ T</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> T</p></td>
 <td><p>Polarization</p></td>
 </tr>
 <tr class="row-odd"><td><p>Main Field Inhomogeneities</p></td>
-<td><p>$\Delta B_0(\vec{r})$</p></td>
-<td><p>$z$</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Delta B_0(\vec{r})\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
 <td><p>0 Hz</p></td>
-<td><p>$\approx 1-10$ ppm</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1-10\)</span> ppm</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>Magnetic Field Gradients</p></td>
-<td><p>$\vec G(t)$</p></td>
-<td><p>$z$</p></td>
-<td><p>$\approx 1$ kHz</p></td>
-<td><p>$\approx 10$ mT</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec G(t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1\)</span> kHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 10\)</span> mT</p></td>
 <td><p>Spatial Encoding</p></td>
 </tr>
 <tr class="row-odd"><td><p>Transmit RF Coils</p></td>
-<td><p>$B_1^+(\vec{r},t)$</p></td>
-<td><p>$x,y$</p></td>
-<td><p>$\approx 100$ MHz</p></td>
-<td><p>$\approx 10 \mu T$</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 10 \mu T\)</span></p></td>
 <td><p>Excitation</p></td>
 </tr>
 <tr class="row-even"><td><p>Receive RF Coils</p></td>
-<td><p>$B_1^-(\vec{r},t)$</p></td>
-<td><p>$x,y$</p></td>
-<td><p>$\approx 100$ MHz</p></td>
-<td><p>$\approx 1 \mu T$</p></td>
+<td><p><span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x,y\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu T\)</span></p></td>
 <td><p>Reception</p></td>
 </tr>
 <tr class="row-odd"><td><p>Net Magnetization</p></td>
-<td><p>$\vec{M}(\vec{r},t)$</p></td>
-<td><p>$z,y,z$</p></td>
-<td><p>$\approx 100$ MHz</p></td>
-<td><p>$\approx 1 \mu \mathrm{T}$</p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(z,y,z\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 100\)</span> MHz</p></td>
+<td><p><span class="math notranslate nohighlight">\(\approx 1 \mu \mathrm{T}\)</span></p></td>
 <td><p>Signal Source</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Also included is the Net Magnetization, $\vec{M}(\vec{r},t)$, which is the magnetic fields created from nuclear spins that we measure in MRI.</p>
+<p>Also included is the Net Magnetization, <span class="math notranslate nohighlight">\(\vec{M}(\vec{r},t)\)</span>, which is the magnetic fields created from nuclear spins that we measure in MRI.</p>
 </section>
 <section id="loop-currents-and-magnetic-fields">
 <h2>Loop currents and magnetic fields<a class="headerlink" href="#loop-currents-and-magnetic-fields" title="Link to this heading">#</a></h2>
-<p>Magnetic fields, $\vec{B}$, can be created by current, $I$, through loop of wire, governed by the principles of electromagnetism in Maxwell’s equations.  The the “left-hand rule” determines the direction of the magnetic field.</p>
+<p>Magnetic fields, <span class="math notranslate nohighlight">\(\vec{B}\)</span>, can be created by current, <span class="math notranslate nohighlight">\(I\)</span>, through loop of wire, governed by the principles of electromagnetism in Maxwell’s equations.  The the “left-hand rule” determines the direction of the magnetic field.</p>
 <p><img alt="loop%20small%20current.png" src="_images/loop_small_current.png" /></p>
 <p>By increasing the current, the magnetic field is increased</p>
 <p><img alt="loop%20big%20current.png" src="_images/loop_big_current.png" /></p>
 <p>We can also link many loops together (a “solenoid”) to increase the extent of the magnetic field.</p>
 <p><img alt="solenoid%20small%20current.png" src="_images/solenoid_small_current.png" /></p>
-<p>A solenoid design is typically used to create the main magnetic field for MRI, $B_0$, to create a large region in space with a homogeneous magnetic field, as required for MRI across a volume.</p>
+<p>A solenoid design is typically used to create the main magnetic field for MRI, <span class="math notranslate nohighlight">\(B_0\)</span>, to create a large region in space with a homogeneous magnetic field, as required for MRI across a volume.</p>
 </section>
 <section id="main-magnet-b-0">
-<h2>Main Magnet - $B_0$<a class="headerlink" href="#main-magnet-b-0" title="Link to this heading">#</a></h2>
+<h2>Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span><a class="headerlink" href="#main-magnet-b-0" title="Link to this heading">#</a></h2>
 <p>The main magnetic field is created with solenoid coils, shown above, that can provide a large region in space where there is large, homogeneous magnetic field.<br />
 The large magnetic field is required to create stronger polarization.
 The large region is space determines where we can create an image.
 And having a homogeneous magnet ensures there are no image distortion artifacts.</p>
 <p>This magnet creates magnetic fields of usually 1.5 or 3 T, by convention oriented in the z-direction, and this field is always on during the scan.  Mathematically, we can add this to our magnetic field vector:</p>
-<p>$$\vec{B}(\vec{r},t) =
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-0 \
-0 \
-B_0
-\end{bmatrix}$$</p>
-<p>Note that this magnetic field is never perfect, which is captured by the main field inhomogeneities, $\Delta B_0(\vec r)$, and that the field changes due to the molecular environment which is known as chemical shift.  These concepts and how they change $B_Z$ are described in <a class="reference internal" href="In%20Vivo%20Spin%20Physics.html"><span class="std std-doc">In Vivo Spin Physics</span></a>.</p>
+0 \\
+0 \\
+B_0 
+\end{bmatrix}\end{split}\]</div>
+<p>Note that this magnetic field is never perfect, which is captured by the main field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span>, and that the field changes due to the molecular environment which is known as chemical shift.  These concepts and how they change <span class="math notranslate nohighlight">\(B_Z\)</span> are described in <a class="reference internal" href="In%20Vivo%20Spin%20Physics.html"><span class="std std-doc">In Vivo Spin Physics</span></a>.</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
-<h2>Magnetic field gradient coils - $\vec{G}(t)$<a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Link to this heading">#</a></h2>
+<h2>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Link to this heading">#</a></h2>
 <p>The magnetic field gradient coils are designed to add and subtract from the main magnetic field.  In this way, they create a spatially varying magnetic field.  Since the frequency of magnetic resonance is proportional to the magnetic field, this means that when the gradients are on the resonance frequency varies as function of position.  This gives us a way to separate signals from different regions based on resonance frequency, and create images.</p>
-<p>The gradient coil fields have a maximum amplitude of around 50 mT/m = 0.05 T/m, aligned with $B_0$ in the z-direction, and this field is switched on and off during MRI experiments.  The gradients are typically varied every few ms, with minimum switching times around 0.1 ms.  Mathematically, we can add this to our magnetic field vector:</p>
-<p>$$\vec{B}(\vec{r},t) =
+<p>The gradient coil fields have a maximum amplitude of around 50 mT/m = 0.05 T/m, aligned with <span class="math notranslate nohighlight">\(B_0\)</span> in the z-direction, and this field is switched on and off during MRI experiments.  The gradients are typically varied every few ms, with minimum switching times around 0.1 ms.  Mathematically, we can add this to our magnetic field vector:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-0 \
-0 \
+0 \\
+0 \\
 B_0 + \vec{G}(t) \cdot \vec{r}
-\end{bmatrix}$$</p>
-<p>Where the gradients creates linear changes in the z-component of the magnetic field, $B_Z$, across space.</p>
+\end{bmatrix}\end{split}\]</div>
+<p>Where the gradients creates linear changes in the z-component of the magnetic field, <span class="math notranslate nohighlight">\(B_Z\)</span>, across space.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
-<h2>Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$<a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Link to this heading">#</a></h2>
+<h2>Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t" title="Link to this heading">#</a></h2>
 <p>The purpose of the RF coils and RF systems are</p>
 <ol class="arabic simple">
 <li><p>Excitation – perturb the net magnetization from equilibrium by creating magnetic fields at the resonance frequency</p></li>
 <li><p>Reception – after excitation, the precessing net magnetization creates magnetic fields at the resonance frequency</p></li>
 </ol>
 <p>These are called RF coils since the resonance frequencies for MRI, typically around 100 MHz, is in the so-called radio-frequency (RF) range.  All RF coils used for MRI must be tuned to the resonance frequency to effectively transmit and receive signals at this frequency.</p>
-<p>Their amplitude is much smaller than the other magnetic fields, typically in the 10 $\mu$T = .00001 T range.  The magnetic fields created by the RF coils are oriented perpedicularly to the main magnetic field, and thus are in the transverse (XY) plane.  Mathematically, we add this final magnetic field as</p>
-<p>$$\vec{B}(\vec{r},t) =
+<p>Their amplitude is much smaller than the other magnetic fields, typically in the 10 <span class="math notranslate nohighlight">\(\mu\)</span>T = .00001 T range.  The magnetic fields created by the RF coils are oriented perpedicularly to the main magnetic field, and thus are in the transverse (XY) plane.  Mathematically, we add this final magnetic field as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{B}(\vec{r},t) = 
 \begin{bmatrix}
-B_{1,X}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) \</p>
-<ul class="simple">
-<li><p>B_{1,X}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t)  \
+B_{1,X}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) \\
+- B_{1,X}(\vec{r},t) \sin(2\pi\bar{\gamma} B_0 t) - B_{1,Y}(\vec{r},t) \cos(2\pi\bar{\gamma} B_0 t)  \\
 B_0 + \vec{G}(t) \cdot \vec{r}
-\end{bmatrix}$$</p></li>
-</ul>
-<p>In this representation, the RF magnetic field, $B_{1,X}, B_{1,Y}$, is rotating at the Larmor frequency, $f_0 = \bar{\gamma} B_0$, in the transverse plane.  In the rotating frame, this rotation is removed, and we are left with a transverse magnetic field with X and Y components.</p>
+\end{bmatrix}\end{split}\]</div>
+<p>In this representation, the RF magnetic field, <span class="math notranslate nohighlight">\(B_{1,X}, B_{1,Y}\)</span>, is rotating at the Larmor frequency, <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span>, in the transverse plane.  In the rotating frame, this rotation is removed, and we are left with a transverse magnetic field with X and Y components.</p>
 <p>The RF system is divided up into transmit and receive paths.  All components are tuned to Larmor frequency, meaning they are most sensitive to transmitting or receiving signals at this frequency.  Reactive components (capacitors and inductors) are used for tuning to the correct frequency.</p>
 <section id="transmit-tx-system-for-excitation-b-1-vec-r-t">
-<h3>Transmit (Tx) system for excitation - $B_1^+(\vec{r},t)$<a class="headerlink" href="#transmit-tx-system-for-excitation-b-1-vec-r-t" title="Link to this heading">#</a></h3>
+<h3>Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span><a class="headerlink" href="#transmit-tx-system-for-excitation-b-1-vec-r-t" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Transmit high power (10s of kW) RF signals</p></li>
 <li><p>Key requirement is homogeneity, i.e. same magnetic field that creates the same flip angle across imaging FOV</p></li>
@@ -702,7 +705,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </ul>
 </section>
 <section id="receive-rx-system-for-reception-b-1-vec-r-t">
-<h3>Receive (Rx) system for reception - $B_1^-(\vec{r},t)$<a class="headerlink" href="#receive-rx-system-for-reception-b-1-vec-r-t" title="Link to this heading">#</a></h3>
+<h3>Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span><a class="headerlink" href="#receive-rx-system-for-reception-b-1-vec-r-t" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Receive small signals (mV) arising from body</p></li>
 <li><p>Key requirement is high sensitivity to detect small signals with the least noise</p></li>
@@ -753,7 +756,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <h3>Receiving Magnetic Resonance Signal<a class="headerlink" href="#receiving-magnetic-resonance-signal" title="Link to this heading">#</a></h3>
 <p>Magnetic resonance signal is received by the following sequence of events</p>
 <ol class="arabic simple">
-<li><p>Spins and the net magnetization, $\vec{M}$, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: $f_0 = \bar{\gamma} B_0$</p></li>
+<li><p>Spins and the net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>, in a magnetic field will precess at the Larmor frequency, which depends on the gyromagnetic ratio and main magnetic field: <span class="math notranslate nohighlight">\(f_0 = \bar{\gamma} B_0\)</span></p></li>
 <li><p>This precession creates oscillating magnetic fields at this same (Larmor) frequency.</p></li>
 <li><p>Oscillating magnetic fields will create oscillating current in loops of wire, which can be detected by amplifying and digitizing this signal</p></li>
 </ol>
@@ -775,8 +778,9 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li><p>Creates magnetic fields perpendicular to B0</p></li>
 </ul>
 <p>In MRI we denote transmitted magnetic fields from RF energy as</p>
-<p>$$B_1^+(\vec{r},t)$$</p>
-<p>This field is typically in units of millitesla (mT) and can vary over space, $\vec{r}$ and time, $t$</p>
+<div class="math notranslate nohighlight">
+\[B_1^+(\vec{r},t)\]</div>
+<p>This field is typically in units of millitesla (mT) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span> and time, <span class="math notranslate nohighlight">\(t\)</span></p>
 <p><img alt="BODY coil" src="_images/BODY_coil.png" /></p>
 </section>
 <section id="receive-rx-rf-coils">
@@ -791,8 +795,9 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li><p><em>Goal is to provide high sensitivity to receive MR signals by placing them as close as possible to the body</em></p></li>
 </ul>
 <p>In MRI we denote senitivity profile to varying magnetic fields of the RF receiver coils as</p>
-<p>$$B_{1,n}^-(\vec{r},t)$$</p>
-<p>This sensitivity is typically in units of millitesla/Amp (mT/A) and can vary over space, $\vec{r}$, time, $t$, and coil element, $n$, in the array coil.</p>
+<div class="math notranslate nohighlight">
+\[B_{1,n}^-(\vec{r},t)\]</div>
+<p>This sensitivity is typically in units of millitesla/Amp (mT/A) and can vary over space, <span class="math notranslate nohighlight">\(\vec{r}\)</span>, time, <span class="math notranslate nohighlight">\(t\)</span>, and coil element, <span class="math notranslate nohighlight">\(n\)</span>, in the array coil.</p>
 <p>Note that some RF coils are also often built into the table.  In the picture below, array coils are placed on top of the subject and there are also coils in the table.</p>
 <p><img alt="Receive array" src="_images/TIM_receive_array.png" /></p>
 </section>
@@ -807,7 +812,7 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 </section>
 <section id="sensitivity-simulation">
 <h3>Sensitivity Simulation<a class="headerlink" href="#sensitivity-simulation" title="Link to this heading">#</a></h3>
-<p>The following simulates the sensitivity profile of a single loop RF coil varying over space, using the Biot-Savart law from electromagnetism.  In the following plots, the magnetic field vector, $\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]$, that is created by the coil is plotted, as well as the magnetic field amplitude, $|\vec{B}(\vec{r})|$.</p>
+<p>The following simulates the sensitivity profile of a single loop RF coil varying over space, using the Biot-Savart law from electromagnetism.  In the following plots, the magnetic field vector, <span class="math notranslate nohighlight">\(\vec{B}(\vec{r}) = [B_X(\vec{r}), B_Y(\vec{r}), B_Z(\vec{r})]\)</span>, that is created by the coil is plotted, as well as the magnetic field amplitude, <span class="math notranslate nohighlight">\(\|\vec{B}(\vec{r})\|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -945,11 +950,11 @@ B_0 + \vec{G}(t) \cdot \vec{r}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-magnetic-fields">Summary of Magnetic Fields</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-currents-and-magnetic-fields">Loop currents and magnetic fields</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - $B_0$</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - $\vec{G}(t)$</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - $B_1^+(\vec{r},t), B_1^-(\vec{r},t)$</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - $B_1^+(\vec{r},t)$</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - $B_1^-(\vec{r},t)$</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-magnet-b-0">Main Magnet - <span class="math notranslate nohighlight">\(B_0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#magnetic-field-gradient-coils-vec-g-t">Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">Radiofrequency (RF) coils - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t), B_1^-(\vec{r},t)\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transmit-tx-system-for-excitation-b-1-vec-r-t">Transmit (Tx) system for excitation - <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receive-rx-system-for-reception-b-1-vec-r-t">Receive (Rx) system for reception - <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-transmit-rf-fields">Creating Transmit RF fields</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receiving-magnetic-resonance-signal">Receiving Magnetic Resonance Signal</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reciprocity">Reciprocity</a></li>

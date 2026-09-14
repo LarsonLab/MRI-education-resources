@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Advanced SNR';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -523,7 +525,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and $T_2^*$ decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency-versus-tr">SNR efficiency versus TR</a></li>
 </ul>
             </nav>
@@ -536,16 +538,18 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="advanced-snr">
+  <section class="tex2jax_ignore mathjax_ignore" id="advanced-snr">
 <h1>Advanced SNR<a class="headerlink" href="#advanced-snr" title="Link to this heading">#</a></h1>
 <p>Simulations of SNR efficiency, challenges to the fundamental assumptions of SNR (e.g. T2* decay during the readout)</p>
 <section id="snr-and-t-2-decay">
-<h2>SNR and $T_2^*$ decay<a class="headerlink" href="#snr-and-t-2-decay" title="Link to this heading">#</a></h2>
-<p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the $T_2^<em>$ decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for $T_2^</em>$, which will offset signal gains from extending the readout</p>
-<p>$$SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }$$</p>
-<p>$T_{read}$ is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
+<h2>SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay<a class="headerlink" href="#snr-and-t-2-decay" title="Link to this heading">#</a></h2>
+<p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the <span class="math notranslate nohighlight">\(T_2^*\)</span> decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for <span class="math notranslate nohighlight">\(T_2^*\)</span>, which will offset signal gains from extending the readout</p>
+<div class="math notranslate nohighlight">
+\[SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }\]</div>
+<p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
 <p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:</p>
-<p>$$SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}$$</p>
+<div class="math notranslate nohighlight">
+\[SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -596,14 +600,15 @@
 </div>
 </div>
 </div>
-<p>From this result, we can see that the optimal choice of $T_{read}$ from a SNR point of view is approximately $ T_{read} / T_2^* = 1.3$ (one-sided) and $ T_{read} / T_2^* = 2.5$ (two-sided).</p>
-<p>However, this relationship does not take into account the effects of resolution loss that will typically occur due to decaying $T_2^*$ weighting in k-space.  (See “MRI Signal Equation” for information on this effect).</p>
+<p>From this result, we can see that the optimal choice of <span class="math notranslate nohighlight">\(T_{read}\)</span> from a SNR point of view is approximately <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 1.3\)</span> (one-sided) and <span class="math notranslate nohighlight">\( T_{read} / T_2^* = 2.5\)</span> (two-sided).</p>
+<p>However, this relationship does not take into account the effects of resolution loss that will typically occur due to decaying <span class="math notranslate nohighlight">\(T_2^*\)</span> weighting in k-space.  (See “MRI Signal Equation” for information on this effect).</p>
 </section>
 <section id="snr-efficiency-versus-tr">
 <h2>SNR efficiency versus TR<a class="headerlink" href="#snr-efficiency-versus-tr" title="Link to this heading">#</a></h2>
-<p>The SNR efficiency is useful to examine the choice of TR.  It is especially interesting for spoiled gradient-echo sequences where when we can choose to use the optimal flip angle (“Ernst angle”) based on a $T_1$ value of interest.  For these sequences, the optimal flip angle is</p>
-<p>$$\theta_{optimal} = \cos^{-1} \exp(-TR/T_1)$$</p>
-<p>And $f_{seq,GRE}$ is defined above.</p>
+<p>The SNR efficiency is useful to examine the choice of TR.  It is especially interesting for spoiled gradient-echo sequences where when we can choose to use the optimal flip angle (“Ernst angle”) based on a <span class="math notranslate nohighlight">\(T_1\)</span> value of interest.  For these sequences, the optimal flip angle is</p>
+<div class="math notranslate nohighlight">
+\[\theta_{optimal} = \cos^{-1} \exp(-TR/T_1)\]</div>
+<p>And <span class="math notranslate nohighlight">\(f_{seq,GRE}\)</span> is defined above.</p>
 <p>Under this condition, we see the following intriguing result.  Once the optimal flip angle begins to approach 90-degrees, the SNR efficiency begins to drop.  But for the shorter TRs, the SNR efficiency is relatively stable for different TRs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,7 +737,7 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and $T_2^*$ decay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-and-t-2-decay">SNR and <span class="math notranslate nohighlight">\(T_2^*\)</span> decay</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-efficiency-versus-tr">SNR efficiency versus TR</a></li>
 </ul>
   </nav></div>

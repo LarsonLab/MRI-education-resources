@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Volumetric Imaging';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -548,7 +550,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="volumetric-imaging">
+  <section class="tex2jax_ignore mathjax_ignore" id="volumetric-imaging">
 <h1>Volumetric Imaging<a class="headerlink" href="#volumetric-imaging" title="Link to this heading">#</a></h1>
 <p>Volumetric imaging refers to the ability to acquire images across a volume.  So far we have discussed methods for a single slice.  This chapter will cover the techniques of 2D multi-slice imaging and 3D imaging.</p>
 <section id="learning-goals">
@@ -600,23 +602,28 @@
 <section id="contrast">
 <h3>Contrast<a class="headerlink" href="#contrast" title="Link to this heading">#</a></h3>
 <p>2D multi-slice imaging methods with interleaving can efficiently support longer TRs for PD and T2-weighted imaging, as any extra time in the TR can be used to acquire other slices.</p>
-<p>3D imaging methods require a larger $N_{TR}$ to complete two dimensions of phase encoding.  For this reason, they are much better suited for T1-weighted imaging which can use shorter TRs.</p>
+<p>3D imaging methods require a larger <span class="math notranslate nohighlight">\(N_{TR}\)</span> to complete two dimensions of phase encoding.  For this reason, they are much better suited for T1-weighted imaging which can use shorter TRs.</p>
 </section>
 <section id="scan-time">
 <h3>Scan Time<a class="headerlink" href="#scan-time" title="Link to this heading">#</a></h3>
 <p>In 2D multi-slice imaging, the scan time tradeoff depends on the number of slices that can be interleaved in a single TR.  The maximum number of slices is determined by the active time:</p>
-<p>$$N_{slices,max} = \frac{TR}{T_{active}}$$</p>
+<div class="math notranslate nohighlight">
+\[N_{slices,max} = \frac{TR}{T_{active}}\]</div>
 <p>Provided the number of slices is limited by this maximum, the scan time for fully sampled Cartesian encoding is:</p>
-<p>$$T_{scan, 2D} = TR \ N_{PE} \ N_{avg}$$</p>
+<div class="math notranslate nohighlight">
+\[T_{scan, 2D} = TR \ N_{PE} \ N_{avg}\]</div>
 <p>In 3D imaging, the scan time depends on the size of both phase encoding dimensions:</p>
-<p>$$T_{scan, 3D} = TR \ N_{PE,1} \ N_{PE,2} \ N_{avg}$$</p>
+<div class="math notranslate nohighlight">
+\[T_{scan, 3D} = TR \ N_{PE,1} \ N_{PE,2} \ N_{avg}\]</div>
 </section>
 <section id="snr">
 <h3>SNR<a class="headerlink" href="#snr" title="Link to this heading">#</a></h3>
 <p>Here are relationships if fully-sampled Cartesian encoding is used:</p>
-<p>$$SNR_{2D} \propto f_{seq,2D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE} N_{avg}}$$</p>
-<p>$$SNR_{3D} \propto f_{seq,3D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE,1} N_{PE,2} N_{avg}}$$</p>
-<p>3D imaging has a measurement time advantage over 2D multi-slice imaging, since each acquisition acquires signal from the entire volume.  However, some of this advantage is mitigated by greater T1 recovery in 2D multi-slice imaging, which is captured by $f_{seq}$.</p>
+<div class="math notranslate nohighlight">
+\[SNR_{2D} \propto f_{seq,2D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE} N_{avg}}\]</div>
+<div class="math notranslate nohighlight">
+\[SNR_{3D} \propto f_{seq,3D}\ \mathrm{Voxel\ Volume}\ \sqrt{T_{read} N_{PE,1} N_{PE,2} N_{avg}}\]</div>
+<p>3D imaging has a measurement time advantage over 2D multi-slice imaging, since each acquisition acquires signal from the entire volume.  However, some of this advantage is mitigated by greater T1 recovery in 2D multi-slice imaging, which is captured by <span class="math notranslate nohighlight">\(f_{seq}\)</span>.</p>
 </section>
 </section>
 </section>

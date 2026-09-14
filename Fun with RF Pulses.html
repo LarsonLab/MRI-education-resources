@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Fun with RF Pulses';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -539,7 +541,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="fun-with-rf-pulses">
+  <section class="tex2jax_ignore mathjax_ignore" id="fun-with-rf-pulses">
 <h1>Fun with RF Pulses?<a class="headerlink" href="#fun-with-rf-pulses" title="Link to this heading">#</a></h1>
 <p>Yes, you heard me right.  Maybe it takes a special type of person, but I think RF pulses can be fun!  Check out some interesting examples below.</p>
 <p><em>Movies created with SpinBench https://heartvista.ai/spinbench</em></p>
@@ -550,7 +552,7 @@
 </ol>
 <section id="adiabatic-pulses">
 <h3>Adiabatic Pulses<a class="headerlink" href="#adiabatic-pulses" title="Link to this heading">#</a></h3>
-<p>Adiabatic pulses are a class of pulses that are basically insensitive to $B_1^+(\vec{x})$ field inhomongeneities.  In other words, they perform similarly even if there is variation in the amplitude of the magnetic field created by the RF transmit coil.</p>
+<p>Adiabatic pulses are a class of pulses that are basically insensitive to <span class="math notranslate nohighlight">\(B_1^+(\vec{x})\)</span> field inhomongeneities.  In other words, they perform similarly even if there is variation in the amplitude of the magnetic field created by the RF transmit coil.</p>
 <p>These are mostly effective for 180-degree flip angles, for purposes of inversion or spin-echoes (although typically 2 adiabatic 180-degree pulses are required for refocusing unwanted phase when used as a spin-echo).</p>
 <p>The example below shows a simulation of two 180-degree inversion adiabatic pulses.  This movie shows how these pulses “sweep” the magnetization from the +z axis to the -z axis, and then back again with the second 180-degree pulse.</p>
 <p><img alt="adiabatic_gif.gif" src="_images/adiabatic_gif.gif" /></p>

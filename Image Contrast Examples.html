@@ -85,6 +85,8 @@
                 gtag('config', 'UA-51903906-1');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Image Contrast Examples';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -540,7 +542,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="image-contrast-examples">
+  <section class="tex2jax_ignore mathjax_ignore" id="image-contrast-examples">
 <h1>Image Contrast Examples<a class="headerlink" href="#image-contrast-examples" title="Link to this heading">#</a></h1>
 <p>This page shows examples of different MRI contrasts, as well as examples of how to simulate MRI contrast.</p>
 <section id="learning-goals">
@@ -561,8 +563,9 @@
 </section>
 <section id="simple-contrast-phantom">
 <h2>Simple Contrast Phantom<a class="headerlink" href="#simple-contrast-phantom" title="Link to this heading">#</a></h2>
-<p>Below is a simple contrast phantom consisting of three circular objects, each with a different $T_1$ and $T_2$.  The k-space data for these phantoms is created using a “jinc” function, which is the Fourier Transform of a circle:</p>
-<p>$$\mathcal{F}{ \mathrm{circ}(r) } = \mathrm{jinc}(k_r)$$</p>
+<p>Below is a simple contrast phantom consisting of three circular objects, each with a different <span class="math notranslate nohighlight">\(T_1\)</span> and <span class="math notranslate nohighlight">\(T_2\)</span>.  The k-space data for these phantoms is created using a “jinc” function, which is the Fourier Transform of a circle:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{F}\{ \mathrm{circ}(r) \} = \mathrm{jinc}(k_r)\]</div>
 <p>The signal is simulated for varying sequence parameters (TE, TR) with a 90-degree flip angle in a gradient-echo scheme by using the helper function:</p>
 <div class="highlight-Octave notranslate"><div class="highlight"><pre><span></span><span class="n">signal_gre</span> <span class="p">=</span> <span class="n">MRsignal_spoiled_gradient_echo</span><span class="p">(</span><span class="n">flip</span><span class="p">,</span> <span class="n">TE</span><span class="p">,</span> <span class="n">TR</span><span class="p">,</span> <span class="n">M0</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">)</span>
 </pre></div>
