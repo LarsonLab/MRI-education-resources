@@ -1,4 +1,4 @@
-jupyter-book>=1.0.0,<2.0.0
+jupyter-book==0.15.1
 matplotlib
 numpy
 octave-kernel
