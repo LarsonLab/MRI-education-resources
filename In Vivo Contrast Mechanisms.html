@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>In Vivo Contrast Mechanisms &#8212; Principles of MRI</title>
   
@@ -16,109 +17,95 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied'
-                });
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied'
-                });
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'In Vivo Contrast Mechanisms';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Gradient and Spin Echo Pulse Sequences" href="Gradient%20and%20Spin%20Echoes.html" />
     <link rel="prev" title="Basic Contrast Mechanisms" href="Basic%20Contrast%20Mechanisms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  
-    
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -126,6 +113,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -133,59 +121,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -194,8 +138,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -225,18 +168,11 @@
     
     
     <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
-    <img src="_static/MRI_logo-retro.png" class="logo__image only-dark pst-js-only" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -324,14 +260,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -350,9 +281,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -478,7 +409,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -492,19 +423,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -524,7 +463,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-and-chemical-shift">Off-resonance and Chemical Shift</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance">Off-resonance</a></li>
@@ -551,10 +490,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="in-vivo-contrast-mechanisms">
-<h1>In Vivo Contrast Mechanisms<a class="headerlink" href="#in-vivo-contrast-mechanisms" title="Link to this heading">#</a></h1>
+<h1>In Vivo Contrast Mechanisms<a class="headerlink" href="#in-vivo-contrast-mechanisms" title="Permalink to this heading">#</a></h1>
 <p>In addition to the basic contrast mechanisms based on T1, T2 and proton density, in vivo tissues and interactions create additional sources of contrast.  These include T2*, susceptibility, fat versus water, and admisistration of contrast agents.  Additional important sources of contrast in vivo include flow and magnetization transfer, but these are not covered here.</p>
 <section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Describe how various types of MRI contrast are created</p>
 <ul class="simple">
@@ -567,16 +506,16 @@
 </ol>
 </section>
 <section id="off-resonance-and-chemical-shift">
-<h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Link to this heading">#</a></h2>
+<h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Permalink to this heading">#</a></h2>
 <section id="off-resonance">
-<h3>Off-resonance<a class="headerlink" href="#off-resonance" title="Link to this heading">#</a></h3>
+<h3>Off-resonance<a class="headerlink" href="#off-resonance" title="Permalink to this heading">#</a></h3>
 <p>Ideally, the magnetic field is uniform in the absense of any applied gradients.  However, in practice there are unavoidable variations in the magnetic field that lead to changes in resonance frequency.  These magnetic field variations are referred to as “off-resonance”, and can be represented as</p>
 <div class="math notranslate nohighlight">
 \[\Delta f_r(\vec{r}) = \bar \gamma \Delta B_0(\vec{r}) \]</div>
 <p>These are due imperfections in the main <span class="math notranslate nohighlight">\(B_0\)</span> magnet as well as subject-specific changes in the magnetic field that are largely due to magnetic susceptibility effects.</p>
 </section>
 <section id="chemical-shift">
-<h3>Chemical Shift<a class="headerlink" href="#chemical-shift" title="Link to this heading">#</a></h3>
+<h3>Chemical Shift<a class="headerlink" href="#chemical-shift" title="Permalink to this heading">#</a></h3>
 <p>The resonance frequency can also change due the chemical environment of the nuclei.  This is referred to as chemical shift, and is represented as</p>
 <div class="math notranslate nohighlight">
 \[\Delta f_{cs} = \delta_{cs} \bar \gamma B_0\]</div>
@@ -584,14 +523,14 @@
 </section>
 </section>
 <section id="susceptibility-induced-contrasts">
-<h2>Susceptibility Induced Contrasts<a class="headerlink" href="#susceptibility-induced-contrasts" title="Link to this heading">#</a></h2>
+<h2>Susceptibility Induced Contrasts<a class="headerlink" href="#susceptibility-induced-contrasts" title="Permalink to this heading">#</a></h2>
 <p>Differences in magnetic susceptibility between materials and tissues create differences in the local magnetic field.  This leads to differences in the resonance frequency of the spins, which can be used to create contrast in MRI images.  Local changes in resonance frequency can also lead to changes in measured transverse relaxation time, and this phenomenon is referred to as <span class="math notranslate nohighlight">\(T_2^*\)</span> relaxation.</p>
 <section id="phase-contrast">
-<h3>Phase Contrast<a class="headerlink" href="#phase-contrast" title="Link to this heading">#</a></h3>
+<h3>Phase Contrast<a class="headerlink" href="#phase-contrast" title="Permalink to this heading">#</a></h3>
 <p>The off-resonance causes the transverse magnetization to precess at a different rate.  When imaging is performed, the transverse magnetization will have a different phase depending on this off-resonance.  This difference in phase can be detected, and leads to phase differences in the resulting images.  When trying to create susceptibility contrast, other sources of phase differences must be removed.  These other sources of phase differences include imperfections in the main magnetic field, chemical shift effects, and RF coil induced phase.</p>
 </section>
 <section id="t-2">
-<h3><span class="math notranslate nohighlight">\(T_2^*\)</span><a class="headerlink" href="#t-2" title="Link to this heading">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(T_2^*\)</span><a class="headerlink" href="#t-2" title="Permalink to this heading">#</a></h3>
 <p>Ideally, the MRI signal decays with a time constant of <span class="math notranslate nohighlight">\(T_2\)</span>, the transverse decay rate.  However, in practice every imaging voxel contains off-resonance that leads to changes in the signal decay.  We characterize this change in signal decay with <span class="math notranslate nohighlight">\(T_2^*\)</span>.</p>
 <p>The smallest size we can measure with MRI is an imaging voxel, so our image measurements are a sum of the transverse magnetizations across the voxel, including both <span class="math notranslate nohighlight">\(T_2\)</span> and off-resonance:</p>
 <div class="math notranslate nohighlight">
@@ -620,7 +559,7 @@ s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r})
 \[ T_2^* \leq T_2\]</div>
 </section>
 <section id="t-2-contrast">
-<h3><span class="math notranslate nohighlight">\(T_2^*\)</span> contrast<a class="headerlink" href="#t-2-contrast" title="Link to this heading">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(T_2^*\)</span> contrast<a class="headerlink" href="#t-2-contrast" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(T_2^*\)</span> includes <span class="math notranslate nohighlight">\(T_2\)</span> as well as additional macroscopic dephasing due to local magnetic field inhomogeneities.  The microscopic dephasing (<span class="math notranslate nohighlight">\(T_2\)</span>) cannot be refocused, but the macroscopic dephasing effects can be refocused by using a spin echo sequence.  The macroscopic dephasing is caused by differences in magnetic susceptibility between materials and tissues.</p>
 <p>While often the macroscopic dephasing effects creating <span class="math notranslate nohighlight">\(T_2^*\)</span> are often undesirable and considered artifacts, <span class="math notranslate nohighlight">\(T_2^*\)</span> is also an important source of contrast to reflect differences in magnetic susceptibility:</p>
 <ol class="arabic simple">
@@ -631,7 +570,7 @@ s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r})
 </section>
 </section>
 <section id="fat-water-imaging">
-<h2>Fat/Water Imaging<a class="headerlink" href="#fat-water-imaging" title="Link to this heading">#</a></h2>
+<h2>Fat/Water Imaging<a class="headerlink" href="#fat-water-imaging" title="Permalink to this heading">#</a></h2>
 <p>The major sources of signal in MRI are hydrogen atoms in water molecules and hydrogen atoms in lipids.  In lipids, the protons experience a different chemical shift, meaning they have a different resonance frequence from water protons.  This can be exploited to create images that isolate fat and water signals.</p>
 <p>While lipids have a relatively complex set of chemical shifts, in MRI a general “fat” signal is typically modeled as a single peak that has a -3.5 parts per million (ppm) shift from water.  This leads to a resonance frequency shift <span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> of approximately 220 Hz at 1.5 T and 440 Hz at 3 T.</p>
 <p>Separate fat and water images are created by so-called “Dixon” methods, which acquire images at multiple echo times and then use the phase differences that result from the different resonance frequencies to separate them.  Ideally, the signal in these images can be represented as</p>
@@ -650,7 +589,7 @@ s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r})
 <p><img alt="Fat/water imaging illustration" src="_images/fat-water-imaging_illustration.png" /></p>
 </section>
 <section id="contrast-agents">
-<h2>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Link to this heading">#</a></h2>
+<h2>Contrast Agents<a class="headerlink" href="#contrast-agents" title="Permalink to this heading">#</a></h2>
 <p>Contrast agents used in MRI, such as gadolinium chelates and superparamagnetic iron oxides, shorten the relaxation rates wherever they are present.
 This is quantified by their relaxivities, <span class="math notranslate nohighlight">\(r_1, r_2\)</span>, typically in units of [L / (mmol s)]:</p>
 <div class="math notranslate nohighlight">
@@ -716,17 +655,15 @@ This is quantified by their relaxivities, <span class="math notranslate nohighli
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance-and-chemical-shift">Off-resonance and Chemical Shift</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-resonance">Off-resonance</a></li>
@@ -806,8 +743,8 @@ By Peder E. Z. Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

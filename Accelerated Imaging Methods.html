@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Accelerated Imaging Methods &#8212; Principles of MRI</title>
   
@@ -16,109 +17,95 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script src="_static/design-tabs.js"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-51903906-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied'
-                });
                 gtag('js', new Date());
                 gtag('config', 'UA-51903906-1');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){ dataLayer.push(arguments); }
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied'
-                });
-                gtag('js', new Date());
-                gtag('config', 'UA-51903906-1');
-            </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Accelerated Imaging Methods';</script>
-    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Point Spread Function Analysis" href="Point%20Spread%20Function%20Analysis.html" />
     <link rel="prev" title="Fast Imaging Pulse Sequences" href="Fast%20Imaging%20Pulse%20Sequences.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
-  
-    
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
-    <script src="searchindex.js"></script>
-  
   </head>
-  <body data-default-mode="">
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
-
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  
-  <dialog id="pst-search-dialog">
-    
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -126,6 +113,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -133,59 +121,15 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
-<div class="bd-header__inner bd-page-width">
-  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
-    <span class="fa-solid fa-bars"></span>
-  </button>
-  
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-        </div>
-      
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button>
-    </div>
-  
-
-  
-    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
-      <span class="fa-solid fa-outdent"></span>
-    </button>
-  
-</div>
-
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -194,8 +138,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -225,18 +168,11 @@
     
     
     <img src="_static/MRI_logo-retro.png" class="logo__image only-light" alt="Principles of MRI - Home"/>
-    <img src="_static/MRI_logo-retro.png" class="logo__image only-dark pst-js-only" alt="Principles of MRI - Home"/>
+    <script>document.write(`<img src="_static/MRI_logo-retro.png" class="logo__image only-dark" alt="Principles of MRI - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -324,14 +260,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -350,9 +281,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -478,7 +409,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -492,19 +423,27 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -524,7 +463,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="pst-show_toc_level nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-principles">General Principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-inventory-and-comparison">Methods Inventory and Comparison</a></li>
@@ -558,10 +497,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="accelerated-imaging-methods">
-<h1>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Link to this heading">#</a></h1>
+<h1>Accelerated Imaging Methods<a class="headerlink" href="#accelerated-imaging-methods" title="Permalink to this heading">#</a></h1>
 <p>MRI scans can be accelerated by applying methods that reduce the number of k-space samples required, also known as undersampling.  These require a corresponding advanced image reconstruction method to allow for the reduced sampling.  The techniques covered here include partial Fourier reconstruction, parallel imaging, compressed sensing, and deep learning methods.</p>
 <section id="learning-goals">
-<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
+<h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Describe how images are formed</p>
 <ul class="simple">
@@ -587,14 +526,14 @@
 </ol>
 </section>
 <section id="general-principles">
-<h2>General Principles<a class="headerlink" href="#general-principles" title="Link to this heading">#</a></h2>
+<h2>General Principles<a class="headerlink" href="#general-principles" title="Permalink to this heading">#</a></h2>
 <p>Accelerated Imaging in MRI are methods that reduce the number of k-space samples required.
 Since this violates our sampling criteria (Nyquist) this is often referred to as “undersampling.”
 This allows for shorter scan times, which can be used to incease throughput, reduce artifacts, acquire more contrasts, and/or improve spatial resolution.</p>
 <p>All of these methods require additional steps in image reconstruction beyond using a Fourier Transform.  These steps are based on the assumptions and a model for the accelerated imaging method being used.</p>
 </section>
 <section id="methods-inventory-and-comparison">
-<h2>Methods Inventory and Comparison<a class="headerlink" href="#methods-inventory-and-comparison" title="Link to this heading">#</a></h2>
+<h2>Methods Inventory and Comparison<a class="headerlink" href="#methods-inventory-and-comparison" title="Permalink to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
@@ -634,7 +573,7 @@ This allows for shorter scan times, which can be used to incease throughput, red
 </div>
 </section>
 <section id="partial-fourier-imaging">
-<h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Link to this heading">#</a></h2>
+<h2>Partial Fourier Imaging<a class="headerlink" href="#partial-fourier-imaging" title="Permalink to this heading">#</a></h2>
 <p>Partial Fourier imaging, also known as fractional NEX or partial k-space, utilizes the conjugate symmetry property of the Fourier Transform.  This property states that the Fourier Transform of a real-valued function has conjugate symmetry.  If our image, <span class="math notranslate nohighlight">\(m(\vec{r})\)</span>, is real-valued, then the k-space data satisfies</p>
 <div class="math notranslate nohighlight">
 \[M(\vec{k}) = M^*(-\vec{k}), \ \mathrm{if} \ \mathcal{Im}(m(\vec{r})) = 0\]</div>
@@ -703,29 +642,29 @@ Note that this can also be used if a constant phase offset is present, and this 
 </div>
 </section>
 <section id="parallel-imaging">
-<h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Link to this heading">#</a></h2>
+<h2>Parallel Imaging<a class="headerlink" href="#parallel-imaging" title="Permalink to this heading">#</a></h2>
 <p>Parallel Imaging uses the spatial information provided by individual RF receive coil elements to accelerate image acquisition.  With multiple RF receive coil elements, they can provide additional coarse scale localization information.  The primary parallel imaging approach is to undersample k-space by skipping phase encoding lines.  Another approach is to simultaneously excite and acquire multiple slices, known as simultaneous multi-slice (SMS) imaging.</p>
 <section id="undersampled-k-space-methods">
-<h3>Undersampled k-space Methods<a class="headerlink" href="#undersampled-k-space-methods" title="Link to this heading">#</a></h3>
+<h3>Undersampled k-space Methods<a class="headerlink" href="#undersampled-k-space-methods" title="Permalink to this heading">#</a></h3>
 <p>In these approaches, phase encoding lines are skipped in k-sapce.  With direct Fourier Transform reconstruction, this results in aliasing artifacts due to violation of the sampling requirements.  Parallel imaging reconstruction methods use the spatial information from the multiple RF receive coil elements to resolve this aliasing.</p>
 <p>All of these methods require incorporation of the coil sensitivity profiles, either through measurement, estimation, or incorporation into a model.  Coil sensitivity profiles can be measured with a coarse resolution (i.e. fast) pre-scan, and signal from the relatively uniform Body RF coil can be used as a reference to estimate the local receive coil element sensitivities.  This is incoporated into the popular “SENSE” method.  This approach will suffer from residual aliasing artifacts if there are mismatches between the measured coil sensitivities and the actual coil sensitivities during the accelerated scan, for example due to motion.</p>
 <p>Methods that estimate or incorporate into the model the coil sensitivies typically require a fully sampled calibration region in the center of k-space.  This increases the scan time, but are more robust since they estimate the coil sensitivities directly from the data being reconstructed.  This includes the popular “GRAPPA” method.</p>
 </section>
 <section id="simultaenous-multi-slice-sms-methods">
-<h3>Simultaenous Multi-Slice (SMS) Methods<a class="headerlink" href="#simultaenous-multi-slice-sms-methods" title="Link to this heading">#</a></h3>
+<h3>Simultaenous Multi-Slice (SMS) Methods<a class="headerlink" href="#simultaenous-multi-slice-sms-methods" title="Permalink to this heading">#</a></h3>
 <p>Simultaneous Multi-Slice (SMS) methods, also known as multi-band imaging, excite and acquire multiple slices simultaneously, then using the coil sensitivity profiles in the reconstruction to separate the signal from each slice.  The RF excitation pulses must excite multiple slice locations, which naively is done by summing multiple frequency-shifted RF pulses, each corresponding to a different slice location.  In practice, more complex designs are used to mitigate peak power and improve robustness.  The resulting k-space data contains the superposition of the signals from the multiple slices.</p>
 <p><img alt="Simultaneous Multi-Slice Illustration" src="_images/parallel_imaging-simultaneous_multislice.png" /></p>
 <p>These methods also often use specialized RF phase modulation schemes, such as CAIPIRINHA, to improve the conditioning of the reconstruction problem by shifting the simultaneously excited slices in the phase encoding direction.</p>
 </section>
 <section id="snr-in-parallel-imaging">
-<h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Link to this heading">#</a></h3>
+<h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Permalink to this heading">#</a></h3>
 <p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
 <p>This is characterized by the geometry factor, or “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
 <div class="math notranslate nohighlight">
 \[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
 </section>
 <section id="artifacts-with-parallel-imaging">
-<h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Link to this heading">#</a></h3>
+<h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Permalink to this heading">#</a></h3>
 <p>Parallel Imaging artifacts typically appear as aliasing.  The undersampled data will have aliasing when not using a parallel imaging reconstruction method, and sometimes the aliasing is not completely removed.  There are also aliasing like artifacts when there is a mismatch between the data and measured coil sensitivity profiles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,7 +730,7 @@ Note that this can also be used if a constant phase offset is present, and this 
 </section>
 </section>
 <section id="compressed-sensing-methods">
-<h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Link to this heading">#</a></h2>
+<h2>Compressed Sensing Methods<a class="headerlink" href="#compressed-sensing-methods" title="Permalink to this heading">#</a></h2>
 <p>Compressed Sensing (CS) theory says that an image that is compressible in some domain can then be reconstructed from a subset of data samples.  MRI images are in fact compressible, so we can further accelerate our data acquisition with CS.</p>
 <p>Compressed Sensing for MRI is achieved by using k-space sampling patterns with pseudo-random undersampling, which is illustratid by the diagram below of the undersampled reconstruction procedure.  This results in incoherent artifacts that appear noise-like, which can then be removed by constraining the reconstruction to a sparse solution in some transform domain.</p>
 <p><img alt="Compressed Sensing Illustration" src="_images/compressed_sensing_concept.gif" /></p>
@@ -799,16 +738,16 @@ Note that this can also be used if a constant phase offset is present, and this 
 Heuristic procedure for reconstruction from undersampled data. A sparse signal (a) is 8-fold undersampled in its 1-D k -space domain (b). Equispaced undersampling results in signal aliasing (d) preventing recovery. Pseudo-random undersampling results in incoherent interference (c). Some strong signal components stick above the interference level, are detected and recovered by thresholding (e) and (f). The interference of these components is computed (g) and subtracted (h), thus lowering the total interference level and enabling recovery of weaker components.</p>
 <p>Popular sparsifying transforms include total variation (TV), total generalized variation (TGV), and wavelets, where MRI images are typically sparse.  The pseudo-random undersampling typically uses a variable density that preferentially has more samples near the center of k-space.</p>
 <section id="snr-in-compressed-sensing">
-<h3>SNR in Compressed Sensing<a class="headerlink" href="#snr-in-compressed-sensing" title="Link to this heading">#</a></h3>
+<h3>SNR in Compressed Sensing<a class="headerlink" href="#snr-in-compressed-sensing" title="Permalink to this heading">#</a></h3>
 <p>It is difficult to define SNR when using compressed sensing reconstruction methods, as they inherently perform some denoising when constraining the reconstruction based on sparsity.  The apparent SNR can also vary significantly depending on the choice of the regularization factor.</p>
 </section>
 <section id="artifacts-with-compressed-sensing">
-<h3>Artifacts with Compressed Sensing<a class="headerlink" href="#artifacts-with-compressed-sensing" title="Link to this heading">#</a></h3>
+<h3>Artifacts with Compressed Sensing<a class="headerlink" href="#artifacts-with-compressed-sensing" title="Permalink to this heading">#</a></h3>
 <p>The most common artifacts from compressed sensing come from overfitting to the sparsity penalty.  This result in either an over-smoothed, unnatural appearance or, in the case of a wavelet sparsifying transform, blocking artifacts.</p>
 </section>
 </section>
 <section id="deep-learning-reconstructions">
-<h2>Deep Learning Reconstructions<a class="headerlink" href="#deep-learning-reconstructions" title="Link to this heading">#</a></h2>
+<h2>Deep Learning Reconstructions<a class="headerlink" href="#deep-learning-reconstructions" title="Permalink to this heading">#</a></h2>
 <p>Deep learning (DL) based methods can be used to reconstructed undersampled k-space into image data from a subset of data samples as well.  Conceptually, these methods can learn how to incorporate coil sensitivity information like parallel imaging and typical image sparsity patterns like compressed sensing.  Since they learn from real-world data, they can learn information that is the most relevant to MRI data and thus have been shown to support higher acceleration factors.  For example, they can learn what patterns within the image and/or k-space domain and most relevant and most common in MRI.</p>
 <p>These methods require learning from large amounts (e.g. thousands or more) of training data samples, including fully-sampled MRI data as the ground truth. Fortunately, efforts such as the <a class="reference external" href="http://fastmri.med.nyu.edu">fastMRI project</a> have provided large, high-quality datasets for training and evaluating these methods.</p>
 <p>So-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and learning common patterns in the data.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
@@ -816,11 +755,11 @@ Heuristic procedure for reconstruction from undersampled data. A sparse signal (
 <p>Caption (from https://arxiv.org/abs/2004.06688):
 The E2E-VN model takes under-sampled k-space as input and applies several cascades, followed by IFT and RSS. Bottom: The DC module brings intermediate k-space closer to measured values, the Refinement module maps multi-coil k-space to one image, applies a U-Net and maps back to k-space, and the SME estimates sensitivity maps used in the refinement step.</p>
 <section id="snr-in-dl-reconstructions">
-<h3>SNR in DL Reconstructions<a class="headerlink" href="#snr-in-dl-reconstructions" title="Link to this heading">#</a></h3>
+<h3>SNR in DL Reconstructions<a class="headerlink" href="#snr-in-dl-reconstructions" title="Permalink to this heading">#</a></h3>
 <p>It is difficult to define SNR when using machine learning reconstruction methods, as they inherently perform some denoising when constraining the reconstruction.</p>
 </section>
 <section id="artifacts-with-dl-reconstructions">
-<h3>Artifacts with DL Reconstructions<a class="headerlink" href="#artifacts-with-dl-reconstructions" title="Link to this heading">#</a></h3>
+<h3>Artifacts with DL Reconstructions<a class="headerlink" href="#artifacts-with-dl-reconstructions" title="Permalink to this heading">#</a></h3>
 <p>A challenge with machine learning reconstructions is that artifacts can be difficult to identify.  They can result in an over-smoothed appearance, but often a well-trained network will retain realistic texture and noise appearance features.  These methods can also overfit to the learned anatomy and data, meaning features might be erased or hallucinated, although using physics-based techniques provide some assurances of data-consistency.</p>
 </section>
 </section>
@@ -881,17 +820,15 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="pst-show_toc_level nav section-nav flex-column">
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-goals">Learning Goals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-principles">General Principles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-inventory-and-comparison">Methods Inventory and Comparison</a></li>
@@ -978,8 +915,8 @@ By Peder E. Z. Larson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
