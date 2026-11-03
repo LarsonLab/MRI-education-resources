@@ -25,6 +25,9 @@ latex:
 sphinx:
   extra_extensions:
     - sphinx.ext.imgconverter
+  local_extensions:
+    # Removes code source in PDF builds; HTML uses collapsible hide-input cells
+    hide_code_latex: .
 
 # Information about where the book exists on the web
 repository:
@@ -59,10 +62,6 @@ html:
 
 description: >- # this means to ignore newlines until "baseurl:"
   This provides an introduction to the principles of magnetic resonance imaging (MRI)
-
-jupyter:
-  hide-input: true
-
 
 # # the name of your GitHub Repo. 
 # # If there is no subpath for your site, use an empty string ""  
