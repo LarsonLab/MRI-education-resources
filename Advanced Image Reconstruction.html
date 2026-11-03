@@ -570,7 +570,7 @@ m(x_{Nx},y_{Ny})
 </section>
 <section id="linear-predictability-methods">
 <h3>Linear Predictability Methods<a class="headerlink" href="#linear-predictability-methods" title="Permalink to this heading">#</a></h3>
-<p>Linear predictability parallel imaging methods assume that each k-space sample is a linear combination of other k-space samples and inlcude the methods of AUTO-SMASH, GRAPPA, and SPIRiT.  These utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, and can be generally formulated as the following optimization problem</p>
+<p>Linear predictability parallel imaging methods assume that each k-space sample is a linear combination of other k-space samples and include the methods of AUTO-SMASH, GRAPPA, and SPIRiT.  These utilize a calibration kernel, computed from the data itself and captured in the matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>, and can be generally formulated as the following optimization problem</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{\hat{x}}_{PI} = \arg \min_\mathbf{x} \| \mathbf{y} - \mathbf{Ex} \|^2_2 + \lambda \| (\mathbf{G} - \mathbf{I}) \mathbf{x} \|^2_2\]</div>
 <p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a tuning or regularization parameter and <span class="math notranslate nohighlight">\(\mathbf{I}\)</span> is the identity matrix.  This simultaneously enforces data consistency (first term) as well as self-consistency of the calibration (second term).</p>
@@ -597,7 +597,7 @@ m(x_{Nx},y_{Ny})
 \[\mathbf{\hat{x}}_{DL} = g_{DNN}(\mathbf{E^{H} y})\]</div>
 <p>The learned deep neural network, <span class="math notranslate nohighlight">\(g_{DNN}()\)</span>, includes many weights that must be trained prior to being able to perform the reconstruction.</p>
 <p>However, so-called un-rolled networks have become more popular for MRI reconstruction, as they can better incorporate parallel imaging information, data consistency, and also are often more compact.  They are designed to mimic iterations of classical algorithms to solve optimization problems, and each iteration has been “un-rolled” into a series of cascaded neural networks.  Some popular methods include MoDL and Variational Networks.</p>
-<p>Variational Networks (VarNets) for undersampled MRI reconstruction are formulated as the above regularlized least-squares objective, but models the architecture after a single gradient update in iterative gradient descent (used to solve optimization problems) and uses a CNN (e.g. UNet) within the iterations</p>
+<p>Variational Networks (VarNets) for undersampled MRI reconstruction are formulated as the above regularized least-squares objective, but models the architecture after a single gradient update in iterative gradient descent (used to solve optimization problems) and uses a CNN (e.g. UNet) within the iterations</p>
 <p>The Model-based Deep Learning (MoDL) method uses the formulation where the regularizer is a CNN that estimates the noise and aliasing patterns</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{R}_{MoDL}(\mathbf{x}) = \lambda \| \mathcal{N}_w(\mathbf{x}) \|^2\]</div>
@@ -637,7 +637,7 @@ m(x_{Nx},y_{Ny})
 </section>
 <section id="reference">
 <h3>Reference<a class="headerlink" href="#reference" title="Permalink to this heading">#</a></h3>
-<p>For a recent, comprehensive reference on these methods I reccommend:</p>
+<p>For a recent, comprehensive reference on these methods I recommend:</p>
 <p>Hammernik K, Küstner T, Yaman B, Huang Z, Rueckert D, Knoll F, Akçakaya M. Physics-Driven Deep Learning for Computational Magnetic Resonance Imaging: Combining physics and machine learning for improved medical imaging. IEEE Signal Process Mag. 2023 Jan;40(1):98-114. doi: 10.1109/msp.2022.3215288. Epub 2023 Jan 2. PMID: 37304755; PMCID: PMC10249732.</p>
 <p>https://arxiv.org/pdf/2203.12215.pdf</p>
 </section>

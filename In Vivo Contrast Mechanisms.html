@@ -509,7 +509,7 @@ document.write(`
 <h2>Off-resonance and Chemical Shift<a class="headerlink" href="#off-resonance-and-chemical-shift" title="Permalink to this heading">#</a></h2>
 <section id="off-resonance">
 <h3>Off-resonance<a class="headerlink" href="#off-resonance" title="Permalink to this heading">#</a></h3>
-<p>Ideally, the magnetic field is uniform in the absense of any applied gradients.  However, in practice there are unavoidable variations in the magnetic field that lead to changes in resonance frequency.  These magnetic field variations are referred to as “off-resonance”, and can be represented as</p>
+<p>Ideally, the magnetic field is uniform in the absence of any applied gradients.  However, in practice there are unavoidable variations in the magnetic field that lead to changes in resonance frequency.  These magnetic field variations are referred to as “off-resonance”, and can be represented as</p>
 <div class="math notranslate nohighlight">
 \[\Delta f_r(\vec{r}) = \bar \gamma \Delta B_0(\vec{r}) \]</div>
 <p>These are due imperfections in the main <span class="math notranslate nohighlight">\(B_0\)</span> magnet as well as subject-specific changes in the magnetic field that are largely due to magnetic susceptibility effects.</p>
@@ -571,7 +571,7 @@ s(t) & = \int m(\vec{r}) \exp(-t/T_2(\vec{r})) \exp(-i 2 \pi \Delta f_r(\vec{r})
 </section>
 <section id="fat-water-imaging">
 <h2>Fat/Water Imaging<a class="headerlink" href="#fat-water-imaging" title="Permalink to this heading">#</a></h2>
-<p>The major sources of signal in MRI are hydrogen atoms in water molecules and hydrogen atoms in lipids.  In lipids, the protons experience a different chemical shift, meaning they have a different resonance frequence from water protons.  This can be exploited to create images that isolate fat and water signals.</p>
+<p>The major sources of signal in MRI are hydrogen atoms in water molecules and hydrogen atoms in lipids.  In lipids, the protons experience a different chemical shift, meaning they have a different resonance frequency from water protons.  This can be exploited to create images that isolate fat and water signals.</p>
 <p>While lipids have a relatively complex set of chemical shifts, in MRI a general “fat” signal is typically modeled as a single peak that has a -3.5 parts per million (ppm) shift from water.  This leads to a resonance frequency shift <span class="math notranslate nohighlight">\(\Delta f_{cs}\)</span> of approximately 220 Hz at 1.5 T and 440 Hz at 3 T.</p>
 <p>Separate fat and water images are created by so-called “Dixon” methods, which acquire images at multiple echo times and then use the phase differences that result from the different resonance frequencies to separate them.  Ideally, the signal in these images can be represented as</p>
 <div class="math notranslate nohighlight">

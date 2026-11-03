@@ -490,7 +490,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-mri-system">
 <h1>The MRI System<a class="headerlink" href="#the-mri-system" title="Permalink to this heading">#</a></h1>
-<p>Every MRI system consists of several major components, required to create measureable magnetic resonance phenoma and to perform spatial localization.  This section will deconstruct a MRI scanner and see what is inside.  This will give insight into the fundamentals of a MRI experiment and what is hardware is required.</p>
+<p>Every MRI system consists of several major components, required to create measurable magnetic resonance phenomena and to perform spatial localization.  This section will deconstruct a MRI scanner and see what is inside.  This will give insight into the fundamentals of a MRI experiment and what is hardware is required.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -524,7 +524,7 @@ document.write(`
 <p>The purpose of the main magnetic field is “Polarization”.  This refers to the preferential alignment of nuclear spins with a magnetic field.
 The more alignment there is of spins, the greater the MRI signal.
 The stronger the magnetic field, the more alignment and therefore the stronger signal that will be received.</p>
-<p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is designed to be homogeneous.  To achieve this large of a mangetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium, and this type of magnet is always on.</p>
+<p>This magnetic field is typically 1.5 Tesla (1.5 T) or 3 T.  It is designed to be homogeneous.  To achieve this large of a magnetic field typically requires using a superconducting magnet, which consists of a superconducting alloy bathed in liquid helium, and this type of magnet is always on.</p>
 <p>Due to <span class="math notranslate nohighlight">\(B_0\)</span>, there is a large magnetic field inside and around the MRI scanner, making it very dagerous to bring certain materials near the scanner.  These materials, typically metals that are ferromagnetic like iron, can be sucked into the scanner by the powerful magnetic field.</p>
 </section>
 <section id="radiofrequency-rf-coils-b-1-vec-r-t-b-1-vec-r-t">
@@ -532,19 +532,19 @@ The stronger the magnetic field, the more alignment and therefore the stronger s
 <p>The purpose of the RF coils is “Excitation” and “Acquisition”.  RF coils are antennas designed to detect changes in electromagnetic fields in the radiofrequency range.  These coils and associated components must be <em>tuned</em> to the resonance frequency for the MRI system in order effectively transmit and receive signals at the resonance frequency.</p>
 <p>Excitation refers to depositing energy at a specific frequency that perturbs the spins, causing them to resonate and release energy that is captured as the MRI signal.  This is performed using a transmit RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^+(\vec{r},t)\)</span>.
 This energy is deposited in the radio-frequency (RF) range, typically in the 100 MHz range for MRI, which is the resonance frequency.</p>
-<p>After Excitaiton, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is measured in Acquisition where the signal is detected by the receive RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>.</p>
+<p>After Excitation, the spins release energy, also in the RF range, as they return to thermal equilibrium.  This is measured in Acquisition where the signal is detected by the receive RF coil, described by the magnetic field <span class="math notranslate nohighlight">\(B_1^-(\vec{r},t)\)</span>.</p>
 <p>The RF coils are typically separated into separate transmit and receive coils because of different requirements: the transmit coils for excitation are designed to be homogeneous in depositing energy across the field-of-view (FOV), while receive coils are designed for maximum maximum sensitivity to the relatively small signals detectable from the spins.</p>
 </section>
 <section id="magnetic-field-gradient-coils-vec-g-t">
 <h3>Magnetic field gradient coils - <span class="math notranslate nohighlight">\(\vec{G}(t)\)</span><a class="headerlink" href="#magnetic-field-gradient-coils-vec-g-t" title="Permalink to this heading">#</a></h3>
-<p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly refered to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
+<p>The purpose of the magnetic field gradient coils is for “Spatial Encoding”, which enables creation of images.  These coils, commonly referred to simply as “gradients”, are designed to create linearly varying magnetic fields.  These varying magnetic fields add and subtract from the main magnetic field.  Since the magnetic field determines the resonance frequency (<span class="math notranslate nohighlight">\(f = \bar{\gamma} \|\vec{B}\|\)</span>), this will create a spatial variations in the magnetic field that can be used to separate signals from different locations and ultimately create images.</p>
 <p>The noises during a MRI scan are due to the rapid switching of electric currents in the gradient coils.  The change in electric currents and resulting change in magnetic field interacts with the main magnetic field and exerts a force (known as Lorentz force) on the gradient coil.  Thus the gradient coils will vibrate as they are switched on and off, creating loud noises.</p>
 </section>
 </section>
 <section id="fundamental-mri-experiment-procedure">
 <h2>Fundamental MRI Experiment Procedure<a class="headerlink" href="#fundamental-mri-experiment-procedure" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Polarization: Place subject in a large magnetic fiel</p>
+<li><p>Polarization: Place subject in a large magnetic field</p>
 <ul class="simple">
 <li><p>Components required: main magnet, <span class="math notranslate nohighlight">\(B_0\)</span></p></li>
 </ul>

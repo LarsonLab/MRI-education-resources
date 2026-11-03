@@ -470,7 +470,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undersampled-k-space-methods">Undersampled k-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaenous-multi-slice-sms-methods">Simultaenous Multi-Slice (SMS) Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-multi-slice-sms-methods">Simultaneous Multi-Slice (SMS) Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>
@@ -529,7 +529,7 @@ document.write(`
 <h2>General Principles<a class="headerlink" href="#general-principles" title="Permalink to this heading">#</a></h2>
 <p>Accelerated Imaging in MRI are methods that reduce the number of k-space samples required.
 Since this violates our sampling criteria (Nyquist) this is often referred to as “undersampling.”
-This allows for shorter scan times, which can be used to incease throughput, reduce artifacts, acquire more contrasts, and/or improve spatial resolution.</p>
+This allows for shorter scan times, which can be used to increase throughput, reduce artifacts, acquire more contrasts, and/or improve spatial resolution.</p>
 <p>All of these methods require additional steps in image reconstruction beyond using a Fourier Transform.  These steps are based on the assumptions and a model for the accelerated imaging method being used.</p>
 </section>
 <section id="methods-inventory-and-comparison">
@@ -653,18 +653,18 @@ Note that this can also be used if a constant phase offset is present, and this 
 <section id="undersampled-k-space-methods">
 <h3>Undersampled k-space Methods<a class="headerlink" href="#undersampled-k-space-methods" title="Permalink to this heading">#</a></h3>
 <p>In these approaches, phase encoding lines are skipped in k-sapce.  With direct Fourier Transform reconstruction, this results in aliasing artifacts due to violation of the sampling requirements.  Parallel imaging reconstruction methods use the spatial information from the multiple RF receive coil elements to resolve this aliasing.</p>
-<p>All of these methods require incorporation of the coil sensitivity profiles, either through measurement, estimation, or incorporation into a model.  Coil sensitivity profiles can be measured with a coarse resolution (i.e. fast) pre-scan, and signal from the relatively uniform Body RF coil can be used as a reference to estimate the local receive coil element sensitivities.  This is incoporated into the popular “SENSE” method.  This approach will suffer from residual aliasing artifacts if there are mismatches between the measured coil sensitivities and the actual coil sensitivities during the accelerated scan, for example due to motion.</p>
-<p>Methods that estimate or incorporate into the model the coil sensitivies typically require a fully sampled calibration region in the center of k-space.  This increases the scan time, but are more robust since they estimate the coil sensitivities directly from the data being reconstructed.  This includes the popular “GRAPPA” method.</p>
+<p>All of these methods require incorporation of the coil sensitivity profiles, either through measurement, estimation, or incorporation into a model.  Coil sensitivity profiles can be measured with a coarse resolution (i.e. fast) pre-scan, and signal from the relatively uniform Body RF coil can be used as a reference to estimate the local receive coil element sensitivities.  This is incorporated into the popular “SENSE” method.  This approach will suffer from residual aliasing artifacts if there are mismatches between the measured coil sensitivities and the actual coil sensitivities during the accelerated scan, for example due to motion.</p>
+<p>Methods that estimate or incorporate into the model the coil sensitivities typically require a fully sampled calibration region in the center of k-space.  This increases the scan time, but are more robust since they estimate the coil sensitivities directly from the data being reconstructed.  This includes the popular “GRAPPA” method.</p>
 </section>
-<section id="simultaenous-multi-slice-sms-methods">
-<h3>Simultaenous Multi-Slice (SMS) Methods<a class="headerlink" href="#simultaenous-multi-slice-sms-methods" title="Permalink to this heading">#</a></h3>
+<section id="simultaneous-multi-slice-sms-methods">
+<h3>Simultaneous Multi-Slice (SMS) Methods<a class="headerlink" href="#simultaneous-multi-slice-sms-methods" title="Permalink to this heading">#</a></h3>
 <p>Simultaneous Multi-Slice (SMS) methods, also known as multi-band imaging, excite and acquire multiple slices simultaneously, then using the coil sensitivity profiles in the reconstruction to separate the signal from each slice.  The RF excitation pulses must excite multiple slice locations, which naively is done by summing multiple frequency-shifted RF pulses, each corresponding to a different slice location.  In practice, more complex designs are used to mitigate peak power and improve robustness.  The resulting k-space data contains the superposition of the signals from the multiple slices.</p>
 <p><img alt="Simultaneous Multi-Slice Illustration" src="_images/parallel_imaging-simultaneous_multislice.png" /></p>
 <p>These methods also often use specialized RF phase modulation schemes, such as CAIPIRINHA, to improve the conditioning of the reconstruction problem by shifting the simultaneously excited slices in the phase encoding direction.</p>
 </section>
 <section id="snr-in-parallel-imaging">
 <h3>SNR in Parallel Imaging<a class="headerlink" href="#snr-in-parallel-imaging" title="Permalink to this heading">#</a></h3>
-<p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penatly.  Also, regions will little difference betweeen RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
+<p>There is an SNR penalty when using these methods that varies in severity depending on the conditioning of the undersampled reconstruction matrix.  Variation in RF coil element sensitivity profiles in the direction of the undersampling leads to a more well-conditioned reconstruction and lower SNR penalty.  Conversely, less RF coil element sensitivity profile variation in the direction of the undersampling leads to a more ill-conditioned reconstruction matrix and higher SNR penalty.  Also, regions will little difference between RF coils (typically in the center of the body), also tend to have larger SNR penalties.</p>
 <p>This is characterized by the geometry factor, or “g-factor”, where <span class="math notranslate nohighlight">\(g(\vec{r}) \geq 1\)</span> characterizes a spatially-varying SNR loss that is dependent on the coil loading and geometry, k-space sampling pattern, and parallel imaging reconstruction method.  When appyling an acceleration factor of <span class="math notranslate nohighlight">\(R\)</span>, the total readout time reduces the SNR by <span class="math notranslate nohighlight">\(\sqrt{R}\)</span> as well, leading to the SNR relationship:</p>
 <div class="math notranslate nohighlight">
 \[SNR_{PI} = \frac{SNR_{full}}{g(\vec{r})\sqrt{R}}\]</div>
@@ -847,7 +847,7 @@ The E2E-VN model takes under-sampled k-space as input and applies several cascad
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fourier-imaging">Partial Fourier Imaging</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-imaging">Parallel Imaging</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#undersampled-k-space-methods">Undersampled k-space Methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaenous-multi-slice-sms-methods">Simultaenous Multi-Slice (SMS) Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simultaneous-multi-slice-sms-methods">Simultaneous Multi-Slice (SMS) Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snr-in-parallel-imaging">SNR in Parallel Imaging</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#artifacts-with-parallel-imaging">Artifacts with Parallel Imaging</a></li>
 </ul>

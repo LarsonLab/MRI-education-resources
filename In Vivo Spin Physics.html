@@ -484,8 +484,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="in-vivo-spin-physics">
 <h1>In Vivo Spin Physics<a class="headerlink" href="#in-vivo-spin-physics" title="Permalink to this heading">#</a></h1>
-<p>In living organisms, there are several important spin physics phenoma that influence the MRI signal.  Most significantly these include magnetic susceptibility differences, and chemical shift differences between water and fat protons.
-There are multiple other phenoma of interest, including flow, diffusion, and magnetization transfer, but they are not covered here.</p>
+<p>In living organisms, there are several important spin physics phenomena that influence the MRI signal.  Most significantly these include magnetic susceptibility differences, and chemical shift differences between water and fat protons.
+There are multiple other phenomena of interest, including flow, diffusion, and magnetization transfer, but they are not covered here.</p>
 <section id="learning-goals">
 <h2>Learning Goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -507,14 +507,14 @@ There are multiple other phenoma of interest, including flow, diffusion, and mag
 <li><p>Paramagnetic substances (χ &gt; 0): They become magnetized while the external magnetic field is on and become demagnetized once the field has been turned off. Their induced magnetic field is in the same direction as the external magnetic field. causes an increase in the effective magnetic field.  Air, oxygen, and gadolinium are examples of paramagnetic substances.</p></li>
 <li><p>Ferromagnetic substances (χ &gt;&gt; 0) – These are strongly attracted to the magnetic field and dangerous in MRI. They become permanently magnetized even after the magnetic field has been turned off.  Three types of ferromagnets are known: iron (Fe), cobalt (Co), and nickel (Ni).</p></li>
 </ol>
-<p>Magnetic susceptibility changes the magnetic field in the vicinity of the substance.  This can include changes within the substance, but also in surrounding tissues.  In particular, there can be signficant distortions of the magnetic field at the boundary between two substances with different susceptibilities.  These changes in magnetic field change the resonance frequency.  They also change relaxation rates, particularly T2*, which are described in more detail later.</p>
+<p>Magnetic susceptibility changes the magnetic field in the vicinity of the substance.  This can include changes within the substance, but also in surrounding tissues.  In particular, there can be significant distortions of the magnetic field at the boundary between two substances with different susceptibilities.  These changes in magnetic field change the resonance frequency.  They also change relaxation rates, particularly T2*, which are described in more detail later.</p>
 <p>The following effects of magnetic susceptibility are important in MRI:</p>
 <ol class="arabic simple">
 <li><p>Air-Tissue interfaces - Tissue primarily consists of water, which is slightly diamagnetic, while air is slightly paramagnetic.  This causes a significant distortion of the magnetic field at the air-tissue interface, which can lead to signal loss and artifacts in MRI images.</p></li>
 <li><p>Gadolinum-based contrast agents - Gadolinium is a paramagnetic substance that is commonly used as a contrast agent in MRI. This leads to changes in relaxation rates wherever the agent goes, creating valuable contrast.</p></li>
 <li><p>Blood oxygen level dependent (BOLD) contrast - Oxygen is paramagnetic, and the presence or lack of oxygen in blood leads to changes in relaxation rates.  This phenomenon is exploited in functional MRI (fMRI) to measure brain activity based on changes in blood flow and oxygenation.</p></li>
 <li><p>Tissue iron content - Iron is a ferromagnetic substance that can accumulate in tissues, such as in cases of hemochromatosis or hemosiderosis. This can lead to distortions of the magnetic field and changes in relaxation rates.</p></li>
-<li><p>Implants - Medical implants contain various materials that can affect the magnetic field.  Modern orthopedic implants are made of non-ferromagnetic materials like titanium or stainless steel, which are safe for MRI, but also are strongly paramagnetic so can lead to significant distortions of the mangetic field and create significant artifacts.  However, others may contain ferromagnetic materials, such as iron, which can pose a safety risk in the MRI scanner. It is crucial to check the safety of any implant before performing an MRI.</p></li>
+<li><p>Implants - Medical implants contain various materials that can affect the magnetic field.  Modern orthopedic implants are made of non-ferromagnetic materials like titanium or stainless steel, which are safe for MRI, but also are strongly paramagnetic so can lead to significant distortions of the magnetic field and create significant artifacts.  However, others may contain ferromagnetic materials, such as iron, which can pose a safety risk in the MRI scanner. It is crucial to check the safety of any implant before performing an MRI.</p></li>
 </ol>
 </section>
 <section id="chemical-shift">
@@ -522,7 +522,7 @@ There are multiple other phenoma of interest, including flow, diffusion, and mag
 <p>A fundamental concept in magnetic resonance and NMR is chemical shift.  This is the phenomenon where the resonance frequency of a nucleus due to shielding created by the orbital motion of surrounding electrons in response to a magnetic field.  Thus the magnetic field experienced by a nucleus is</p>
 <div class="math notranslate nohighlight">
 \[ B_{eff} = B_0 (1 + \sigma)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the shielding constant that is dependent on the local chemical environment.  For example, a specific atom in a molecule will have a shielding constant that depends on the electrons in the surrouding atoms of the molecule.</p>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the shielding constant that is dependent on the local chemical environment.  For example, a specific atom in a molecule will have a shielding constant that depends on the electrons in the surrounding atoms of the molecule.</p>
 <p>The chemical shift, <span class="math notranslate nohighlight">\(\delta\)</span>, is defined with respect to a reference frequency, which is typically the resonance frequency of a standard molecule, and is in units of parts per million (ppm).  The is approximately the difference in shielding constant between the reference and the molecule of interest.  This leads to a change in resonance frequency due to chemical shift that is given by</p>
 <div class="math notranslate nohighlight">
 \[ \Delta f_{cs} = \delta_{cs} \bar\gamma B_0\]</div>

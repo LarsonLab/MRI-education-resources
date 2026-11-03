@@ -533,7 +533,7 @@ document.write(`
 </section>
 <section id="multiple-spin-echo-sequences-rare-fse-tse">
 <h2>Multiple Spin-echo Sequences (RARE/FSE/TSE)<a class="headerlink" href="#multiple-spin-echo-sequences-rare-fse-tse" title="Permalink to this heading">#</a></h2>
-<p>These pulse sequences use multiple spin-echo refocusing pulses after a single exictation pulse to acquire multiple k-space lines to be acquired during the multiple spin-echoes that are formed.  This technique was originally called Rapid Acquisition with Relaxation Enhancement (RARE), and is known on various MRI scanners as fast spin-echo (FSE, GE Healthcare), turbo spin-echo (TSE, Siemens Healthineers), or turbo field-echo (TFE, Philips Healthcare).</p>
+<p>These pulse sequences use multiple spin-echo refocusing pulses after a single excitation pulse to acquire multiple k-space lines to be acquired during the multiple spin-echoes that are formed.  This technique was originally called Rapid Acquisition with Relaxation Enhancement (RARE), and is known on various MRI scanners as fast spin-echo (FSE, GE Healthcare), turbo spin-echo (TSE, Siemens Healthineers), or turbo field-echo (TFE, Philips Healthcare).</p>
 <p>This is the most common pulse sequence used in clinical practice.  This is because it is highly SNR efficient and can also be used to generate multiple contrasts.  They are particularly effective for T2 and PD-weighted imaging.</p>
 <section id="simplified-pulse-sequence-diagram">
 <h3>Simplified Pulse Sequence Diagram<a class="headerlink" href="#simplified-pulse-sequence-diagram" title="Permalink to this heading">#</a></h3>
@@ -641,7 +641,7 @@ document.write(`
 <p>Magnetization preparation schemes, such as inversion recovery, T2-preparation, and magnetization transfer, encode contrast in the longitudinal magnetization.  This contrast can be efficiently imaged with multiple gradient-echo readouts after a single magnetization preparation module.</p>
 <p>The most common of this type of sequence is the Magnetization Prepared Rapid Gradient Echo (MPRAGE) sequence for brain imaging, which specifically uses inversion recovery magnetization preparation to create T1-weighted contrast, followed by multiple spoiled gradient-echo readouts to retain only T1-weighted contrast.</p>
 <p><img alt="Magnetization Prepared Fast Gradient-echo Pulse Sequence" src="_images/pulse_sequence-diagram-mprage.png" /></p>
-<p>This sequence includes several additional parameters, including the recovery time, <span class="math notranslate nohighlight">\(T_{recovery}\)</span>, and number of readouts per preparation, <span class="math notranslate nohighlight">\(N_{segments}\)</span>, as well as the specific paramters of the magnetization preparation.</p>
+<p>This sequence includes several additional parameters, including the recovery time, <span class="math notranslate nohighlight">\(T_{recovery}\)</span>, and number of readouts per preparation, <span class="math notranslate nohighlight">\(N_{segments}\)</span>, as well as the specific parameters of the magnetization preparation.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">

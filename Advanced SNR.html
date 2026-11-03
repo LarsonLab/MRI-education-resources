@@ -485,7 +485,7 @@ document.write(`
 <p>The SNR equation alone implies that the readout time should be as long as possible, as this leads to more total measurement time, but practically this is limited by the <span class="math notranslate nohighlight">\(T_2^*\)</span> decay rate, since at some point there will no longer be any signal to measure.  To incorporate the effect of this decay, we need to account for the signal modulations during the readout by integrating the signal area, accounting for <span class="math notranslate nohighlight">\(T_2^*\)</span>, which will offset signal gains from extending the readout</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto \frac{ \int_0^{T_{read}} \exp(-\tau / T_2^*) d\tau } { \sqrt{T_{read}} }\]</div>
-<p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the demoninator captures how the total noise scales with the square root of measurement time.</p>
+<p><span class="math notranslate nohighlight">\(T_{read}\)</span> is the readout duration, the numerator the signal acquired during this readout time, and the denominator captures how the total noise scales with the square root of measurement time.</p>
 <p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\]</div>

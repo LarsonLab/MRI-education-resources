@@ -553,7 +553,7 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 </section>
 <section id="relaxation-during-signal-acquisition">
 <h2>Relaxation during signal acquisition<a class="headerlink" href="#relaxation-during-signal-acquisition" title="Permalink to this heading">#</a></h2>
-<p>To examine the effects of relaxation, we will neglect coil sensitivity, off-resonance, and chemical shift.  Relaxation modulates the receieved signal over time.  This will create some type of weighting in k-space, which leads to image filtering (often blurring).  This weighting is spatially varying, depending on relaxation of different tissues.</p>
+<p>To examine the effects of relaxation, we will neglect coil sensitivity, off-resonance, and chemical shift.  Relaxation modulates the received signal over time.  This will create some type of weighting in k-space, which leads to image filtering (often blurring).  This weighting is spatially varying, depending on relaxation of different tissues.</p>
 <!-- $$s(t) = \int m(\vec{r}) \ e^{-t/T_2^*(\vec{r})}\  \exp\left( -i \gamma \int_0^t \vec{G}(\tau) \cdot \vec{r} d\tau \right) \  d\vec{r}$$ -->
 <div class="math notranslate nohighlight">
 \[s(t) = \int m(\vec{r})\ e^{-t/T_2^*(\vec{r})}\  e^{-i 2 \pi \vec{k}(t) \cdot \vec{r}} \  d\vec{r}\]</div>
@@ -766,7 +766,7 @@ For simplicity, combine all off-resonance and/or chemical shift into a single fr
 </section>
 <section id="epi-sampling">
 <h4>EPI Sampling<a class="headerlink" href="#epi-sampling" title="Permalink to this heading">#</a></h4>
-<p>In EPI sampling, the phase accumulation occurs primarily during phase encoding, which is by convention defined as <span class="math notranslate nohighlight">\(k_y\)</span>.  Assume that the phase during frequency encoding is negligible, and use the relationship that <span class="math notranslate nohighlight">\(k_y(t) = \Delta k_y t / t_{esp} = \frac{BW_{PE}}{FOV_y} t\)</span> (again, neglecting an constant offset that leads to a constant phase offset).  Here, a phase encoding bandwidth is now defined as the inverse of the echo spcaing <span class="math notranslate nohighlight">\(BW_{PE} = 1 / t_{esp}\)</span>.</p>
+<p>In EPI sampling, the phase accumulation occurs primarily during phase encoding, which is by convention defined as <span class="math notranslate nohighlight">\(k_y\)</span>.  Assume that the phase during frequency encoding is negligible, and use the relationship that <span class="math notranslate nohighlight">\(k_y(t) = \Delta k_y t / t_{esp} = \frac{BW_{PE}}{FOV_y} t\)</span> (again, neglecting an constant offset that leads to a constant phase offset).  Here, a phase encoding bandwidth is now defined as the inverse of the echo spacing <span class="math notranslate nohighlight">\(BW_{PE} = 1 / t_{esp}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\upsilon(k_x,k_y) = \frac{FOV_y}{BW_{PE}} k_y\]</div>
 <div class="math notranslate nohighlight">

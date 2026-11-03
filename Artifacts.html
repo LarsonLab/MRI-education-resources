@@ -550,7 +550,7 @@ document.write(`
 <tr class="row-even"><td><p>Boundary Artifacts/Partial Volume</p></td>
 <td><p>Sequence and Sample - opposing phase of <span class="math notranslate nohighlight">\(M_{XY}\)</span> within a voxel due to inversion or chemical shift</p></td>
 <td><p>Artificial dark lines at tissue boundaries</p></td>
-<td><p>fat suppresion, fat/water imaging, change inversion time</p></td>
+<td><p>fat suppression, fat/water imaging, change inversion time</p></td>
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fat Displacement</p></td>
@@ -596,7 +596,7 @@ document.write(`
 <td><p>At a specific frequency encoding location</p></td>
 </tr>
 <tr class="row-even"><td><p>Dielectric Shading</p></td>
-<td><p>System - RF propogates unevenly, creating B1 inhomogeneity</p></td>
+<td><p>System - RF propagates unevenly, creating B1 inhomogeneity</p></td>
 <td><p>Shading across entire image, particularly with large FOVs and higher B0</p></td>
 <td><p>B1-insensitive pulse sequences (e.g. adiabatic pulses), image bias field corrections</p></td>
 <td><p>N/A</p></td>
@@ -944,7 +944,7 @@ Time-of-flight (entry slice) -->
 <h2>MRI hardware limitations - RF shading, gradient non-linearity<a class="headerlink" href="#mri-hardware-limitations-rf-shading-gradient-non-linearity" title="Permalink to this heading">#</a></h2>
 <section id="rf-shading">
 <h3>RF Shading<a class="headerlink" href="#rf-shading" title="Permalink to this heading">#</a></h3>
-<p>The progation of radiofrequency waves in tissue as well as inhomogeneous RF coils lead to variations in intensity or shading across the image.</p>
+<p>The propagation of radiofrequency waves in tissue as well as inhomogeneous RF coils lead to variations in intensity or shading across the image.</p>
 <p>When transmitting RF pulses, there is some variation in the RF amplitude across the body.  This is partially due to inhomogeneous transmit coils, but also is fundamentally limited by the wavelength of MRI RF waves in tissue.  This wavelength is determined by the dielectric coefficient of tissue, so this is sometimes referred to as dielectric shading.  The variation in RF amplitude leads to variations in flip angle that, in turn, change the resulting image intensity.</p>
 <p>RF receive coil arrays are designed to provide high sensitivity and approximately uniform coverage.  However, they arrays have varying sensitivity across the body, leading to variations in image intensity.</p>
 <p>RF shading from these sources is typically corrected by applying a weighting to the originally reconstructed image to create more uniform image intensities.</p>
