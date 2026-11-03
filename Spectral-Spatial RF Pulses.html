@@ -504,7 +504,12 @@ document.write(`
 <h2>Spectral-Spatial RF Pulse Design<a class="headerlink" href="#spectral-spatial-rf-pulse-design" title="Permalink to this heading">#</a></h2>
 <p>This is done by creating a 2D excitation profile in both the spectral and spatial dimensions.  This is most easily interpreted through excitation k-space, where the RF energy deposited can be Fourier Transformed to reveal the approximate spectral-spatial profile created.</p>
 <p>The gradient applied traverses spatial excitation k-space, while time traverses the spectral excitation k-space dimension, as demonstrated by the gradient and k-psace plot below</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% setup MRI-education-resources path and requirements</span>
 <span class="n">cd</span> <span class="p">.</span><span class="o">./</span>
@@ -515,6 +520,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading image
 loading signal
@@ -528,7 +534,12 @@ error: called from
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Demonstrate gradient and spectral-spatial k-space trajectoy</span>
 
@@ -566,6 +577,7 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/69715e2336047ff571a969d429b53bb7722a79b5dc59362f751a77a42bd19f37.png" src="_images/69715e2336047ff571a969d429b53bb7722a79b5dc59362f751a77a42bd19f37.png" />
 </div>
@@ -586,7 +598,12 @@ error: called from
 <li><p>Design spatial sub-pulse</p></li>
 <li><p>Combine spectral pulse envelope and spatial subpulses with an oscillating gradient</p></li>
 </ol>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Design parameters</span>
 <span class="n">GAMMA</span> <span class="p">=</span> <span class="mi">4258</span><span class="p">;</span> <span class="c">% Hz/G</span>
@@ -612,8 +629,14 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 1. Spectral Pulse Design</span>
 
@@ -637,11 +660,17 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/27c2a537ab9c42bdb2de40d2c747d6e628a76754cbc6c04d255618aa1cca6bc9.png" src="_images/27c2a537ab9c42bdb2de40d2c747d6e628a76754cbc6c04d255618aa1cca6bc9.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 2. Spatial pulse design</span>
 
@@ -679,11 +708,17 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/ac59408c44670d705730a7d2b5e7a22a5b743938ecce8bbe8d24d8316a124a25.png" src="_images/ac59408c44670d705730a7d2b5e7a22a5b743938ecce8bbe8d24d8316a124a25.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% 3. Combine spectral and spatial pulse designs</span>
 
@@ -724,13 +759,19 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/89ea0408e4318413236f0ac21f4a9512629f9c2a2076adbd7975cdee41b1e2a6.png" src="_images/89ea0408e4318413236f0ac21f4a9512629f9c2a2076adbd7975cdee41b1e2a6.png" />
 <img alt="_images/4aaf0e1c0b3012366a775dd966a8ad9d31634a27acda65e588efae2bb2f380d2.png" src="_images/4aaf0e1c0b3012366a775dd966a8ad9d31634a27acda65e588efae2bb2f380d2.png" />
 </div>
 </div>
 <p>The spectral pulse, <span class="math notranslate nohighlight">\(H_f(k_f)\)</span>, creates the overall envelope, and is applied as a weighting for repeated versions of the spatial pulse, <span class="math notranslate nohighlight">\(H_z(k_z)\)</span>.  This creates the excitation k-space profile, <span class="math notranslate nohighlight">\(B_1(k_f, k_z)\)</span> shown above, which results in the spectral-spatial profile shown below:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">GAMMA</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="n">g</span><span class="p">;</span>
 <span class="n">gf</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">rf</span><span class="p">));</span>
@@ -747,6 +788,7 @@ error: called from
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/1cb12c9b5a40bb3e160c1083820138616ba098ef4da6fc18e3eddcc9529868fc.png" src="_images/1cb12c9b5a40bb3e160c1083820138616ba098ef4da6fc18e3eddcc9529868fc.png" />
 </div>

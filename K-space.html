@@ -574,7 +574,12 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <h3>Mapping Gradients to K-space trajectory<a class="headerlink" href="#mapping-gradients-to-k-space-trajectory" title="Permalink to this heading">#</a></h3>
 <p>To determine the k-space trajectory, the integral or cumulative sum of the gradients after excitation is computed based on the formula above.  Once the trajectory, <span class="math notranslate nohighlight">\(\vec{k}(t)\)</span>, is known, this can be mapped onto k-space to show the k-space coverage of the chosen gradients.</p>
 <p>To determine the gradients for a given k-space trajectory, the derivative of the k-space trajectory can be used.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -682,6 +687,7 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/6e4e99c2e3b20f78edaabb2f25b43d7f5da7e0423504b5a398c0c80e81382a8e.png" src="_images/6e4e99c2e3b20f78edaabb2f25b43d7f5da7e0423504b5a398c0c80e81382a8e.png" />
 </div>
@@ -698,7 +704,12 @@ Our signal is the Fourier Transform of the initial transverse magnetization, eva
 <h3>Example K-space Trajectories<a class="headerlink" href="#example-k-space-trajectories" title="Permalink to this heading">#</a></h3>
 <p>The majority of MRI uses Cartesian trajectories, in which parallel lines of k-space are covered to sample a 2D (or 3D) grid.  This is the trajectory for frequency encoding and phase encoding sampling for FT imaging.
 K-space trajectories with other patterns, such as radial lines, spirals, rastered lines (echo-planar trajectories), or blades can also be used.  The main requirement is that a sufficient region in k-space is measured.  The specific requirements for defining this region depend on the desired image resolution and field-of-view, and are also affected by any accelerated imaging method being used.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -762,6 +773,7 @@ K-space trajectories with other patterns, such as radial lines, spirals, rastere
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/dfb99331c7c819c7c843ad2ebc2a7f495545d3f8301bcc3e531312b325e1a16d.png" src="_images/dfb99331c7c819c7c843ad2ebc2a7f495545d3f8301bcc3e531312b325e1a16d.png" />
 <img alt="_images/c4efdc54e4f41963a9efaa9c2118efe8795a1d2c2296d0a073ca73d64ac6a74a.png" src="_images/c4efdc54e4f41963a9efaa9c2118efe8795a1d2c2296d0a073ca73d64ac6a74a.png" />
@@ -769,7 +781,12 @@ K-space trajectories with other patterns, such as radial lines, spirals, rastere
 <img alt="_images/bc62efaa8e9bad844c63004753abd0bd11de0e7312b2dcf69feb8c5b65b7d01e.png" src="_images/bc62efaa8e9bad844c63004753abd0bd11de0e7312b2dcf69feb8c5b65b7d01e.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -824,6 +841,7 @@ K-space trajectories with other patterns, such as radial lines, spirals, rastere
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/82e29bf6ebfe4e222dc0a8834869469acb80797007b0ef2760230cea3849dcc3.png" src="_images/82e29bf6ebfe4e222dc0a8834869469acb80797007b0ef2760230cea3849dcc3.png" />
 <img alt="_images/609daa11407536bbfb021d727dd3d09ba0d064c2b8c0fca61179fca021c8b2c6.png" src="_images/609daa11407536bbfb021d727dd3d09ba0d064c2b8c0fca61179fca021c8b2c6.png" />

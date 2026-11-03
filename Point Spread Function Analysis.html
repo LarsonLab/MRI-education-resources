@@ -574,7 +574,12 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 <div class="math notranslate nohighlight">
 \[w(\vec{r}) = \mathcal{F}^{-1} \{ e^{-\upsilon(\vec{k})/  T_2^*} \}\]</div>
 <p>This convolution can result in blurring (low-pass filtering) for center-out type trajectories, or high-pass filtering (e.g. edge enhancement but overall SNR loss) when starting at the edge of k-space.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -644,12 +649,18 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/44f4726dd1a258f5d3706411a0c9dcb532d5df79314be17bb65e89c90593e3e8.png" src="_images/44f4726dd1a258f5d3706411a0c9dcb532d5df79314be17bb65e89c90593e3e8.png" />
 <img alt="_images/feee8b254d4e33d68177f14019249154a8b488e2d9fdbfd876431356ffe1c593.png" src="_images/feee8b254d4e33d68177f14019249154a8b488e2d9fdbfd876431356ffe1c593.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -709,6 +720,7 @@ The signal from an individual RF coil element <span class="math notranslate nohi
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/d9b545ad40f154a315b7e5526fddb1439cba3d960923bec122b3ef4251e247b1.png" src="_images/d9b545ad40f154a315b7e5526fddb1439cba3d960923bec122b3ef4251e247b1.png" />
 <img alt="_images/d7cd06d6c79dfa7fb15e08f07c435dd33cf4bfbf455f462d9982d3c68c06022f.png" src="_images/d7cd06d6c79dfa7fb15e08f07c435dd33cf4bfbf455f462d9982d3c68c06022f.png" />
@@ -787,7 +799,12 @@ $$\hat{m}(\vec{r}_0) = m(\vec{r}_0) * \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(
 <div class="math notranslate nohighlight">
 \[\hat{m}(\vec{r}) = m_{water}(\vec{r}) + m_{fat}(\vec{r}) * w_{fat}(\vec{r})\]</div>
 <p>In the case of Cartsian or echo-planar sampling, the water component will be accurately represented, while the fat component will be shifted in space.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convolution kernels for off-resonance weighting</span>
 
@@ -843,6 +860,7 @@ $$\hat{m}(\vec{r}_0) = m(\vec{r}_0) * \mathcal{F}^{-1} \{ e^{-i 2 \pi\ \upsilon(
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/ef6e0015be7bd14b265e30b3c62279f95dd4f8fadd542bb74e5a39444f95bd22.png" src="_images/ef6e0015be7bd14b265e30b3c62279f95dd4f8fadd542bb74e5a39444f95bd22.png" />
 <img alt="_images/3f6aa76e66e26ce21401d07a3207fae90e177527ccfb152d49a50294b718f198.png" src="_images/3f6aa76e66e26ce21401d07a3207fae90e177527ccfb152d49a50294b718f198.png" />

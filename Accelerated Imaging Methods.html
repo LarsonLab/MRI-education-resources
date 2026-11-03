@@ -583,7 +583,12 @@ Note that this can also be used if a constant phase offset is present, and this 
 <p>In this case, only half of k-space is required, and the other half can be filled in by this property.  This means 2 times faster scanning!</p>
 <p>In practice, there are sources of phase that result in violation of the real-valued object condition.  First, there can be a global phase offset (e.g. transverse magnetization aligned along <span class="math notranslate nohighlight">\(M_Y\)</span>), but this is not a problem since a global phase correction can be applied to correct for this.  More problematic are other sources of phase, which come from the RF coil profiles, off-resonance, and chemical shift.</p>
 <p>However, much of the additional phase is typically contained in the low spatial frequencies, especially from the RF coils and main magnetic field inhomogeneities, <span class="math notranslate nohighlight">\(\Delta B_0(\vec r)\)</span>, which are captured in central k-space values.  Thus, practical Partial Fourier methods acquire slightly more than half of k-space, and then use specialized algorithms such as projection onto convex sets (POCS) or homodyne detection reconstructions that include correction of the low spatial frequency phase.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for Partial Fourier Imaging</span>
 
@@ -636,6 +641,7 @@ Note that this can also be used if a constant phase offset is present, and this 
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/5491a796a470b2ffdfaa9b263563477e1e88922f8f140e02d72c119c6f74b1a3.png" src="_images/5491a796a470b2ffdfaa9b263563477e1e88922f8f140e02d72c119c6f74b1a3.png" />
 </div>
@@ -666,7 +672,12 @@ Note that this can also be used if a constant phase offset is present, and this 
 <section id="artifacts-with-parallel-imaging">
 <h3>Artifacts with Parallel Imaging<a class="headerlink" href="#artifacts-with-parallel-imaging" title="Permalink to this heading">#</a></h3>
 <p>Parallel Imaging artifacts typically appear as aliasing.  The undersampled data will have aliasing when not using a parallel imaging reconstruction method, and sometimes the aliasing is not completely removed.  There are also aliasing like artifacts when there is a mismatch between the data and measured coil sensitivity profiles.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space sampling patterns for parallel imaging and compressed sensing</span>
 
@@ -723,6 +734,7 @@ Note that this can also be used if a constant phase offset is present, and this 
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/cad8c5549f6584cf6a4607b438e52a8d3f814c70f8e564b7bc12ea5008741e48.png" src="_images/cad8c5549f6584cf6a4607b438e52a8d3f814c70f8e564b7bc12ea5008741e48.png" />
 </div>

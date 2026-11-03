@@ -530,7 +530,12 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 <div class="math notranslate nohighlight">
 \[ x = \frac{f}{\bar \gamma G_{xr}}\]</div>
 <p>From frequency encoding data alone, a 1D image can be reconstructed with an inverse Fourier Transform.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -576,6 +581,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/64d85f12abdadbf288ca655e6f4e358d271474db823d826bbd879c751937c876.png" src="_images/64d85f12abdadbf288ca655e6f4e358d271474db823d826bbd879c751937c876.png" />
 <img alt="_images/f722c277a37c6c03dd1c299f8d073bf71e35a08c7c06bb316eab2a548b158a00.png" src="_images/f722c277a37c6c03dd1c299f8d073bf71e35a08c7c06bb316eab2a548b158a00.png" />
@@ -594,7 +600,12 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 \[ \Phi(n) = \gamma (-G_{yp} + (n-1) G_{yi} ) t_y y \]</div>
 <p>This measurement is repeated for <span class="math notranslate nohighlight">\(n = 1, \ldots, N_{PE}\)</span>.  <span class="math notranslate nohighlight">\(G_{yp}\)</span> is the maximum phase encoding gradient strength, <span class="math notranslate nohighlight">\(G_{yi}\)</span> is the phase encoding gradient amplitude increment, and <span class="math notranslate nohighlight">\(t_y\)</span> is the phase encoding gradient duration.  Note that <span class="math notranslate nohighlight">\(2 G_{yp} = (N_{PE} - 1) G_{yi}\)</span>.</p>
 <p><strong>This is equivalent to taking different samples of a frequency encoding gradient.</strong></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2D object: simulate frequencies + phase encoding</span>
 
@@ -629,6 +640,7 @@ This is also known FT imaging, since we reconstruct images with a 2D Fourier Tra
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/cab6d9f55e62b1e428334215d358943ee28c2769aeac83c45766993b95c64d3e.png" src="_images/cab6d9f55e62b1e428334215d358943ee28c2769aeac83c45766993b95c64d3e.png" />
 <img alt="_images/d28c80e2527aeb899555ba4e9e5237e39eefe15484f13babafbaa1976c14b3cc.png" src="_images/d28c80e2527aeb899555ba4e9e5237e39eefe15484f13babafbaa1976c14b3cc.png" />

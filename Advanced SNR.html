@@ -489,7 +489,12 @@ document.write(`
 <p>The above equation applieds for a one-sided decay, as in a gradient echo, while the following applies in the case of two-sided T2* decay, as in a spin echo:</p>
 <div class="math notranslate nohighlight">
 \[SNR \propto \frac{\int_{-T_{read}/2}^{T_{read}/2} | \exp(-\tau / T_2^*)  | d\tau }{\sqrt{T_{read}}}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -528,6 +533,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/19126f8a39ee3d12ae3302d0bcf0171c4806ab9a9cbd449357486ddc2494e946.png" src="_images/19126f8a39ee3d12ae3302d0bcf0171c4806ab9a9cbd449357486ddc2494e946.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum for one-sided decay: T_read / T_2* = 1.23
@@ -549,7 +555,12 @@ document.write(`
 \[\theta_{optimal} = \cos^{-1} \exp(-TR/T_1)\]</div>
 <p>And <span class="math notranslate nohighlight">\(f_{seq,GRE}\)</span> is defined above.</p>
 <p>Under this condition, we see the following intriguing result.  Once the optimal flip angle begins to approach 90-degrees, the SNR efficiency begins to drop.  But for the shorter TRs, the SNR efficiency is relatively stable for different TRs.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -602,6 +613,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/7208458da8e92e923b818789556c6a35447f83647a779cab0ed808c5089f3ce9.png" src="_images/7208458da8e92e923b818789556c6a35447f83647a779cab0ed808c5089f3ce9.png" />
 <img alt="_images/d4731f54b858953025a1ba45df39c76e46bf1555ebe43d7fdcd2a69167c14171.png" src="_images/d4731f54b858953025a1ba45df39c76e46bf1555ebe43d7fdcd2a69167c14171.png" />

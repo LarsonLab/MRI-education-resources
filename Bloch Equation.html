@@ -557,7 +557,12 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 <section id="simulation-of-precession">
 <h3>Simulation of Precession<a class="headerlink" href="#simulation-of-precession" title="Permalink to this heading">#</a></h3>
 <p>Open up the <a class="reference external" href="https://www.drcmr.dk/BlochSimulator/">Bloch Equation Simulator</a>.  You will see a visualization of a net magnetization vector that is precessing around the magnetic field (thin line).</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -611,6 +616,7 @@ net magnetization, <span class="math notranslate nohighlight">\(\vec{M}\)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/3fbcfa0f36854bdcce0c59ef5c4675e02121fa04a76a46cdac15d6d6d3c1e359.png" src="_images/3fbcfa0f36854bdcce0c59ef5c4675e02121fa04a76a46cdac15d6d6d3c1e359.png" />
 </div>
@@ -680,7 +686,12 @@ B_{1,Y}^+(\vec{r},t) \\
 <p>First, when a non-resonant magnetic field is applied.   An additional magnetic field is applied orthogonal to the main magnetic field, but <em>not</em> applied at the Larmor frequency, and there is no creation of transverse magnetization.</p>
 <p>To achieve excitation the RF pulse is applied at the Larmor frequency, <span class="math notranslate nohighlight">\(\omega_0 = \gamma B_0\)</span>.  With a resonant RF pulse, we have excitation of the net magnetization away from the direction of the main magnetic field, and creation of transverse magnetization, <span class="math notranslate nohighlight">\(M_X\)</span> and <span class="math notranslate nohighlight">\(M_Y\)</span>.</p>
 <p>Finally, the simulation is converted into the rotating frame.  It is hard to visualize the transverse magnetization in the lab because it is rotating at the Larmor frequency.  The excitation is more clearly visualized in the rotating frame.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -738,11 +749,17 @@ B_{1,Y}^+(\vec{r},t) \\
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/3759b712b0b4fea33aa6e3d898217a124255383b6de4dd9c7d66d38f7125d465.png" src="_images/3759b712b0b4fea33aa6e3d898217a124255383b6de4dd9c7d66d38f7125d465.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RF at Larmor resonance frequency</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">B10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">),</span> <span class="n">B10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">t</span><span class="p">),</span> <span class="n">B0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))])</span>
@@ -766,11 +783,17 @@ B_{1,Y}^+(\vec{r},t) \\
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/6d27e2deea9bd139de977840c71ee4746f1f98da5df0d94885b44088c31fbd72.png" src="_images/6d27e2deea9bd139de977840c71ee4746f1f98da5df0d94885b44088c31fbd72.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RF at Larmor resonance frequency</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">B10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -794,6 +817,7 @@ B_{1,Y}^+(\vec{r},t) \\
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/44001684c98a9cced5841c26aa9c3b67b78ec6de61fb2fcecc6b04c8849f7b60.png" src="_images/44001684c98a9cced5841c26aa9c3b67b78ec6de61fb2fcecc6b04c8849f7b60.png" />
 </div>
@@ -856,7 +880,12 @@ M_0(\vec{r})(1-e^{-t/T_1(\vec{r})})
 <li><p>From Equilibrium, try a 180-degree flip angle and try adjusting both T1 and T2.  Which parameter influence the relaxation in this situation?</p></li>
 </ol>
 <p>Below are additional Bloch equation simulations and associated code of relaxation.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -924,6 +953,7 @@ M_0(\vec{r})(1-e^{-t/T_1(\vec{r})})
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/bf18bb583e7b94743481d45a92741f1f74fc2b1d9a187d7f389b62b8d4e57579.png" src="_images/bf18bb583e7b94743481d45a92741f1f74fc2b1d9a187d7f389b62b8d4e57579.png" />
 </div>

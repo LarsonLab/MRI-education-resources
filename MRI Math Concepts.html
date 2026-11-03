@@ -537,7 +537,12 @@ document.write(`
     1/2 &amp; \quad |x| = 1/2 \\
     0 &amp; \quad |x| &gt; 1/2 \\
   \end{array} \right. \end{split}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -555,6 +560,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/0a768ce22265dcaffc0d647fcbc1dd064f00146fb7e71bafe6c775dd97571cd1.png" src="_images/0a768ce22265dcaffc0d647fcbc1dd064f00146fb7e71bafe6c775dd97571cd1.png" />
 </div>
@@ -562,7 +568,12 @@ document.write(`
 <p>Sinc (normalized)</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{sinc}(x) = \frac{\sin(\pi x)}{\pi x}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
@@ -571,6 +582,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/d0b285a751aa0fa3f3fec8405296c6300ea3ae5656f4482654699c54800d2065.png" src="_images/d0b285a751aa0fa3f3fec8405296c6300ea3ae5656f4482654699c54800d2065.png" />
 </div>
@@ -684,7 +696,12 @@ document.write(`
 \[ \hat{f}(x) = \mathcal{F}^{-1}\{\hat{F}(k_x)\} = f(x) \ast W_{kx} \mathrm{sinc}(W_{kx} x) \]</div>
 <p>This convolution most notably leads to “ringing” artifacts near sharp edges.<br />
 The example below uses the Fourier Transform to illustrate the ringing artifacts from this necessary “truncation” of k-space data.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">512</span>
 <span class="n">kxmax</span> <span class="o">=</span> <span class="mi">128</span>
@@ -709,6 +726,7 @@ The example below uses the Fourier Transform to illustrate the ringing artifacts
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/0ef73dc3e58e0c0be47514386fe7567fbbe8a59b55f65f48709ee47f29d9f5aa.png" src="_images/0ef73dc3e58e0c0be47514386fe7567fbbe8a59b55f65f48709ee47f29d9f5aa.png" />
 </div>

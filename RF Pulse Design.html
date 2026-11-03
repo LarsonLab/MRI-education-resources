@@ -496,7 +496,12 @@ document.write(`
 <h2>General Considerations - Pulse Duration and Ripple<a class="headerlink" href="#general-considerations-pulse-duration-and-ripple" title="Permalink to this heading">#</a></h2>
 <p>RF pulse designs should address the limited available pulse duration and, for large flip angle designs (e.g. 90 and 180 degrees) the non-linearities in the Bloch equation.</p>
 <p>Limited available durations are addressed, in small flip angle pulses, by using windowing functions along with sinc pulses.  The end result are windowed sinc pulses, which have less ringing in the coil profile as illustrated below.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -571,6 +576,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/d885531267054721289dffde84df5c286784f3d2ad654ee9efd6b91924e07b93.png" src="_images/d885531267054721289dffde84df5c286784f3d2ad654ee9efd6b91924e07b93.png" />
 </div>
@@ -583,7 +589,12 @@ document.write(`
 \[ TBW = T_{rf} \times BW_{rf} \]</div>
 <p>A given RF pulse shape has an associated TBW, and this shape can be stretched or shrunk in time to modulate the resulting bandwidth.</p>
 <p>The key feature of the TBW is that it controls the <em>pulse selectivity</em>, that is how sharp the pulse profile is, or, in other words, how quickly the profile goes from the desired flip angle to zero flip angle.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert MATLAB cell to Python and place the three pulse panels side-by-side</span>
 <span class="c1"># Uses existing variables: gammabar, flip, df, M_equilibrium, bloch_rotate</span>
@@ -629,6 +640,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/c5476e9c6ba7a18c67267ade437752f26e6a48af8dac34300fb42c39b3aa8589.png" src="_images/c5476e9c6ba7a18c67267ade437752f26e6a48af8dac34300fb42c39b3aa8589.png" />
 </div>
@@ -638,7 +650,12 @@ document.write(`
 <section id="high-flip-angle-pulse-design">
 <h2>High flip angle pulse design<a class="headerlink" href="#high-flip-angle-pulse-design" title="Permalink to this heading">#</a></h2>
 <p>For small flip angles, the frequency profile of a RF pulse is approximately given by the Fourier Transform.  However, non-linearities in the Bloch equation cause this approximation to break down for large flip angles, as shown below by the resulting “ripples” in the frequency profile when the flip angle of the windowed.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># small tip vs large tip (converted from MATLAB)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -674,13 +691,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/6a6204260d95d1fa8fa968b823ce1e52c115a31700d94488bdc6d533bacf9b0a.png" src="_images/6a6204260d95d1fa8fa968b823ce1e52c115a31700d94488bdc6d533bacf9b0a.png" />
 </div>
 </div>
 <p>Note that with Fourier Transform based design small ripples that appear outside the desired slice.</p>
 <p>The solution is to use a more sophisticated pulse design that takes into account these non-linearities, such as the Shinnar-Le Roux (SLR) transform.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Large-tip (90 deg) pulse comparison: Windowed Sinc vs SLR (converted from MATLAB)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">loadmat</span>
@@ -770,13 +793,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/3dd3d6148237e982c452ecd2214f7dfd0819889b8f7974644f8513afd99b9d77.png" src="_images/3dd3d6148237e982c452ecd2214f7dfd0819889b8f7974644f8513afd99b9d77.png" />
 </div>
 </div>
 <p>Note that now the ripples in the <span class="math notranslate nohighlight">\(M_{XY}\)</span> profile are now removed!  (There is some increased ripple in <span class="math notranslate nohighlight">\(M_Z\)</span>, but this isn’t an issue for excitation pulses).  The RF pulses themselves are only subtly different.</p>
 <p>The degradation of the slice (frequency) profile of sinc-pulses becomes substantial with a 180-degree flip angle inversion pulse:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inversion (large-tip) pulses (converted from MATLAB)</span>
 <span class="c1"># uses existing: gammabar, M_equilibrium, dt, t, N, df, bloch_rotate</span>
@@ -861,6 +890,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/fea81e3219b3ae86f85c2d9dbd0dbd6ea3b8758a8023526c48db65bab0bdd530.png" src="_images/fea81e3219b3ae86f85c2d9dbd0dbd6ea3b8758a8023526c48db65bab0bdd530.png" />
 </div>

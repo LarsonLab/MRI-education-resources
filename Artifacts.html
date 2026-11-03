@@ -615,7 +615,12 @@ Eddy currents and gradient delays
 Magic Angle
 Overflow/ADC overrange
 Time-of-flight (entry slice) -->
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample k-space dat for simulated artifacts </span>
 
@@ -647,6 +652,7 @@ Time-of-flight (entry slice) -->
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/c1b53508b4e6269b7fe2ace641899d43bc58cb1ff47eb4791cb4f68859d91bd2.png" src="_images/c1b53508b4e6269b7fe2ace641899d43bc58cb1ff47eb4791cb4f68859d91bd2.png" />
 </div>
@@ -670,7 +676,12 @@ Time-of-flight (entry slice) -->
 <p>In parallel imaging, k-space is purposefully undersampled, resulting in aliasing artifacts that are removed by using the coil sensitivities in the image reconstruction (See “Accelerated Imaging Methods” section).  However, failures can lead to residual aliasing artifacts.  These can be the result of  inconsistencies in the coil sensitivity maps, motion, or setting the acceleration factor too high.</p>
 <p><img alt="Axial abdomen image with unresolved aliasing with parallel imaging" src="_images/abdomen_aliasing_parallel-imaging.png" /></p>
 <p><em>Axial abdomen image showing an aliasing artifact (yellow arrows) due to a parallel imaging failure</em></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aliasing simulation</span>
 <span class="n">N_undersamp</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># &gt;= 1</span>
@@ -691,6 +702,7 @@ Time-of-flight (entry slice) -->
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/37884e3b2088d67b011d77ffe60a0ac044435baa18113f2aa1b60ac23e83d923.png" src="_images/37884e3b2088d67b011d77ffe60a0ac044435baa18113f2aa1b60ac23e83d923.png" />
 </div>
@@ -700,7 +712,12 @@ Time-of-flight (entry slice) -->
 <h3>Gibbs Ringing/Truncation<a class="headerlink" href="#gibbs-ringing-truncation" title="Permalink to this heading">#</a></h3>
 <p>The so-called Gibbs ringing or truncation artifact is inherent when using Fourier encoding.  These occur at sharp edges, which have an infinite content in the k-space spatial frequency domain.  Since only a limited region in k-space can be acquired, i.e. k-space is truncated, the sharp edge becomes slightly blurred out and also has ripples or ringing that occur on either side of the edge.</p>
 <p>To alleviate this artifact, the k-space data can be weighted with a so-called windowing function, which applies a filter in image space.  These windows smoothly decay at the edge of k-space, and have the effects of reducing ringing, but also lead to a slight loss in spatial resolution.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">kx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span>
@@ -781,6 +798,7 @@ Time-of-flight (entry slice) -->
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/1edecf0a4b71984d0577b1f26221442be3a4c909dc3be20d93fdd171f9e13061.png" src="_images/1edecf0a4b71984d0577b1f26221442be3a4c909dc3be20d93fdd171f9e13061.png" />
 <img alt="_images/fe1c794cf72eba4e2fb247f61b9b994a29a47baa62fa5ee37c01b8e85d1e269e.png" src="_images/fe1c794cf72eba4e2fb247f61b9b994a29a47baa62fa5ee37c01b8e85d1e269e.png" />
@@ -855,7 +873,12 @@ Time-of-flight (entry slice) -->
 <section id="spike-noise">
 <h3>Spike Noise<a class="headerlink" href="#spike-noise" title="Permalink to this heading">#</a></h3>
 <p>This artifact is due to intermittent unwanted signals that are received during the MRI acquisition.  These can be caused by loose connections, broken components, or other hardware issues.  The result is a spike or bright spot in the k-space data that appears as distinct spatial frequencies on top of the image.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Spike noise simulation</span>
 <span class="n">spike_location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.53</span><span class="p">]</span>
@@ -876,6 +899,7 @@ Time-of-flight (entry slice) -->
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/38041c1302edc1071cc9a68ff6edc05c1d91e0787fcfa648a78484246e0e6d66.png" src="_images/38041c1302edc1071cc9a68ff6edc05c1d91e0787fcfa648a78484246e0e6d66.png" />
 </div>
@@ -884,7 +908,12 @@ Time-of-flight (entry slice) -->
 <section id="rf-interference-zipper">
 <h3>RF interference/Zipper<a class="headerlink" href="#rf-interference-zipper" title="Permalink to this heading">#</a></h3>
 <p>This artifact is due to unwanted frequencies that are received during the MRI acquisition.  These can be caused by RF interference from other devices, such as lights or other electronics, or can originate from outside the MRI scan room especially if the door is not close.  Receiving specific frequencies in k-space leads to lines or “zippers” in the image.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RF interference - simulate amplitude modulated interference</span>
 <span class="n">relative_RF_frequency</span> <span class="o">=</span> <span class="mf">0.2</span>
@@ -904,6 +933,7 @@ Time-of-flight (entry slice) -->
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="_images/6de500f6aa3e56eb27561e084182de482f5481759d3be16796c225e8cd841ef9.png" src="_images/6de500f6aa3e56eb27561e084182de482f5481759d3be16796c225e8cd841ef9.png" />
 </div>
